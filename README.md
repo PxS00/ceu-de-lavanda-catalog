@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Céu de Lavanda · Catálogo MVP
 
-## Getting Started
+Catálogo em português com oito nomes confirmados, início, busca, filtros por inicial, ordenação, paginação e páginas de detalhes. Dados ausentes têm estados explícitos; não há compra ou estoque presumido.
 
-First, run the development server:
+## Executar
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
+Usar as versões de Node e pnpm registradas em `.tool-versions` e `package.json`.
+
+```sh
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Verificar e gerar
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+O export estático fica em `out/`, pronto para hospedagem estática com suporte a `404.html`. Para conferir localmente: `python3 -m http.server 3000 --directory out`. Novos produtos exigem novo build. Não usar `next start` com `output: "export"`.
 
-## Learn More
+O [contrato de dados e processo de importação](docs/catalog-data.md) descreve campos, validação, imagens aprovadas e publicação do inventário futuro.
 
-To learn more about Next.js, take a look at the following resources:
+O [design system e licenciamento](docs/brand-design-system.md) registra a paleta oficial, contraste, SVGs e o motivo de as fontes fornecidas aguardarem licença web antes de serem integradas com `next/font/local`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para Cloudflare Pages: comando de build `pnpm build`, saída `out`, versões de Node e pnpm conforme `.tool-versions` e `package.json`. Sem adaptador, Workers ou fallback SPA. Novos dados exigem novo build. Não há deploy automático configurado neste repositório.
