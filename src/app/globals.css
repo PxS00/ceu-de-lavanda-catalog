@@ -16,6 +16,8 @@
   --surface-warm: var(--color-warm);
   --surface-highlight: var(--color-gold-light);
   --muted: #746d76;
+  /* Lavender mixed with graphite to preserve AA text contrast on ivory. */
+  --text-accent: #766b7d;
   --border: #e5dfe8;
   --control-border: var(--muted);
   --action-background: var(--color-ink);
@@ -32,7 +34,7 @@
   --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --text-display: clamp(2.75rem, 5vw, 4.5rem);
   --text-heading: clamp(2rem, 3.5vw, 3rem);
-  --text-product: 1.375rem;
+  --text-product: 1.875rem;
   --text-price: 0.875rem;
   --text-body: 1rem;
   --text-small: 0.8125rem;
@@ -106,9 +108,17 @@ button:disabled {
   justify-content: center;
   gap: 10px;
 }
-.announcement .lucide {
-  width: 14px;
-  height: 14px;
+.lavender-mark {
+  display: inline-block;
+  width: 18px;
+  height: 33px;
+  flex-shrink: 0;
+  background-color: var(--foreground);
+  mask: url("/branding/lavender-ornament-gold.svg") center / contain no-repeat;
+}
+.announcement .lavender-mark {
+  width: 10px;
+  height: 18px;
 }
 .site-header {
   position: sticky;
@@ -402,7 +412,10 @@ em {
 }
 .phrase-strip {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(
+      0,
+      1fr
+    ) auto;
   align-items: center;
   gap: 28px;
   padding-block: 22px;
@@ -683,8 +696,10 @@ em {
 }
 .product-card h3 {
   margin: 0;
+  font-family: var(--font-decorative);
   font-size: var(--text-product);
-  line-height: 1.3;
+  line-height: 1.35;
+  color: var(--text-accent);
   overflow-wrap: anywhere;
   text-wrap: auto;
 }
@@ -711,19 +726,6 @@ em {
 }
 .product-card:hover .product-link {
   text-decoration-thickness: 2px;
-}
-.catalog-note {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 40px 0 0;
-  color: var(--muted);
-  font-size: var(--text-small);
-  text-align: center;
-}
-.catalog-note > .lucide {
-  color: var(--foreground);
 }
 .about {
   padding: 64px 0;
@@ -808,9 +810,9 @@ em {
   text-align: center;
   padding-block: 64px;
 }
-.empty-state > .lucide {
-  width: 32px;
-  height: 32px;
+.empty-state > .lavender-mark {
+  width: 24px;
+  height: 44px;
 }
 .empty-state h3 {
   font-size: var(--text-heading);
@@ -870,6 +872,10 @@ em {
   height: auto;
 }
 .detail-copy h1 {
+  font-family: var(--font-decorative);
+  color: var(--text-accent);
+  letter-spacing: 0;
+  line-height: 1.25;
   font-size: var(--text-display);
   margin-block: 20px;
   overflow-wrap: anywhere;
@@ -1065,7 +1071,7 @@ em {
     gap: 32px 16px;
   }
   .product-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.75rem;
   }
   .product-card-title {
     margin-top: 14px;
@@ -1081,9 +1087,6 @@ em {
   .placeholder-caption {
     bottom: 12px;
     font-size: 0.6875rem;
-  }
-  .catalog-note {
-    margin-top: 32px;
   }
   .about {
     grid-template-columns: 1fr;

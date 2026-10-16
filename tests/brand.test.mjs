@@ -58,6 +58,7 @@ test("text and active actions meet WCAG AA contrast on their actual surfaces", (
   for (const [foreground, background] of [
     ["--foreground", "--background"],
     ["--muted", "--background"],
+    ["--text-accent", "--background"],
     ["--foreground", "--surface-warm"],
     ["--foreground", "--surface-accent"],
     ["--foreground", "--surface-highlight"],

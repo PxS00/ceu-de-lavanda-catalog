@@ -7,7 +7,6 @@ import {
   ArrowUpRight,
   Search,
   SlidersHorizontal,
-  Sprout,
 } from "lucide-react";
 import { Reveal, useReveal } from "./reveal";
 import Link from "next/link";
@@ -180,7 +179,7 @@ export function Catalog({
         </div>
       ) : (
         <div className="empty-state">
-          <Sprout aria-hidden="true" />
+          <span className="lavender-mark" aria-hidden="true" />
           <h3>
             {categoryPending
               ? "Uma nova descoberta está por vir."
@@ -218,10 +217,6 @@ export function Catalog({
           </button>
         </nav>
       )}
-      <p className="catalog-note">
-        <Sprout aria-hidden="true" /> Uma coleção em construção. Novos detalhes
-        serão revelados em breve.
-      </p>
     </section>
   );
 }

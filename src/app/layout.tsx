@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Sprout } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import { editorial, decorative } from "./typography";
 import "./globals.css";
@@ -32,7 +32,7 @@ export default function RootLayout({
         </a>
         <div className="announcement">
           Um universo de fragrâncias para descobrir{" "}
-          <Sprout aria-hidden="true" />
+          <span className="lavender-mark" aria-hidden="true" />
         </div>
         <SiteHeader />
         {children}

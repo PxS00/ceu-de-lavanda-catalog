@@ -48,11 +48,11 @@ Para integrar as fontes oficiais: obter comprovante de licença cobrindo o domí
 
 O usuário autorizou alternativas gratuitas OFL enquanto as licenças oficiais não forem confirmadas. `src/app/typography.ts` centraliza duas chamadas de `next/font/local`, com `display: "swap"`, preloads locais e fallback com métricas ajustadas. `--font-heading` e `--font-decorative` em `globals.css` definem os papéis; a futura substituição não exige editar os componentes.
 
-| Papel                          | Alternativa atual               | Fonte e licença                                                                                                                     |
-| ------------------------------ | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Títulos e nomes de produtos    | Cormorant Garamond, Regular 400 | [Google Fonts — OFL](https://github.com/google/fonts/blob/main/ofl/cormorantgaramond/OFL.txt), copyright Cormorant Project Authors. |
-| Frases decorativas curtas      | Pinyon Script, Regular 400      | [Google Fonts — OFL](https://github.com/google/fonts/blob/main/ofl/pinyonscript/OFL.txt), copyright Pinyon Project Authors.         |
-| Navegação, preços e descrições | Arial/Helvetica do sistema      | Nenhum arquivo distribuído.                                                                                                         |
+| Papel                                  | Alternativa atual               | Fonte e licença                                                                                                                     |
+| -------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Títulos e nomes de produtos            | Cormorant Garamond, Regular 400 | [Google Fonts — OFL](https://github.com/google/fonts/blob/main/ofl/cormorantgaramond/OFL.txt), copyright Cormorant Project Authors. |
+| Frases decorativas e nomes de produtos | Pinyon Script, Regular 400      | [Google Fonts — OFL](https://github.com/google/fonts/blob/main/ofl/pinyonscript/OFL.txt), copyright Pinyon Project Authors.         |
+| Navegação, preços e descrições         | Arial/Helvetica do sistema      | Nenhum arquivo distribuído.                                                                                                         |
 
 Os WOFF2 Latin originais foram obtidos pela API CSS do Google Fonts, sem conversão local. Cobrem os acentos em português dos textos atuais. URLs de origem e hashes:
 
@@ -61,15 +61,15 @@ Os WOFF2 Latin originais foram obtidos pela API CSS do Google Fonts, sem convers
 
 As licenças OFL completas e avisos de copyright são versionados e publicados em `public/branding/licenses/`. Os binários ficam em `src/app/fonts/`. Essas alternativas são visualmente próximas, sem serem apresentadas como as fontes oficiais.
 
-| Papel                           | Token                                   | Hierarquia                                                                                   |
-| ------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Título principal                | `--text-display`                        | Editorial, 44–72 px, entrelinha 1,1.                                                         |
-| Título de seção                 | `--text-heading`                        | Editorial, 32–48 px.                                                                         |
-| Nome de produto                 | `--text-product`                        | Editorial, 22 px; 20 px em telas pequenas.                                                   |
-| Preço ou estado de preço        | `--text-price`                          | Corpo, 14 px, números tabulares.                                                             |
-| Descrição                       | `--text-body`                           | Corpo, 16 px, entrelinha 1,8.                                                                |
-| Navegação e informação auxiliar | `--text-small`, `--text-label`          | Corpo, 13/12 px, contraste AA.                                                               |
-| Decoração                       | `--font-decorative`, `.decorative-text` | Apenas uma frase no hero e outra na seção sobre a marca; sem simulação de itálico na Pinyon. |
+| Papel                           | Token                                   | Hierarquia                                                                                                   |
+| ------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Título principal                | `--text-display`                        | Editorial, 44–72 px, entrelinha 1,1.                                                                         |
+| Título de seção                 | `--text-heading`                        | Editorial, 32–48 px.                                                                                         |
+| Nome de produto                 | `--text-product`                        | Decorativa, 30 px; 28 px em telas pequenas, em lavanda escurecido.                                           |
+| Preço ou estado de preço        | `--text-price`                          | Corpo, 14 px, números tabulares.                                                                             |
+| Descrição                       | `--text-body`                           | Corpo, 16 px, entrelinha 1,8.                                                                                |
+| Navegação e informação auxiliar | `--text-small`, `--text-label`          | Corpo, 13/12 px, contraste AA.                                                                               |
+| Decoração                       | `--font-decorative`, `.decorative-text` | Frases do hero, faixa e seção institucional, além dos nomes de produtos; sem simulação de itálico na Pinyon. |
 
 ## SVGs e composição
 
@@ -122,3 +122,11 @@ O ornamento `public/branding/lavender-ornament-gold.svg` é uma derivação deco
 A seção de descoberta usa três cartões comerciais: Perfumes, Body Splash e Perfume Capilar. Sem fotografia real aprovada no repositório, os cartões exibem um fallback identificado. A transição de hover é discreta e desativada para movimento reduzido. Os links levam ao catálogo filtrado por rotas estáticas; o contrato e o estado de classificação pendente são descritos em `catalog-data.md`. As dependências e configurações de segurança/build não foram alteradas.
 
 Validação deste refinamento: ESLint, TypeScript, 12 testes e build de produção passaram. Chromium conferiu 375, 768 e 1440 px; frases e ornamentos visíveis e sem cortes, três cartões, todos os links de categoria, abertura direta das páginas filtradas e retorno à coleção completa. Busca, iniciais, ordenação, limpeza e detalhes continuaram funcionando; movimento reduzido e links de categoria sem JavaScript foram exercitados. Axe não apontou violações automáticas WCAG A/AA após estabilizar as animações de entrada. Não houve transbordamento horizontal ou erro JavaScript. A combinação de categoria com resultados preenchidos é coberta por fixtures de teste, sem alterar os produtos publicados. Continuam pendentes fotografias reais e a classificação comercial de cada nome, além da auditoria manual com leitores de tela.
+
+### Ajuste de ornamentos e nomes de produtos
+
+A faixa tem quatro lavandas douradas: duas entre as frases e uma em cada ponta, também preservadas no arranjo vertical mobile. O anúncio superior usa o mesmo SVG botânico como máscara CSS, com preenchimento grafite, sem ícone genérico. O estado vazio do catálogo segue esse mesmo desenho. O aviso “Uma coleção em construção. Novos detalhes serão revelados em breve.” e seu ícone foram retirados.
+
+Nomes nos cartões e nos detalhes usam Pinyon Script, a alternativa OFL já aprovada, com tamanho maior nos cartões para legibilidade. O token semântico `--text-accent: #766B7D` é um lavanda escurecido (mistura aproximada de 45% lavanda e 55% grafite), com contraste **4,78:1** sobre marfim. Esse tom auxiliar evita aplicar o lavanda ou o dourado oficiais em texto de baixo contraste. Preços e descrições continuam na fonte de corpo.
+
+Validação do ajuste: lint, TypeScript, 12 testes e build aprovados. Chromium conferiu as quatro lavandas e os nomes em 375, 768 e 1440 px, incluindo todos os oito títulos de detalhe sem transbordamento horizontal, busca, rotas e estados vazios. Axe não apontou violações automáticas A/AA após estabilização das animações. O novo par de contraste também está coberto no teste dos tokens.
