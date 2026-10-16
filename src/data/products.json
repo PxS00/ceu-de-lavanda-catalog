@@ -1,0 +1,14 @@
+[
+  { "id": "acquare", "slug": "acquare", "name": "Acquaré" },
+  { "id": "bellevanille", "slug": "bellevanille", "name": "Bellevanille" },
+  { "id": "sollaris", "slug": "sollaris", "name": "Sollaris" },
+  {
+    "id": "jasmin-de-soie",
+    "slug": "jasmin-de-soie",
+    "name": "Jasmin de Soie"
+  },
+  { "id": "alma-de-seda", "slug": "alma-de-seda", "name": "Alma de Seda" },
+  { "id": "aura-secretta", "slug": "aura-secretta", "name": "Aura Secretta" },
+  { "id": "illusion", "slug": "illusion", "name": "Illusion" },
+  { "id": "golden-femme", "slug": "golden-femme", "name": "Golden Femme" }
+]
