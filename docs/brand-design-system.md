@@ -1,15 +1,15 @@
 # Identidade visual e licenciamento
 
-Revisão em 16/10/2026. Fonte visual: manual oficial em `.local/brand/MANUAL DE MARCA/`, página 9, e SVGs originais em `.local/brand/LOGOS/SVG/`. Os materiais locais ficam fora do Git e do export; somente os SVGs utilizados são publicados.
+Revisão em 16/10/2026. Fonte visual: manual oficial em `.local/brand/MANUAL DE MARCA/`, página 9, e SVGs originais em `.local/brand/LOGOS/SVG/`. Os materiais originais locais ficam fora do Git e do export. São publicados os SVGs utilizados e as alternativas tipográficas OFL, acompanhadas das licenças.
 
 ## Paleta e semântica
 
 | Cor oficial | Token                                                                 | Uso                                                         |
 | ----------- | --------------------------------------------------------------------- | ----------------------------------------------------------- |
 | `#BD8C40`   | `--color-gold` → `--primary`                                          | Acentos, linhas decorativas e separador do rodapé.          |
-| `#EDCC8A`   | `--color-gold-light` → `--surface-highlight`                          | Faixa institucional com texto escuro.                       |
+| `#EDCC8A`   | `--color-gold-light` → `--surface-highlight`                          | Bordas delicadas da faixa institucional.                    |
 | `#3B3836`   | `--color-ink` → `--foreground`, `--action-background`, `--focus-ring` | Texto, botões principais, contornos e rodapé.               |
-| `#EAC8A9`   | `--color-warm` → `--surface-warm`                                     | Seção institucional e detalhes dos cartões.                 |
+| `#EAC8A9`   | `--color-warm` → `--surface-warm`                                     | Detalhe botânico na abertura da seção institucional.        |
 | `#FFF8EE`   | `--color-paper` → `--background`, `--action-foreground`               | Fundo principal e texto sobre fundo escuro.                 |
 | `#BEAAD4`   | `--color-lavender` → `--accent`, `--selected-background`              | Símbolo oficial, seleção de filtros e detalhes dos cartões. |
 | `#D9C9E8`   | `--color-lavender-light` → `--surface-accent`, `--action-hover`       | Painel do início, anúncio e estados de interação.           |
@@ -40,32 +40,57 @@ Fontes primárias consultadas:
 - [Classic Script MN — Adobe Fonts](https://fonts.adobe.com/fonts/classic-script-mn): oferece publicação pelo serviço Adobe e encaminha à Mecanorma para licenciamento adicional de hospedagem própria. Essa página não comprova uma licença para a TTF local.
 - [Licenciamento Adobe Fonts](https://helpx.adobe.com/fonts/web/font-licensing/font-licensing.html): termos do serviço devem ser distinguidos da licença dos arquivos locais.
 
-Nenhuma licença de auto-hospedagem para estes arquivos foi encontrada no material fornecido. A cópia Ivy antes exposta em `public/fonts/` foi retirada. Não há carregamento remoto de fontes nem binários de fonte no export.
+Nenhuma licença de auto-hospedagem para estes arquivos foi encontrada no material fornecido. As fontes oficiais não são publicadas, convertidas nem versionadas, conforme orientação do usuário. Apenas as alternativas OFL abaixo são distribuídas; não há carregamento remoto de fontes durante a visita.
 
-Para integrar as fontes oficiais: obter comprovante de licença cobrindo o domínio e a distribuição por Cloudflare Pages, além dos arquivos web autorizados. Então usar **duas chamadas `localFont` de `next/font/local` com `display: "swap"` e variáveis CSS**, declarando o peso e estilo reais. Não converter estes arquivos para WOFF2. Para títulos regulares, solicitar a variante Ivy Regular licenciada; a Bold Italic fornecida deve ficar restrita a uma frase decorativa. Classic Script fica limitada a uma assinatura curta, nunca a navegação, preços ou descrições. Não adicionar integração fictícia ou inativa enquanto a licença não estiver comprovada.
+Para integrar as fontes oficiais: obter comprovante de licença cobrindo o domínio e a distribuição por Cloudflare Pages, além dos arquivos web autorizados. Não converter os arquivos desktop. A Ivy fornecida é Bold Italic e não deve ser tratada como Regular. Classic Script MN continua sendo a referência para a tipografia decorativa, com integração pendente de licença.
 
-| Papel                           | Token                           | Implementação atual                                     |
-| ------------------------------- | ------------------------------- | ------------------------------------------------------- |
-| Título principal                | `--text-display`                | Georgia, normal, 44–72 px, entrelinha 1,1.              |
-| Título de seção                 | `--text-heading`                | Georgia, normal, 32–48 px.                              |
-| Nome de produto                 | `--text-product`                | Georgia, normal, 22 px; 20 px em telas pequenas.        |
-| Preço ou estado de preço        | `--text-price`                  | Arial, 14 px, números tabulares; sem script.            |
-| Descrição                       | `--text-body`                   | Arial, 16 px, entrelinha 1,8 nas descrições.            |
-| Navegação e informação auxiliar | `--text-small`, `--text-label`  | Arial, 13/12 px, contraste AA.                          |
-| Decoração                       | Tipografia de título em itálico | Somente uma frase do hero; sem fonte script substituta. |
+### Alternativas livres e configuração central
 
-As fontes de sistema são um fallback deliberado, não uma declaração de fidelidade tipográfica completa. A disponibilidade e as métricas variam entre plataformas.
+O usuário autorizou alternativas gratuitas OFL enquanto as licenças oficiais não forem confirmadas. `src/app/typography.ts` centraliza duas chamadas de `next/font/local`, com `display: "swap"`, preloads locais e fallback com métricas ajustadas. `--font-heading` e `--font-decorative` em `globals.css` definem os papéis; a futura substituição não exige editar os componentes.
+
+| Papel                          | Alternativa atual               | Fonte e licença                                                                                                                     |
+| ------------------------------ | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Títulos e nomes de produtos    | Cormorant Garamond, Regular 400 | [Google Fonts — OFL](https://github.com/google/fonts/blob/main/ofl/cormorantgaramond/OFL.txt), copyright Cormorant Project Authors. |
+| Frases decorativas curtas      | Pinyon Script, Regular 400      | [Google Fonts — OFL](https://github.com/google/fonts/blob/main/ofl/pinyonscript/OFL.txt), copyright Pinyon Project Authors.         |
+| Navegação, preços e descrições | Arial/Helvetica do sistema      | Nenhum arquivo distribuído.                                                                                                         |
+
+Os WOFF2 Latin originais foram obtidos pela API CSS do Google Fonts, sem conversão local. Cobrem os acentos em português dos textos atuais. URLs de origem e hashes:
+
+- Cormorant, 22.876 bytes: `https://fonts.gstatic.com/s/cormorantgaramond/v21/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_v86KnTOig.woff2`; SHA-256 `8048ac209bec741e1c29cd0cfac5aac1c0c2ba8c3ddbd4a58fa9bd92ef5c63c2`.
+- Pinyon, 39.044 bytes: `https://fonts.gstatic.com/s/pinyonscript/v24/6xKpdSJbL9-e9LuoeQiDRQR8WOXaOg.woff2`; SHA-256 `3e1f69a201572cad4aabea7ccf720f093a7dbc005380b2a1b89e0b94476d3e42`.
+
+As licenças OFL completas e avisos de copyright são versionados e publicados em `public/branding/licenses/`. Os binários ficam em `src/app/fonts/`. Essas alternativas são visualmente próximas, sem serem apresentadas como as fontes oficiais.
+
+| Papel                           | Token                                   | Hierarquia                                                                                   |
+| ------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Título principal                | `--text-display`                        | Editorial, 44–72 px, entrelinha 1,1.                                                         |
+| Título de seção                 | `--text-heading`                        | Editorial, 32–48 px.                                                                         |
+| Nome de produto                 | `--text-product`                        | Editorial, 22 px; 20 px em telas pequenas.                                                   |
+| Preço ou estado de preço        | `--text-price`                          | Corpo, 14 px, números tabulares.                                                             |
+| Descrição                       | `--text-body`                           | Corpo, 16 px, entrelinha 1,8.                                                                |
+| Navegação e informação auxiliar | `--text-small`, `--text-label`          | Corpo, 13/12 px, contraste AA.                                                               |
+| Decoração                       | `--font-decorative`, `.decorative-text` | Apenas uma frase no hero e outra na seção sobre a marca; sem simulação de itálico na Pinyon. |
 
 ## SVGs e composição
 
-- Cabeçalho: `emblem.svg`, cópia exata de **Ativo 8.svg**, símbolo lavanda acompanhado do nome em texto acessível. Não há logotipo completo roxo entre os SVGs entregues; não foi inventada uma versão recolorida. Para usar o logotipo completo roxo, fornecer esse original aprovado.
-- Início: `emblem-ink.svg`, cópia exata de **Ativo 6.svg**. O grafismo original substitui arcos e órbitas artificiais; fundo chapado.
-- Rodapé: `wordmark-gold.svg`, cópia exata de **Ativo 4.svg**. O único gradiente restante pertence a esse próprio arquivo oficial e foi preservado.
-- Cartões e favicon: símbolo lavanda original, sem filtro, transparência, recoloração ou distorção. Fotografias continuam pendentes.
+- Cabeçalho: `public/branding/ceu-de-lavanda-logo-graphite.svg`, cópia byte a byte de **Ativo 3.svg**. Link para o início, sem filtros, recoloração ou alteração do original em `.local/brand/`. `viewBox` **513,77 × 271,81**, largura 160 px em desktop e 124 px em mobile, altura automática. O desenho principal está em curvas e mantém `#3B3836`; não há strokes ou imagens externas. O slogan contém `<text>/<tspan>` referenciando **Nexa-ExtraLight/Nexa**, sem fonte embutida. Navegadores usam fallback local se Nexa não estiver disponível. Não foi reescrito nem convertido: uma versão oficial com o slogan em curvas seria necessária para garantir métricas idênticas em todos os sistemas.
+- Início: `emblem-ink.svg`, cópia exata de **Ativo 6.svg**, sobre painel lavanda claro chapado.
+- Rodapé: `wordmark-gold.svg`, cópia exata de **Ativo 4.svg**. O único gradiente do site pertence ao próprio arquivo oficial.
+- Cartões e favicon: símbolo lavanda original de **Ativo 8.svg**, sem recoloração. Fotografias continuam pendentes.
 
-Dimensões seguem o `viewBox` dos SVGs: símbolos **111,56 × 176,35**, logotipo dourado **344,49 × 145,21**. CSS define largura e `height: auto`. Hashes de integridade e contraste são cobertos por `tests/brand.test.mjs`.
+Símbolos usam `viewBox` **111,56 × 176,35**, logotipo dourado **344,49 × 145,21**. CSS mantém altura automática; o zoom de hover é uniforme e não altera proporções nem cores. Os hashes de integridade e os pares semânticos de contraste são cobertos por `tests/brand.test.mjs`.
 
-Busca, filtros, ordenação, paginação, JSON e rotas de produto continuam com a mesma implementação. A limpeza remove ícones do Next/Vercel, PNG substituído, fonte com licença não comprovada, Tailwind sem utilitários em uso e o comando `next start`, incompatível com o export estático. Não foram adicionadas dependências.
+### Cabeçalho, ícones e movimento
+
+`SiteHeader` é o único componente responsável pelo cabeçalho sticky, estado de rolagem, navegação ativa e menu. Depois de 20 px de rolagem, o fundo marfim fica 94% opaco, com blur e borda suave. Altura e tamanho do logo não mudam ao rolar, evitando deslocamentos. Links para âncoras respeitam o espaço do cabeçalho.
+
+O menu móvel usa `<dialog>` com `showModal()`: foco inicial no botão de fechar, contenção nativa de foco, Escape e retorno ao acionador. Fecha também ao escolher um link, clicar fora ou voltar à largura desktop; nesse último caso o foco passa ao link ativo da navegação desktop. A rolagem do fundo fica bloqueada sem deslocar a largura da página. Sem JavaScript, os links da navegação permanecem visíveis no mobile.
+
+Lucide React é a única dependência adicionada: ícones importados individualmente, tamanho padrão 18 px e traço 1,5. Não há carrinho, checkout, categorias presumidas ou contatos sem dados confirmados.
+
+`Reveal`/`useReveal` usam IntersectionObserver e animação CSS de opacidade/translação, uma vez por entrada. O estado padrão do conteúdo é **visível**, inclusive sem JavaScript ou sem suporte ao observer. Cartões entram com pequenos intervalos e animam novamente quando os resultados mudam. Hover usa translação leve e zoom uniforme de 1,035. O menu usa transições CSS com comportamento discreto para o diálogo nativo; navegadores sem esse suporte o abrem/fecham imediatamente. `prefers-reduced-motion` desativa animações, transições, hover com transform e rolagem suave. Foco de teclado cancela animações de entrada no elemento focado.
+
+Busca, filtros, ordenação, paginação, JSON e rotas estáticas mantêm a mesma lógica. Não há biblioteca de animação, carregamento de fontes por terceiros ou novos dados comerciais.
 
 ## Validação e Cloudflare Pages
 
@@ -78,4 +103,10 @@ pnpm build
 
 Cloudflare Pages: build **`pnpm build`**, diretório de saída **`out`**, versões de Node/pnpm conforme `.tool-versions` e `package.json`. O resultado contém HTML estático por slug, assets locais, diretórios com `index.html` e `404.html`; não requer Workers, servidor Next, serviço de fontes ou adaptador. Não adicionar fallback SPA que transforme URLs inválidas em início. Atualizar o catálogo exige reconstruir e publicar o export. Esta revisão não publica nem altera configuração na Cloudflare.
 
-Resultado da revisão: ESLint, TypeScript, oito testes e build de produção passaram. O export contém as oito páginas de produto e nenhum binário de fonte. Conferência no Chromium em 320, 390, 768, 1024 e 1440 px sem transbordamento horizontal no início, catálogo e detalhes. Busca sem acentos, inicial, ordenação, limpeza do estado vazio, navegação de produto e movimento reduzido foram exercitados. Axe não identificou violações automáticas WCAG A/AA no início, catálogo e detalhe em desktop e no início a 390 px. Não houve erros JavaScript nem requisições de fontes ou serviços externos. Hospedagem na Cloudflare e leitores de tela não foram testados nesta revisão.
+### Resultado da validação
+
+ESLint, TypeScript, nove testes automatizados e build de produção aprovados. O export contém oito páginas de produto, `404.html`, WOFF2 alternativos e suas licenças; nenhuma OTF/TTF oficial foi incluída. No Chromium, início, catálogo e detalhes foram conferidos em 375, 768 e 1440 px, sem transbordamento horizontal. Foram exercitados busca, inicial, ordenação, limpeza, rotas, cabeçalho sticky, estados ativos, foco do menu, Escape, fechamento por botão/link/backdrop/resize e preferência de movimento reduzido. Sem JavaScript, conteúdo e navegação continuam visíveis e os links funcionam. Axe não identificou violações automáticas WCAG A/AA nas páginas e menu verificados. Não houve erro JavaScript nem requisição externa durante as visitas.
+
+A rolagem suave tem `data-scroll-behavior="smooth"` no HTML para que Next.js 16 a desative durante a troca de página, mantendo a navegação entre páginas imediata. A navegação alternativa sem JavaScript é ativada por `noscript`, sem provocar colapso de altura durante a hidratação normal do cabeçalho.
+
+Limites: não foi feita auditoria manual com leitores de tela nem publicação na Cloudflare. A licença das fontes oficiais continua pendente; o slogan no SVG original depende da Nexa ou de seu fallback local.

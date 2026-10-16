@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ArrowUpRight, Sprout } from "lucide-react";
+import { Reveal } from "@/components/reveal";
 import Image from "next/image";
 import { Catalog } from "@/components/catalog";
 import { products } from "@/lib/catalog";
@@ -7,7 +9,7 @@ export default function Home() {
   return (
     <main id="conteudo">
       <section className="hero wrap">
-        <div className="hero-copy">
+        <Reveal className="hero-copy">
           <p className="eyebrow">
             <span className="little-line" /> CÉU DE LAVANDA · CATÁLOGO
           </p>
@@ -16,7 +18,7 @@ export default function Home() {
             <br />
             com o seu
             <br />
-            <em>próximo encanto.</em>
+            <em className="decorative-text">próximo encanto.</em>
           </h1>
           <p className="hero-description">
             Há nomes que despertam a curiosidade.
@@ -24,11 +26,11 @@ export default function Home() {
             Encontre o seu e comece a descobrir.
           </p>
           <Link className="button" href="#colecao">
-            Explorar a coleção <span aria-hidden="true">↗</span>
+            Explorar a coleção <ArrowUpRight aria-hidden="true" />
           </Link>
           <span className="hero-footnote">Uma descoberta de cada vez.</span>
-        </div>
-        <div className="hero-art" aria-hidden="true">
+        </Reveal>
+        <Reveal className="hero-art" aria-hidden="true">
           <span className="art-caption">SINTA O TOQUE DA LAVANDA</span>
           <Image
             src="/brand/emblem-ink.svg"
@@ -38,23 +40,23 @@ export default function Home() {
             priority
           />
           <span className="art-number">01 — UM UNIVERSO DE DESCOBERTAS</span>
-        </div>
+        </Reveal>
       </section>
       <div className="brand-ribbon">
         <span>Presença nos detalhes</span>
-        <span aria-hidden="true">✳</span>
+        <Sprout aria-hidden="true" />
         <span>Beleza em cada descoberta</span>
-        <span aria-hidden="true">✳</span>
+        <Sprout aria-hidden="true" />
         <span>O seu próximo encanto</span>
       </div>
       <Catalog products={products} />
-      <section className="about wrap" id="sobre">
+      <section className="about wrap" id="sobre" tabIndex={-1}>
         <p className="eyebrow">O UNIVERSO CÉU DE LAVANDA</p>
-        <div>
+        <Reveal>
           <h2>
             O começo de uma
             <br />
-            bela descoberta.
+            <em className="decorative-text">bela descoberta.</em>
           </h2>
           <p>
             Nosso catálogo está florescendo. Por aqui, você já pode explorar os
@@ -65,9 +67,9 @@ export default function Home() {
             forem confirmadas. Volte para acompanhar os próximos detalhes.
           </p>
           <Link className="text-link" href="/catalogo/">
-            Conheça todos os nomes <span aria-hidden="true">↗</span>
+            Conheça todos os nomes <ArrowUpRight aria-hidden="true" />
           </Link>
-        </div>
+        </Reveal>
       </section>
     </main>
   );

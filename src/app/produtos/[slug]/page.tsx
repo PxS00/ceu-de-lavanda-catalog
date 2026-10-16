@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { Reveal } from "@/components/reveal";
 import { notFound } from "next/navigation";
 import { products, formatPrice } from "@/lib/catalog";
 import { ProductArt } from "@/components/product-art";
@@ -32,14 +34,14 @@ export default async function ProductPage({
     <main id="conteudo" className="wrap detail-main">
       <nav className="breadcrumbs" aria-label="Caminho da página">
         <Link href="/">Início</Link>
-        <span aria-hidden="true">/</span>
+        <ChevronRight aria-hidden="true" />
         <Link href="/catalogo/">Fragrâncias</Link>
-        <span aria-hidden="true">/</span>
+        <ChevronRight aria-hidden="true" />
         <span aria-current="page">{product.name}</span>
       </nav>
       <div className="product-detail">
         <ProductArt product={product} />
-        <div className="detail-copy">
+        <Reveal className="detail-copy">
           <p className="eyebrow">A COLEÇÃO · CÉU DE LAVANDA</p>
           <h1>{product.name}</h1>
           <p className="detail-description">
@@ -72,9 +74,9 @@ export default async function ProductPage({
             produto à medida que são confirmadas.
           </p>
           <Link className="button" href="/catalogo/">
-            Continuar explorando <span aria-hidden="true">↗</span>
+            Continuar explorando <ArrowUpRight aria-hidden="true" />
           </Link>
-        </div>
+        </Reveal>
       </div>
     </main>
   );

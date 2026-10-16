@@ -1,6 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  Search,
+  SlidersHorizontal,
+  Sprout,
+} from "lucide-react";
+import { Reveal, useReveal } from "./reveal";
 import Link from "next/link";
 import {
   filterProducts,
@@ -22,6 +31,10 @@ export function Catalog({ products }: { products: Product[] }) {
     ...new Set(products.map((p) => normalize(p.name)[0].toUpperCase())),
   ].sort();
   const pageCount = Math.ceil(filtered.length / PAGE_SIZE);
+  const pageItems = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const grid = useReveal(
+    JSON.stringify(pageItems.map((product) => product.id)),
+  );
   function reset() {
     setQuery("");
     setInitial("");
@@ -35,12 +48,14 @@ export function Catalog({ products }: { products: Product[] }) {
       id="colecao"
       aria-labelledby="collection-title"
     >
-      <div className="section-heading">
+      <Reveal className="section-heading">
         <div>
           <p className="eyebrow">ESCOLHA A SUA PRÓXIMA DESCOBERTA</p>
           <h2 id="collection-title">
             Nossa coleção
-            <span className="title-dot" aria-hidden="true">.</span>
+            <span className="title-dot" aria-hidden="true">
+              .
+            </span>
           </h2>
         </div>
         <p>
@@ -48,21 +63,10 @@ export function Catalog({ products }: { products: Product[] }) {
           <br />
           <span>Os detalhes estão chegando, o encanto já começa.</span>
         </p>
-      </div>
+      </Reveal>
       <div className="catalog-toolbar">
         <label className="search-field">
-          <svg
-            aria-hidden="true"
-            width="19"
-            height="19"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-          >
-            <circle cx="10.5" cy="10.5" r="6.5" />
-            <path d="m16 16 5 5" />
-          </svg>
+          <Search aria-hidden="true" />
           <span className="sr-only">Buscar fragrância pelo nome</span>
           <input
             value={query}
@@ -75,7 +79,7 @@ export function Catalog({ products }: { products: Product[] }) {
           />
         </label>
         <label className="sort-label">
-          Ordenar por{" "}
+          <SlidersHorizontal aria-hidden="true" /> Ordenar por{" "}
           <select
             value={sort}
             onChange={(e) => {
@@ -124,39 +128,43 @@ export function Catalog({ products }: { products: Product[] }) {
         </p>
       </div>
       {filtered.length ? (
-        <div className="product-grid">
-          {filtered
-            .slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
-            .map((product) => (
-              <Link
-                className="product-card"
-                href={`/produtos/${product.slug}/`}
-                key={product.id}
-              >
-                <ProductArt product={product} />
-                <div className="product-card-title">
-                  <h3>{product.name}</h3>
-                  <span aria-hidden="true">↗</span>
-                </div>
-                <p>{formatPrice(product.priceCents)}</p>
-                <span className="product-link">Explorar fragrância</span>
-              </Link>
-            ))}
+        <div className="product-grid" ref={grid}>
+          {pageItems.map((product, index) => (
+            <Link
+              className="product-card"
+              data-reveal
+              style={
+                {
+                  "--reveal-delay": `${(index % 4) * 60}ms`,
+                } as CSSProperties
+              }
+              href={`/produtos/${product.slug}/`}
+              key={product.id}
+            >
+              <ProductArt product={product} />
+              <div className="product-card-title">
+                <h3>{product.name}</h3>
+                <ArrowUpRight aria-hidden="true" />
+              </div>
+              <p>{formatPrice(product.priceCents)}</p>
+              <span className="product-link">Explorar fragrância</span>
+            </Link>
+          ))}
         </div>
       ) : (
         <div className="empty-state">
-          <span aria-hidden="true">✳</span>
+          <Sprout aria-hidden="true" />
           <h3>Nenhum nome por aqui.</h3>
           <p>Tente outra busca ou explore a coleção completa.</p>
           <button className="button" onClick={reset}>
-            Limpar filtros <span aria-hidden="true">↗</span>
+            Limpar filtros <ArrowUpRight aria-hidden="true" />
           </button>
         </div>
       )}
       {pageCount > 1 && (
         <nav className="pagination" aria-label="Páginas do catálogo">
           <button disabled={page === 1} onClick={() => setPage(page - 1)}>
-            ← Anterior
+            <ArrowLeft aria-hidden="true" /> Anterior
           </button>
           <span aria-live="polite">
             {page} de {pageCount}
@@ -165,13 +173,13 @@ export function Catalog({ products }: { products: Product[] }) {
             disabled={page === pageCount}
             onClick={() => setPage(page + 1)}
           >
-            Próxima →
+            Próxima <ArrowRight aria-hidden="true" />
           </button>
         </nav>
       )}
       <p className="catalog-note">
-        <span aria-hidden="true">✳</span> Uma coleção em construção. Novos
-        detalhes serão revelados em breve.
+        <Sprout aria-hidden="true" /> Uma coleção em construção. Novos detalhes
+        serão revelados em breve.
       </p>
     </section>
   );

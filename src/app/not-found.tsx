@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 export default function NotFound() {
   return (
@@ -7,7 +8,7 @@ export default function NotFound() {
       <h1>Uma nova direção.</h1>
       <p>Esta página não está no nosso catálogo.</p>
       <Link className="button" href="/catalogo/">
-        Explorar a coleção ↗
+        Explorar a coleção <ArrowUpRight aria-hidden="true" />
       </Link>
     </main>
   );

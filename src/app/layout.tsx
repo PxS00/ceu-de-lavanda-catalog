@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowUpRight, Sprout } from "lucide-react";
+import { SiteHeader } from "@/components/site-header";
+import { editorial, decorative } from "./typography";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -18,35 +21,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
+    <html
+      lang="pt-BR"
+      data-scroll-behavior="smooth"
+      className={`${editorial.variable} ${decorative.variable}`}
+    >
       <body>
         <a className="skip-link" href="#conteudo">
           Pular para o conteúdo
         </a>
         <div className="announcement">
           Um universo de fragrâncias para descobrir{" "}
-          <span aria-hidden="true">✧</span>
+          <Sprout aria-hidden="true" />
         </div>
-        <header className="site-header wrap">
-          <Link className="logo" href="/" aria-label="Céu de Lavanda — início">
-            <Image
-              src="/brand/emblem.svg"
-              alt=""
-              width={111.56}
-              height={176.35}
-              priority
-            />
-            <span>Céu de Lavanda</span>
-          </Link>
-          <nav aria-label="Navegação principal">
-            <Link href="/">Início</Link>
-            <Link href="/catalogo/">Fragrâncias</Link>
-            <Link href="/#sobre">Nosso universo</Link>
-          </nav>
-          <Link className="header-link" href="/catalogo/">
-            Explorar catálogo <span aria-hidden="true">↗</span>
-          </Link>
-        </header>
+        <SiteHeader />
         {children}
         <footer className="site-footer">
           <div className="wrap footer-main">
@@ -64,8 +52,12 @@ export default function RootLayout({
               Um novo encanto.
             </p>
             <nav aria-label="Navegação do rodapé">
-              <Link href="/catalogo/">Explore a coleção ↗</Link>
-              <Link href="/#sobre">Nosso universo ↗</Link>
+              <Link href="/catalogo/">
+                Explore a coleção <ArrowUpRight aria-hidden="true" />
+              </Link>
+              <Link href="/#sobre">
+                Sobre a marca <ArrowUpRight aria-hidden="true" />
+              </Link>
             </nav>
           </div>
           <div className="wrap footer-bottom">
