@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { notFound } from "next/navigation";
-import { products, formatPrice } from "@/lib/catalog";
+import { products, formatPrice, categories } from "@/lib/catalog";
 import { ProductArt } from "@/components/product-art";
 
 export function generateStaticParams() {
@@ -30,6 +30,10 @@ export default async function ProductPage({
   const { slug } = await params;
   const product = products.find((p) => p.slug === slug);
   if (!product) notFound();
+  const category = categories.find((item) => item.slug === product.category);
+  const hasPendingDetails =
+    !product.description || !product.notes?.length ||
+    product.priceCents == null || !product.availability;
   return (
     <main id="conteudo" className="wrap detail-main">
       <nav className="breadcrumbs" aria-label="Caminho da página">
@@ -50,6 +54,12 @@ export default async function ProductPage({
           </p>
           <p className="detail-price">{formatPrice(product.priceCents)}</p>
           <dl>
+            {category && (
+              <div>
+                <dt>Categoria</dt>
+                <dd><Link href={`/catalogo/${category.slug}/`}>{category.name}</Link></dd>
+              </div>
+            )}
             <div>
               <dt>Notas olfativas</dt>
               <dd>
@@ -69,10 +79,13 @@ export default async function ProductPage({
               </dd>
             </div>
           </dl>
-          <p className="detail-note">
-            Nosso catálogo está florescendo. Publicamos as informações de cada
-            produto à medida que são confirmadas.
-          </p>
+          {hasPendingDetails && (
+            <aside className="detail-note" aria-labelledby="pending-title">
+              <h2 id="pending-title">Uma descoberta que continua.</h2>
+              <p>Este nome já faz parte da coleção. Preço, notas e disponibilidade aparecem aqui à medida que são confirmados.</p>
+              <p>Enquanto isso, conheça outros nomes no catálogo.</p>
+            </aside>
+          )}
           <Link className="button" href="/catalogo/">
             Continuar explorando <ArrowUpRight aria-hidden="true" />
           </Link>

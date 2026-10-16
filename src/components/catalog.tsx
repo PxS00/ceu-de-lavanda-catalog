@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
+import { useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -12,13 +12,12 @@ import { Reveal, useReveal } from "./reveal";
 import Link from "next/link";
 import {
   filterProducts,
-  formatPrice,
   normalize,
   categories,
   type CategorySlug,
   type Product,
 } from "@/lib/catalog";
-import { ProductArt } from "./product-art";
+import { ProductCard } from "./product-card";
 
 const PAGE_SIZE = 12;
 
@@ -156,25 +155,7 @@ export function Catalog({
       {filtered.length ? (
         <div className="product-grid" ref={grid}>
           {pageItems.map((product, index) => (
-            <Link
-              className="product-card"
-              data-reveal
-              style={
-                {
-                  "--reveal-delay": `${(index % 4) * 60}ms`,
-                } as CSSProperties
-              }
-              href={`/produtos/${product.slug}/`}
-              key={product.id}
-            >
-              <ProductArt product={product} />
-              <div className="product-card-title">
-                <h3>{product.name}</h3>
-                <ArrowUpRight aria-hidden="true" />
-              </div>
-              <p>{formatPrice(product.priceCents)}</p>
-              <span className="product-link">Explorar fragrância</span>
-            </Link>
+            <ProductCard product={product} index={index} key={product.id} />
           ))}
         </div>
       ) : (

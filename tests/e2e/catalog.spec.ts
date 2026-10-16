@@ -32,7 +32,13 @@ test("@visual homepage and category discovery", async ({ page }, info) => {
   await expect(page.locator("h1")).toContainText("próximo encanto");
   await expect(page.locator(".phrase-strip p")).toHaveText(["Presença nos detalhes", "Beleza em cada descoberta", "O seu próximo encanto"]);
   await expect(page.locator(".category-card")).toHaveCount(3);
+  await expect(page.locator(".category-count")).toHaveText(["Aproximadamente 90 fragrâncias", "Aproximadamente 10 opções", "1 fragrância"]);
+  await expect(page.locator(".product-card")).toHaveCount(4);
+  await expect(page.getByRole("searchbox")).toHaveCount(0);
   await review(page, info, "homepage");
+  await page.getByRole("link", { name: "Ver catálogo completo", exact: true }).click();
+  await expect(page).toHaveURL("/catalogo/");
+  await expect(page.locator(".product-card")).toHaveCount(8);
   for (const slug of ["perfumes", "body-splash", "perfume-capilar"]) {
     await page.goto("/");
     await page.locator(`.category-card[href='/catalogo/${slug}/']`).click();
@@ -73,6 +79,8 @@ test("@visual individual product and return navigation", async ({ page }, info) 
   await page.locator(".product-card").filter({ hasText: "Acquaré" }).click();
   await expect(page).toHaveURL("/produtos/acquare/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Acquaré");
+  await expect(page.getByRole("complementary", { name: "Uma descoberta que continua." })).toBeVisible();
+  await expect(page.locator(".detail-price")).toHaveText("Preço ainda não informado");
   await review(page, info, "product");
   await page.reload();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Acquaré");
