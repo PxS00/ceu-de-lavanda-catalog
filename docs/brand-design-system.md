@@ -74,7 +74,7 @@ As licenças OFL completas e avisos de copyright são versionados e publicados e
 ## SVGs e composição
 
 - Cabeçalho: `public/branding/ceu-de-lavanda-logo-graphite.svg`, cópia byte a byte de **Ativo 3.svg**. Link para o início, sem filtros, recoloração ou alteração do original em `.local/brand/`. `viewBox` **513,77 × 271,81**, largura 160 px em desktop e 124 px em mobile, altura automática. O desenho principal está em curvas e mantém `#3B3836`; não há strokes ou imagens externas. O slogan contém `<text>/<tspan>` referenciando **Nexa-ExtraLight/Nexa**, sem fonte embutida. Navegadores usam fallback local se Nexa não estiver disponível. Não foi reescrito nem convertido: uma versão oficial com o slogan em curvas seria necessária para garantir métricas idênticas em todos os sistemas.
-- Início: `emblem-ink.svg`, cópia exata de **Ativo 6.svg**, sobre painel lavanda claro chapado.
+- Hero: `public/branding/ceu-de-lavanda-monogram-graphite.svg`, cópia byte a byte de **Ativo 5.svg**, monograma grafite em moldura com `viewBox` **111,56 × 176,35**. A composição lavanda mantém apenas esse símbolo, sem rótulo ou legenda repetidos. O arquivo original não foi alterado.
 - Rodapé: `wordmark-gold.svg`, cópia exata de **Ativo 4.svg**. O único gradiente do site pertence ao próprio arquivo oficial.
 - Cartões e favicon: símbolo lavanda original de **Ativo 8.svg**, sem recoloração. Fotografias continuam pendentes.
 
@@ -110,3 +110,15 @@ ESLint, TypeScript, nove testes automatizados e build de produção aprovados. O
 A rolagem suave tem `data-scroll-behavior="smooth"` no HTML para que Next.js 16 a desative durante a troca de página, mantendo a navegação entre páginas imediata. A navegação alternativa sem JavaScript é ativada por `noscript`, sem provocar colapso de altura durante a hidratação normal do cabeçalho.
 
 Limites: não foi feita auditoria manual com leitores de tela nem publicação na Cloudflare. A licença das fontes oficiais continua pendente; o slogan no SVG original depende da Nexa ou de seu fallback local.
+
+### Refinamento da homepage e faixa de frases
+
+Foram removidos o rótulo “CÉU DE LAVANDA · CATÁLOGO”, a pequena linha dourada, a nota auxiliar do hero e as legendas repetidas no painel lavanda. O hero usa Ativo 5, com proporções originais; o cabeçalho mantém Ativo 3 em grafite.
+
+A faixa horizontal permanece com as frases exatas “Presença nos detalhes”, “Beleza em cada descoberta” e “O seu próximo encanto”. Usa Pinyon Script sob OFL, tinta sobre marfim e bordas finas douradas. Desktop/tablet apresentam três frases em colunas alinhadas; mobile apresenta as três em sequência vertical, sem esconder frases nem usar marquee. A entrada respeita movimento reduzido e o conteúdo permanece visível sem JavaScript.
+
+O ornamento `public/branding/lavender-ornament-gold.svg` é uma derivação decorativa dos três caminhos botânicos de **Ativo 6.svg**, com os `d` preservados, sem as duas molduras, preenchimento sólido oficial **#BD8C40** e viewport **18 28 76 138**. O recorte foi conferido no Chromium para abranger todos os caminhos. Não se apresenta como um novo logo oficial e não modifica o original em `.local/brand/`. O teste compara os caminhos com a cópia íntegra do Ativo 6.
+
+A seção de descoberta usa três cartões comerciais: Perfumes, Body Splash e Perfume Capilar. Sem fotografia real aprovada no repositório, os cartões exibem um fallback identificado. A transição de hover é discreta e desativada para movimento reduzido. Os links levam ao catálogo filtrado por rotas estáticas; o contrato e o estado de classificação pendente são descritos em `catalog-data.md`. As dependências e configurações de segurança/build não foram alteradas.
+
+Validação deste refinamento: ESLint, TypeScript, 12 testes e build de produção passaram. Chromium conferiu 375, 768 e 1440 px; frases e ornamentos visíveis e sem cortes, três cartões, todos os links de categoria, abertura direta das páginas filtradas e retorno à coleção completa. Busca, iniciais, ordenação, limpeza e detalhes continuaram funcionando; movimento reduzido e links de categoria sem JavaScript foram exercitados. Axe não apontou violações automáticas WCAG A/AA após estabilizar as animações de entrada. Não houve transbordamento horizontal ou erro JavaScript. A combinação de categoria com resultados preenchidos é coberta por fixtures de teste, sem alterar os produtos publicados. Continuam pendentes fotografias reais e a classificação comercial de cada nome, além da auditoria manual com leitores de tela.

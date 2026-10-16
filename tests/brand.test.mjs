@@ -83,6 +83,8 @@ test("text and active actions meet WCAG AA contrast on their actual surfaces", (
 
 test("official SVG assets remain byte-identical to the supplied originals", () => {
   const hashes = {
+    "public/branding/ceu-de-lavanda-monogram-graphite.svg":
+      "7113ef59217680862c948d98447be542ed9c2bef223be87090c4e109889931e2",
     "public/branding/ceu-de-lavanda-logo-graphite.svg":
       "86f059376890e4f06a091a3d745736b5039b97a6c5ce76b3596aa0f004dea3c3",
     "public/brand/emblem.svg":
@@ -102,6 +104,21 @@ test("official SVG assets remain byte-identical to the supplied originals", () =
       path,
     );
   }
+});
+
+test("gold ornaments preserve the botanical paths of the official artwork", () => {
+  const source = readFileSync(
+    new URL("../public/brand/emblem-ink.svg", import.meta.url),
+    "utf8",
+  );
+  const ornament = readFileSync(
+    new URL("../public/branding/lavender-ornament-gold.svg", import.meta.url),
+    "utf8",
+  );
+  const paths = (svg) =>
+    [...svg.matchAll(/<path\b[^>]*\bd="([^"]+)"/g)].map((match) => match[1]);
+  assert.deepEqual(paths(ornament), paths(source).slice(0, 3));
+  assert.match(ornament, /fill="#BD8C40"/);
 });
 
 test("unverified font binaries are not publicly bundled", () => {

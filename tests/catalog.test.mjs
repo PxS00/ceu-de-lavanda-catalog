@@ -5,6 +5,7 @@ import {
   validateProducts,
   filterProducts,
   formatPrice,
+  categories,
 } from "../src/lib/catalog.ts";
 
 test("only the eight verified names are registered, with no invented details", () => {
@@ -97,4 +98,56 @@ test("missing prices remain unknown while zero is formatted as a real value", ()
   assert.equal(formatPrice(undefined), "Preço ainda não informado");
   assert.match(formatPrice(0), /0,00/);
   assert.match(formatPrice(12345), /123,45/);
+});
+
+test("commercial categories are distinct from olfactory families and remain optional", () => {
+  assert.deepEqual(
+    categories.map((category) => category.name),
+    ["Perfumes", "Body Splash", "Perfume Capilar"],
+  );
+  assert.equal(new Set(categories.map((category) => category.slug)).size, 3);
+  for (const category of categories) {
+    assert.doesNotThrow(() =>
+      validateProducts([{ ...products[0], category: category.slug }]),
+    );
+    assert.equal(
+      filterProducts(products, "", "", "az", category.slug).length,
+      0,
+    );
+  }
+  assert.doesNotThrow(() =>
+    validateProducts([{ ...products[0], category: null }]),
+  );
+  for (const category of ["floral", "amadeirado", "", 42])
+    assert.throws(() => validateProducts([{ ...products[0], category }]));
+  assert.equal(filterProducts(products, "", "", "az").length, 8);
+});
+
+test("category filtering intersects search and initials, and preserves sorting", () => {
+  const fixtures = [
+    { ...products[0], category: "perfumes" },
+    { ...products[1], category: "body-splash" },
+    { ...products[2], category: "perfume-capilar" },
+    { ...products[4], category: "perfumes" },
+    products[5],
+  ];
+  assert.deepEqual(
+    filterProducts(fixtures, "", "A", "za", "perfumes").map((p) => p.name),
+    ["Alma de Seda", "Acquaré"],
+  );
+  assert.deepEqual(
+    filterProducts(fixtures, "ACQUARE", "A", "az", "perfumes").map(
+      (p) => p.name,
+    ),
+    ["Acquaré"],
+  );
+  assert.equal(
+    filterProducts(fixtures, "ACQUARE", "", "az", "body-splash").length,
+    0,
+  );
+  assert.equal(
+    filterProducts(fixtures, "", "", "az", "perfume-capilar")[0].name,
+    "Sollaris",
+  );
+  assert.equal(filterProducts(fixtures, "", "", "az").length, 5);
 });

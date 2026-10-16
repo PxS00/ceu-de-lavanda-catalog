@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowUpRight, Sprout } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { CategoryDiscovery } from "@/components/category-discovery";
 import { Reveal } from "@/components/reveal";
 import Image from "next/image";
 import { Catalog } from "@/components/catalog";
@@ -10,9 +11,6 @@ export default function Home() {
     <main id="conteudo">
       <section className="hero wrap">
         <Reveal className="hero-copy">
-          <p className="eyebrow">
-            <span className="little-line" /> CÉU DE LAVANDA · CATÁLOGO
-          </p>
           <h1>
             Um encontro
             <br />
@@ -28,27 +26,37 @@ export default function Home() {
           <Link className="button" href="#colecao">
             Explorar a coleção <ArrowUpRight aria-hidden="true" />
           </Link>
-          <span className="hero-footnote">Uma descoberta de cada vez.</span>
         </Reveal>
         <Reveal className="hero-art" aria-hidden="true">
-          <span className="art-caption">SINTA O TOQUE DA LAVANDA</span>
           <Image
-            src="/brand/emblem-ink.svg"
+            src="/branding/ceu-de-lavanda-monogram-graphite.svg"
             alt=""
             width={111.56}
             height={176.35}
             priority
           />
-          <span className="art-number">01 — UM UNIVERSO DE DESCOBERTAS</span>
         </Reveal>
       </section>
-      <div className="brand-ribbon">
-        <span>Presença nos detalhes</span>
-        <Sprout aria-hidden="true" />
-        <span>Beleza em cada descoberta</span>
-        <Sprout aria-hidden="true" />
-        <span>O seu próximo encanto</span>
-      </div>
+      <section className="brand-ribbon" aria-label="A essência da marca">
+        <Reveal className="phrase-strip wrap">
+          <p>Presença nos detalhes</p>
+          <Image
+            src="/branding/lavender-ornament-gold.svg"
+            alt=""
+            width={76}
+            height={138}
+          />
+          <p>Beleza em cada descoberta</p>
+          <Image
+            src="/branding/lavender-ornament-gold.svg"
+            alt=""
+            width={76}
+            height={138}
+          />
+          <p>O seu próximo encanto</p>
+        </Reveal>
+      </section>
+      <CategoryDiscovery />
       <Catalog products={products} />
       <section className="about wrap" id="sobre" tabIndex={-1}>
         <p className="eyebrow">O UNIVERSO CÉU DE LAVANDA</p>

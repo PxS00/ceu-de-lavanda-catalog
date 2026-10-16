@@ -15,18 +15,30 @@ import {
   filterProducts,
   formatPrice,
   normalize,
+  categories,
+  type CategorySlug,
   type Product,
 } from "@/lib/catalog";
 import { ProductArt } from "./product-art";
 
 const PAGE_SIZE = 12;
 
-export function Catalog({ products }: { products: Product[] }) {
+export function Catalog({
+  products,
+  category = "",
+}: {
+  products: Product[];
+  category?: CategorySlug | "";
+}) {
   const [query, setQuery] = useState("");
   const [initial, setInitial] = useState("");
   const [sort, setSort] = useState("az");
   const [page, setPage] = useState(1);
-  const filtered = filterProducts(products, query, initial, sort);
+  const filtered = filterProducts(products, query, initial, sort, category);
+  const categoryName = categories.find((item) => item.slug === category)?.name;
+  const categoryPending = Boolean(
+    category && !products.some((product) => product.category === category),
+  );
   const initials = [
     ...new Set(products.map((p) => normalize(p.name)[0].toUpperCase())),
   ].sort();
@@ -64,6 +76,20 @@ export function Catalog({ products }: { products: Product[] }) {
           <span>Os detalhes estão chegando, o encanto já começa.</span>
         </p>
       </Reveal>
+      <nav className="category-filters" aria-label="Categorias comerciais">
+        <Link href="/catalogo/" aria-current={!category ? "page" : undefined}>
+          Todas as categorias
+        </Link>
+        {categories.map((item) => (
+          <Link
+            href={`/catalogo/${item.slug}/`}
+            key={item.slug}
+            aria-current={category === item.slug ? "page" : undefined}
+          >
+            {item.name}
+          </Link>
+        ))}
+      </nav>
       <div className="catalog-toolbar">
         <label className="search-field">
           <Search aria-hidden="true" />
@@ -123,8 +149,9 @@ export function Catalog({ products }: { products: Product[] }) {
           ))}
         </div>
         <p className="result-count" role="status">
-          {filtered.length}{" "}
-          {filtered.length === 1 ? "fragrância" : "fragrâncias"}
+          {categoryPending
+            ? "Cadastro em preparação"
+            : `${filtered.length} ${filtered.length === 1 ? "fragrância" : "fragrâncias"}`}
         </p>
       </div>
       {filtered.length ? (
@@ -154,11 +181,25 @@ export function Catalog({ products }: { products: Product[] }) {
       ) : (
         <div className="empty-state">
           <Sprout aria-hidden="true" />
-          <h3>Nenhum nome por aqui.</h3>
-          <p>Tente outra busca ou explore a coleção completa.</p>
-          <button className="button" onClick={reset}>
-            Limpar filtros <ArrowUpRight aria-hidden="true" />
-          </button>
+          <h3>
+            {categoryPending
+              ? "Uma nova descoberta está por vir."
+              : "Nenhum nome por aqui."}
+          </h3>
+          <p>
+            {categoryPending
+              ? `Os produtos de ${categoryName} ainda estão sendo cadastrados. Explore os nomes já confirmados na coleção.`
+              : "Tente outra busca ou explore a coleção completa."}
+          </p>
+          {categoryPending ? (
+            <Link className="button" href="/catalogo/">
+              Ver toda a coleção <ArrowUpRight aria-hidden="true" />
+            </Link>
+          ) : (
+            <button className="button" onClick={reset}>
+              Limpar filtros <ArrowUpRight aria-hidden="true" />
+            </button>
+          )}
         </div>
       )}
       {pageCount > 1 && (

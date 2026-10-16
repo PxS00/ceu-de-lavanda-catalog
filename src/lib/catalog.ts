@@ -1,9 +1,18 @@
 import data from "../data/products.json" with { type: "json" };
 
+export const categories = [
+  { slug: "perfumes", name: "Perfumes" },
+  { slug: "body-splash", name: "Body Splash" },
+  { slug: "perfume-capilar", name: "Perfume Capilar" },
+] as const;
+
+export type CategorySlug = (typeof categories)[number]["slug"];
+
 export type Product = {
   id: string;
   slug: string;
   name: string;
+  category?: CategorySlug | null;
   description?: string | null;
   priceCents?: number | null;
   notes?: string[] | null;
@@ -31,6 +40,11 @@ export function validateProducts(input: unknown): asserts input is Product[] {
       throw new Error(`Produto duplicado: ${p.slug}`);
     ids.add(p.id);
     slugs.add(p.slug);
+    if (
+      p.category != null &&
+      !categories.some((category) => category.slug === p.category)
+    )
+      throw new Error(`Categoria inválida: ${p.slug}`);
     if (
       p.description != null &&
       (typeof p.description !== "string" || !p.description.trim())
@@ -81,12 +95,14 @@ export function filterProducts(
   query: string,
   initial: string,
   sort: string,
+  category: CategorySlug | "" = "",
 ) {
   return items
     .filter(
       (p) =>
         normalize(p.name).includes(normalize(query)) &&
-        (!initial || normalize(p.name).startsWith(normalize(initial))),
+        (!initial || normalize(p.name).startsWith(normalize(initial))) &&
+        (!category || p.category === category),
     )
     .sort((a, b) =>
       sort === "za"

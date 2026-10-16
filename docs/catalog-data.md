@@ -2,16 +2,17 @@
 
 Fonte atual: `src/data/products.json`. Uma lista JSON UTF-8, com um objeto por produto. Os oito nomes são os únicos dados de produto confirmados nesta fase; a ordem no arquivo não indica destaque ou popularidade. IDs e slugs são identificadores técnicos, não SKUs oficiais.
 
-| Campo          | Formato                            | Regra                                                                                                                                                                                |
-| -------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `id`           | string                             | Obrigatório, único e estável; não mudar ao renomear um produto.                                                                                                                      |
-| `slug`         | string                             | Obrigatório e único; letras minúsculas sem acentos, números e hífens. Define `/produtos/{slug}/`. Preservar URLs publicadas.                                                         |
-| `name`         | string                             | Obrigatório, nome confirmado com acentos; não aceitar nomes vazios.                                                                                                                  |
-| `description`  | string ou null                     | Descrição aprovada, exibida como texto simples.                                                                                                                                      |
-| `priceCents`   | inteiro ou null                    | Preço confirmado em centavos de BRL, não negativo. `0` significa preço zero; ausente/null significa desconhecido.                                                                    |
-| `notes`        | lista de strings ou null           | Somente notas olfativas confirmadas. Lista vazia significa informação pendente.                                                                                                      |
-| `availability` | `available`, `unavailable` ou null | Somente status confirmado. Ausente/null não significa indisponível.                                                                                                                  |
-| `photo`        | objeto ou null                     | `src`: caminho local `/products/nome.webp` (png, jpg, jpeg, webp ou avif também aceitos); `alt`: descrição acessível não vazia. Arquivo aprovado deve existir em `public/products/`. |
+| Campo          | Formato                                              | Regra                                                                                                                                                                                |
+| -------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`           | string                                               | Obrigatório, único e estável; não mudar ao renomear um produto.                                                                                                                      |
+| `slug`         | string                                               | Obrigatório e único; letras minúsculas sem acentos, números e hífens. Define `/produtos/{slug}/`. Preservar URLs publicadas.                                                         |
+| `name`         | string                                               | Obrigatório, nome confirmado com acentos; não aceitar nomes vazios.                                                                                                                  |
+| `category`     | `perfumes`, `body-splash`, `perfume-capilar` ou null | Opcional; somente a categoria comercial confirmada. Ausente/null significa não classificado.                                                                                         |
+| `description`  | string ou null                                       | Descrição aprovada, exibida como texto simples.                                                                                                                                      |
+| `priceCents`   | inteiro ou null                                      | Preço confirmado em centavos de BRL, não negativo. `0` significa preço zero; ausente/null significa desconhecido.                                                                    |
+| `notes`        | lista de strings ou null                             | Somente notas olfativas confirmadas. Lista vazia significa informação pendente.                                                                                                      |
+| `availability` | `available`, `unavailable` ou null                   | Somente status confirmado. Ausente/null não significa indisponível.                                                                                                                  |
+| `photo`        | objeto ou null                                       | `src`: caminho local `/products/nome.webp` (png, jpg, jpeg, webp ou avif também aceitos); `alt`: descrição acessível não vazia. Arquivo aprovado deve existir em `public/products/`. |
 
 Campos opcionais podem ser omitidos ou usar `null`. Não preencher lacunas com inferências a partir do nome, fotografias geradas, valores estimados ou estoque fictício.
 
@@ -20,6 +21,16 @@ Registro mínimo válido:
 ```json
 { "id": "acquare", "slug": "acquare", "name": "Acquaré" }
 ```
+
+## Categorias comerciais
+
+Campo opcional `category`: `perfumes`, `body-splash`, `perfume-capilar` ou `null`. As opções e nomes públicos ficam em `categories` de `src/lib/catalog.ts`, compartilhados por validação, filtros, cartões e páginas. Campo omitido/null significa classificação ainda não confirmada, sem excluir o produto da coleção completa.
+
+As três categorias foram confirmadas pelo usuário, com escopo de aproximadamente 90 Perfumes, 10 Body Splash e 1 Perfume Capilar no inventário futuro. Esses totais não são contagens de registros publicados e não são usados para gerar produtos fictícios. Nenhum dos oito nomes atuais recebeu uma categoria presumida.
+
+Cada cartão leva a uma página filtrada estática: `/catalogo/perfumes/`, `/catalogo/body-splash/` e `/catalogo/perfume-capilar/`. As páginas são geradas mesmo enquanto vazias; mostram cadastro em preparação e um link para a coleção completa. A categoria combina com busca, inicial, ordenação e paginação. Mudar de categoria reinicia os filtros locais. A categoria selecionada é compartilhável na URL e funciona ao abrir diretamente o HTML exportado, sem depender de query string ou servidor.
+
+Ao importar o inventário, preencher `category` somente com a classificação confirmada de cada produto e reconstruir o site. A validação rejeita categorias desconhecidas. Famílias olfativas, como floral ou amadeirado, não são categorias comerciais; futuras informações olfativas devem permanecer separadas para filtragem. Sem fotografias reais confirmadas para as categorias, os cartões usam o símbolo da marca e a indicação “Fotografia em breve”.
 
 ## Recebimento do inventário completo
 
@@ -30,7 +41,7 @@ Registro mínimo válido:
 5. Executar `pnpm lint`, `node --experimental-strip-types --test tests/catalog.test.mjs` e `pnpm build`. O teste dos oito nomes é uma proteção temporária do MVP: atualizá-lo para o inventário aprovado nessa fase, mantendo os testes de validação e filtros.
 6. Revisar catálogo, paginação e detalhes no export estático antes de publicar. Reverter o JSON e reconstruir para voltar ao inventário anterior.
 
-O build gera uma página por slug. Novos registros exigem novo build e publicação; não há banco, painel administrativo ou serviço de importação nesta fase. A busca, filtro de iniciais e ordenação são locais e mostram até 12 cartões por página, suficientes para centenas de registros. Não há filtro por família, preço ou estoque enquanto esses dados não estiverem disponíveis. O estado de filtros é local à página e reinicia ao sair dela.
+O build gera uma página por slug. Novos registros exigem novo build e publicação; não há banco, painel administrativo ou serviço de importação nesta fase. A busca, filtro de iniciais e ordenação são locais e mostram até 12 cartões por página, suficientes para centenas de registros. Não há filtro por família, preço ou estoque enquanto esses dados não estiverem disponíveis. Busca, inicial, ordenação e página são estados locais e reiniciam ao sair da página; a categoria selecionada permanece identificada pela rota.
 
 ## Base visual
 
