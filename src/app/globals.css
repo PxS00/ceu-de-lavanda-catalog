@@ -34,7 +34,7 @@
   --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --text-display: clamp(2.75rem, 5vw, 4.5rem);
   --text-heading: clamp(2rem, 3.5vw, 3rem);
-  --text-product: 1.875rem;
+  --text-product: 1.375rem;
   --text-price: 0.875rem;
   --text-body: 1rem;
   --text-small: 0.8125rem;
@@ -696,10 +696,8 @@ em {
 }
 .product-card h3 {
   margin: 0;
-  font-family: var(--font-decorative);
   font-size: var(--text-product);
-  line-height: 1.35;
-  color: var(--text-accent);
+  line-height: 1.3;
   overflow-wrap: anywhere;
   text-wrap: auto;
 }
@@ -806,6 +804,13 @@ em {
   line-height: 1.3;
   margin: 20px 0 0;
 }
+.catalog-intro .category-title {
+  font-family: var(--font-decorative);
+  color: var(--text-accent);
+  font-size: var(--text-display);
+  letter-spacing: 0;
+  line-height: 1.25;
+}
 .empty-state {
   text-align: center;
   padding-block: 64px;
@@ -872,10 +877,6 @@ em {
   height: auto;
 }
 .detail-copy h1 {
-  font-family: var(--font-decorative);
-  color: var(--text-accent);
-  letter-spacing: 0;
-  line-height: 1.25;
   font-size: var(--text-display);
   margin-block: 20px;
   overflow-wrap: anywhere;
@@ -1071,7 +1072,7 @@ em {
     gap: 32px 16px;
   }
   .product-card h3 {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
   }
   .product-card-title {
     margin-top: 14px;
