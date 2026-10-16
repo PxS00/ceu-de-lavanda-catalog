@@ -89,11 +89,16 @@ button:disabled {
   margin-inline: auto;
 }
 .announcement {
-  background: var(--surface-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--background);
+  border-top: 3px solid var(--accent);
   text-align: center;
   font-size: var(--text-label);
   letter-spacing: 0.04em;
-  padding: 9px 16px;
+  padding: 6px 16px;
 }
 .lucide {
   width: 18px;
@@ -101,12 +106,6 @@ button:disabled {
   stroke-width: 1.5;
   flex-shrink: 0;
   vertical-align: middle;
-}
-.announcement {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
 }
 .lavender-mark {
   display: inline-block;
@@ -134,13 +133,14 @@ button:disabled {
 }
 .site-header[data-scrolled="true"] {
   background: color-mix(in srgb, var(--background) 94%, transparent);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  /* Keep the standard declaration last so production optimization preserves it. */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border-color: var(--border);
   box-shadow: 0 4px 24px #3b383606;
 }
 .header-inner {
-  min-height: 108px;
+  min-height: 106px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -149,17 +149,17 @@ button:disabled {
 .logo {
   display: inline-flex;
   flex-shrink: 0;
-  padding-block: 8px;
+  padding-block: 3px;
 }
 .logo img {
-  width: 160px;
+  width: 188px;
   height: auto;
 }
 .desktop-nav {
   display: flex;
   align-items: center;
   gap: 36px;
-  font-size: var(--text-small);
+  font-size: 0.875rem;
 }
 .desktop-nav a {
   position: relative;
@@ -989,7 +989,7 @@ em {
     padding-block: 4px;
   }
   .logo img {
-    width: 124px;
+    width: 136px;
   }
   .site-header .desktop-nav {
     display: none;
