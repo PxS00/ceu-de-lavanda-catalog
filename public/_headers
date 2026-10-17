@@ -1,0 +1,6 @@
+# Keep test/preview Pages hosts out of search results without blocking a future custom domain.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex, nofollow, noarchive

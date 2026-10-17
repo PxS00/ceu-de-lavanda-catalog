@@ -46,3 +46,8 @@ next-env.d.ts
 /test-results/
 /playwright-report/
 /blob-report/
+
+# Cloudflare local state and secret bindings
+/.wrangler/
+/.dev.vars
+/.dev.vars.*
