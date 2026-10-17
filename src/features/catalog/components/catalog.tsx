@@ -71,11 +71,8 @@ export function Catalog({
       aria-labelledby="collection-title"
     >
       <Reveal className="catalog-heading">
-        <h1 id="collection-title" className={category ? "category-title" : undefined}>
+        <h1 id="collection-title">
           {categoryName ?? "Nossa coleção"}
-          <span className="title-dot" aria-hidden="true">
-            .
-          </span>
         </h1>
         <p>Encontre a sua próxima descoberta.</p>
       </Reveal>

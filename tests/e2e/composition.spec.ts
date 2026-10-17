@@ -1,11 +1,31 @@
 import { test, expect } from "@playwright/test";
 
 test("catalog and category controls remain compact, accessible and within the viewport", async ({ page }, info) => {
+  let referenceTypography;
   for (const [route, title] of [["", "Nossa coleção"], ["perfumes/", "Perfumes"], ["body-splash/", "Body Splash"], ["perfume-capilar/", "Perfume Capilar"]]) {
     await page.goto(`/catalogo/${route}`);
     await page.evaluate(() => document.fonts.ready);
     await expect(page.locator("h1")).toHaveCount(1);
     await expect(page.getByRole("heading", { level: 1 })).toHaveAccessibleName(title);
+    await expect(page.locator("h1")).toHaveText(title);
+    await expect(page.locator(".title-dot")).toHaveCount(0);
+    const typography = await page.locator("h1").evaluate((heading) => {
+      const style = getComputedStyle(heading);
+      return {
+        family: style.fontFamily,
+        color: style.color,
+        size: style.fontSize,
+        alignment: style.textAlign,
+        script: style.getPropertyValue("--font-script").split(",")[0].trim().replace(/['"]/g, ""),
+        before: getComputedStyle(heading, "::before").content,
+        after: getComputedStyle(heading, "::after").content,
+      };
+    });
+    expect(typography.family).toContain(typography.script);
+    expect(typography.before).toBe("none");
+    expect(typography.after).toBe("none");
+    referenceTypography ??= typography;
+    expect(typography).toEqual(referenceTypography);
     await expect(page.locator(".catalog .eyebrow")).toHaveCount(0);
     const geometry = await page.evaluate(() => ({
       top: document.querySelector(".catalog-results")!.getBoundingClientRect().top,

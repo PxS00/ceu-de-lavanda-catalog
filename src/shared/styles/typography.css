@@ -55,9 +55,6 @@ em {
 .section-heading .eyebrow {
   margin-bottom: 12px;
 }
-.title-dot {
-  color: var(--primary);
-}
 .section-heading > p {
   font-size: var(--text-small);
   line-height: 1.8;
