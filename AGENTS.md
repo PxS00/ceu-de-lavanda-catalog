@@ -11,5 +11,6 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 ## Maintainable components and styles
 
 - Prefer cohesive source files of roughly 150 lines or fewer; split by responsibility, not by arbitrary line counts.
-- Keep feature components and styles under `src/features/<feature>/`; shared components and styles belong in `src/components/` and `src/styles/`.
+- Use one feature-first structure: `src/app/` owns routing, metadata and page composition; `src/features/<feature>/` owns feature UI, styles and domain data; `src/shared/` owns reusable components, styles and fonts.
+- Do not add parallel top-level `components`, `styles`, `lib` or `data` folders in `src`. Features may depend on shared code; shared code must not depend on features.
 - Keep `src/app/globals.css` as the ordered stylesheet entry point, with responsive rules alongside the styles they modify.
