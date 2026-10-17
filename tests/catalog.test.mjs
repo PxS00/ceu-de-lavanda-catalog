@@ -7,7 +7,7 @@ import {
   filterProducts,
   formatPrice,
   categories,
-} from "../src/lib/catalog.ts";
+} from "../src/features/catalog/lib/catalog.ts";
 
 test("101-product fixture validates and filters Portuguese names without mutation", () => {
   const original = structuredClone(syntheticProducts);

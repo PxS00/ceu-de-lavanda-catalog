@@ -1,5 +1,5 @@
-import { Catalog } from "@/components/catalog";
-import { products } from "@/lib/catalog";
+import { Catalog } from "@/features/catalog/components/catalog";
+import { products } from "@/features/catalog/lib/catalog";
 
 export const metadata = { title: "Catálogo de fragrâncias" };
 

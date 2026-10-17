@@ -10,7 +10,7 @@ process.on("exit", () => rmSync(directory, { recursive: true, force: true }));
 symlinkSync(resolve("node_modules"), resolve(directory, "node_modules"), "dir");
 for (const path of ["src", "public", "package.json", "tsconfig.json", "next.config.ts"])
   cpSync(path, resolve(directory, path), { recursive: true });
-writeFileSync(resolve(directory, "src/data/products.json"), JSON.stringify(syntheticProducts));
+writeFileSync(resolve(directory, "src/features/catalog/data/products.json"), JSON.stringify(syntheticProducts));
 mkdirSync(resolve(directory, "public/products"), { recursive: true });
 writeFileSync(resolve(directory, "public/products/motion-test.png"), Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aD1sAAAAASUVORK5CYII=", "base64"));
 execFileSync(process.execPath, ["node_modules/next/dist/bin/next", "build", directory, "--webpack"], { stdio: "inherit" });

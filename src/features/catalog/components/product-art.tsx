@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { Product } from "@/lib/catalog";
+import type { Product } from "@/features/catalog/lib/catalog";
 
 export function ProductArt({ product }: { product: Product }) {
   if (product.photo)

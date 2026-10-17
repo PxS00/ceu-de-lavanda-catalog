@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { Catalog } from "@/components/catalog";
-import { categories, products } from "@/lib/catalog";
+import { Catalog } from "@/features/catalog/components/catalog";
+import { categories, products } from "@/features/catalog/lib/catalog";
 
 export const dynamicParams = false;
 

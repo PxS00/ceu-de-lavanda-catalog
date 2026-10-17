@@ -1,6 +1,6 @@
 # Contrato de dados do catálogo
 
-Fonte atual: `src/data/products.json`. Uma lista JSON UTF-8, com um objeto por produto. Os oito nomes são os únicos dados de produto confirmados nesta fase; a ordem no arquivo não indica destaque ou popularidade. IDs e slugs são identificadores técnicos, não SKUs oficiais.
+Fonte atual: `src/features/catalog/data/products.json`. Uma lista JSON UTF-8, com um objeto por produto. Os oito nomes são os únicos dados de produto confirmados nesta fase; a ordem no arquivo não indica destaque ou popularidade. IDs e slugs são identificadores técnicos, não SKUs oficiais.
 
 | Campo          | Formato                                              | Regra                                                                                                                                                                                |
 | -------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -24,7 +24,7 @@ Registro mínimo válido:
 
 ## Categorias comerciais
 
-Campo opcional `category`: `perfumes`, `body-splash`, `perfume-capilar` ou `null`. As opções e nomes públicos ficam em `categories` de `src/lib/catalog.ts`, compartilhados por validação, filtros, cartões e páginas. Campo omitido/null significa classificação ainda não confirmada, sem excluir o produto da coleção completa.
+Campo opcional `category`: `perfumes`, `body-splash`, `perfume-capilar` ou `null`. As opções e nomes públicos ficam em `categories` de `src/features/catalog/lib/catalog.ts`, compartilhados por validação, filtros, cartões e páginas. Campo omitido/null significa classificação ainda não confirmada, sem excluir o produto da coleção completa.
 
 As três categorias foram confirmadas pelo usuário, com escopo de aproximadamente 90 Perfumes, 10 Body Splash e 1 Perfume Capilar no inventário futuro. Esses totais não são contagens de registros publicados e não são usados para gerar produtos fictícios. Nenhum dos oito nomes atuais recebeu uma categoria presumida.
 
@@ -37,7 +37,7 @@ Ao importar o inventário, preencher `category` somente com a classificação co
 1. Converter a planilha/exportação para esta lista JSON. Conferir manualmente origem, nomes, acentos, preços e imagens; o aplicativo não consegue verificar a veracidade comercial.
 2. Conciliar por `id`, preservando registros e slugs existentes. Não substituir ausências por zero ou indisponibilidade. Revisar exclusões antes de substituir o arquivo; manter o inventário anterior no Git para reversão.
 3. Adicionar somente fotografias autorizadas em `public/products/` e conferir caminhos e textos alternativos. A validação de formato não verifica a existência dos arquivos.
-4. Substituir `src/data/products.json` pela lista revisada. `validateProducts` em `src/lib/catalog.ts` valida o conjunto no carregamento/build e rejeita IDs/slugs duplicados, campos obrigatórios ausentes e valores comerciais inválidos.
+4. Substituir `src/features/catalog/data/products.json` pela lista revisada. `validateProducts` em `src/features/catalog/lib/catalog.ts` valida o conjunto no carregamento/build e rejeita IDs/slugs duplicados, campos obrigatórios ausentes e valores comerciais inválidos.
 5. Executar `pnpm lint`, `node --experimental-strip-types --test tests/catalog.test.mjs` e `pnpm build`. O teste dos oito nomes é uma proteção temporária do MVP: atualizá-lo para o inventário aprovado nessa fase, mantendo os testes de validação e filtros.
 6. Revisar catálogo, paginação e detalhes no export estático antes de publicar. Reverter o JSON e reconstruir para voltar ao inventário anterior.
 

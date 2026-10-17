@@ -16,7 +16,7 @@ import {
   categories,
   type CategorySlug,
   type Product,
-} from "@/lib/catalog";
+} from "@/features/catalog/lib/catalog";
 import { ProductCard } from "./product-card";
 
 const PAGE_SIZE = 12;

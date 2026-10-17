@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { CategoryDiscovery } from "@/components/category-discovery";
-import { Reveal } from "@/components/reveal";
+import { CategoryDiscovery } from "@/features/catalog/components/category-discovery";
+import { Reveal } from "@/features/catalog/components/reveal";
 import Image from "next/image";
-import { ProductCard } from "@/components/product-card";
-import { products } from "@/lib/catalog";
+import { ProductCard } from "@/features/catalog/components/product-card";
+import { products } from "@/features/catalog/lib/catalog";
 
 export default function Home() {
   return (

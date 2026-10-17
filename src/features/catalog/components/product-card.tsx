@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
-import { formatPrice, type Product } from "@/lib/catalog";
+import { formatPrice, type Product } from "@/features/catalog/lib/catalog";
 import { ProductArt } from "./product-art";
 
 export function ProductCard({

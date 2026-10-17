@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { categories } from "@/lib/catalog";
+import { categories } from "@/features/catalog/lib/catalog";
 import { Reveal } from "./reveal";
 
 const categoryIntroductions = {
