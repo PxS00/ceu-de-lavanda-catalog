@@ -59,11 +59,22 @@ test.describe("delicate catalog motion", () => {
   });
 
   test("filter opacity updates immediately and cancels when reduced motion is enabled", async ({ page }) => {
+    await page.addInitScript(() => {
+      const animate = Element.prototype.animate;
+      Element.prototype.animate = function (this: Element, ...args: Parameters<Element["animate"]>) {
+        const animation = animate.apply(this, args);
+        if (this instanceof HTMLElement && this.matches(".catalog-results") && animation.effect?.getTiming().duration === 180) {
+          this.dataset.filterAnimationCount = String(Number(this.dataset.filterAnimationCount ?? 0) + 1);
+        }
+        return animation;
+      };
+    });
     await page.goto("/catalogo/");
     const results = page.locator(".catalog-results");
+    const previousAnimationCount = Number(await results.getAttribute("data-filter-animation-count") ?? 0);
     await page.getByRole("searchbox").fill("rosas");
     await expect(page.getByRole("status")).toHaveText("34 fragrâncias");
-    await expect.poll(() => results.evaluate((element) => element.getAnimations().some((animation) => animation.effect?.getTiming().duration === 180))).toBe(true);
+    await expect.poll(() => results.getAttribute("data-filter-animation-count").then(Number)).toBeGreaterThan(previousAnimationCount);
     await page.emulateMedia({ reducedMotion: "reduce" });
     await expect.poll(() => results.evaluate((element) => element.getAnimations().length)).toBe(0);
     await page.getByRole("searchbox").fill("inexistente");
