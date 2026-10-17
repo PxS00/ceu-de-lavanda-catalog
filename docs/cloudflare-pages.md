@@ -101,6 +101,24 @@ Para reverter o endereço estável desse projeto, use **Workers & Pages → proj
 
 Prévias de branches não oferecem o mesmo rollback de produção: para atualizá-las, gere o código da versão desejada em um checkout separado e publique novamente com a mesma branch. Isso evita descartar alterações locais.
 
+## Primeira versão publicada e verificada
+
+- Data: 17/10/2026.
+- Projeto isolado: `ceu-de-lavanda-preview`, criado após confirmar que não existia na única conta disponível.
+- Endereço estável: <https://ceu-de-lavanda-preview.pages.dev/>.
+- Implantação imutável: <https://a1e1b873.ceu-de-lavanda-preview.pages.dev/>.
+- ID: `a1e1b873-8a2f-421d-9fec-a1a243820bc4`.
+- Código publicado: commit `7d3a0a1`; branch de implantação: `test`.
+- Build local: Node `24.21.0`, pnpm `12.14.0`, `pnpm build`, saída `out/`; 100 arquivos enviados.
+- Lint, TypeScript, unitários e 33 testes Playwright passaram antes da publicação.
+- No endereço público, o verificador confirmou 13 rotas, acesso direto e recarregamento em desktop/celular, arquivos, busca, iniciais, ordenação, reset, navegação por categoria, ausência de overflow e 404 da marca.
+- `robots.txt` e os endereços inexistentes na raiz, em categorias e em produtos foram conferidos por HTTP no contexto do navegador; o cabeçalho `noindex` está presente.
+- Entrada dos cartões, movimento da seta com foco pelo teclado, redução de movimento e navegação por um único toque também passaram no endereço público.
+
+O relatório público e as capturas estão em `artifacts/visual-review/pages-hosting/`, fora do versionamento. Clientes Python `urllib` com seu agente padrão receberam 403/1010 da proteção da Cloudflare; a validação passou no Chromium e no contexto HTTP do navegador, sem mudar configurações de segurança.
+
+Não houve alteração de DNS, domínio, plano pago, integração Git, push ou merge. Esta é a primeira implantação do projeto; ainda não há versão anterior para rollback.
+
 ## Referências
 
 - [Next.js estático no Pages](https://developers.cloudflare.com/pages/framework-guides/nextjs/deploy-a-static-nextjs-site/)
