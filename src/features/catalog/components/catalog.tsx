@@ -1,15 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import {
-  ArrowLeft,
-  ArrowRight,
-  ArrowUpRight,
-  Search,
-  SlidersHorizontal,
-} from "lucide-react";
 import { Reveal, useReveal } from "@/components/reveal";
-import Link from "next/link";
 import {
   filterProducts,
   normalize,
@@ -18,8 +10,12 @@ import {
   type Product,
 } from "@/features/catalog/lib/catalog";
 import { ProductCard } from "./product-card";
+import { CatalogFilters, type CatalogFilterState } from "./catalog-filters";
+import { CatalogEmptyState } from "./catalog-empty-state";
+import { CatalogPagination } from "./catalog-pagination";
 
 const PAGE_SIZE = 12;
+const DEFAULT_FILTERS = { query: "", initial: "", sort: "az" };
 
 export function Catalog({
   products,
@@ -28,9 +24,8 @@ export function Catalog({
   products: Product[];
   category?: CategorySlug | "";
 }) {
-  const [query, setQuery] = useState("");
-  const [initial, setInitial] = useState("");
-  const [sort, setSort] = useState("az");
+  const [filters, setFilters] = useState(DEFAULT_FILTERS);
+  const { query, initial, sort } = filters;
   const [page, setPage] = useState(1);
   const filtered = filterProducts(products, query, initial, sort, category);
   const categoryName = categories.find((item) => item.slug === category)?.name;
@@ -59,10 +54,13 @@ export function Catalog({
       motion.removeEventListener("change", stop);
     };
   }, [query, initial, sort, page, category, grid]);
+  function updateFilters(changes: Partial<CatalogFilterState>) {
+    setFilters((current) => ({ ...current, ...changes }));
+    setPage(1);
+  }
+
   function reset() {
-    setQuery("");
-    setInitial("");
-    setSort("az");
+    setFilters(DEFAULT_FILTERS);
     setPage(1);
   }
 
@@ -81,84 +79,14 @@ export function Catalog({
         </h1>
         <p>Encontre a sua próxima descoberta.</p>
       </Reveal>
-      <nav className="category-filters" aria-label="Categorias comerciais">
-        <Link href="/catalogo/" aria-current={!category ? "page" : undefined}>
-          Todas as categorias
-        </Link>
-        {categories.map((item) => (
-          <Link
-            href={`/catalogo/${item.slug}/`}
-            key={item.slug}
-            aria-current={category === item.slug ? "page" : undefined}
-          >
-            {item.name}
-          </Link>
-        ))}
-      </nav>
-      <div className="catalog-toolbar">
-        <label className="search-field">
-          <Search aria-hidden="true" />
-          <span className="sr-only">Buscar fragrância pelo nome</span>
-          <input
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-              setPage(1);
-            }}
-            placeholder="Qual nome você procura?"
-            type="search"
-          />
-        </label>
-        <label className="sort-label">
-          <span className="sort-caption"><SlidersHorizontal aria-hidden="true" /> Ordenar por</span>
-          <select
-            value={sort}
-            onChange={(e) => {
-              setSort(e.target.value);
-              setPage(1);
-            }}
-          >
-            <option value="az">Nome: A–Z</option>
-            <option value="za">Nome: Z–A</option>
-          </select>
-        </label>
-      </div>
-      <div className="filter-row">
-        <div
-          className="initial-filters"
-          role="group"
-          aria-label="Filtrar pela inicial"
-        >
-          <button
-            className={!initial ? "active" : ""}
-            aria-pressed={!initial}
-            onClick={() => {
-              setInitial("");
-              setPage(1);
-            }}
-          >
-            Todos os nomes
-          </button>
-          {initials.map((letter) => (
-            <button
-              key={letter}
-              className={initial === letter ? "active" : ""}
-              aria-pressed={initial === letter}
-              onClick={() => {
-                setInitial(letter);
-                setPage(1);
-              }}
-            >
-              {letter}
-            </button>
-          ))}
-        </div>
-        <p className="result-count" role="status">
-          {categoryPending
-            ? "Cadastro em preparação"
-            : `${filtered.length} ${filtered.length === 1 ? "fragrância" : "fragrâncias"}`}
-        </p>
-      </div>
+      <CatalogFilters
+        value={filters}
+        onChange={updateFilters}
+        category={category}
+        categoryPending={categoryPending}
+        initials={initials}
+        count={filtered.length}
+      />
       <div className="catalog-results" ref={grid}>
         {filtered.length ? (
           <div className="product-grid">
@@ -167,46 +95,14 @@ export function Catalog({
             ))}
           </div>
         ) : (
-          <div className="empty-state">
-            <span className="lavender-mark" aria-hidden="true" />
-            <h3>
-              {categoryPending
-                ? "Uma nova descoberta está por vir."
-                : "Nenhum nome por aqui."}
-            </h3>
-            <p>
-              {categoryPending
-                ? `Os produtos de ${categoryName} ainda estão sendo cadastrados. Explore os nomes já confirmados na coleção.`
-                : "Tente outra busca ou explore a coleção completa."}
-            </p>
-            {categoryPending ? (
-              <Link className="button" href="/catalogo/">
-                Ver toda a coleção <ArrowUpRight aria-hidden="true" />
-              </Link>
-            ) : (
-              <button className="button" onClick={reset}>
-                Limpar filtros <ArrowUpRight aria-hidden="true" />
-              </button>
-            )}
-          </div>
+          <CatalogEmptyState
+            categoryPending={categoryPending}
+            categoryName={categoryName}
+            onReset={reset}
+          />
         )}
       </div>
-      {pageCount > 1 && (
-        <nav className="pagination" aria-label="Páginas do catálogo">
-          <button disabled={page === 1} onClick={() => setPage(page - 1)}>
-            <ArrowLeft aria-hidden="true" /> Anterior
-          </button>
-          <span aria-live="polite">
-            {page} de {pageCount}
-          </span>
-          <button
-            disabled={page === pageCount}
-            onClick={() => setPage(page + 1)}
-          >
-            Próxima <ArrowRight aria-hidden="true" />
-          </button>
-        </nav>
-      )}
+      <CatalogPagination page={page} pageCount={pageCount} onPageChange={setPage} />
     </section>
   );
 }
