@@ -20,11 +20,17 @@ export default defineConfig({
     { name: "tablet", use: { viewport: { width: 768, height: 1024 } } },
     { name: "mobile", use: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true } },
   ],
-  webServer: {
+  webServer: [{
     command: "pnpm build && python3 -m http.server 4173 --bind 127.0.0.1 --directory out",
     url: "http://127.0.0.1:4173",
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
     stderr: "ignore",
-  },
+  }, {
+    command: "node tests/fixtures/serve-catalog.mjs",
+    url: "http://127.0.0.1:4174",
+    reuseExistingServer: false,
+    timeout: 180_000,
+    stderr: "pipe",
+  }],
 });

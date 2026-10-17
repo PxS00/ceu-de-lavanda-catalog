@@ -26,7 +26,7 @@ export default class ReviewReport implements Reporter {
       `Generated: ${new Date().toISOString()} · Overall: **${result.status}**`,
       "Checks: full-page captures, horizontal overflow, console/page errors, failed requests, HTTP errors, image decoding, search, initial filters, sorting, category routes, product navigation and keyboard navigation.",
       "UI issues: failures below identify automated findings. Passing checks do not establish visual approval or a complete accessibility audit.",
-      "Limits: screenshots are review artifacts, not pixel-baseline comparisons. Reduced motion stabilizes captures; animation appearance requires manual review. Eight verified products do not activate pagination; no inventory was fabricated. Category pages intentionally display registration fallbacks. Python's local static server does not reproduce Cloudflare security headers or custom 404 routing.",
+      "Limits: screenshots are review artifacts, not pixel-baseline comparisons. Reduced motion stabilizes captures; animation appearance requires manual review. Production retains eight verified products and category registration fallbacks. Scalability scenarios use a separate temporary static export with 101 synthetic products, never production data. Python's local static server does not reproduce Cloudflare security headers or custom 404 routing.",
       ...this.results,
     ].join("\n\n"));
   }

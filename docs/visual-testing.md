@@ -8,7 +8,7 @@ pnpm test:e2e
 pnpm test:visual
 ```
 
-Both commands currently run the four visual/functional scenarios across Chromium
+Both commands run the visual/functional scenarios across Chromium
 desktop (1440×900), tablet (768×1024), and mobile (390×844). The visual command
 selects scenarios tagged `@visual`. Captures are full-page review images, not
 pixel-baseline assertions.
@@ -31,8 +31,19 @@ navigation assertions cover catalog/product/category links and the header.
 
 Reduced motion is enabled for repeatable captures. Open screenshots for visual
 approval; these checks do not replace a full accessibility audit or motion review.
-The eight verified products do not activate pagination, so the browser suite
-checks that pagination stays hidden. Category registration fallbacks are expected.
+The eight verified products do not activate pagination, so production checks
+assert that pagination stays hidden. Category registration fallbacks are expected.
+
+`pnpm test:e2e` also tests a separate static export with 101 synthetic products
+(90 perfumes, 10 body splashes and one hair perfume) on loopback port 4174.
+`tests/fixtures/serve-catalog.mjs` copies the app into a temporary directory,
+replaces only that copy's data, builds it with Webpack and removes it on exit.
+Production source data and `out/` are never replaced. No extra dependency is needed.
+These tests visit all nine pages, check pagination boundaries and page resets,
+combine categories and initials, search Portuguese accents, sort, show empty
+results and reset filters while retaining the selected category. They run at
+all three viewport sizes and capture populated catalog layouts. The fixture
+server also starts for visual-only runs, but scalability scenarios are untagged.
 Python's static server does not emulate Cloudflare response headers or its custom
 404 handling; existing security/dependency policies remain unchanged.
 

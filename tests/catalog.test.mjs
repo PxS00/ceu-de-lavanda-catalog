@@ -1,5 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { syntheticProducts } from "./fixtures/products.mjs";
 import {
   products,
   validateProducts,
@@ -7,6 +8,25 @@ import {
   formatPrice,
   categories,
 } from "../src/lib/catalog.ts";
+
+test("101-product fixture validates and filters Portuguese names without mutation", () => {
+  const original = structuredClone(syntheticProducts);
+  validateProducts(syntheticProducts);
+  assert.equal(syntheticProducts.length, 101);
+  assert.deepEqual(categories.map(({ slug }) =>
+    filterProducts(syntheticProducts, "", "", "az", slug).length), [90, 10, 1]);
+  for (const query of ["  AGUA DE ROSAS ", "Água de Rosas", "a\u0301gua de rosas"]) {
+    const matches = filterProducts(syntheticProducts, query, "A", "az", "perfumes");
+    assert.equal(matches.length, 30);
+    assert.equal(matches[0].name, "Água de Rosas 001");
+    assert.equal(matches.at(-1).name, "Água de Rosas 088");
+  }
+  assert.equal(filterProducts(syntheticProducts, "verao", "B", "za", "body-splash")[0].name, "Brisa de Verão 098");
+  assert.equal(filterProducts(syntheticProducts, "acucar", "C", "az").length, 33);
+  assert.equal(filterProducts(syntheticProducts, "rosas", "B", "az").length, 0);
+  assert.equal(filterProducts(syntheticProducts, "inexistente", "", "az").length, 0);
+  assert.deepEqual(syntheticProducts, original);
+});
 
 test("only the eight verified names are registered, with no invented details", () => {
   assert.equal(products.length, 8);

@@ -30,10 +30,6 @@ export default function RootLayout({
         <a className="skip-link" href="#conteudo">
           Pular para o conteúdo
         </a>
-        <div className="announcement">
-          Um universo de fragrâncias para descobrir{" "}
-          <span className="lavender-mark" aria-hidden="true" />
-        </div>
         <SiteHeader />
         {children}
         <footer className="site-footer">

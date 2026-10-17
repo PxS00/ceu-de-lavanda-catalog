@@ -88,18 +88,6 @@ button:disabled {
   width: min(1240px, calc(100% - 112px));
   margin-inline: auto;
 }
-.announcement {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: var(--background);
-  border-top: 3px solid var(--accent);
-  text-align: center;
-  font-size: var(--text-small);
-  letter-spacing: 0.02em;
-  padding: 5px 16px;
-}
 .lucide {
   width: 18px;
   height: 18px;
@@ -114,10 +102,6 @@ button:disabled {
   flex-shrink: 0;
   background-color: var(--foreground);
   mask: url("/branding/lavender-ornament-gold.svg") center / contain no-repeat;
-}
-.announcement .lavender-mark {
-  width: 10px;
-  height: 18px;
 }
 .site-header {
   position: sticky;
@@ -1009,7 +993,7 @@ em {
     right: 16px;
   }
   .collection-preview .product-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .desktop-nav {
     gap: 24px;
