@@ -1,0 +1,94 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--background);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    backdrop-filter 0.3s ease;
+}
+.site-header[data-scrolled="true"] {
+  background: color-mix(in srgb, var(--background) 94%, transparent);
+  /* Keep the standard declaration last so production optimization preserves it. */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-color: var(--border);
+  box-shadow: 0 4px 24px #3b383606;
+}
+.header-inner {
+  min-height: 106px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding-block: 3px;
+}
+.logo img {
+  width: 196px;
+  height: auto;
+}
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  font-size: 0.875rem;
+}
+.desktop-nav a {
+  position: relative;
+  padding: 14px 0;
+}
+.desktop-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 7px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--foreground);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--motion-ease);
+}
+.desktop-nav a:hover::after,
+.desktop-nav a[aria-current]::after {
+  transform: scaleX(1);
+}
+.desktop-nav a[aria-current]::after {
+  background: var(--primary);
+}
+.menu-toggle {
+  display: none;
+}
+@media (max-width: 1050px) {
+  .desktop-nav {
+    gap: 24px;
+  }
+}
+@media (max-width: 760px) {
+  .header-inner {
+    min-height: 86px;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-block: 4px;
+  }
+  .logo img {
+    width: 146px;
+  }
+  .site-header .desktop-nav {
+    display: none;
+    gap: 24px;
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 8px;
+  }
+  .site-header .menu-toggle {
+    display: inline-flex;
+  }
+}

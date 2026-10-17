@@ -3,10 +3,13 @@ import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 
-const css = readFileSync(
-  new URL("../src/app/globals.css", import.meta.url),
-  "utf8",
-);
+function readStylesheet(url) {
+  return readFileSync(url, "utf8").replace(
+    /@import "([^"]+)";/g,
+    (_, path) => readStylesheet(new URL(path, url)),
+  );
+}
+const css = readStylesheet(new URL("../src/app/globals.css", import.meta.url));
 const tokens = Object.fromEntries(
   [...css.slice(0, css.indexOf("\n}")).matchAll(/(--[\w-]+):\s*([^;]+);/g)].map(
     ([, key, value]) => [key, value.trim()],

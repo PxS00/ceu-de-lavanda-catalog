@@ -14,7 +14,7 @@ Revisão em 16/10/2026. Fonte visual: manual oficial em `.local/brand/MANUAL DE 
 | `#BEAAD4`   | `--color-lavender` → `--accent`, `--selected-background`              | Símbolo oficial, seleção de filtros e detalhes dos cartões. |
 | `#D9C9E8`   | `--color-lavender-light` → `--surface-accent`, `--action-hover`       | Painel do início, anúncio e estados de interação.           |
 
-Auxiliares: `--muted: #746D76` apenas sobre papel; `--border: #E5DFE8` apenas em divisores não essenciais. Controles usam `--control-border`, de contraste mais alto. Valores de marca são declarados uma única vez em `src/app/globals.css`; componentes usam papéis semânticos.
+Auxiliares: `--muted: #746D76` apenas sobre papel; `--border: #E5DFE8` apenas em divisores não essenciais. Controles usam `--control-border`, de contraste mais alto. Valores de marca são declarados uma única vez em `src/styles/tokens.css`; componentes usam papéis semânticos.
 
 Contrastes WCAG calculados: tinta/papel **11,03:1**, secundário/papel **4,75:1**, tinta/lavanda **5,48:1**, tinta/lavanda clara **7,46:1**, tinta/quente **7,39:1**, tinta/dourado claro **7,54:1**. Dourado principal não serve para texto pequeno: tinta/dourado é **3,87:1**. Por isso ele fica restrito a ornamentos; botões usam tinta e papel. O rodapé inverte o foco para papel. Texto comum mantém pelo menos 4,5:1; limites de controles e foco, 3:1. Os SVGs institucionais preservam suas cores mesmo quando decorativos; não comunicam status por cor.
 
@@ -46,7 +46,7 @@ Para integrar as fontes oficiais: obter comprovante de licença cobrindo o domí
 
 ### Alternativas livres e configuração central
 
-O usuário autorizou alternativas gratuitas OFL enquanto as licenças oficiais não forem confirmadas. `src/app/typography.ts` centraliza duas chamadas de `next/font/local`, com `display: "swap"`, preloads locais e fallback com métricas ajustadas. `--font-heading` e `--font-decorative` em `globals.css` definem os papéis; a futura substituição não exige editar os componentes.
+O usuário autorizou alternativas gratuitas OFL enquanto as licenças oficiais não forem confirmadas. `src/app/typography.ts` centraliza duas chamadas de `next/font/local`, com `display: "swap"`, preloads locais e fallback com métricas ajustadas. `--font-heading` e `--font-decorative` em `src/styles/tokens.css` definem os papéis; a futura substituição não exige editar os componentes.
 
 | Papel                                  | Alternativa atual               | Fonte e licença                                                                                                                     |
 | -------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,0 +1,42 @@
+:root {
+  /* Official palette — manual de marca, page 9. */
+  --color-gold: #bd8c40;
+  --color-gold-light: #edcc8a;
+  --color-ink: #3b3836;
+  --color-warm: #eac8a9;
+  --color-paper: #fff8ee;
+  --color-lavender: #beaad4;
+  --color-lavender-light: #d9c9e8;
+
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+  --primary: var(--color-gold);
+  --accent: var(--color-lavender);
+  --surface-accent: var(--color-lavender-light);
+  --surface-warm: var(--color-warm);
+  --surface-highlight: var(--color-gold-light);
+  --muted: #746d76;
+  /* Lavender mixed with graphite to preserve AA text contrast on ivory. */
+  --text-accent: #766b7d;
+  --border: #e5dfe8;
+  --control-border: var(--muted);
+  --action-background: var(--color-ink);
+  --action-foreground: var(--color-paper);
+  --action-hover: var(--color-lavender-light);
+  --selected-background: var(--color-lavender);
+  --selected-foreground: var(--color-ink);
+  --focus-ring: var(--color-ink);
+
+  /* OFL substitutes are configured centrally in typography.ts. */
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-heading: var(--font-editorial), Georgia, "Times New Roman", serif;
+  --font-decorative: var(--font-script), Georgia, serif;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --text-display: clamp(2.75rem, 5vw, 4.5rem);
+  --text-heading: clamp(2rem, 3.5vw, 3rem);
+  --text-product: 1.375rem;
+  --text-price: 0.875rem;
+  --text-body: 1rem;
+  --text-small: 0.8125rem;
+  --text-label: 0.75rem;
+}

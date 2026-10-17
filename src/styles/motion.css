@@ -1,0 +1,58 @@
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.is-revealed {
+  animation: reveal-in 0.65s var(--motion-ease) var(--reveal-delay, 0ms)
+    backwards;
+}
+.is-revealed:focus-within {
+  animation: none;
+}
+@keyframes card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.product-card.is-revealed {
+  animation-name: card-reveal;
+  animation-duration: 280ms;
+}
+.product-card.is-revealed:focus-within {
+  animation: none;
+}
+.hero-art.is-revealed {
+  --reveal-delay: 100ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .category-card:hover,
+  .category-card:hover img,
+  .product-card:hover,
+  .product-card:hover .product-art img,
+  .button:hover .lucide,
+  .text-link:hover .lucide,
+  .product-card:hover .product-card-title > .lucide,
+  .product-card:focus-visible .product-card-title > .lucide {
+    transform: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

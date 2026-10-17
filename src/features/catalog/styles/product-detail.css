@@ -1,0 +1,103 @@
+.breadcrumbs {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: var(--text-small);
+  color: var(--muted);
+  padding-block: 28px;
+}
+.breadcrumbs a {
+  padding-block: 8px;
+}
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  padding-block: 16px 72px;
+}
+.product-detail .product-art {
+  aspect-ratio: 1 / 1.1;
+  border-bottom: 1px solid var(--accent);
+}
+.product-detail .product-art > img:not([data-nimg="fill"]) {
+  width: 112px;
+  height: auto;
+}
+.product-detail .product-art:not(.has-photo) {
+  aspect-ratio: 1 / 0.9;
+}
+.detail-copy h1 {
+  font-size: var(--text-display);
+  margin-block: 20px;
+  overflow-wrap: anywhere;
+}
+.detail-price {
+  margin-block: 28px;
+}
+.detail-copy dl {
+  border-top: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+.detail-copy dl > div {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  padding-block: 18px;
+  font-size: var(--text-small);
+}
+.detail-copy dd {
+  margin: 0;
+  color: var(--muted);
+  text-align: right;
+}
+.detail-note {
+  padding: 20px 24px;
+  border-left: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--background) 88%, var(--surface-accent));
+  font-size: var(--text-small);
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+.detail-note h2 {
+  font-size: 1.5rem;
+  color: var(--foreground);
+  margin-bottom: 10px;
+}
+.detail-note p:last-child {
+  margin-bottom: 0;
+}
+.detail-copy dd a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (max-width: 1050px) {
+  .product-detail {
+    gap: 32px;
+  }
+}
+@media (max-width: 760px) {
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 48px;
+  }
+  .product-detail .product-art {
+    max-height: 480px;
+  }
+  .product-detail .product-art:not(.has-photo) {
+    aspect-ratio: 1 / 0.75;
+  }
+  .detail-copy dl > div {
+    gap: 16px;
+    padding-block: 14px;
+  }
+  .detail-note {
+    padding: 18px;
+  }
+  .product-detail .product-art > img:not([data-nimg="fill"]) {
+    width: 112px;
+  }
+}

@@ -1,0 +1,80 @@
+.catalog {
+  --catalog-control-border: color-mix(in srgb, var(--control-border) 80%, var(--background));
+  padding-block: 32px 56px;
+}
+.catalog-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px 24px;
+  margin-bottom: 24px;
+}
+.catalog-heading h1 {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  line-height: 1.2;
+  margin: 0;
+}
+.catalog-heading .category-title {
+  font-family: var(--font-decorative);
+  color: var(--text-accent);
+}
+.catalog-heading p {
+  font-size: var(--text-small);
+  color: var(--muted);
+  margin: 0;
+}
+.empty-state {
+  text-align: center;
+  padding-block: 64px;
+}
+.empty-state > .lavender-mark {
+  width: 24px;
+  height: 44px;
+}
+.empty-state h3 {
+  font-size: var(--text-heading);
+  margin-block: 18px;
+}
+.empty-state p {
+  color: var(--muted);
+}
+.empty-state .button {
+  margin-top: 12px;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 40px;
+  font-size: var(--text-small);
+}
+.pagination button {
+  min-height: 44px;
+  border: 1px solid var(--control-border);
+  padding: 10px 12px;
+  background: var(--background);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.pagination button:hover:enabled {
+  background: var(--surface-accent);
+}
+@media (max-width: 760px) {
+  .catalog {
+    padding-block: 24px 40px;
+  }
+  .catalog-heading {
+    display: block;
+    margin-bottom: 20px;
+  }
+  .catalog-heading p {
+    margin-top: 8px;
+  }
+}
+@media (max-width: 360px) {
+  .pagination {
+    gap: 12px;
+  }
+}

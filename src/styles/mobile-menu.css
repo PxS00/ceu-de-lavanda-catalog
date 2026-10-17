@@ -1,0 +1,99 @@
+.mobile-menu {
+  position: fixed;
+  inset: 0 0 0 auto;
+  margin: 0;
+  width: min(420px, 100%);
+  max-width: 100%;
+  height: 100dvh;
+  max-height: 100dvh;
+  border: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+  opacity: 0;
+  transform: translateX(24px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.3s var(--motion-ease),
+    display 0.3s allow-discrete,
+    overlay 0.3s allow-discrete;
+}
+.mobile-menu[open] {
+  opacity: 1;
+  transform: translateX(0);
+}
+.mobile-menu::backdrop {
+  background: #3b383666;
+  opacity: 0;
+  transition:
+    opacity 0.3s,
+    display 0.3s allow-discrete,
+    overlay 0.3s allow-discrete;
+}
+.mobile-menu[open]::backdrop {
+  opacity: 1;
+}
+@starting-style {
+  .mobile-menu[open] {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  .mobile-menu[open]::backdrop {
+    opacity: 0;
+  }
+}
+html:has(.mobile-menu[open]) {
+  overflow: hidden;
+}
+.menu-panel {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 28px 36px;
+}
+.menu-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.menu-top .eyebrow {
+  margin: 0;
+}
+.mobile-menu nav {
+  display: grid;
+  gap: 4px;
+}
+.mobile-menu nav a {
+  padding-block: 16px;
+  border-bottom: 1px solid var(--border);
+  font: 400 1.8rem/1.4 var(--font-heading);
+  transition: padding-left 0.25s var(--motion-ease);
+}
+.mobile-menu nav a:hover {
+  padding-left: 8px;
+}
+.mobile-menu nav a[aria-current] {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 8px;
+}
+.menu-bottom {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-block: 40px;
+  margin-top: auto;
+}
+.menu-bottom img {
+  width: 44px;
+  height: auto;
+}
+.menu-bottom p {
+  font: 400 1.4rem/1.5 var(--font-heading);
+  margin: 0;
+}
+.menu-panel .text-link {
+  align-self: flex-start;
+}

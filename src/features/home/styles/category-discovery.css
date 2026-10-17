@@ -1,0 +1,107 @@
+.category-discovery {
+  padding-block: 52px 40px;
+}
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.category-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--background) 88%, var(--surface-accent));
+  transition: transform 0.35s var(--motion-ease), border-color 0.25s;
+}
+.category-art {
+  position: absolute;
+  top: 26px;
+  right: 24px;
+}
+.category-art img {
+  width: 30px;
+  height: auto;
+}
+.category-card-title {
+  padding-right: 38px;
+  margin-bottom: 12px;
+}
+.category-card h3 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+.category-count {
+  font-size: var(--text-small);
+  color: var(--text-accent);
+  margin-bottom: 16px;
+}
+.category-description {
+  font-size: var(--text-small);
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 30ch;
+}
+.category-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: var(--text-small);
+}
+.category-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--control-border);
+}
+@media (max-width: 1050px) {
+  .category-grid {
+    gap: 16px;
+  }
+  .category-card {
+    padding: 24px 18px;
+  }
+  .category-card h3 {
+    font-size: 1.7rem;
+  }
+  .category-art {
+    right: 16px;
+  }
+}
+@media (max-width: 760px) {
+  .category-discovery {
+    padding-block: 32px 24px;
+  }
+  .category-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .category-card {
+    padding: 20px;
+  }
+  .category-card h3 {
+    font-size: 1.8rem;
+  }
+  .category-art {
+    top: 20px;
+    right: 20px;
+  }
+  .category-card-title, .category-count {
+    margin-bottom: 8px;
+  }
+  .category-description {
+    max-width: none;
+    margin-bottom: 16px;
+  }
+  .category-link {
+    min-height: 44px;
+    padding-top: 8px;
+  }
+}

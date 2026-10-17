@@ -1,0 +1,93 @@
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.category-filters a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 9px 14px;
+  border: 1px solid var(--catalog-control-border);
+  border-radius: 6px;
+  font-size: var(--text-small);
+  transition: background 0.2s;
+}
+.category-filters a[aria-current] {
+  color: var(--selected-foreground);
+  background: var(--selected-background);
+  border-color: var(--foreground);
+}
+.category-filters a:hover:not([aria-current]) {
+  background: var(--surface-accent);
+}
+.filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-block: 16px 20px;
+}
+.initial-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.initial-filters button {
+  background: var(--background);
+  border: 1px solid var(--catalog-control-border);
+  border-radius: 6px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 9px 12px;
+  font-size: var(--text-small);
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+.initial-filters button.active {
+  border-color: var(--foreground);
+  background: var(--selected-background);
+  color: var(--selected-foreground);
+}
+.initial-filters button:hover:not(.active) {
+  background: var(--surface-accent);
+}
+.result-count {
+  font-size: var(--text-small);
+  color: var(--muted);
+  white-space: nowrap;
+  margin: 0;
+}
+@media (max-width: 760px) {
+  .category-filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .category-filters a {
+    justify-content: center;
+    text-align: center;
+    padding-inline: 8px;
+  }
+  .initial-filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
+    width: 100%;
+    gap: 6px;
+  }
+  .initial-filters button:first-child {
+    grid-column: 1 / -1;
+  }
+  .initial-filters button {
+    padding-inline: 10px;
+  }
+  .filter-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
