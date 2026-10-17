@@ -4,13 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Menu, X } from "lucide-react";
-
-const navigation = [
-  { href: "/", label: "Início" },
-  { href: "/catalogo/", label: "Catálogo" },
-  { href: "/#sobre", label: "Sobre a marca" },
-];
+import { Menu } from "lucide-react";
+import { MobileMenu } from "./mobile-menu";
+import { SiteNavigation } from "./site-navigation";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -57,36 +53,9 @@ export function SiteHeader() {
   function closeMenu() {
     dialog.current?.close();
   }
-  function links() {
-    return navigation.map(({ href, label }) => {
-      const about = pathname === "/" && hash === "#sobre";
-      const active =
-        href === "/#sobre"
-          ? about
-          : href === "/"
-            ? pathname === "/" && !about
-            : pathname.startsWith("/catalogo") ||
-              pathname.startsWith("/produtos/");
-      return (
-        <Link
-          href={href}
-          key={href}
-          aria-current={
-            active
-              ? href === "/catalogo/" && pathname.startsWith("/produtos/")
-                ? "location"
-                : "page"
-              : undefined
-          }
-          onClick={() => {
-            setHash(href.includes("#") ? "#sobre" : "");
-            closeMenu();
-          }}
-        >
-          {label}
-        </Link>
-      );
-    });
+  function navigate(href: string) {
+    setHash(href.includes("#") ? "#sobre" : "");
+    closeMenu();
   }
 
   return (
@@ -113,7 +82,7 @@ export function SiteHeader() {
           />
         </Link>
         <nav className="desktop-nav" aria-label="Navegação principal">
-          {links()}
+          <SiteNavigation pathname={pathname} hash={hash} onNavigate={navigate} />
         </nav>
         <button
           className="menu-toggle icon-button"
@@ -129,49 +98,13 @@ export function SiteHeader() {
           <Menu aria-hidden="true" />
         </button>
       </div>
-      <dialog
-        id="mobile-menu"
-        className="mobile-menu"
-        ref={dialog}
-        aria-labelledby="menu-title"
+      <MobileMenu
+        dialog={dialog}
         onClose={() => setOpen(false)}
-        onClick={(e) => {
-          if (e.target === e.currentTarget) closeMenu();
-        }}
-      >
-        <div className="menu-panel">
-          <div className="menu-top">
-            <span className="eyebrow" id="menu-title">
-              CÉU DE LAVANDA
-            </span>
-            <button
-              className="icon-button"
-              aria-label="Fechar navegação"
-              onClick={closeMenu}
-              autoFocus
-            >
-              <X aria-hidden="true" />
-            </button>
-          </div>
-          <nav aria-label="Navegação móvel">{links()}</nav>
-          <div className="menu-bottom">
-            <Image
-              src="/brand/emblem.svg"
-              alt=""
-              width={111.56}
-              height={176.35}
-            />
-            <p>
-              Uma descoberta
-              <br />
-              <em>de cada vez.</em>
-            </p>
-          </div>
-          <Link className="text-link" href="/catalogo/" onClick={closeMenu}>
-            Explorar a coleção <ArrowUpRight aria-hidden="true" />
-          </Link>
-        </div>
-      </dialog>
+        pathname={pathname}
+        hash={hash}
+        onNavigate={navigate}
+      />
     </header>
   );
 }
