@@ -28,9 +28,17 @@ The shared fixture fails tests on console errors, uncaught browser exceptions,
 failed requests (except navigation cancellation), and HTTP errors. Review checkpoints
 also assert decoded images and no horizontal document overflow. Native Playwright
 navigation assertions cover catalog/product/category links and the header.
+`composition.spec.ts` checks a single heading, early results, all category links,
+44px touch targets, keyboard focus through the controls and no horizontal overflow
+on the catalog and each category page at all three viewport sizes.
 
 Reduced motion is enabled for repeatable captures. Open screenshots for visual
 approval; these checks do not replace a full accessibility audit or motion review.
+`motion.spec.ts` explicitly enables motion to verify the 3% photo-only zoom,
+static placeholders, arrow focus, one-time card entry and immediate filter fade.
+It also checks keyboard activation, navigation with a single touch, and disabling
+motion both on initial load and while the page is open. Its raster image is
+generated only inside the temporary test export; production retains placeholders.
 The eight verified products do not activate pagination, so production checks
 assert that pagination stays hidden. Category registration fallbacks are expected.
 
