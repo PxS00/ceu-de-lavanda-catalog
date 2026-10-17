@@ -1,29 +1,35 @@
-# Céu de Lavanda · Catálogo MVP
+# Céu de Lavanda
 
-Catálogo em português com oito nomes confirmados, início, busca, filtros por inicial, ordenação, paginação e páginas de detalhes. Dados ausentes têm estados explícitos; não há compra ou estoque presumido.
+**Catálogo digital da empresa Céu de Lavanda.**
 
-## Executar
+Um espaço para apresentar a coleção da marca e facilitar a descoberta de fragrâncias, com uma experiência delicada, organizada e acessível em celulares, tablets e computadores.
 
-Usar as versões de Node e pnpm registradas em `.tool-versions` e `package.json`.
+## A coleção
 
-```sh
-pnpm install
-pnpm dev
-```
+O catálogo contempla as categorias comerciais da Céu de Lavanda:
 
-## Verificar e gerar
+- **Perfumes**
+- **Body Splash**
+- **Perfume Capilar**
 
-```sh
-pnpm lint
-pnpm typecheck
-pnpm test
-pnpm build
-```
+Cada produto tem uma página dedicada para reunir suas fotografias e informações comerciais conforme forem confirmadas pela empresa.
 
-O export estático fica em `out/`, pronto para hospedagem estática com suporte a `404.html`. Para conferir localmente: `python3 -m http.server 3000 --directory out`. Novos produtos exigem novo build. Não usar `next start` com `output: "export"`.
+## Explore o catálogo
 
-O [contrato de dados e processo de importação](docs/catalog-data.md) descreve campos, validação, imagens aprovadas e publicação do inventário futuro.
+- Navegação por categoria.
+- Busca pelo nome da fragrância, com suporte a acentos.
+- Filtros por inicial e ordenação alfabética.
+- Paginação para percorrer a coleção.
+- Páginas individuais dos produtos.
 
-O [design system e licenciamento](docs/brand-design-system.md) registra a paleta oficial, contraste, SVGs e as fontes oficiais que aguardam licença e as alternativas OFL integradas com `next/font/local`.
+A interface preserva o logo oficial e a paleta da marca, com tipografia editorial, detalhes botânicos e movimentos sutis. A navegação oferece foco visível pelo teclado e respeita a preferência por redução de movimento.
 
-Para Cloudflare Pages: comando de build `pnpm build`, saída `out`, versões de Node e pnpm conforme `.tool-versions` e `package.json`. Sem adaptador, Workers ou fallback SPA. Novos dados exigem novo build. Não há deploy automático configurado neste repositório.
+## Atualização da coleção
+
+O cadastro dos produtos está em andamento. Os nomes já confirmados podem ser consultados enquanto fotografias, descrições, preços, notas olfativas e disponibilidade são preparados e aprovados pela empresa.
+
+Informações pendentes são sinalizadas nas páginas. O site funciona como catálogo de apresentação e consulta, sem finalização de compras online.
+
+---
+
+*Céu de Lavanda · Sinta o toque da lavanda.*
