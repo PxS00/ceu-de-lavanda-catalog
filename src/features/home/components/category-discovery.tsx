@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { categories } from "@/features/catalog/lib/catalog";
-import { Reveal } from "./reveal";
+import { Reveal } from "@/components/reveal";
 
 const categoryIntroductions = {
   perfumes: { count: "Aproximadamente 90 fragrâncias", description: "Um convite para encontrar o seu próximo perfume." },

@@ -8,7 +8,7 @@ import {
   Search,
   SlidersHorizontal,
 } from "lucide-react";
-import { Reveal, useReveal } from "./reveal";
+import { Reveal, useReveal } from "@/components/reveal";
 import Link from "next/link";
 import {
   filterProducts,

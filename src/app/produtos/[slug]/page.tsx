@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
-import { Reveal } from "@/features/catalog/components/reveal";
+import { Reveal } from "@/components/reveal";
 import { notFound } from "next/navigation";
 import { products, formatPrice, categories } from "@/features/catalog/lib/catalog";
 import { ProductArt } from "@/features/catalog/components/product-art";
