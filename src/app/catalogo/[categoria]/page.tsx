@@ -31,10 +31,6 @@ export default async function CategoryPage({
   if (!category) notFound();
   return (
     <main id="conteudo">
-      <div className="catalog-intro wrap">
-        <p className="eyebrow">A COLEÇÃO · CÉU DE LAVANDA</p>
-        <h1 className="category-title">{category.name}</h1>
-      </div>
       <Catalog
         key={category.slug}
         products={products}

@@ -17,7 +17,7 @@ export function ProductCard({
       data-reveal
       style={
         {
-          "--reveal-delay": `${(index % 4) * 60}ms`,
+          "--reveal-delay": `${(index % 4) * 45}ms`,
         } as CSSProperties
       }
       href={`/produtos/${product.slug}/`}

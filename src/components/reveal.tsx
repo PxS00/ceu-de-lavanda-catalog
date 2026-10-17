@@ -12,9 +12,8 @@ export function useReveal(contentKey = "") {
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     )
       return;
-    const elements = root.matches("[data-reveal]")
-      ? [root]
-      : [...root.querySelectorAll<HTMLElement>("[data-reveal]")];
+    const elements = [...root.querySelectorAll<HTMLElement>("[data-reveal]")];
+    if (!elements.length && root.matches("[data-reveal]")) elements.push(root);
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -27,8 +26,7 @@ export function useReveal(contentKey = "") {
       { threshold: 0.08 },
     );
     for (const element of elements) {
-      element.classList.remove("is-revealed");
-      observer.observe(element);
+      if (!element.classList.contains("is-revealed")) observer.observe(element);
     }
     return () => observer.disconnect();
   }, [contentKey]);
