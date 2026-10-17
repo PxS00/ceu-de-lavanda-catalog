@@ -63,7 +63,7 @@ test.describe("delicate catalog motion", () => {
     const results = page.locator(".catalog-results");
     await page.getByRole("searchbox").fill("rosas");
     await expect(page.getByRole("status")).toHaveText("34 fragrâncias");
-    expect(await results.evaluate((element) => element.getAnimations().some((animation) => animation.effect?.getTiming().duration === 180))).toBe(true);
+    await expect.poll(() => results.evaluate((element) => element.getAnimations().some((animation) => animation.effect?.getTiming().duration === 180))).toBe(true);
     await page.emulateMedia({ reducedMotion: "reduce" });
     await expect.poll(() => results.evaluate((element) => element.getAnimations().length)).toBe(0);
     await page.getByRole("searchbox").fill("inexistente");
