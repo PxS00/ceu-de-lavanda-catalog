@@ -7,3 +7,9 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Maintainable components and styles
+
+- Prefer cohesive source files of roughly 150 lines or fewer; split by responsibility, not by arbitrary line counts.
+- Keep feature components and styles under `src/features/<feature>/`; shared components and styles belong in `src/components/` and `src/styles/`.
+- Keep `src/app/globals.css` as the ordered stylesheet entry point, with responsive rules alongside the styles they modify.
