@@ -74,7 +74,7 @@ pnpm build
 pnpm dlx wrangler@4.151.1 pages deploy out --project-name "$PAGES_TEST_PROJECT" --branch test
 ```
 
-`test` foi a branch de produção da implantação inicial. A CI em `.github/workflows/deploy-pages.yml` valida e publica apenas `main`. Configure no GitHub Actions os secrets `CLOUDFLARE_API_TOKEN` (token com Cloudflare Pages: Edit na conta) e `CLOUDFLARE_ACCOUNT_ID`. O projeto de upload direto não pode ser convertido para integração Git do Pages; o workflow publica nele usando Wrangler.
+`test` foi a branch de produção da implantação inicial. A CI em `.github/workflows/deploy-pages.yml` valida `main`, `develop` e pull requests para ambas; publica somente `main`. O projeto de upload direto não pode ser convertido para integração Git do Pages; o workflow publica nele usando Wrangler.
 
 No Wrangler `4.151.1`, `--force` na criação mantém o projeto no Cloudflare Pages clássico: desativa a tentativa de delegar automaticamente projetos novos para Workers. Depois de criado, o projeto é reconhecido como Pages e os uploads não precisam desse sinalizador. Esse comportamento foi conferido no CLI. Confira sempre o destino antes de criar/publicar.
 
@@ -144,9 +144,9 @@ Não houve alteração de DNS, domínio, plano pago, integração Git, push ou m
 
 ## CI para a branch principal
 
-O workflow `.github/workflows/deploy-pages.yml` executa lint, TypeScript, testes unitários e Playwright; depois publica `out/` no projeto `ceu-de-lavanda` quando uma execução de `main` passa. Ele requer os GitHub Actions secrets `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID`. Esses valores não devem ser gravados no repositório.
+O workflow `.github/workflows/deploy-pages.yml` executa lint, TypeScript, testes unitários e Playwright; depois publica `out/` no projeto `ceu-de-lavanda` quando uma execução de `main` passa. O deployment requer os GitHub Actions secrets `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID`. Esses valores não devem ser gravados no repositório.
 
-O GitHub usa `develop` como branch padrão até que a promoção de `develop` para `main` seja concluída. A branch remota `develop` permanece para testes. O Pages deve usar `main` como branch de produção.
+O GitHub usa `main` como branch padrão. `develop` permanece como branch de trabalho e executa os mesmos checks sem publicar. O Pages usa `main` como branch de produção.
 
 Somente esta documentação mudou no repositório. Não houve alteração de DNS, domínio personalizado, plano pago, push ou merge. Não foi repetida a suíte completa de testes do aplicativo, pois o código publicado não mudou; foram executados um novo build e as verificações no endereço público. O catálogo continua público, mas com indexação desaconselhada por cabeçalho; `noindex` não restringe acesso.
 
