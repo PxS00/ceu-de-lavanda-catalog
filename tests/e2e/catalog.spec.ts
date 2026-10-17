@@ -32,7 +32,10 @@ async function review(page: Page, info: TestInfo, name: string) {
 
 test("@visual homepage and category discovery", async ({ page }, info) => {
   await page.goto("/");
-  await expect(page.locator("h1")).toContainText("próximo encanto");
+  await expect(page.locator(".hero h1")).toHaveText("Um encontro com o seu próximo encanto", { useInnerText: true });
+  await expect(page.locator("#category-title")).toHaveText("Uma coleção, três caminhos");
+  await expect(page.locator("#preview-title")).toHaveText("Nomes para despertar a curiosidade");
+  await expect(page.locator(".about h2")).toHaveText("O começo de uma bela descoberta", { useInnerText: true });
   await expect(page.locator(".phrase-strip p")).toHaveText(["Presença nos detalhes", "Beleza em cada descoberta", "O seu próximo encanto"]);
   await expect(page.locator(".category-card")).toHaveCount(3);
   await expect(page.locator(".category-count")).toHaveText(["Aproximadamente 90 fragrâncias", "Aproximadamente 10 opções", "1 fragrância"]);

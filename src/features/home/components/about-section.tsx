@@ -10,7 +10,7 @@ export function AboutSection() {
         <h2>
           O começo de uma
           <br />
-          <em className="decorative-text">bela descoberta.</em>
+          <em className="decorative-text">bela descoberta</em>
         </h2>
         <p>
           Nosso catálogo está florescendo. Por aqui, você já pode explorar os

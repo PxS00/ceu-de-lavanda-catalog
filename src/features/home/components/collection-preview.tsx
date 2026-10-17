@@ -14,7 +14,7 @@ export function CollectionPreview() {
       <Reveal className="section-heading">
         <div>
           <p className="eyebrow">UM PRIMEIRO OLHAR</p>
-          <h2 id="preview-title">Nomes para despertar a curiosidade.</h2>
+          <h2 id="preview-title">Nomes para despertar a curiosidade</h2>
         </div>
       </Reveal>
       <Reveal className="product-grid">

@@ -12,7 +12,7 @@ export function Hero() {
           <br />
           com o seu
           <br />
-          <em className="decorative-text">próximo encanto.</em>
+          <em className="decorative-text">próximo encanto</em>
         </h1>
         <p className="hero-description">
           Há nomes que despertam a curiosidade.
