@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { Reveal } from "@/components/reveal";
+import { Reveal } from "@/shared/components/reveal";
 
 export function Hero() {
   return (

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Reveal } from "@/components/reveal";
+import { Reveal } from "@/shared/components/reveal";
 
 export function BrandRibbon() {
   return (

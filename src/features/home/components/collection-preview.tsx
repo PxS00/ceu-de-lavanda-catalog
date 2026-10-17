@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { Reveal } from "@/components/reveal";
+import { Reveal } from "@/shared/components/reveal";
 import { ProductCard } from "@/features/catalog/components/product-card";
 import { products } from "@/features/catalog/lib/catalog";
 

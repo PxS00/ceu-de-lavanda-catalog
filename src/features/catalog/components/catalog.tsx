@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Reveal, useReveal } from "@/components/reveal";
+import { Reveal, useReveal } from "@/shared/components/reveal";
 import {
   filterProducts,
   normalize,

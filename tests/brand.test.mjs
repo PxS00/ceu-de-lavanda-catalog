@@ -144,7 +144,7 @@ test("local substitute fonts ship with their OFL licenses", () => {
   };
   for (const [family, hash] of Object.entries(fonts)) {
     const file = readFileSync(
-      new URL(`../src/app/fonts/${family}-latin.woff2`, import.meta.url),
+      new URL(`../src/shared/fonts/${family}-latin.woff2`, import.meta.url),
     );
     assert.equal(createHash("sha256").update(file).digest("hex"), hash);
     const license = readFileSync(

@@ -1,9 +1,9 @@
-@import "../styles/tokens.css";
-@import "../styles/base.css";
-@import "../styles/typography.css";
-@import "../styles/actions.css";
-@import "../styles/site-header.css";
-@import "../styles/mobile-menu.css";
+@import "../shared/styles/tokens.css";
+@import "../shared/styles/base.css";
+@import "../shared/styles/typography.css";
+@import "../shared/styles/actions.css";
+@import "../shared/styles/site-header.css";
+@import "../shared/styles/mobile-menu.css";
 @import "../features/home/styles/hero.css";
 @import "../features/home/styles/brand-ribbon.css";
 @import "../features/home/styles/category-discovery.css";
@@ -15,6 +15,6 @@
 @import "../features/catalog/styles/product-art.css";
 @import "../features/catalog/styles/product-card.css";
 @import "../features/catalog/styles/product-detail.css";
-@import "../styles/site-footer.css";
-@import "../styles/accessibility.css";
-@import "../styles/motion.css";
+@import "../shared/styles/site-footer.css";
+@import "../shared/styles/accessibility.css";
+@import "../shared/styles/motion.css";

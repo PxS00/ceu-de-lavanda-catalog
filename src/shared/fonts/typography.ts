@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 
 // OFL alternatives; replace only after obtaining licensed official webfonts.
 export const editorial = localFont({
-  src: "./fonts/cormorant-garamond-latin.woff2",
+  src: "./cormorant-garamond-latin.woff2",
   variable: "--font-editorial",
   weight: "400",
   style: "normal",
@@ -12,7 +12,7 @@ export const editorial = localFont({
 });
 
 export const decorative = localFont({
-  src: "./fonts/pinyon-script-latin.woff2",
+  src: "./pinyon-script-latin.woff2",
   variable: "--font-script",
   weight: "400",
   style: "normal",
