@@ -22,6 +22,9 @@ export function ProductDetail({ product }: { product: Product }) {
         <Reveal className="detail-copy">
           <p className="eyebrow">A COLEÇÃO · CÉU DE LAVANDA</p>
           <h1>{product.name}</h1>
+          {product.productType && (
+            <p className="detail-family">{product.productType}</p>
+          )}
           {product.family && (
             <p className="detail-family">Família olfativa · {product.family}</p>
           )}
@@ -101,3 +104,4 @@ export function ProductDetail({ product }: { product: Product }) {
     </main>
   );
 }
+
