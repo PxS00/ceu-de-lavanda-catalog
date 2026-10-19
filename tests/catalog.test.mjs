@@ -36,7 +36,7 @@ test("catalog registers the supplied perfumes with their confirmed details", () 
       "Altesse",
       "Acquaré",
       "Araya Elixir",
-      "Bellevanille",
+      "Belle Vanille",
       "Aura Secretta",
       "Dark Kiss",
       "Illusion",
@@ -55,7 +55,7 @@ test("catalog registers the supplied perfumes with their confirmed details", () 
     assert.equal(p.category, "perfumes");
     assert.deepEqual(p.volumeOptions, ["50 ml", "100 ml"]);
   }
-  for (const slug of ["altesse", "araya-elixir", "dark-kiss", "hypnos", "jade", "madellune", "sollaris", "vanille-imperial", "vellours", "aura-secretta", "illusion"]) {
+  for (const slug of ["altesse", "araya-elixir", "dark-kiss", "hypnos", "jade", "madellune", "sollaris", "vanille-imperial", "vellours", "aura-secretta", "illusion", "bellevanille"]) {
     const product = products.find((item) => item.slug === slug);
     assert.ok(product.tagline);
     assert.ok(product.description);
