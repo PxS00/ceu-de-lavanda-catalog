@@ -1,14 +1,70 @@
 [
-  { "id": "acquare", "slug": "acquare", "name": "Acquaré" },
-  { "id": "bellevanille", "slug": "bellevanille", "name": "Bellevanille" },
-  { "id": "sollaris", "slug": "sollaris", "name": "Sollaris" },
+  {
+    "id": "acquare",
+    "slug": "acquare",
+    "name": "Acquaré",
+    "photo": {
+      "src": "/products/acquare.webp",
+      "alt": "Frasco do perfume Acquaré"
+    }
+  },
+  {
+    "id": "bellevanille",
+    "slug": "bellevanille",
+    "name": "Bellevanille",
+    "photo": {
+      "src": "/products/bellevanille.webp",
+      "alt": "Frasco do perfume Bellevanille"
+    }
+  },
+  {
+    "id": "sollaris",
+    "slug": "sollaris",
+    "name": "Sollaris",
+    "photo": {
+      "src": "/products/sollaris.webp",
+      "alt": "Frasco do perfume Sollaris"
+    }
+  },
   {
     "id": "jasmin-de-soie",
     "slug": "jasmin-de-soie",
     "name": "Jasmin de Soie"
   },
-  { "id": "alma-de-seda", "slug": "alma-de-seda", "name": "Alma de Seda" },
-  { "id": "aura-secretta", "slug": "aura-secretta", "name": "Aura Secretta" },
-  { "id": "illusion", "slug": "illusion", "name": "Illusion" },
-  { "id": "golden-femme", "slug": "golden-femme", "name": "Golden Femme" }
+  {
+    "id": "alma-de-seda",
+    "slug": "alma-de-seda",
+    "name": "Alma de Seda",
+    "photo": {
+      "src": "/products/alma-de-seda.webp",
+      "alt": "Frasco do perfume Alma de Seda"
+    }
+  },
+  {
+    "id": "aura-secretta",
+    "slug": "aura-secretta",
+    "name": "Aura Secretta",
+    "photo": {
+      "src": "/products/aura-secretta.webp",
+      "alt": "Frasco do perfume Aura Secretta"
+    }
+  },
+  {
+    "id": "illusion",
+    "slug": "illusion",
+    "name": "Illusion",
+    "photo": {
+      "src": "/products/illusion.webp",
+      "alt": "Frasco do perfume Illusion"
+    }
+  },
+  {
+    "id": "golden-femme",
+    "slug": "golden-femme",
+    "name": "Golden Femme",
+    "photo": {
+      "src": "/products/golden-femme.webp",
+      "alt": "Frasco do perfume Golden Femme"
+    }
+  }
 ]
