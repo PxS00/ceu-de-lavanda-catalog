@@ -13,12 +13,19 @@
   {
     "id": "bellevanille",
     "slug": "bellevanille",
-    "name": "Bellevanille",
+    "name": "Belle Vanille",
     "category": "perfumes",
+    "tagline": "O aconchego aveludado da baunilha em uma assinatura solar, luminosa e inesquecível.",
+    "description": "Belle Vanille reflete a sofisticação e o calor de uma criação envolvente. Sua abertura radiante une a energia das notas solares à delicadeza do jasmim fresco. No seu coração vibrante, a nobreza e a doçura aveludada da Baunilha de Bourbon revelam um toque de puro luxo e aconchego. A base fecha com o abraço sofisticado do sândalo e a leveza aveludada do almíscar branco, criando um rastro marcante e inesquecível na pele.",
     "volumeOptions": ["50 ml", "100 ml"],
+    "notePyramid": {
+      "top": ["Notas Solares", "Jasmim"],
+      "heart": ["Baunilha de Bourbon"],
+      "base": ["Almíscar Branco", "Sândalo"]
+    },
     "photo": {
       "src": "/products/bellevanille.webp",
-      "alt": "Frasco do perfume Bellevanille"
+      "alt": "Frasco do perfume Belle Vanille"
     }
   },
   {
