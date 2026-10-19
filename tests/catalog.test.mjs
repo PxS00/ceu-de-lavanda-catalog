@@ -29,7 +29,7 @@ test("101-product fixture validates and filters Portuguese names without mutatio
 });
 
 test("catalog registers the supplied perfumes with their confirmed details", () => {
-  assert.equal(products.length, 16);
+  assert.equal(products.length, 17);
   assert.deepEqual(
     products.map((p) => p.name).sort(),
     [
@@ -42,6 +42,7 @@ test("catalog registers the supplied perfumes with their confirmed details", () 
       "Illusion",
       "Golden Femme",
       "Hypnos",
+      "Imperator",
       "Jade",
       "Jasmin de Soie",
       "Alma de Seda",
@@ -55,7 +56,7 @@ test("catalog registers the supplied perfumes with their confirmed details", () 
     assert.equal(p.category, "perfumes");
     assert.deepEqual(p.volumeOptions, ["50 ml", "100 ml"]);
   }
-  for (const slug of ["altesse", "araya-elixir", "dark-kiss", "hypnos", "jade", "madellune", "sollaris", "vanille-imperial", "vellours", "aura-secretta", "illusion", "bellevanille"]) {
+  for (const slug of ["altesse", "araya-elixir", "dark-kiss", "hypnos", "imperator", "jade", "madellune", "sollaris", "vanille-imperial", "vellours", "aura-secretta", "illusion", "bellevanille"]) {
     const product = products.find((item) => item.slug === slug);
     assert.ok(product.tagline);
     assert.ok(product.description);
@@ -160,7 +161,7 @@ test("commercial categories are distinct from olfactory families and remain opti
     );
     assert.equal(
       filterProducts(products, "", "", "az", category.slug).length,
-      [16, 0, 0][index],
+      [17, 0, 0][index],
     );
   }
   assert.doesNotThrow(() =>
@@ -168,7 +169,7 @@ test("commercial categories are distinct from olfactory families and remain opti
   );
   for (const category of ["floral", "amadeirado", "", 42])
     assert.throws(() => validateProducts([{ ...products[0], category }]));
-  assert.equal(filterProducts(products, "", "", "az").length, 16);
+  assert.equal(filterProducts(products, "", "", "az").length, 17);
 });
 
 test("category filtering intersects search and initials, and preserves sorting", () => {
