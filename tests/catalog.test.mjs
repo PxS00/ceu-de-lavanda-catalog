@@ -53,12 +53,9 @@ test("catalog registers the supplied perfumes with their confirmed details", () 
   );
   for (const p of products) {
     assert.equal(p.category, "perfumes");
-    assert.deepEqual(
-      p.volumeOptions,
-      p.slug === "hypnos" ? ["100 ml"] : ["50 ml", "100 ml"],
-    );
+    assert.deepEqual(p.volumeOptions, ["50 ml", "100 ml"]);
   }
-  for (const slug of ["altesse", "araya-elixir", "dark-kiss", "hypnos", "jade", "madellune", "sollaris", "vanille-imperial", "vellours", "aura-secretta"]) {
+  for (const slug of ["altesse", "araya-elixir", "dark-kiss", "hypnos", "jade", "madellune", "sollaris", "vanille-imperial", "vellours", "aura-secretta", "illusion"]) {
     const product = products.find((item) => item.slug === slug);
     assert.ok(product.tagline);
     assert.ok(product.description);
@@ -67,6 +64,7 @@ test("catalog registers the supplied perfumes with their confirmed details", () 
     assert.ok(product.notePyramid.base.length);
   }
   assert.equal(products.find((item) => item.slug === "jasmin-de-soie").photo.src, "/products/jasmin-de-soie.webp");
+  assert.equal(products.find((item) => item.slug === "illusion").productType, "Perfume compartilhável");
 });
 
 test("search is accent insensitive, intersects initials, sorts without mutating data", () => {
