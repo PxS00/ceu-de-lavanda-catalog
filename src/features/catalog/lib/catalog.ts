@@ -19,6 +19,7 @@ export type Product = {
   slug: string;
   name: string;
   category?: CategorySlug | null;
+  productType?: string | null;
   description?: string | null;
   tagline?: string | null;
   family?: string | null;
@@ -60,6 +61,11 @@ export function validateProducts(input: unknown): asserts input is Product[] {
       (typeof p.description !== "string" || !p.description.trim())
     )
       throw new Error(`Descrição inválida: ${p.slug}`);
+    if (
+      p.productType != null &&
+      (typeof p.productType !== "string" || !p.productType.trim())
+    )
+      throw new Error(`Tipo de produto inválido: ${p.slug}`);
     if (
       p.tagline != null &&
       (typeof p.tagline !== "string" || !p.tagline.trim())
@@ -159,3 +165,4 @@ export function formatPrice(price: number | null | undefined) {
         currency: "BRL",
       }).format(price / 100);
 }
+
