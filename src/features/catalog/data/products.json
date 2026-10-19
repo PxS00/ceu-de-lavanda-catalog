@@ -66,7 +66,15 @@
     "slug": "aura-secretta",
     "name": "Aura Secretta",
     "category": "perfumes",
+    "family": "Oriental Floral",
+    "tagline": "O mistério magnético e a sofisticação da rosa e do sândalo em uma assinatura inesquecível.",
+    "description": "Aura Secretta revela a sofisticação envolvente e o magnetismo hipnótico de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos com o brilho suculento e levemente adocicado da Romã e do Cassis, contrastados pelo frescor vibrante da Bergamota. No seu coração nobre, a delicadeza apaixonante da Rosa e da Flor de Lótus funde-se à elegância marcante do Cedro e do Sândalo, criando um corpo floral-amadeirado denso e aveludado. A base assenta sobre a pele com a cremosidade viciante da Baunilha e da Fava Tonka, harmonizadas pelo calor nobre do Âmbar e da sensualidade do Musk, garantindo um rastro marcante e de alta fixação.",
     "volumeOptions": ["50 ml", "100 ml"],
+    "notePyramid": {
+      "top": ["Romã", "Cassis", "Bergamota"],
+      "heart": ["Rosa", "Lótus", "Cedro", "Sândalo"],
+      "base": ["Musk", "Âmbar", "Baunilha", "Fava Tonka"]
+    },
     "photo": {
       "src": "/products/aura-secretta.webp",
       "alt": "Frasco do perfume Aura Secretta"
@@ -167,6 +175,51 @@
       "top": ["Pomelo", "Pêssego", "Mandarina"],
       "heart": ["Mel", "Jasmim", "Gardênia"],
       "base": ["Musk", "Sândalo", "Cashmere"]
+    }
+  },
+  {
+    "id": "hypnos",
+    "slug": "hypnos",
+    "name": "Hypnos",
+    "category": "perfumes",
+    "family": "Oriental Gourmand",
+    "tagline": "A sensualidade hipnótica e a doçura envolvedora em uma assinatura oriental inesquecível.",
+    "description": "Hypnos revela o magnetismo sedutor e o abraço aveludado de uma fragrância Oriental Gourmand marcante. Sua abertura desperta os sentidos com a riqueza suculenta do Coco, da Ameixa e do Damasco, envolvidos pelo toque refinado da Amêndoa. No seu coração apaixonante, a elegância clássica da Rosa e do Jasmim une-se à exuberância misteriosa da Tuberosa e do Lírio do Vale. A base fecha com o aconchego cremoso da Baunilha e do Sândalo, harmonizados pela profundidade sensual do Musk, criando um rastro de alta fixação e puro luxo na pele.",
+    "volumeOptions": ["100 ml"],
+    "notePyramid": {
+      "top": ["Coco", "Ameixa", "Damasco", "Amêndoa"],
+      "heart": ["Rosa", "Jasmim", "Tuberosa", "Lírio do Vale"],
+      "base": ["Musk", "Baunilha", "Sândalo"]
+    }
+  },
+  {
+    "id": "jade",
+    "slug": "jade",
+    "name": "Jade",
+    "category": "perfumes",
+    "family": "Floral Frutada",
+    "tagline": "A delicadeza radiante de um buquê de florais brancos unida à suculência solar das frutas em uma assinatura inesquecível.",
+    "description": "Jade revela a sofisticação luminosa e o encantamento envolvente de uma criação Floral Frutada inesquecível. Sua abertura desperta os sentidos com a suculência vibrante da Pêra, do Melão, da Amora e do Pêssego, equilibrados pelo toque cítrico e refrescante da Bergamota. No seu coração nobre e apaixonante, desabrocha um buquê majestoso e aveludado de Rosa, Frésia, Jasmim, Orquídea, Tuberosa e Lírio do Vale. A base assenta sobre a pele com a cremosidade macia do Sândalo e da Baunilha, harmonizados pela profundidade acolhedora do Musk, garantindo um rastro marcante e de alta fixação.",
+    "volumeOptions": ["50 ml", "100 ml"],
+    "notePyramid": {
+      "top": ["Pêra", "Melão", "Amora", "Pêssego", "Bergamota"],
+      "heart": ["Rosa", "Frésia", "Jasmim", "Orquídea", "Tuberosa", "Lírio do Vale"],
+      "base": ["Sândalo", "Baunilha", "Musk"]
+    }
+  },
+  {
+    "id": "madellune",
+    "slug": "madellune",
+    "name": "Madellune",
+    "category": "perfumes",
+    "family": "Chypre Floral",
+    "tagline": "A sofisticação atemporal e o magnetismo sedutor da família Chypre Floral em uma presença inesquecível.",
+    "description": "Madellune revela a aura envolvente, graciosa e marcante de uma fragrância Chypre Floral inesquecível. Sua abertura desperta os sentidos com uma efervescência cítrica e radiante de Laranja, Tangerina e Bergamota, suavizada pelo toque delicado e solar da Flor de Laranjeira. No seu coração nobre e apaixonante, desabrocha a elegância atalcada da Íris unida à nobreza da Rosa, do Jasmim e do Ylang-Ylang. A base assenta sobre a pele com a cremosidade viciante da Baunilha e da Fava Tonka, harmonizadas pela profundidade marcante do Patchouli e do Musk, garantindo um rastro sensual e de alta fixação.",
+    "volumeOptions": ["50 ml", "100 ml"],
+    "notePyramid": {
+      "top": ["Laranja", "Tangerina", "Bergamota", "Flor de Laranjeira"],
+      "heart": ["Íris", "Rosa", "Jasmim", "Ylang-Ylang"],
+      "base": ["Musk", "Baunilha", "Patchouli", "Fava Tonka"]
     }
   }
 ]
