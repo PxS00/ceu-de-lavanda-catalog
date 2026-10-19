@@ -8,14 +8,24 @@ export const categories = [
 
 export type CategorySlug = (typeof categories)[number]["slug"];
 
+export type NotePyramid = {
+  top: string[];
+  heart: string[];
+  base: string[];
+};
+
 export type Product = {
   id: string;
   slug: string;
   name: string;
   category?: CategorySlug | null;
   description?: string | null;
+  tagline?: string | null;
+  family?: string | null;
+  volumeOptions?: string[] | null;
   priceCents?: number | null;
   notes?: string[] | null;
+  notePyramid?: NotePyramid | null;
   availability?: "available" | "unavailable" | null;
   photo?: { src: string; alt: string } | null;
 };
@@ -51,6 +61,25 @@ export function validateProducts(input: unknown): asserts input is Product[] {
     )
       throw new Error(`Descrição inválida: ${p.slug}`);
     if (
+      p.tagline != null &&
+      (typeof p.tagline !== "string" || !p.tagline.trim())
+    )
+      throw new Error(`Frase de apresentação inválida: ${p.slug}`);
+    if (
+      p.family != null &&
+      (typeof p.family !== "string" || !p.family.trim())
+    )
+      throw new Error(`Família olfativa inválida: ${p.slug}`);
+    if (
+      p.volumeOptions != null &&
+      (!Array.isArray(p.volumeOptions) ||
+        !p.volumeOptions.length ||
+        !p.volumeOptions.every(
+          (volume: unknown) => typeof volume === "string" && volume.trim(),
+        ))
+    )
+      throw new Error(`Volumes inválidos: ${p.slug}`);
+    if (
       p.priceCents != null &&
       (!Number.isSafeInteger(p.priceCents) || p.priceCents < 0)
     )
@@ -61,6 +90,17 @@ export function validateProducts(input: unknown): asserts input is Product[] {
         !p.notes.every((n: unknown) => typeof n === "string" && n.trim()))
     )
       throw new Error(`Notas inválidas: ${p.slug}`);
+    if (
+      p.notePyramid != null &&
+      (!p.notePyramid ||
+        ![p.notePyramid.top, p.notePyramid.heart, p.notePyramid.base].every(
+          (group) =>
+            Array.isArray(group) &&
+            group.length > 0 &&
+            group.every((note: unknown) => typeof note === "string" && note.trim()),
+        ))
+    )
+      throw new Error(`Pirâmide olfativa inválida: ${p.slug}`);
     if (
       p.availability != null &&
       !["available", "unavailable"].includes(p.availability)

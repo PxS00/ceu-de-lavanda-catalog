@@ -3,6 +3,7 @@
     "id": "acquare",
     "slug": "acquare",
     "name": "Acquaré",
+    "category": "perfumes",
     "photo": {
       "src": "/products/acquare.webp",
       "alt": "Frasco do perfume Acquaré"
@@ -12,6 +13,7 @@
     "id": "bellevanille",
     "slug": "bellevanille",
     "name": "Bellevanille",
+    "category": "perfumes",
     "photo": {
       "src": "/products/bellevanille.webp",
       "alt": "Frasco do perfume Bellevanille"
@@ -21,6 +23,15 @@
     "id": "sollaris",
     "slug": "sollaris",
     "name": "Sollaris",
+    "category": "perfumes",
+    "tagline": "A luminosidade radiante do jasmim e da flor de laranjeira unida ao toque precioso do mel em uma presença inesquecível.",
+    "description": "Sollaris revela a aura solar, calorosa e inebriante de uma criação floral encantadora. Sua abertura radiante combina o frescor do Jacinto, da Mandarina e do Zimbro, despertando os sentidos com vivacidade. No seu coração nobre e acolhedor, a elegância aveludada do Jasmim e da Flor de Laranjeira une-se à doçura preciosa do Mel e à sofisticação atalcada da Íris. A base fecha com o abraço cremoso e confortante da Baunilha e do Musk, criando um rastro de alta fixação e puro luxo na pele.",
+    "volumeOptions": ["50 ml", "100 ml"],
+    "notePyramid": {
+      "top": ["Jacinto", "Mandarina", "Zimbro"],
+      "heart": ["Jasmim", "Mel", "Flor de Laranjeira", "Íris"],
+      "base": ["Baunilha", "Musk"]
+    },
     "photo": {
       "src": "/products/sollaris.webp",
       "alt": "Frasco do perfume Sollaris"
@@ -29,12 +40,19 @@
   {
     "id": "jasmin-de-soie",
     "slug": "jasmin-de-soie",
-    "name": "Jasmin de Soie"
+    "name": "Jasmin de Soie",
+    "category": "perfumes",
+    "volumeOptions": ["100 ml"],
+    "photo": {
+      "src": "/products/jasmin-de-soie.webp",
+      "alt": "Frasco do perfume Jasmin de Soie"
+    }
   },
   {
     "id": "alma-de-seda",
     "slug": "alma-de-seda",
     "name": "Alma de Seda",
+    "category": "perfumes",
     "photo": {
       "src": "/products/alma-de-seda.webp",
       "alt": "Frasco do perfume Alma de Seda"
@@ -44,6 +62,7 @@
     "id": "aura-secretta",
     "slug": "aura-secretta",
     "name": "Aura Secretta",
+    "category": "perfumes",
     "photo": {
       "src": "/products/aura-secretta.webp",
       "alt": "Frasco do perfume Aura Secretta"
@@ -53,6 +72,7 @@
     "id": "illusion",
     "slug": "illusion",
     "name": "Illusion",
+    "category": "perfumes",
     "photo": {
       "src": "/products/illusion.webp",
       "alt": "Frasco do perfume Illusion"
@@ -62,9 +82,85 @@
     "id": "golden-femme",
     "slug": "golden-femme",
     "name": "Golden Femme",
+    "category": "perfumes",
     "photo": {
       "src": "/products/golden-femme.webp",
       "alt": "Frasco do perfume Golden Femme"
+    }
+  },
+  {
+    "id": "altesse",
+    "slug": "altesse",
+    "name": "Altesse",
+    "category": "perfumes",
+    "family": "Chipre Frutada",
+    "tagline": "A nobreza da família Chipre Frutada traduzida em uma presença marcante, elegante e inesquecível.",
+    "description": "Altesse revela a sofisticação aristocrática e o magnetismo de uma fragrância envolvente da família Chipre Frutada. Sua abertura radiante combina o frescor vibrante da Maçã Verde, Bergamota e Limão ao toque picante da Pimenta Rosa, envelopados pela delicadeza da Violeta e do Patchouli. No seu coração nobre, a elegância aveludada da Rosa une-se ao aconchego do Sândalo, do Musk e do Styrax. A base fecha com a riqueza suculenta da Groselha Preta e do Pêssego, harmonizados pelo calor do Âmbar, do Lilás e do Ylang-Ylang, criando um rastro de alta fixação e puro luxo na pele.",
+    "volumeOptions": ["50 ml", "100 ml"],
+    "notePyramid": {
+      "top": ["Maçã Verde", "Bergamota", "Limão", "Patchouli", "Pimenta Rosa", "Violeta"],
+      "heart": ["Musk", "Rosa", "Sândalo", "Styrax"],
+      "base": ["Groselha Preta", "Pêssego", "Âmbar", "Lilás", "Ylang-Ylang"]
+    }
+  },
+  {
+    "id": "araya-elixir",
+    "slug": "araya-elixir",
+    "name": "Araya Elixir",
+    "category": "perfumes",
+    "family": "Floral Oriental Gourmand",
+    "tagline": "A nobreza cremosa das flores brancas aliada à doçura gourmand e ao calor do âmbar em uma presença inesquecível.",
+    "description": "Araya Elixir revela a sofisticação magnética de uma fragrância envolvente da família Floral Oriental Gourmand. Sua abertura traz o brilho sucinto e vibrante de Frutas Doces envoltas por Notas Cítricas Suaves. No coração, a elegância aveludada das Flores Brancas une-se à textura e ao acolhimento dos Acordes Cremosos. A base fecha com a riqueza viciante da Baunilha e do Âmbar, harmonizados pela profundidade do Almíscar e das Notas Amadeiradas, criando um rastro de alta fixação e puro luxo na pele.",
+    "volumeOptions": ["50 ml", "100 ml"],
+    "notePyramid": {
+      "top": ["Frutas Doces", "Notas Cítricas Suaves"],
+      "heart": ["Flores Brancas", "Acordes Cremosos"],
+      "base": ["Baunilha", "Âmbar", "Almíscar", "Notas Amadeiradas"]
+    }
+  },
+  {
+    "id": "dark-kiss",
+    "slug": "dark-kiss",
+    "name": "Dark Kiss",
+    "category": "perfumes",
+    "family": "Oriental Floral",
+    "tagline": "A sensualidade cativante da pimenta e do cacau em uma assinatura misteriosa, poderosa e inesquecível.",
+    "description": "Dark Kiss revela o magnetismo sedutor e a sofisticação de uma fragrância envolvente da família Oriental Floral. Sua abertura radiante combina a doçura aveludada do Cassis ao toque refinado da Amêndoa e ao frescor vibrante da Bergamota. No seu coração nobre e apaixonante, a elegância clássica da Rosa une-se à exuberância misteriosa do Jasmim e da Tuberosa. A base fecha com a riqueza gourmand e quente do Cacau e da Fava Tonka, harmonizados pela profundidade do Âmbar e pelo aconchego sensual do Musk, criando um rastro de alta fixação e puro luxo na pele.",
+    "volumeOptions": ["50 ml", "100 ml"],
+    "notePyramid": {
+      "top": ["Cassis", "Amêndoa", "Bergamota"],
+      "heart": ["Rosa", "Jasmim", "Tuberosa"],
+      "base": ["Musk", "Cacau", "Âmbar", "Fava Tonka"]
+    }
+  },
+  {
+    "id": "vanille-imperial",
+    "slug": "vanille-imperial",
+    "name": "Vanille Imperial",
+    "category": "perfumes",
+    "family": "Oriental Gourmand",
+    "tagline": "A imponência nobre da baunilha e do coco aliada ao mistério resinoso do palo santo em uma assinatura inesquecível.",
+    "description": "Vanille Imperial revela a sofisticação aristocrática e o abraço envolvente de uma criação Oriental Gourmand majestosa. Sua abertura radiante combina a doçura aveludada da Baunilha ao toque cremoso e aconchegante do Coco em Pó. No seu coração nobre, a riqueza quente da Fava Tonka une-se à profundidade mística e resinosa do Palo Santo. A base fecha com a sensualidade marcante do Almíscar harmonizado pelo calor opulento do Âmbar Cinza, criando um rastro de alta fixação e puro luxo na pele.",
+    "volumeOptions": ["50 ml", "100 ml"],
+    "notePyramid": {
+      "top": ["Baunilha", "Coco em Pó"],
+      "heart": ["Fava Tonka", "Palo Santo"],
+      "base": ["Almíscar", "Âmbar Cinza"]
+    }
+  },
+  {
+    "id": "vellours",
+    "slug": "vellours",
+    "name": "Vellours",
+    "category": "perfumes",
+    "family": "Chypre Floral",
+    "tagline": "A sofisticação atemporal da família Chypre Floral em uma presença aveludada, marcante e inesquecível.",
+    "description": "Vellours traduz a elegância tátil e a sofisticação magnética de uma fragrância Chypre Floral refinada. Sua abertura desperta os sentidos com a vivacidade borbulhante do Pomelo e da Mandarina, envoltos pela doçura suculenta do Pêssego. No seu coração nobre e apaixonante, a delicadeza aveludada do Jasmim e da Gardênia une-se à riqueza preciosa do Mel, criando um corpo floral inebriante. A base assenta sobre a pele com a cremosidade do Sândalo e o abraço envolvente do Cashmere e do Musk, garantindo um rastro marcante e de puro luxo.",
+    "volumeOptions": ["50 ml", "100 ml"],
+    "notePyramid": {
+      "top": ["Pomelo", "Pêssego", "Mandarina"],
+      "heart": ["Mel", "Jasmim", "Gardênia"],
+      "base": ["Musk", "Sândalo", "Cashmere"]
     }
   }
 ]
