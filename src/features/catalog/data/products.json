@@ -209,6 +209,22 @@
     }
   },
   {
+    "id": "imperator",
+    "slug": "imperator",
+    "name": "Imperator",
+    "category": "perfumes",
+    "productType": "Perfume compartilhável",
+    "family": "Floral Frutal",
+    "tagline": "A suculência solar do abacaxi unida à nobreza do patchouli e da baunilha em uma assinatura inesquecível.",
+    "description": "Imperator reflete a autoridade, a imponência e o magnetismo marcante de uma criação floral frutal moderna. Sua abertura se destaca pelo frescor vibrante e pela suculência solar do abacaxi. No coração, a energia cítrica e refinada da bergamota traz brilho e sofisticação. A base fecha com a densidade envolvente do patchouli, o aconchego caloroso da Baunilha de Bourbon e o toque aveludado do âmbar, criando um rastro nobre e memorável na pele.",
+    "volumeOptions": ["50 ml", "100 ml"],
+    "notePyramid": {
+      "top": ["Abacaxi"],
+      "heart": ["Bergamota"],
+      "base": ["Patchouli", "Baunilha de Bourbon", "Âmbar"]
+    }
+  },
+  {
     "id": "jade",
     "slug": "jade",
     "name": "Jade",
