@@ -29,7 +29,7 @@ test("101-product fixture validates and filters Portuguese names without mutatio
 });
 
 test("catalog registers the supplied perfumes with their confirmed details", () => {
-  assert.equal(products.length, 13);
+  assert.equal(products.length, 16);
   assert.deepEqual(
     products.map((p) => p.name).sort(),
     [
@@ -41,8 +41,11 @@ test("catalog registers the supplied perfumes with their confirmed details", () 
       "Dark Kiss",
       "Illusion",
       "Golden Femme",
+      "Hypnos",
+      "Jade",
       "Jasmin de Soie",
       "Alma de Seda",
+      "Madellune",
       "Sollaris",
       "Vanille Imperial",
       "Vellours",
@@ -50,11 +53,13 @@ test("catalog registers the supplied perfumes with their confirmed details", () 
   );
   for (const p of products) {
     assert.equal(p.category, "perfumes");
-    assert.deepEqual(p.volumeOptions, ["50 ml", "100 ml"]);
+    assert.deepEqual(
+      p.volumeOptions,
+      p.slug === "hypnos" ? ["100 ml"] : ["50 ml", "100 ml"],
+    );
   }
-  for (const slug of ["altesse", "araya-elixir", "dark-kiss", "sollaris", "vanille-imperial", "vellours"]) {
+  for (const slug of ["altesse", "araya-elixir", "dark-kiss", "hypnos", "jade", "madellune", "sollaris", "vanille-imperial", "vellours", "aura-secretta"]) {
     const product = products.find((item) => item.slug === slug);
-    assert.deepEqual(product.volumeOptions, ["50 ml", "100 ml"]);
     assert.ok(product.tagline);
     assert.ok(product.description);
     assert.ok(product.notePyramid.top.length);
@@ -157,7 +162,7 @@ test("commercial categories are distinct from olfactory families and remain opti
     );
     assert.equal(
       filterProducts(products, "", "", "az", category.slug).length,
-      [13, 0, 0][index],
+      [16, 0, 0][index],
     );
   }
   assert.doesNotThrow(() =>
@@ -165,7 +170,7 @@ test("commercial categories are distinct from olfactory families and remain opti
   );
   for (const category of ["floral", "amadeirado", "", 42])
     assert.throws(() => validateProducts([{ ...products[0], category }]));
-  assert.equal(filterProducts(products, "", "", "az").length, 13);
+  assert.equal(filterProducts(products, "", "", "az").length, 16);
 });
 
 test("category filtering intersects search and initials, and preserves sorting", () => {
