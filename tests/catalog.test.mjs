@@ -48,7 +48,10 @@ test("catalog registers the supplied perfumes with their confirmed details", () 
       "Vellours",
     ].sort(),
   );
-  for (const p of products) assert.equal(p.category, "perfumes");
+  for (const p of products) {
+    assert.equal(p.category, "perfumes");
+    assert.deepEqual(p.volumeOptions, ["50 ml", "100 ml"]);
+  }
   for (const slug of ["altesse", "araya-elixir", "dark-kiss", "sollaris", "vanille-imperial", "vellours"]) {
     const product = products.find((item) => item.slug === slug);
     assert.deepEqual(product.volumeOptions, ["50 ml", "100 ml"]);
@@ -58,7 +61,6 @@ test("catalog registers the supplied perfumes with their confirmed details", () 
     assert.ok(product.notePyramid.heart.length);
     assert.ok(product.notePyramid.base.length);
   }
-  assert.equal(products.find((item) => item.slug === "jasmin-de-soie").volumeOptions[0], "100 ml");
   assert.equal(products.find((item) => item.slug === "jasmin-de-soie").photo.src, "/products/jasmin-de-soie.webp");
 });
 
@@ -194,3 +196,4 @@ test("category filtering intersects search and initials, and preserves sorting",
   );
   assert.equal(filterProducts(fixtures, "", "", "az").length, 5);
 });
+
