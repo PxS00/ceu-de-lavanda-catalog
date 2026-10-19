@@ -47,15 +47,31 @@
 .product-card:focus-visible .product-card-title > .lucide {
   transform: translate(2px, -2px);
 }
-.product-card > p,
+.product-prices,
 .detail-price {
   font-family: var(--font-body);
   font-size: var(--text-price);
   font-variant-numeric: tabular-nums;
 }
-.product-card > p {
+.product-prices {
   color: var(--muted);
   margin: 10px 0 14px;
+}
+.price-option {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  line-height: 1.7;
+}
+.price-option strong {
+  color: var(--foreground);
+  font-weight: 400;
+  white-space: nowrap;
+}
+.product-availability {
+  color: var(--muted);
+  font-size: var(--text-small);
+  margin: 0 0 14px;
 }
 .product-link {
   font-size: var(--text-small);

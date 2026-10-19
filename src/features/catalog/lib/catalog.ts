@@ -14,6 +14,8 @@ export type NotePyramid = {
   base: string[];
 };
 
+export type VolumePrice = { volume: string; priceCents: number };
+
 export type Product = {
   id: string;
   slug: string;
@@ -24,6 +26,7 @@ export type Product = {
   tagline?: string | null;
   family?: string | null;
   volumeOptions?: string[] | null;
+  volumePrices?: VolumePrice[] | null;
   priceCents?: number | null;
   notes?: string[] | null;
   notePyramid?: NotePyramid | null;
@@ -85,6 +88,24 @@ export function validateProducts(input: unknown): asserts input is Product[] {
         ))
     )
       throw new Error(`Volumes inválidos: ${p.slug}`);
+    if (
+      p.volumePrices != null &&
+      (!Array.isArray(p.volumePrices) ||
+        !p.volumePrices.length ||
+        !p.volumePrices.every(
+          (price: VolumePrice | null) =>
+            price &&
+            typeof price.volume === "string" &&
+            price.volume.trim() &&
+            Number.isSafeInteger(price.priceCents) &&
+            price.priceCents >= 0 &&
+            (!p.volumeOptions || p.volumeOptions.includes(price.volume)),
+        ) ||
+        new Set(p.volumePrices.map((price: VolumePrice) => price.volume)).size !==
+          p.volumePrices.length ||
+        (p.volumeOptions && p.volumePrices.length !== p.volumeOptions.length))
+    )
+      throw new Error(`Preços por volume inválidos: ${p.slug}`);
     if (
       p.priceCents != null &&
       (!Number.isSafeInteger(p.priceCents) || p.priceCents < 0)

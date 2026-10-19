@@ -13,6 +13,7 @@ Fonte atual: `src/features/catalog/data/products.json`. Uma lista JSON UTF-8, co
 | `family`       | string ou null                                       | Família olfativa confirmada, como Floral Frutal ou Oriental Gourmand; não é categoria comercial.                                                                                     |
 | `tagline`      | string ou null                                       | Frase de apresentação aprovada.                                                                                                                                                      |
 | `volumeOptions`| lista de strings ou null                             | Para todo produto da categoria `perfumes`, incluir exatamente `50 ml` e `100 ml`, nessa ordem. Esta regra vale mesmo quando um descritivo individual mencionar só um volume.         |
+| `volumePrices` | lista de objetos ou null                             | Preço em centavos por volume: `{ "volume": "50 ml", "priceCents": 15700 }`. Volumes únicos, sem negativos ou frações, cobrindo todas as opções informadas.                           |
 | `notePyramid`  | objeto ou null                                       | Notas confirmadas organizadas em `top` (saída), `heart` (corpo) e `base` (fundo).                                                                                                    |
 | `priceCents`   | inteiro ou null                                      | Preço confirmado em centavos de BRL, não negativo. `0` significa preço zero; ausente/null significa desconhecido.                                                                    |
 | `notes`        | lista de strings ou null                             | Somente notas olfativas confirmadas. Lista vazia significa informação pendente.                                                                                                      |
@@ -20,6 +21,12 @@ Fonte atual: `src/features/catalog/data/products.json`. Uma lista JSON UTF-8, co
 | `photo`        | objeto ou null                                       | `src`: caminho local `/products/nome.webp` (png, jpg, jpeg, webp ou avif também aceitos); `alt`: descrição acessível não vazia. Arquivo aprovado deve existir em `public/products/`. |
 
 Campos opcionais podem ser omitidos ou usar `null`. Não preencher lacunas com inferências a partir do nome, fotografias geradas, valores estimados ou estoque fictício.
+
+## Volumes, preços e disponibilidade dos perfumes
+
+Todos os perfumes têm **50 ml e 100 ml**, inclusive quando um descritivo individual mencionar somente um dos volumes. Os preços confirmados são **R$ 157,00 para 50 ml** e **R$ 287,00 para 100 ml**. Usar `volumeOptions: ["50 ml", "100 ml"]` e `volumePrices: [{ "volume": "50 ml", "priceCents": 15700 }, { "volume": "100 ml", "priceCents": 28700 }]` em cada perfume. Os cartões e os detalhes devem mostrar cada preço associado ao respectivo volume.
+
+O usuário confirmou a disponibilidade de todos os perfumes cadastrados: `availability: "available"`. Alterações de preço ou disponibilidade exigem nova confirmação. Esta regra de volumes e preços não se estende automaticamente a Body Splash ou Perfume Capilar.
 
 Registro mínimo válido:
 

@@ -89,5 +89,6 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 16px;
+    margin-block: 12px 16px;
   }
 }

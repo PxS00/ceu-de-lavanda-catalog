@@ -8,7 +8,26 @@
     "photo": {
       "src": "/products/acquare.webp",
       "alt": "Frasco do perfume Acquaré"
-    }
+    },
+    "family": "Floral Frutada",
+    "tagline": "A efervescência revigorante e o frescor aquático do limão e da maçã verde em uma presença inesquecível.",
+    "description": "Acquaré revela a leveza radiante, o dinamismo e a energia solar de uma criação Floral Frutada inesquecível. Sua abertura desperta os sentidos com a vivacidade borbulhante e cítrica do Limão Siciliano combinada à suculência crocante da Maçã Verde. No seu coração nobre e equilibrado, a delicadeza aveludada do Jasmim e da Rosa Branca une-se ao frescor limpo e natural do Bambu. A base assenta sobre a pele com a profundidade aconchegante do Cedro e a elegância macia do Almíscar, garantindo um rastro revigorante, elegante e de pura sofisticação.",
+    "notePyramid": {
+      "top": ["Limão Siciliano", "Maçã Verde"],
+      "heart": ["Bambu", "Jasmim", "Rosa Branca"],
+      "base": ["Cedro", "Almíscar"]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "bellevanille",
@@ -26,7 +45,18 @@
     "photo": {
       "src": "/products/bellevanille.webp",
       "alt": "Frasco do perfume Belle Vanille"
-    }
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "sollaris",
@@ -44,18 +74,48 @@
     "photo": {
       "src": "/products/sollaris.webp",
       "alt": "Frasco do perfume Sollaris"
-    }
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "jasmin-de-soie",
     "slug": "jasmin-de-soie",
-    "name": "Jasmin de Soie",
+    "name": "Jasmim de Soie",
     "category": "perfumes",
     "volumeOptions": ["50 ml", "100 ml"],
     "photo": {
       "src": "/products/jasmin-de-soie.webp",
-      "alt": "Frasco do perfume Jasmin de Soie"
-    }
+      "alt": "Frasco do perfume Jasmim de Soie"
+    },
+    "family": "Floral Frutal",
+    "tagline": "A delicadeza aveludada do jasmim envolta na doçura inebriante do toffe e da fava tonka em uma assinatura inesquecível.",
+    "description": "Jasmim de Soie revela a elegância tátil e a sofisticação aveludada de uma fragrância Floral Frutal envolvente. Sua abertura desperta os sentidos com a vivacidade suculenta e levemente adocicada da Groselha Preta, equilibrada pela efervescência cítrica da Mandarina. No seu coração nobre, o mistério apaixonante do Jasmim une-se ao toque gourmand e refinado da Amêndoa Amarga. A base assenta sobre a pele com a riqueza cremosa e confortante do Toffe harmonizado pelo calor macio da Fava Tonka, garantindo um rastro marcante, sofisticado e de alta fixação.",
+    "notePyramid": {
+      "top": ["Groselha Preta", "Mandarina"],
+      "heart": ["Jasmim", "Amêndoa Amarga"],
+      "base": ["Toffe", "Fava Tonka"]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "alma-de-seda",
@@ -66,7 +126,26 @@
     "photo": {
       "src": "/products/alma-de-seda.webp",
       "alt": "Frasco do perfume Alma de Seda"
-    }
+    },
+    "family": "Floral Amadeirada Musk",
+    "tagline": "A delicadeza aveludada do almíscar branco e o toque efervescente dos aldeídos em uma assinatura inesquecível.",
+    "description": "Alma de Seda revela a sofisticação pura, a leveza envolvente e o conforto tátil de uma criação Floral Amadeirada Musk inesquecível. Sua abertura desperta os sentidos com o brilho limpo e efervescente dos Aldeídos equilibrados pela vivacidade cítrica da Bergamota. No seu coração nobre, a luminosidade aveludada da Flor de Laranjeira confere um toque de elegância atemporal e feminina à composição. A base assenta sobre a pele com o abraço macio e reconfortante do Almíscar Branco harmonizado pela profundidade sóbria e marcante do Cedro, garantindo um rastro refinado e de pura sofisticação.",
+    "notePyramid": {
+      "top": ["Aldeídos", "Bergamota"],
+      "heart": ["Flor de Laranjeira"],
+      "base": ["Almíscar Branco", "Cedro"]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "aura-secretta",
@@ -85,7 +164,18 @@
     "photo": {
       "src": "/products/aura-secretta.webp",
       "alt": "Frasco do perfume Aura Secretta"
-    }
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "illusion",
@@ -105,7 +195,18 @@
     "photo": {
       "src": "/products/illusion.webp",
       "alt": "Frasco do perfume Illusion"
-    }
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "golden-femme",
@@ -116,7 +217,26 @@
     "photo": {
       "src": "/products/golden-femme.webp",
       "alt": "Frasco do perfume Golden Femme"
-    }
+    },
+    "family": "Floral Oriental",
+    "tagline": "A elegância radiante das rosas e do ylang-ylang unida à doçura aveludada da baunilha em uma assinatura inesquecível.",
+    "description": "Golden Femme revela a aura dourada, sofisticada e envolvente de uma criação Floral Oriental inesquecível. Sua abertura desperta os sentidos com o frescor frutado da Pera, contrastado pela nobreza da Rosa e pelo toque relaxante e refinado da Lavanda. No seu coração apaixonante e luminoso, a exuberância solar do Ylang-Ylang une-se à delicadeza aveludada do Jasmim. A base assenta sobre a pele com a doçura acolhedora da Baunilha, harmonizada pela profundidade sensual do Almíscar e pelo toque terroso e elegante do Musgo, garantindo um rastro marcante e de pura sofisticação.",
+    "notePyramid": {
+      "top": ["Pera", "Rosa", "Lavanda"],
+      "heart": ["Ylang-Ylang", "Jasmim"],
+      "base": ["Almíscar", "Baunilha", "Musgo"]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "altesse",
@@ -131,7 +251,18 @@
       "top": ["Maçã Verde", "Bergamota", "Limão", "Patchouli", "Pimenta Rosa", "Violeta"],
       "heart": ["Musk", "Rosa", "Sândalo", "Styrax"],
       "base": ["Groselha Preta", "Pêssego", "Âmbar", "Lilás", "Ylang-Ylang"]
-    }
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "araya-elixir",
@@ -146,7 +277,18 @@
       "top": ["Frutas Doces", "Notas Cítricas Suaves"],
       "heart": ["Flores Brancas", "Acordes Cremosos"],
       "base": ["Baunilha", "Âmbar", "Almíscar", "Notas Amadeiradas"]
-    }
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "dark-kiss",
@@ -161,7 +303,18 @@
       "top": ["Cassis", "Amêndoa", "Bergamota"],
       "heart": ["Rosa", "Jasmim", "Tuberosa"],
       "base": ["Musk", "Cacau", "Âmbar", "Fava Tonka"]
-    }
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "vanille-imperial",
@@ -176,7 +329,18 @@
       "top": ["Baunilha", "Coco em Pó"],
       "heart": ["Fava Tonka", "Palo Santo"],
       "base": ["Almíscar", "Âmbar Cinza"]
-    }
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "vellours",
@@ -191,7 +355,18 @@
       "top": ["Pomelo", "Pêssego", "Mandarina"],
       "heart": ["Mel", "Jasmim", "Gardênia"],
       "base": ["Musk", "Sândalo", "Cashmere"]
-    }
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "hypnos",
@@ -206,7 +381,18 @@
       "top": ["Coco", "Ameixa", "Damasco", "Amêndoa"],
       "heart": ["Rosa", "Jasmim", "Tuberosa", "Lírio do Vale"],
       "base": ["Musk", "Baunilha", "Sândalo"]
-    }
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "imperator",
@@ -222,7 +408,18 @@
       "top": ["Abacaxi"],
       "heart": ["Bergamota"],
       "base": ["Patchouli", "Baunilha de Bourbon", "Âmbar"]
-    }
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "jade",
@@ -237,7 +434,18 @@
       "top": ["Pêra", "Melão", "Amora", "Pêssego", "Bergamota"],
       "heart": ["Rosa", "Frésia", "Jasmim", "Orquídea", "Tuberosa", "Lírio do Vale"],
       "base": ["Sândalo", "Baunilha", "Musk"]
-    }
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   },
   {
     "id": "madellune",
@@ -252,7 +460,95 @@
       "top": ["Laranja", "Tangerina", "Bergamota", "Flor de Laranjeira"],
       "heart": ["Íris", "Rosa", "Jasmim", "Ylang-Ylang"],
       "base": ["Musk", "Baunilha", "Patchouli", "Fava Tonka"]
-    }
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "serena",
+    "slug": "serena",
+    "name": "Serena",
+    "category": "perfumes",
+    "family": "Floral Amadeirada Musk",
+    "tagline": "A sofisticação atemporal e a sensibilidade feminina da rosa turca e da peônia em uma assinatura inesquecível.",
+    "description": "Serena revela a delicadeza radiante, o luxo e a aura apaixonante de uma criação Floral Amadeirada Musk inesquecível. Sua abertura desperta os sentidos com a suculência efervescente da Lichia e da Ameixa, combinadas ao toque vibrante do Ruibarbo, da Bergamota e da Noz Moscada. No seu coração nobre e opulentamente feminino, desabrocha a poesia aveludada da Peônia e da Rosa Turca, abraçadas pelo toque macio da Petalia e da Madeira de Cashmere. A base assenta sobre a pele com a profundidade elegante do Cedro e do Vetiver, harmonizados pelo calor do Âmbar, da Baunilha e do Musk, garantindo um rastro sensual, luxuoso e de altíssima fixação.",
+    "notePyramid": {
+      "top": ["Lichia", "Ameixa", "Ruibarbo", "Bergamota", "Noz Moscada"],
+      "heart": ["Petalia", "Peônia", "Rosa Turca", "Madeira de Cashmere"],
+      "base": ["Musk", "Cedro", "Âmbar", "Baunilha", "Vetiver"]
+    },
+    "volumeOptions": ["50 ml", "100 ml"],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "aurora-verde",
+    "slug": "aurora-verde",
+    "name": "Aurora Verde",
+    "category": "perfumes",
+    "family": "Chypre Floral",
+    "tagline": "O contraste borbulhante e gelado das notas cítricas sob a nobreza das madeiras em uma assinatura inesquecível.",
+    "description": "Aurora Verde traduz a aura revigorante, aristocrática e marcante de uma criação Chypre Floral inesquecível. Sua abertura desperta os sentidos com um impacto gelado e cítrico de Abacaxi e Limão Siciliano, entranhados na vivacidade do Mandarino e no toque levemente picante da Pimenta Rosa. No seu coração nobre e aromático, a sofisticação atalcada da Íris une-se ao mistério apaixonante do Jasmim e da Rosa. A base assenta sobre a pele com a densidade imponente do Vetiver, do Patchouli e do Sândalo, harmonizados pelo aconchego sensual do Musk, garantindo um rastro denso, refinado e de alta fixação.",
+    "notePyramid": {
+      "top": ["Abacaxi", "Mandarino", "Pimenta Rosa", "Limão Siciliano"],
+      "heart": ["Íris", "Jasmim", "Rosa"],
+      "base": ["Musk", "Vetiver", "Sândalo", "Patchouli"]
+    },
+    "volumeOptions": ["50 ml", "100 ml"],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "eterna",
+    "slug": "eterna",
+    "name": "Eterna",
+    "category": "perfumes",
+    "family": "Oriental Floral",
+    "tagline": "A elegância luminosa das flores brancas aliada à doçura envolvente da baunilha e do benjoim em uma presença inesquecível.",
+    "description": "Eterna revela a sofisticação atemporal e o magnetismo delicado de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos com o brilho frutado e efervescente da Pera, da Bergamota e da Mandarina, envoltos pelo toque levemente adocicado do Cassis. No seu coração nobre e apaixonante, desabrocha um buquê radiante de Lírio-do-Vale, Jasmim Sambac e Flor de Laranjeira. A base assenta sobre a pele com o conforto cremoso da Baunilha e do Açúcar, harmonizados pela profundidade nobre do Âmbar, do Benjoim, do Musgo e do Musk, garantindo um rastro marcante e de alta fixação.",
+    "notePyramid": {
+      "top": ["Pera", "Bergamota", "Mandarina", "Cassis"],
+      "heart": ["Lírio-do-Vale", "Jasmim Sambac", "Flor de Laranjeira"],
+      "base": ["Baunilha", "Âmbar", "Musk", "Benjoim", "Musgo", "Açúcar"]
+    },
+    "volumeOptions": ["50 ml", "100 ml"],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   }
 ]
-

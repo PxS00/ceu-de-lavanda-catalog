@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import { Reveal } from "@/shared/components/reveal";
-import { formatPrice, categories, type Product } from "../lib/catalog";
+import { categories, type Product } from "../lib/catalog";
 import { ProductArt } from "./product-art";
+import { ProductPrices } from "./product-prices";
 
 export function ProductDetail({ product }: { product: Product }) {
   const category = categories.find((item) => item.slug === product.category);
   const hasPendingDetails =
-    product.priceCents == null || !product.availability;
+    (!product.volumePrices?.length && product.priceCents == null) ||
+    !product.availability;
   return (
     <main id="conteudo" className="wrap detail-main">
       <nav className="breadcrumbs" aria-label="Caminho da página">
@@ -35,7 +37,7 @@ export function ProductDetail({ product }: { product: Product }) {
             {product.description ??
               "Cada descoberta tem seu tempo. A descrição desta fragrância será revelada em breve."}
           </p>
-          <p className="detail-price">{formatPrice(product.priceCents)}</p>
+          <ProductPrices product={product} className="detail-price" />
           <dl>
             {category && (
               <div>
@@ -43,10 +45,10 @@ export function ProductDetail({ product }: { product: Product }) {
                 <dd><Link href={`/catalogo/${category.slug}/`}>{category.name}</Link></dd>
               </div>
             )}
-            {product.volumeOptions?.length && (
+            {!product.volumePrices?.length && Boolean(product.volumeOptions?.length) && (
               <div>
                 <dt>Volumes disponíveis</dt>
-                <dd>{product.volumeOptions.join(" · ")}</dd>
+                <dd>{product.volumeOptions?.join(" · ")}</dd>
               </div>
             )}
             {!product.notePyramid && (
