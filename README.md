@@ -4,6 +4,8 @@
 
 Um espaço para apresentar a coleção da marca e facilitar a descoberta de fragrâncias, com uma experiência delicada, organizada e acessível em celulares, tablets e computadores.
 
+**Acesse o catálogo publicado:** [ceu-de-lavanda.pages.dev](https://ceu-de-lavanda.pages.dev/)
+
 ## A coleção
 
 O catálogo contempla as categorias comerciais da Céu de Lavanda:
