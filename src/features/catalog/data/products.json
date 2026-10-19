@@ -85,7 +85,16 @@
     "slug": "illusion",
     "name": "Illusion",
     "category": "perfumes",
+    "productType": "Perfume compartilhável",
+    "family": "Floral Frutal",
+    "tagline": "A suculência solar do abacaxi unida à nobreza do patchouli, do âmbar e da baunilha em uma assinatura envolvente e inesquecível.",
+    "description": "Illusion reflete o mistério, o magnetismo e a presença marcante de uma criação floral frutal vibrante e sofisticada. Sua abertura traz o frescor luminoso e a suculência solar do abacaxi. No coração, a energia cítrica e refinada da bergamota confere brilho e elegância à composição. A base fecha com a densidade envolvente do patchouli, o aconchego aveludado da Baunilha de Bourbon e o calor nobre do âmbar, criando um rastro hipnótico e inesquecível na pele.",
     "volumeOptions": ["50 ml", "100 ml"],
+    "notePyramid": {
+      "top": ["Abacaxi"],
+      "heart": ["Bergamota"],
+      "base": ["Patchouli", "Baunilha de Bourbon", "Âmbar"]
+    },
     "photo": {
       "src": "/products/illusion.webp",
       "alt": "Frasco do perfume Illusion"
@@ -185,7 +194,7 @@
     "family": "Oriental Gourmand",
     "tagline": "A sensualidade hipnótica e a doçura envolvedora em uma assinatura oriental inesquecível.",
     "description": "Hypnos revela o magnetismo sedutor e o abraço aveludado de uma fragrância Oriental Gourmand marcante. Sua abertura desperta os sentidos com a riqueza suculenta do Coco, da Ameixa e do Damasco, envolvidos pelo toque refinado da Amêndoa. No seu coração apaixonante, a elegância clássica da Rosa e do Jasmim une-se à exuberância misteriosa da Tuberosa e do Lírio do Vale. A base fecha com o aconchego cremoso da Baunilha e do Sândalo, harmonizados pela profundidade sensual do Musk, criando um rastro de alta fixação e puro luxo na pele.",
-    "volumeOptions": ["100 ml"],
+    "volumeOptions": ["50 ml", "100 ml"],
     "notePyramid": {
       "top": ["Coco", "Ameixa", "Damasco", "Amêndoa"],
       "heart": ["Rosa", "Jasmim", "Tuberosa", "Lírio do Vale"],
