@@ -19,7 +19,7 @@
 }
 .product-detail .product-art {
   aspect-ratio: 4 / 5;
-  border: 2px solid var(--accent);
+  border: 2px solid var(--color-gold);
 }
 .product-detail .product-art > img:not([data-nimg="fill"]) {
   width: 112px;

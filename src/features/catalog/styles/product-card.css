@@ -9,6 +9,7 @@
 }
 .product-card .product-art {
   aspect-ratio: 4 / 5;
+  border-color: var(--color-gold-light);
   border-bottom-color: var(--accent);
   transition: border-color 0.3s ease;
 }
