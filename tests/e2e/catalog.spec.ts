@@ -68,7 +68,7 @@ test("@visual catalog search, initials, sorting and reset", async ({ page }, inf
   await page.getByRole("searchbox").fill("");
   await page.getByRole("button", { name: "B", exact: true }).click();
   await expect(cards).toHaveCount(1);
-  await expect(cards.first()).toContainText("Bellevanille");
+  await expect(cards.first()).toContainText("Belle Vanille");
   await page.getByRole("button", { name: "Todos os nomes" }).click();
   await page.getByRole("combobox").selectOption("za");
   await expect(cards.first()).toContainText("Sollaris");
@@ -203,3 +203,4 @@ test.describe("101-product test-only catalog", () => {
     }
   });
 });
+
