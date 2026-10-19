@@ -26,8 +26,8 @@
   font-size: var(--text-label);
 }
 .has-photo img {
-  object-fit: contain;
-  padding: 16px;
+  object-fit: cover;
+  object-position: center;
 }
 @media (max-width: 760px) {
   .product-art > img:not([data-nimg="fill"]) {

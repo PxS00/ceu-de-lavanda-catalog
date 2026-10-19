@@ -8,6 +8,7 @@
   min-width: 0;
 }
 .product-card .product-art {
+  aspect-ratio: 4 / 5;
   border-bottom-color: var(--accent);
   transition: border-color 0.3s ease;
 }
