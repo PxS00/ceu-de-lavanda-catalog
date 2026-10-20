@@ -243,6 +243,10 @@
     "slug": "altesse",
     "name": "Altesse",
     "category": "perfumes",
+    "photo": {
+      "src": "/products/altesse.webp",
+      "alt": "Frasco do perfume Altesse"
+    },
     "family": "Chipre Frutada",
     "tagline": "A nobreza da família Chipre Frutada traduzida em uma presença marcante, elegante e inesquecível.",
     "description": "Altesse revela a sofisticação aristocrática e o magnetismo de uma fragrância envolvente da família Chipre Frutada. Sua abertura radiante combina o frescor vibrante da Maçã Verde, Bergamota e Limão ao toque picante da Pimenta Rosa, envelopados pela delicadeza da Violeta e do Patchouli. No seu coração nobre, a elegância aveludada da Rosa une-se ao aconchego do Sândalo, do Musk e do Styrax. A base fecha com a riqueza suculenta da Groselha Preta e do Pêssego, harmonizados pelo calor do Âmbar, do Lilás e do Ylang-Ylang, criando um rastro de alta fixação e puro luxo na pele.",
@@ -269,6 +273,10 @@
     "slug": "araya-elixir",
     "name": "Araya Elixir",
     "category": "perfumes",
+    "photo": {
+      "src": "/products/araya-elixir.webp",
+      "alt": "Frasco do perfume Araya Elixir"
+    },
     "family": "Floral Oriental Gourmand",
     "tagline": "A nobreza cremosa das flores brancas aliada à doçura gourmand e ao calor do âmbar em uma presença inesquecível.",
     "description": "Araya Elixir revela a sofisticação magnética de uma fragrância envolvente da família Floral Oriental Gourmand. Sua abertura traz o brilho sucinto e vibrante de Frutas Doces envoltas por Notas Cítricas Suaves. No coração, a elegância aveludada das Flores Brancas une-se à textura e ao acolhimento dos Acordes Cremosos. A base fecha com a riqueza viciante da Baunilha e do Âmbar, harmonizados pela profundidade do Almíscar e das Notas Amadeiradas, criando um rastro de alta fixação e puro luxo na pele.",
@@ -295,6 +303,10 @@
     "slug": "dark-kiss",
     "name": "Dark Kiss",
     "category": "perfumes",
+    "photo": {
+      "src": "/products/dark-kiss.webp",
+      "alt": "Frasco do perfume Dark Kiss"
+    },
     "family": "Oriental Floral",
     "tagline": "A sensualidade cativante da pimenta e do cacau em uma assinatura misteriosa, poderosa e inesquecível.",
     "description": "Dark Kiss revela o magnetismo sedutor e a sofisticação de uma fragrância envolvente da família Oriental Floral. Sua abertura radiante combina a doçura aveludada do Cassis ao toque refinado da Amêndoa e ao frescor vibrante da Bergamota. No seu coração nobre e apaixonante, a elegância clássica da Rosa une-se à exuberância misteriosa do Jasmim e da Tuberosa. A base fecha com a riqueza gourmand e quente do Cacau e da Fava Tonka, harmonizados pela profundidade do Âmbar e pelo aconchego sensual do Musk, criando um rastro de alta fixação e puro luxo na pele.",
@@ -321,6 +333,10 @@
     "slug": "vanille-imperial",
     "name": "Vanille Imperial",
     "category": "perfumes",
+    "photo": {
+      "src": "/products/vanille-imperial.webp",
+      "alt": "Frasco do perfume Vanille Imperial"
+    },
     "family": "Oriental Gourmand",
     "tagline": "A imponência nobre da baunilha e do coco aliada ao mistério resinoso do palo santo em uma assinatura inesquecível.",
     "description": "Vanille Imperial revela a sofisticação aristocrática e o abraço envolvente de uma criação Oriental Gourmand majestosa. Sua abertura radiante combina a doçura aveludada da Baunilha ao toque cremoso e aconchegante do Coco em Pó. No seu coração nobre, a riqueza quente da Fava Tonka une-se à profundidade mística e resinosa do Palo Santo. A base fecha com a sensualidade marcante do Almíscar harmonizado pelo calor opulento do Âmbar Cinza, criando um rastro de alta fixação e puro luxo na pele.",
@@ -347,6 +363,10 @@
     "slug": "vellours",
     "name": "Vellours",
     "category": "perfumes",
+    "photo": {
+      "src": "/products/vellours.webp",
+      "alt": "Frasco do perfume Vellours"
+    },
     "family": "Chypre Floral",
     "tagline": "A sofisticação atemporal da família Chypre Floral em uma presença aveludada, marcante e inesquecível.",
     "description": "Vellours traduz a elegância tátil e a sofisticação magnética de uma fragrância Chypre Floral refinada. Sua abertura desperta os sentidos com a vivacidade borbulhante do Pomelo e da Mandarina, envoltos pela doçura suculenta do Pêssego. No seu coração nobre e apaixonante, a delicadeza aveludada do Jasmim e da Gardênia une-se à riqueza preciosa do Mel, criando um corpo floral inebriante. A base assenta sobre a pele com a cremosidade do Sândalo e o abraço envolvente do Cashmere e do Musk, garantindo um rastro marcante e de puro luxo.",
@@ -373,6 +393,10 @@
     "slug": "hypnos",
     "name": "Hypnos",
     "category": "perfumes",
+    "photo": {
+      "src": "/products/hypnos.webp",
+      "alt": "Frasco do perfume Hypnos"
+    },
     "family": "Oriental Gourmand",
     "tagline": "A sensualidade hipnótica e a doçura envolvedora em uma assinatura oriental inesquecível.",
     "description": "Hypnos revela o magnetismo sedutor e o abraço aveludado de uma fragrância Oriental Gourmand marcante. Sua abertura desperta os sentidos com a riqueza suculenta do Coco, da Ameixa e do Damasco, envolvidos pelo toque refinado da Amêndoa. No seu coração apaixonante, a elegância clássica da Rosa e do Jasmim une-se à exuberância misteriosa da Tuberosa e do Lírio do Vale. A base fecha com o aconchego cremoso da Baunilha e do Sândalo, harmonizados pela profundidade sensual do Musk, criando um rastro de alta fixação e puro luxo na pele.",
@@ -399,6 +423,10 @@
     "slug": "imperator",
     "name": "Imperator",
     "category": "perfumes",
+    "photo": {
+      "src": "/products/imperator.webp",
+      "alt": "Frasco do perfume Imperator"
+    },
     "productType": "Perfume compartilhável",
     "family": "Floral Frutal",
     "tagline": "A suculência solar do abacaxi unida à nobreza do patchouli e da baunilha em uma assinatura inesquecível.",
@@ -426,6 +454,10 @@
     "slug": "jade",
     "name": "Jade",
     "category": "perfumes",
+    "photo": {
+      "src": "/products/jade.webp",
+      "alt": "Frasco do perfume Jade"
+    },
     "family": "Floral Frutada",
     "tagline": "A delicadeza radiante de um buquê de florais brancos unida à suculência solar das frutas em uma assinatura inesquecível.",
     "description": "Jade revela a sofisticação luminosa e o encantamento envolvente de uma criação Floral Frutada inesquecível. Sua abertura desperta os sentidos com a suculência vibrante da Pêra, do Melão, da Amora e do Pêssego, equilibrados pelo toque cítrico e refrescante da Bergamota. No seu coração nobre e apaixonante, desabrocha um buquê majestoso e aveludado de Rosa, Frésia, Jasmim, Orquídea, Tuberosa e Lírio do Vale. A base assenta sobre a pele com a cremosidade macia do Sândalo e da Baunilha, harmonizados pela profundidade acolhedora do Musk, garantindo um rastro marcante e de alta fixação.",
@@ -452,6 +484,10 @@
     "slug": "madellune",
     "name": "Madellune",
     "category": "perfumes",
+    "photo": {
+      "src": "/products/madellune.webp",
+      "alt": "Frasco do perfume Madellune"
+    },
     "family": "Chypre Floral",
     "tagline": "A sofisticação atemporal e o magnetismo sedutor da família Chypre Floral em uma presença inesquecível.",
     "description": "Madellune revela a aura envolvente, graciosa e marcante de uma fragrância Chypre Floral inesquecível. Sua abertura desperta os sentidos com uma efervescência cítrica e radiante de Laranja, Tangerina e Bergamota, suavizada pelo toque delicado e solar da Flor de Laranjeira. No seu coração nobre e apaixonante, desabrocha a elegância atalcada da Íris unida à nobreza da Rosa, do Jasmim e do Ylang-Ylang. A base assenta sobre a pele com a cremosidade viciante da Baunilha e da Fava Tonka, harmonizadas pela profundidade marcante do Patchouli e do Musk, garantindo um rastro sensual e de alta fixação.",
@@ -478,6 +514,10 @@
     "slug": "serena",
     "name": "Serena",
     "category": "perfumes",
+    "photo": {
+      "src": "/products/serena.webp",
+      "alt": "Frasco do perfume Serena"
+    },
     "family": "Floral Amadeirada Musk",
     "tagline": "A sofisticação atemporal e a sensibilidade feminina da rosa turca e da peônia em uma assinatura inesquecível.",
     "description": "Serena revela a delicadeza radiante, o luxo e a aura apaixonante de uma criação Floral Amadeirada Musk inesquecível. Sua abertura desperta os sentidos com a suculência efervescente da Lichia e da Ameixa, combinadas ao toque vibrante do Ruibarbo, da Bergamota e da Noz Moscada. No seu coração nobre e opulentamente feminino, desabrocha a poesia aveludada da Peônia e da Rosa Turca, abraçadas pelo toque macio da Petalia e da Madeira de Cashmere. A base assenta sobre a pele com a profundidade elegante do Cedro e do Vetiver, harmonizados pelo calor do Âmbar, da Baunilha e do Musk, garantindo um rastro sensual, luxuoso e de altíssima fixação.",
@@ -504,6 +544,10 @@
     "slug": "aurora-verde",
     "name": "Aurora Verde",
     "category": "perfumes",
+    "photo": {
+      "src": "/products/aurora-verde.webp",
+      "alt": "Frasco do perfume Aurora Verde"
+    },
     "family": "Chypre Floral",
     "tagline": "O contraste borbulhante e gelado das notas cítricas sob a nobreza das madeiras em uma assinatura inesquecível.",
     "description": "Aurora Verde traduz a aura revigorante, aristocrática e marcante de uma criação Chypre Floral inesquecível. Sua abertura desperta os sentidos com um impacto gelado e cítrico de Abacaxi e Limão Siciliano, entranhados na vivacidade do Mandarino e no toque levemente picante da Pimenta Rosa. No seu coração nobre e aromático, a sofisticação atalcada da Íris une-se ao mistério apaixonante do Jasmim e da Rosa. A base assenta sobre a pele com a densidade imponente do Vetiver, do Patchouli e do Sândalo, harmonizados pelo aconchego sensual do Musk, garantindo um rastro denso, refinado e de alta fixação.",
