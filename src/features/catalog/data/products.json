@@ -574,6 +574,10 @@
     "slug": "eterna",
     "name": "Eterna",
     "category": "perfumes",
+    "photo": {
+      "src": "/products/eterna.webp",
+      "alt": "Frasco do perfume Eterna"
+    },
     "family": "Oriental Floral",
     "tagline": "A elegância luminosa das flores brancas aliada à doçura envolvente da baunilha e do benjoim em uma presença inesquecível.",
     "description": "Eterna revela a sofisticação atemporal e o magnetismo delicado de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos com o brilho frutado e efervescente da Pera, da Bergamota e da Mandarina, envoltos pelo toque levemente adocicado do Cassis. No seu coração nobre e apaixonante, desabrocha um buquê radiante de Lírio-do-Vale, Jasmim Sambac e Flor de Laranjeira. A base assenta sobre a pele com o conforto cremoso da Baunilha e do Açúcar, harmonizados pela profundidade nobre do Âmbar, do Benjoim, do Musgo e do Musk, garantindo um rastro marcante e de alta fixação.",
