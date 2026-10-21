@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { categories } from "@/features/catalog/lib/catalog";
+import { categories, products } from "@/features/catalog/lib/catalog";
 import { Reveal } from "@/shared/components/reveal";
 
 const categoryIntroductions = {
-  perfumes: { count: "Aproximadamente 90 fragrâncias", description: "Um convite para encontrar o seu próximo perfume." },
+  perfumes: { count: `${products.filter((product) => product.category === "perfumes").length} fragrâncias`, description: "Um convite para encontrar o seu próximo perfume." },
   "body-splash": { count: "Aproximadamente 10 opções", description: "Um caminho dedicado à coleção de Body Splash." },
   "perfume-capilar": { count: "1 fragrância", description: "Conheça o espaço do perfume capilar, também chamado Hair Mist." },
 };

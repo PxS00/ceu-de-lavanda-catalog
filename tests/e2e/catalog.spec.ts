@@ -4,6 +4,7 @@ import { syntheticProducts } from "../fixtures/products.mjs";
 import catalogProducts from "../../src/features/catalog/data/products.json";
 
 const firstPageCount = Math.min(catalogProducts.length, 12);
+const sortedCatalog = [...catalogProducts].sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
 
 const test = base.extend<{ browserHealth: void }>({
   browserHealth: [async ({ page }, use) => {
@@ -41,7 +42,7 @@ test("@visual homepage and category discovery", async ({ page }, info) => {
   await expect(page.locator(".about h2")).toHaveText("O começo de uma bela descoberta", { useInnerText: true });
   await expect(page.locator(".phrase-strip p")).toHaveText(["Presença nos detalhes", "Beleza em cada descoberta", "O seu próximo encanto"]);
   await expect(page.locator(".category-card")).toHaveCount(3);
-  await expect(page.locator(".category-count")).toHaveText(["Aproximadamente 90 fragrâncias", "Aproximadamente 10 opções", "1 fragrância"]);
+  await expect(page.locator(".category-count")).toHaveText([`${catalogProducts.length} fragrâncias`, "Aproximadamente 10 opções", "1 fragrância"]);
   await expect(page.locator(".product-card")).toHaveCount(4);
   const columns = await page.locator(".collection-preview .product-grid").evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(" ").length);
   expect(columns).toBe(info.project.name === "desktop" ? 4 : 2);
@@ -72,23 +73,51 @@ test("@visual catalog search, initials, sorting and reset", async ({ page }, inf
   await review(page, info, "search");
   await page.getByRole("searchbox").fill("");
   await page.getByRole("button", { name: "B", exact: true }).click();
-  await expect(cards).toHaveCount(1);
-  await expect(cards.first()).toContainText("Belle Vanille");
+  await expect(cards.locator("h3")).toHaveText(sortedCatalog.filter((p) => p.name.startsWith("B")).map((p) => p.name));
   await page.getByRole("button", { name: "Todos os nomes" }).click();
   await page.getByRole("combobox").selectOption("za");
   await expect(cards.first()).toContainText("Vellours");
   await page.getByRole("combobox").selectOption("az");
-  await expect(cards.first()).toContainText("Acquaré");
+  await expect(cards.first().locator("h3")).toHaveText(sortedCatalog[0].name);
   await page.getByRole("searchbox").fill("inexistente");
   await expect(cards).toHaveCount(0);
   await review(page, info, "empty-search");
   await page.getByRole("button", { name: "Limpar filtros" }).click();
   await expect(cards).toHaveCount(firstPageCount);
   const pagination = page.getByRole("navigation", { name: "Páginas do catálogo" });
-  await expect(pagination.locator("span")).toHaveText("1 de 2");
-  await pagination.getByRole("button", { name: "Próxima" }).click();
-  await expect(cards).toHaveCount(catalogProducts.length - firstPageCount);
+  const pageCount = Math.ceil(catalogProducts.length / 12);
+  const links: string[] = [];
+  await expect(pagination.getByRole("button", { name: "Anterior" })).toBeDisabled();
+  for (let current = 1; current <= pageCount; current++) {
+    await expect(pagination.locator("span")).toHaveText(`${current} de ${pageCount}`);
+    await expect(cards).toHaveCount(Math.min(12, catalogProducts.length - (current - 1) * 12));
+    links.push(...await cards.evaluateAll((items) => items.map((item) => item.getAttribute("href")!)));
+    if (current < pageCount) await pagination.getByRole("button", { name: "Próxima" }).click();
+  }
+  expect(links).toEqual(sortedCatalog.map((p) => `/produtos/${p.slug}/`));
+  expect(new Set(links).size).toBe(catalogProducts.length);
+  await expect(pagination.getByRole("button", { name: "Próxima" })).toBeDisabled();
   await expect(cards.last().locator(".price-option")).toHaveText([/50 ml\s+R\$\s*157,00/, /100 ml\s+R\$\s*287,00/]);
+});
+
+test("@visual imported perfumes show gender and confirmed prices with pending content", async ({ page }, info) => {
+  await page.goto("/catalogo/");
+  await page.getByRole("searchbox").fill("Scandall");
+  const variants = page.locator(".product-card").filter({ has: page.getByRole("heading", { name: "Scandall", exact: true }) });
+  await expect(variants.locator(".product-type")).toHaveText(["Perfume masculino", "Perfume feminino"]);
+  for (const slug of ["eternety", "scandall-masculino", "scandall-feminino", "armani-code-elixir-giorgio-armani"]) {
+    const product = catalogProducts.find((item) => item.slug === slug)!;
+    await page.goto(`/produtos/${slug}/`);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(product.name);
+    await expect(page.locator(".detail-family")).toHaveText(product.productType!);
+    await expect(page.locator(".placeholder-caption")).toHaveText("Fotografia em breve");
+    await expect(page.locator(".detail-description")).toHaveText("Cada descoberta tem seu tempo. A descrição desta fragrância será revelada em breve.");
+    await expect(page.locator(".note-pyramid")).toHaveCount(0);
+    await expect(page.locator(".detail-price .price-option")).toHaveText([/50 ml\s+R\$\s*157,00/, /100 ml\s+R\$\s*287,00/]);
+    await expect(page.getByText("Disponível", { exact: true })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  }
+  await review(page, info, "imported-product");
 });
 
 test("@visual individual product and return navigation", async ({ page }, info) => {

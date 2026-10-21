@@ -70,9 +70,11 @@ export function CatalogFilters({
           <button
             className={!initial ? "active" : ""}
             aria-pressed={!initial}
+            aria-label="Todos os nomes"
             onClick={() => onChange({ initial: "" })}
           >
-            Todos os nomes
+            <span className="initial-filter-all-label">Todos os nomes</span>
+            <span className="initial-filter-all-short" aria-hidden="true">A–Z</span>
           </button>
           {initials.map((letter) => (
             <button

@@ -68,10 +68,14 @@
   font-weight: 400;
   white-space: nowrap;
 }
+.product-type,
 .product-availability {
   color: var(--muted);
   font-size: var(--text-small);
   margin: 0 0 14px;
+}
+.product-type {
+  margin: 8px 0 0;
 }
 .product-link {
   font-size: var(--text-small);

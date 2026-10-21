@@ -2,6 +2,8 @@
 
 Fonte atual: `src/features/catalog/data/products.json`. Uma lista JSON UTF-8, com um objeto por produto. A ordem no arquivo não indica destaque ou popularidade. IDs e slugs são identificadores técnicos, não SKUs oficiais.
 
+O catálogo contém 112 perfumes: 20 cadastros anteriores e 92 referências acrescentadas da planilha de produção. A origem, as correspondências e as regras desta carga estão em [Importação do inventário](catalog-inventory-import.md).
+
 | Campo          | Formato                                              | Regra                                                                                                                                                                                |
 | -------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `id`           | string                                               | Obrigatório, único e estável; não mudar ao renomear um produto.                                                                                                                      |
@@ -38,7 +40,7 @@ Registro mínimo válido:
 
 Campo opcional `category`: `perfumes`, `body-splash`, `perfume-capilar` ou `null`. As opções e nomes públicos ficam em `categories` de `src/features/catalog/lib/catalog.ts`, compartilhados por validação, filtros, cartões e páginas. Campo omitido/null significa classificação ainda não confirmada, sem excluir o produto da coleção completa.
 
-As três categorias foram confirmadas pelo usuário, com escopo de aproximadamente 90 Perfumes, 10 Body Splash e 1 Perfume Capilar no inventário futuro. Esses totais não são contagens de registros publicados e não são usados para gerar produtos fictícios. Os produtos já identificados como perfumes estão marcados como `perfumes`; os demais só recebem categoria quando confirmada.
+As três categorias foram confirmadas pelo usuário. Perfumes exibe a contagem atual dos 112 registros cadastrados; as previsões de 10 Body Splash e 1 Perfume Capilar continuam sem gerar produtos fictícios. Os produtos já identificados como perfumes estão marcados como `perfumes`; os demais só recebem categoria quando confirmada.
 
 Cada cartão leva a uma página filtrada estática: `/catalogo/perfumes/`, `/catalogo/body-splash/` e `/catalogo/perfume-capilar/`. As páginas são geradas mesmo enquanto vazias; mostram cadastro em preparação e um link para a coleção completa. A categoria combina com busca, inicial, ordenação e paginação. Mudar de categoria reinicia os filtros locais. A categoria selecionada é compartilhável na URL e funciona ao abrir diretamente o HTML exportado, sem depender de query string ou servidor.
 

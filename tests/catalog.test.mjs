@@ -29,9 +29,11 @@ test("101-product fixture validates and filters Portuguese names without mutatio
 });
 
 test("catalog registers the supplied perfumes with their confirmed details", () => {
-  assert.equal(products.length, 20);
+  assert.equal(products.length, 112);
+  const originalPerfumes = products.filter((p) => !p.id.startsWith("pfm-"));
+  assert.equal(originalPerfumes.length, 20);
   assert.deepEqual(
-    products.map((p) => p.name).sort(),
+    originalPerfumes.map((p) => p.name).sort(),
     [
       "Altesse",
       "Acquaré",
@@ -63,6 +65,9 @@ test("catalog registers the supplied perfumes with their confirmed details", () 
       { volume: "100 ml", priceCents: 28700 },
     ]);
     assert.equal(p.availability, "available");
+  }
+  for (const p of originalPerfumes) {
+    assert.ok(p.photo);
     assert.ok(p.tagline);
     assert.ok(p.description);
     assert.ok(p.notePyramid.top.length);
@@ -73,6 +78,25 @@ test("catalog registers the supplied perfumes with their confirmed details", () 
   assert.equal(products.find((item) => item.slug === "illusion").productType, "Perfume compartilhável");
 });
 
+test("inventory adds 92 references while preserving names, gender and pending content", () => {
+  const imported = products.filter((p) => p.id.startsWith("pfm-"));
+  assert.deepEqual(imported.map((p) => p.id),
+    Array.from({ length: 92 }, (_, i) => `pfm-${String(i + 1).padStart(3, "0")}`));
+  assert.equal(imported[0].name, "Eternety");
+  assert.equal(imported.at(-1).name, "LE BEAU JEAN PAUL GALTIER");
+  assert.equal(imported.find((p) => p.id === "pfm-018").productType, "Perfume masculino / compartilhável");
+  assert.equal(imported.find((p) => p.id === "pfm-034").productType, "Perfume feminino / compartilhável");
+  assert.deepEqual(imported.filter((p) => p.name === "Scandall").map((p) => [p.slug, p.productType]), [
+    ["scandall-masculino", "Perfume masculino"],
+    ["scandall-feminino", "Perfume feminino"],
+  ]);
+  for (const p of imported) {
+    assert.ok(p.productType);
+    for (const field of ["description", "tagline", "family", "photo", "notePyramid", "notes"])
+      assert.equal(p[field], undefined);
+  }
+});
+
 test("search is accent insensitive, intersects initials, sorts without mutating data", () => {
   const original = products.map((p) => p.id);
   assert.equal(
@@ -80,7 +104,7 @@ test("search is accent insensitive, intersects initials, sorts without mutating 
     "Acquaré",
   );
   assert.equal(filterProducts(products, "acquare", "B", "az").length, 0);
-  assert.equal(filterProducts(products, "", "A", "az").length, 6);
+  assert.equal(filterProducts(products, "", "A", "az").length, 18);
   assert.equal(filterProducts(products, "", "", "za")[0].name, "Vellours");
   assert.deepEqual(
     products.map((p) => p.id),
@@ -180,7 +204,7 @@ test("commercial categories are distinct from olfactory families and remain opti
     );
     assert.equal(
       filterProducts(products, "", "", "az", category.slug).length,
-      [20, 0, 0][index],
+      [112, 0, 0][index],
     );
   }
   assert.doesNotThrow(() =>
@@ -188,7 +212,7 @@ test("commercial categories are distinct from olfactory families and remain opti
   );
   for (const category of ["floral", "amadeirado", "", 42])
     assert.throws(() => validateProducts([{ ...products[0], category }]));
-  assert.equal(filterProducts(products, "", "", "az").length, 20);
+  assert.equal(filterProducts(products, "", "", "az").length, 112);
 });
 
 test("category filtering intersects search and initials, and preserves sorting", () => {

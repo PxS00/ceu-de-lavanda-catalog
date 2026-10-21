@@ -28,6 +28,9 @@ export function ProductCard({
         <h3>{product.name}</h3>
         <ArrowUpRight aria-hidden="true" />
       </div>
+      {product.productType && (
+        <p className="product-type">{product.productType}</p>
+      )}
       <ProductPrices product={product} className="product-prices" />
       {product.availability && (
         <p className="product-availability">
