@@ -28,23 +28,73 @@ test("101-product fixture validates and filters Portuguese names without mutatio
   assert.deepEqual(syntheticProducts, original);
 });
 
-test("only the eight verified names are registered, with no invented details", () => {
-  assert.equal(products.length, 8);
+test("catalog registers the supplied perfumes with their confirmed details", () => {
+  assert.equal(products.length, 112);
+  const originalPerfumes = products.filter((p) => !p.id.startsWith("pfm-"));
+  assert.equal(originalPerfumes.length, 20);
   assert.deepEqual(
-    products.map((p) => p.name).sort(),
+    originalPerfumes.map((p) => p.name).sort(),
     [
+      "Altesse",
       "Acquaré",
-      "Bellevanille",
-      "Sollaris",
-      "Jasmin de Soie",
-      "Alma de Seda",
+      "Araya Elixir",
+      "Belle Vanille",
       "Aura Secretta",
+      "Aurora Verde",
+      "Dark Kiss",
+      "Eterna",
       "Illusion",
       "Golden Femme",
+      "Hypnos",
+      "Imperator",
+      "Jade",
+      "Jasmim de Soie",
+      "Alma de Seda",
+      "Madellune",
+      "Sollaris",
+      "Serena",
+      "Vanille Imperial",
+      "Vellours",
     ].sort(),
   );
-  for (const p of products)
-    assert.deepEqual(Object.keys(p).sort(), ["id", "name", "slug"]);
+  for (const p of products) {
+    assert.equal(p.category, "perfumes");
+    assert.deepEqual(p.volumeOptions, ["50 ml", "100 ml"]);
+    assert.deepEqual(p.volumePrices, [
+      { volume: "50 ml", priceCents: 15700 },
+      { volume: "100 ml", priceCents: 28700 },
+    ]);
+    assert.equal(p.availability, "available");
+  }
+  for (const p of originalPerfumes) {
+    assert.ok(p.photo);
+    assert.ok(p.tagline);
+    assert.ok(p.description);
+    assert.ok(p.notePyramid.top.length);
+    assert.ok(p.notePyramid.heart.length);
+    assert.ok(p.notePyramid.base.length);
+  }
+  assert.equal(products.find((item) => item.slug === "jasmin-de-soie").photo.src, "/products/jasmin-de-soie.webp");
+  assert.equal(products.find((item) => item.slug === "illusion").productType, "Perfume compartilhável");
+});
+
+test("inventory adds 92 references while preserving names, gender and pending content", () => {
+  const imported = products.filter((p) => p.id.startsWith("pfm-"));
+  assert.deepEqual(imported.map((p) => p.id),
+    Array.from({ length: 92 }, (_, i) => `pfm-${String(i + 1).padStart(3, "0")}`));
+  assert.equal(imported[0].name, "Eternety");
+  assert.equal(imported.at(-1).name, "LE BEAU JEAN PAUL GALTIER");
+  assert.equal(imported.find((p) => p.id === "pfm-018").productType, "Perfume masculino / compartilhável");
+  assert.equal(imported.find((p) => p.id === "pfm-034").productType, "Perfume feminino / compartilhável");
+  assert.deepEqual(imported.filter((p) => p.name === "Scandall").map((p) => [p.slug, p.productType]), [
+    ["scandall-masculino", "Perfume masculino"],
+    ["scandall-feminino", "Perfume feminino"],
+  ]);
+  for (const p of imported) {
+    assert.ok(p.productType);
+    for (const field of ["description", "tagline", "family", "photo", "notePyramid", "notes"])
+      assert.equal(p[field], undefined);
+  }
 });
 
 test("search is accent insensitive, intersects initials, sorts without mutating data", () => {
@@ -54,8 +104,8 @@ test("search is accent insensitive, intersects initials, sorts without mutating 
     "Acquaré",
   );
   assert.equal(filterProducts(products, "acquare", "B", "az").length, 0);
-  assert.equal(filterProducts(products, "", "A", "az").length, 3);
-  assert.equal(filterProducts(products, "", "", "za")[0].name, "Sollaris");
+  assert.equal(filterProducts(products, "", "A", "az").length, 18);
+  assert.equal(filterProducts(products, "", "", "za")[0].name, "Vellours");
   assert.deepEqual(
     products.map((p) => p.id),
     original,
@@ -85,6 +135,16 @@ test("data validation rejects malformed and duplicate bulk records", () => {
         priceCents: 12000,
         notes: ["Verified note"],
         availability: "available",
+        volumeOptions: ["50 ml", "100 ml"],
+        volumePrices: [
+          { volume: "50 ml", priceCents: 0 },
+          { volume: "100 ml", priceCents: 28700 },
+        ],
+        notePyramid: {
+          top: ["Citrus"],
+          heart: ["Floral"],
+          base: ["Musk"],
+        },
       },
     ]),
   );
@@ -100,6 +160,18 @@ test("data validation rejects malformed and duplicate bulk records", () => {
     [{ ...base, priceCents: 1.5 }],
     [{ ...base, description: 10 }],
     [{ ...base, notes: [null] }],
+    [{ ...base, volumeOptions: ["50 ml", " "] }],
+    [{ ...base, volumePrices: {} }],
+    [{ ...base, volumePrices: [] }],
+    [{ ...base, volumePrices: [null] }],
+    [{ ...base, volumePrices: [{ volume: " ", priceCents: 15700 }] }],
+    [{ ...base, volumePrices: [{ volume: "50 ml", priceCents: -1 }] }],
+    [{ ...base, volumePrices: [{ volume: "50 ml", priceCents: 157.5 }] }],
+    [{ ...base, volumePrices: [{ volume: "50 ml", priceCents: "15700" }] }],
+    [{ ...base, volumePrices: [{ volume: "50 ml", priceCents: 15700 }, { volume: "50 ml", priceCents: 28700 }] }],
+    [{ ...base, volumeOptions: ["50 ml"], volumePrices: [{ volume: "100 ml", priceCents: 28700 }] }],
+    [{ ...base, volumeOptions: ["50 ml", "100 ml"], volumePrices: [{ volume: "50 ml", priceCents: 15700 }] }],
+    [{ ...base, notePyramid: { top: ["Citrus"], heart: [], base: ["Musk"] } }],
     [{ ...base, availability: "unknown" }],
     [
       {
@@ -126,13 +198,13 @@ test("commercial categories are distinct from olfactory families and remain opti
     ["Perfumes", "Body Splash", "Perfume Capilar"],
   );
   assert.equal(new Set(categories.map((category) => category.slug)).size, 3);
-  for (const category of categories) {
+  for (const [index, category] of categories.entries()) {
     assert.doesNotThrow(() =>
       validateProducts([{ ...products[0], category: category.slug }]),
     );
     assert.equal(
       filterProducts(products, "", "", "az", category.slug).length,
-      0,
+      [112, 0, 0][index],
     );
   }
   assert.doesNotThrow(() =>
@@ -140,7 +212,7 @@ test("commercial categories are distinct from olfactory families and remain opti
   );
   for (const category of ["floral", "amadeirado", "", 42])
     assert.throws(() => validateProducts([{ ...products[0], category }]));
-  assert.equal(filterProducts(products, "", "", "az").length, 8);
+  assert.equal(filterProducts(products, "", "", "az").length, 112);
 });
 
 test("category filtering intersects search and initials, and preserves sorting", () => {
@@ -153,7 +225,7 @@ test("category filtering intersects search and initials, and preserves sorting",
   ];
   assert.deepEqual(
     filterProducts(fixtures, "", "A", "za", "perfumes").map((p) => p.name),
-    ["Alma de Seda", "Acquaré"],
+    ["Aura Secretta", "Alma de Seda", "Acquaré"],
   );
   assert.deepEqual(
     filterProducts(fixtures, "ACQUARE", "A", "az", "perfumes").map(
@@ -171,3 +243,4 @@ test("category filtering intersects search and initials, and preserves sorting",
   );
   assert.equal(filterProducts(fixtures, "", "", "az").length, 5);
 });
+

@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
-import { formatPrice, type Product } from "@/features/catalog/lib/catalog";
+import type { Product } from "@/features/catalog/lib/catalog";
 import { ProductArt } from "./product-art";
+import { ProductPrices } from "./product-prices";
 
 export function ProductCard({
   product,
@@ -27,7 +28,15 @@ export function ProductCard({
         <h3>{product.name}</h3>
         <ArrowUpRight aria-hidden="true" />
       </div>
-      <p>{formatPrice(product.priceCents)}</p>
+      {product.productType && (
+        <p className="product-type">{product.productType}</p>
+      )}
+      <ProductPrices product={product} className="product-prices" />
+      {product.availability && (
+        <p className="product-availability">
+          {product.availability === "available" ? "Disponível" : "Indisponível"}
+        </p>
+      )}
       <span className="product-link">Explorar fragrância</span>
     </Link>
   );
