@@ -4,6 +4,7 @@ import { Reveal } from "@/shared/components/reveal";
 import { categories, type Product } from "../lib/catalog";
 import { ProductArt } from "./product-art";
 import { ProductPrices } from "./product-prices";
+import { ProductProfile } from "./product-profile";
 
 export function ProductDetail({ product }: { product: Product }) {
   const category = categories.find((item) => item.slug === product.category);
@@ -39,6 +40,7 @@ export function ProductDetail({ product }: { product: Product }) {
           </p>
           <ProductPrices product={product} className="detail-price" />
           <dl>
+            <ProductProfile product={product} />
             {category && (
               <div>
                 <dt>Categoria</dt>

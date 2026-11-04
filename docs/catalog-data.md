@@ -2,6 +2,8 @@
 
 Fonte atual: `src/features/catalog/data/products.json`. Uma lista JSON UTF-8, com um objeto por produto. A ordem no arquivo não indica destaque ou popularidade. IDs e slugs são identificadores técnicos, não SKUs oficiais.
 
+O catálogo contém 46 perfumes conciliados com o XLSX comercial. Veja o [mapeamento das dez colunas e as pendências](catalog-workbook-merge.md). `gender` registra masculino, feminino ou compartilhável; `style` e `suggestedUse` complementam o perfil exibido na página. `sourceRecord` preserva número, nome, gênero, tipo/volume e perfil originais para rastreabilidade.
+
 | Campo          | Formato                                              | Regra                                                                                                                                                                                |
 | -------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `id`           | string                                               | Obrigatório, único e estável; não mudar ao renomear um produto.                                                                                                                      |

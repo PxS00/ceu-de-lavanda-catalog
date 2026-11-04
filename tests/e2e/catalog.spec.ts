@@ -72,11 +72,11 @@ test("@visual catalog search, initials, sorting and reset", async ({ page }, inf
   await review(page, info, "search");
   await page.getByRole("searchbox").fill("");
   await page.getByRole("button", { name: "B", exact: true }).click();
-  await expect(cards).toHaveCount(1);
-  await expect(cards.first()).toContainText("Belle Vanille");
+  await expect(cards).toHaveCount(3);
+  await expect(cards.first().locator("h3")).toHaveText("Belle");
   await page.getByRole("button", { name: "Todos os nomes" }).click();
   await page.getByRole("combobox").selectOption("za");
-  await expect(cards.first()).toContainText("Vellours");
+  await expect(cards.first()).toContainText("Zyra");
   await page.getByRole("combobox").selectOption("az");
   await expect(cards.first()).toContainText("Acquaré");
   await page.getByRole("searchbox").fill("inexistente");
@@ -85,10 +85,22 @@ test("@visual catalog search, initials, sorting and reset", async ({ page }, inf
   await page.getByRole("button", { name: "Limpar filtros" }).click();
   await expect(cards).toHaveCount(firstPageCount);
   const pagination = page.getByRole("navigation", { name: "Páginas do catálogo" });
-  await expect(pagination.locator("span")).toHaveText("1 de 2");
+  await expect(pagination.locator("span")).toHaveText("1 de 4");
   await pagination.getByRole("button", { name: "Próxima" }).click();
-  await expect(cards).toHaveCount(catalogProducts.length - firstPageCount);
+  await expect(cards).toHaveCount(firstPageCount);
   await expect(cards.last().locator(".price-option")).toHaveText([/50 ml\s+R\$\s*157,00/, /100 ml\s+R\$\s*287,00/]);
+});
+
+test("commercial workbook profiles and new perfumes are rendered", async ({ page }, info) => {
+  await page.goto("/produtos/elyndra/");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Elyndra");
+  await expect(page.locator(".detail-copy dl").first()).toContainText("Feminino");
+  await expect(page.locator(".detail-copy dl").first()).toContainText("Sugestão de uso");
+  await expect(page.getByRole("heading", { name: "Pirâmide olfativa" })).toBeVisible();
+  await expect(page.getByText("Fotografia em breve")).toBeVisible();
+  await review(page, info, "workbook-product");
+  await page.goto("/produtos/illusion/");
+  await expect(page.locator(".detail-copy dl").first()).toContainText("Compartilhável");
 });
 
 test("@visual individual product and return navigation", async ({ page }, info) => {

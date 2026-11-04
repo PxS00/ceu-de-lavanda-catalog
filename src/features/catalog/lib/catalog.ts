@@ -22,6 +22,10 @@ export type Product = {
   name: string;
   category?: CategorySlug | null;
   productType?: string | null;
+  gender?: "masculino" | "feminino" | "compartilhavel";
+  style?: string;
+  suggestedUse?: string;
+  sourceRecord?: { number: number; gender: string; name: string; volumeType: string; profile: string };
   description?: string | null;
   tagline?: string | null;
   family?: string | null;
@@ -54,6 +58,11 @@ export function validateProducts(input: unknown): asserts input is Product[] {
       throw new Error(`Produto duplicado: ${p.slug}`);
     ids.add(p.id);
     slugs.add(p.slug);
+    if (p.gender != null && !["masculino", "feminino", "compartilhavel"].includes(p.gender))
+      throw new Error(`Gênero inválido: ${p.slug}`);
+    for (const field of ["style", "suggestedUse"] as const)
+      if (p[field] != null && (typeof p[field] !== "string" || !p[field].trim()))
+        throw new Error(`Perfil inválido: ${p.slug}`);
     if (
       p.category != null &&
       !categories.some((category) => category.slug === p.category)
