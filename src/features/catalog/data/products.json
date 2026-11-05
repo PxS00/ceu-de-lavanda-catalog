@@ -2221,6 +2221,10 @@
       "name": "VERALYA",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Frutado Feminino | Estilo: Refrescante, Elegante, Delicado e Sofisticado"
+    },
+    "photo": {
+      "src": "/products/veralya.webp",
+      "alt": "Frasco do perfume Veralya"
     }
   },
   {
@@ -2548,6 +2552,10 @@
       "name": "SOLYSÉ",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Oriental Floral | Estilo: Luminoso, Elegante, Sofisticado, Delicado e Marcante"
+    },
+    "photo": {
+      "src": "/products/solyse.webp",
+      "alt": "Frasco do perfume Solysé"
     }
   },
   {
