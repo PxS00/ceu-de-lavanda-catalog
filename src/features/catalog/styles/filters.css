@@ -55,6 +55,7 @@
 .initial-filters button:hover:not(.active) {
   background: var(--surface-accent);
 }
+.initial-all-short { display: none; }
 .result-count {
   font-size: var(--text-small);
   color: var(--muted);
@@ -80,8 +81,11 @@
     gap: 6px;
   }
   .initial-filters button:first-child {
-    grid-column: 1 / -1;
+    padding-inline: 6px;
+    white-space: nowrap;
   }
+  .initial-all-label { display: none; }
+  .initial-all-short { display: inline; }
   .initial-filters button {
     padding-inline: 10px;
   }
