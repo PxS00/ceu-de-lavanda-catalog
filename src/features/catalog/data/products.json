@@ -1,14 +1,3051 @@
 [
-  { "id": "acquare", "slug": "acquare", "name": "Acquaré" },
-  { "id": "bellevanille", "slug": "bellevanille", "name": "Bellevanille" },
-  { "id": "sollaris", "slug": "sollaris", "name": "Sollaris" },
+  {
+    "id": "acquare",
+    "slug": "acquare",
+    "name": "Acquaré",
+    "category": "perfumes",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "photo": {
+      "src": "/products/acquare.webp",
+      "alt": "Frasco do perfume Acquaré"
+    },
+    "family": "Floral Frutada",
+    "tagline": "A efervescência revigorante e o frescor aquático do limão e da maçã verde em uma presença inesquecível.",
+    "description": "Acquare revela a leveza radiante, o dinamismo e a energia solar de uma criação Floral Frutada inesquecível. Sua abertura desperta os sentidos com a vivacidade borbulhante e cítrica do Limão Siciliano combinada à suculência crocante da Maçã Verde. No seu coração nobre e equilibrado, a delicadeza aveludada do Jasmim e da Rosa Branca une-se ao frescor limpo e natural do Bambu. A base assenta sobre a pele com a profundidade aconchegante do Cedro e a elegância macia do Almíscar, garantindo um rastro revigorante, elegante e de pura sofisticação.",
+    "notePyramid": {
+      "top": [
+        "Limão Siciliano",
+        "Maçã Verde"
+      ],
+      "heart": [
+        "Bambu",
+        "Jasmim",
+        "Rosa Branca"
+      ],
+      "base": [
+        "Cedro",
+        "Almíscar"
+      ]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Revigorante, Fresco, Aquático, Solar, Dinâmico e Leve",
+    "notes": [
+      "Limão Siciliano",
+      "Maçã Verde",
+      "Bambu",
+      "Jasmim",
+      "Rosa Branca",
+      "Cedro",
+      "Almíscar"
+    ],
+    "sourceRecord": {
+      "number": 17,
+      "gender": "F",
+      "name": "ACQUARE",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Frutada | Estilo: Revigorante, Fresco, Aquático, Solar, Dinâmico e Leve"
+    }
+  },
+  {
+    "id": "bellevanille",
+    "slug": "bellevanille",
+    "name": "Belle Vanille",
+    "category": "perfumes",
+    "tagline": "O aconchego aveludado da baunilha em uma assinatura solar, luminosa e inesquecível.",
+    "description": "Belle Vanille reflete a sofisticação e o calor de uma criação envolvente. Sua abertura radiante une a energia das notas solares à delicadeza do jasmim fresco. No seu coração vibrante, a nobreza e a doçura aveludada da Baunilha de Bourbon revelam um toque de puro luxo e aconchego. A base fecha com o abraço sofisticado do sândalo e a leveza aveludada do almíscar branco, criando um rastro marcante e inesquecível na pele.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Notas Solares",
+        "Jasmim"
+      ],
+      "heart": [
+        "Baunilha de Bourbon"
+      ],
+      "base": [
+        "Almíscar Branco",
+        "Sândalo"
+      ]
+    },
+    "photo": {
+      "src": "/products/bellevanille.webp",
+      "alt": "Frasco do perfume Belle Vanille"
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "family": "Oriental Gourmand / Floral Solar",
+    "style": "Solar, Luminoso, Quente, Aveludado e Sofisticado",
+    "notes": [
+      "Notas Solares",
+      "Jasmim",
+      "Baunilha de Bourbon",
+      "Almíscar Branco",
+      "Sândalo"
+    ],
+    "sourceRecord": {
+      "number": 12,
+      "gender": "F",
+      "name": "BELLE VANILLE",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Gourmand / Floral Solar | Estilo: Solar, Luminoso, Quente, Aveludado e Sofisticado"
+    }
+  },
+  {
+    "id": "sollaris",
+    "slug": "sollaris",
+    "name": "Sollaris",
+    "category": "perfumes",
+    "tagline": "A luminosidade radiante do jasmim e da flor de laranjeira unida ao toque precioso do mel em uma presença inesquecível.",
+    "description": "Sollaris revela a aura solar, calorosa e inebriante de uma criação floral encantadora. Sua abertura radiante combina o frescor do Jacinto, da Mandarina e do Zimbro, despertando os sentidos com vivacidade. No seu coração nobre e acolhedor, a elegância aveludada do Jasmim e da Flor de Laranjeira une-se à doçura preciosa do Mel e à sofisticação atalcada da Íris. A base fecha com o abraço cremoso e confortante da Baunilha e do Musk, criando um rastro de alta fixação e puro luxo na pele.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Jacinto",
+        "Mandarina",
+        "Zimbro"
+      ],
+      "heart": [
+        "Jasmim",
+        "Mel",
+        "Flor de Laranjeira",
+        "Íris"
+      ],
+      "base": [
+        "Baunilha",
+        "Musk"
+      ]
+    },
+    "photo": {
+      "src": "/products/sollaris.webp",
+      "alt": "Frasco do perfume Sollaris"
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "family": "Floral (Solar)",
+    "style": "Solar, Radiante, Caloroso, Inebriante e Encantador",
+    "notes": [
+      "Jacinto",
+      "Mandarina",
+      "Zimbro",
+      "Jasmim",
+      "Mel",
+      "Flor de Laranjeira",
+      "Íris",
+      "Baunilha",
+      "Musk"
+    ],
+    "sourceRecord": {
+      "number": 4,
+      "gender": "F",
+      "name": "SOLLARIS",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral (Solar) | Estilo: Solar, Radiante, Caloroso, Inebriante e Encantador"
+    }
+  },
   {
     "id": "jasmin-de-soie",
     "slug": "jasmin-de-soie",
-    "name": "Jasmin de Soie"
+    "name": "Jasmim de Soie",
+    "category": "perfumes",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "photo": {
+      "src": "/products/jasmin-de-soie.webp",
+      "alt": "Frasco do perfume Jasmim de Soie"
+    },
+    "family": "Floral Frutal",
+    "tagline": "A delicadeza aveludada do jasmim envolta na doçura inebriante do toffe e da fava tonka em uma assinatura inesquecível.",
+    "description": "Jasmim de Soie revela a elegância tátil e a sofisticação aveludada de uma fragrância Floral Frutal envolvente. Sua abertura desperta os sentidos com a vivacidade suculenta e levemente adocicada da Groselha Preta, equilibrada pela efervescência cítrica da Mandarina. No seu coração nobre, o mistério apaixonante do Jasmim une-se ao toque gourmand e refinado da Amêndoa Amarga. A base assenta sobre a pele com a riqueza cremosa e confortante do Toffe harmonizado pelo calor macio da Fava Tonka, garantindo um rastro marcante, sofisticado e de alta fixação.",
+    "notePyramid": {
+      "top": [
+        "Groselha Preta",
+        "Mandarina"
+      ],
+      "heart": [
+        "Jasmim",
+        "Amêndoa Amarga"
+      ],
+      "base": [
+        "Toffe",
+        "Fava Tonka"
+      ]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Aveludado, Gourmand, Tátil, Envolvente e Sofisticado",
+    "notes": [
+      "Groselha Preta",
+      "Mandarina",
+      "Jasmim",
+      "Amêndoa Amarga",
+      "Toffe",
+      "Fava Tonka"
+    ],
+    "sourceRecord": {
+      "number": 20,
+      "gender": "F",
+      "name": "JASMIM DE SOIE",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Frutal | Estilo: Aveludado, Gourmand, Tátil, Envolvente e Sofisticado"
+    }
   },
-  { "id": "alma-de-seda", "slug": "alma-de-seda", "name": "Alma de Seda" },
-  { "id": "aura-secretta", "slug": "aura-secretta", "name": "Aura Secretta" },
-  { "id": "illusion", "slug": "illusion", "name": "Illusion" },
-  { "id": "golden-femme", "slug": "golden-femme", "name": "Golden Femme" }
+  {
+    "id": "alma-de-seda",
+    "slug": "alma-de-seda",
+    "name": "Alma de Seda",
+    "category": "perfumes",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "photo": {
+      "src": "/products/alma-de-seda.webp",
+      "alt": "Frasco do perfume Alma de Seda"
+    },
+    "family": "Floral Amadeirada Musk",
+    "tagline": "A delicadeza aveludada do almíscar branco e o toque efervescente dos aldeídos em uma assinatura inesquecível.",
+    "description": "Alma de Seda revela a sofisticação pura, a leveza envolvente e o conforto tátil de uma criação Floral Amadeirada Musk inesquecível. Sua abertura desperta os sentidos com o brilho limpo e efervescente dos Aldeídos equilibrados pela vivacidade cítrica da Bergamota. No seu coração nobre, a luminosidade aveludada da Flor de Laranjeira confere um toque de elegância atemporal e feminina à composição. A base assenta sobre a pele com o abraço macio e reconfortante do Almíscar Branco harmonizado pela profundidade sóbria e marcante do Cedro, garantindo um rastro refinado e de pura sofisticação.",
+    "notePyramid": {
+      "top": [
+        "Aldeídos",
+        "Bergamota"
+      ],
+      "heart": [
+        "Flor de Laranjeira"
+      ],
+      "base": [
+        "Almíscar Branco",
+        "Cedro"
+      ]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Aveludado, Puro, Leve, Confortável e Refinado",
+    "notes": [
+      "Aldeídos",
+      "Bergamota",
+      "Flor de Laranjeira",
+      "Almíscar Branco",
+      "Cedro"
+    ],
+    "sourceRecord": {
+      "number": 18,
+      "gender": "F",
+      "name": "ALMA DE SEDA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Amadeirada Musk | Estilo: Aveludado, Puro, Leve, Confortável e Refinado"
+    }
+  },
+  {
+    "id": "aura-secretta",
+    "slug": "aura-secretta",
+    "name": "Aura Secretta",
+    "category": "perfumes",
+    "family": "Oriental Floral (Corpo Floral-Amadeirado)",
+    "tagline": "O mistério magnético e a sofisticação da rosa e do sândalo em uma assinatura inesquecível.",
+    "description": "Aura Secretta revela a sofisticação envolvente e o magnetismo hipnótico de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos com o brilho suculento e levemente adocicado da Romã e do Cassis, contrastados pelo frescor vibrante da Bergamota. No seu coração nobre, a delicadeza apaixonante da Rosa e da Flor de Lótus funde-se à elegância marcante do Cedro e do Sândalo, criando um corpo floral-amadeirado denso e aveludado. A base assenta sobre a pele com a cremosidade viciante da Baunilha e da Fava Tonka, harmonizadas pelo calor nobre do Âmbar e da sensualidade do Musk, garantindo um rastro marcante e de alta fixação.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Romã",
+        "Cassis",
+        "Bergamota"
+      ],
+      "heart": [
+        "Rosa",
+        "Lótus",
+        "Cedro",
+        "Sândalo"
+      ],
+      "base": [
+        "Musk",
+        "Âmbar",
+        "Baunilha",
+        "Fava Tonka"
+      ]
+    },
+    "photo": {
+      "src": "/products/aura-secretta.webp",
+      "alt": "Frasco do perfume Aura Secretta"
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Misterioso, Magnético, Hipnótico, Denso e Aveludado",
+    "notes": [
+      "Romã",
+      "Cassis",
+      "Bergamota",
+      "Rosa",
+      "Lótus",
+      "Cedro",
+      "Sândalo",
+      "Musk",
+      "Âmbar",
+      "Baunilha",
+      "Fava Tonka"
+    ],
+    "sourceRecord": {
+      "number": 8,
+      "gender": "F",
+      "name": "AURA SECRETTA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Floral (Corpo Floral-Amadeirado) | Estilo: Misterioso, Magnético, Hipnótico, Denso e Aveludado"
+    }
+  },
+  {
+    "id": "illusion",
+    "slug": "illusion",
+    "name": "Illusion",
+    "category": "perfumes",
+    "productType": "Perfume compartilhável",
+    "family": "Floral Frutal",
+    "tagline": "A suculência solar do abacaxi unida à nobreza do patchouli, do âmbar e da baunilha em uma assinatura envolvente e inesquecível.",
+    "description": "ILLUSION reflete o mistério, o magnetismo e a presença marcante de uma criação floral frutal vibrante e sofisticada. Sua abertura traz o frescor luminoso e a suculência solar do abacaxi. No coração, a energia cítrica e refinada da bergamota confere brilho e elegância à composição. A base fecha com a densidade envolvente do patchouli, o aconchego aveludado da Baunilha de Bourbon e o calor nobre do âmbar, criando um rastro hipnótico e inesquecível na pele.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Abacaxi"
+      ],
+      "heart": [
+        "Bergamota"
+      ],
+      "base": [
+        "Patchouli",
+        "Baunilha de Bourbon",
+        "Âmbar"
+      ]
+    },
+    "photo": {
+      "src": "/products/illusion.webp",
+      "alt": "Frasco do perfume Illusion"
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "gender": "compartilhavel",
+    "style": "Vibrante, Misterioso, Magnético, Marcante e Hipnótico",
+    "suggestedUse": "Perfume Compartilhável",
+    "notes": [
+      "Abacaxi",
+      "Bergamota",
+      "Patchouli",
+      "Baunilha de Bourbon",
+      "Âmbar"
+    ],
+    "sourceRecord": {
+      "number": 11,
+      "gender": "F",
+      "name": "ILLUSION",
+      "volumeType": "PERFUME COMPARTILHÁVEL • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Frutal | Estilo: Vibrante, Misterioso, Magnético, Marcante e Hipnótico | Sugestão de Uso: Perfume Compartilhável"
+    }
+  },
+  {
+    "id": "golden-femme",
+    "slug": "golden-femme",
+    "name": "Golden Femme",
+    "category": "perfumes",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "photo": {
+      "src": "/products/golden-femme.webp",
+      "alt": "Frasco do perfume Golden Femme"
+    },
+    "family": "Floral Oriental",
+    "tagline": "A elegância radiante das rosas e do ylang-ylang unida à doçura aveludada da baunilha em uma assinatura inesquecível.",
+    "description": "Golden Femme revela a aura dourada, sofisticada e envolvente de uma criação Floral Oriental inesquecível. Sua abertura desperta os sentidos com o frescor frutado da Pera, contrastado pela nobreza da Rosa e pelo toque relaxante e refinado da Lavanda. No seu coração apaixonante e luminoso, a exuberância solar do Ylang-Ylang une-se à delicadeza aveludada do Jasmim. A base assenta sobre a pele com a doçura acolhedora da Baunilha, harmonizada pela profundidade sensual do Almíscar e pelo toque terroso e elegante do Musgo, garantindo um rastro marcante e de pura sofisticação.",
+    "notePyramid": {
+      "top": [
+        "Pera",
+        "Rosa",
+        "Lavanda"
+      ],
+      "heart": [
+        "Ylang-Ylang",
+        "Jasmim"
+      ],
+      "base": [
+        "Almíscar",
+        "Baunilha",
+        "Musgo"
+      ]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Dourado, Radiante, Envolvente, Marcante e Sofisticado",
+    "notes": [
+      "Pera",
+      "Rosa",
+      "Lavanda",
+      "Ylang-Ylang",
+      "Jasmim",
+      "Almíscar",
+      "Baunilha",
+      "Musgo"
+    ],
+    "sourceRecord": {
+      "number": 19,
+      "gender": "F",
+      "name": "GOLDEN FEMME",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Oriental | Estilo: Dourado, Radiante, Envolvente, Marcante e Sofisticado"
+    }
+  },
+  {
+    "id": "altesse",
+    "slug": "altesse",
+    "name": "Altesse",
+    "category": "perfumes",
+    "photo": {
+      "src": "/products/altesse.webp",
+      "alt": "Frasco do perfume Altesse"
+    },
+    "family": "Chypre Frutada",
+    "tagline": "A nobreza da família Chypre Frutada traduzida em uma presença marcante, elegante e inesquecível.",
+    "description": "Altesse revela a sofisticação aristocrática e o magnetismo de uma fragrância envolvente da família Chypre Frutada. Sua abertura radiante combina o frescor vibrante da Maçã Verde, Bergamota e Limão ao toque picante da Pimenta Rosa, envelopados pela delicadeza da Violeta e do Patchouli. No seu coração nobre, a elegância aveludada da Rosa une-se ao aconchego do Sândalo, do Musk e do Styrax. A base fecha com a riqueza suculenta da Groselha Preta e do Pêssego, harmonizados pelo calor do Âmbar, do Lilás e do Ylang-Ylang, criando um rastro de alta fixação e puro luxo na pele.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Maçã Verde",
+        "Bergamota",
+        "Limão",
+        "Patchouli",
+        "Pimenta Rosa",
+        "Violeta"
+      ],
+      "heart": [
+        "Musk",
+        "Rosa",
+        "Sândalo",
+        "Styrax"
+      ],
+      "base": [
+        "Groselha Preta",
+        "Pêssego",
+        "Âmbar",
+        "Lilás",
+        "Ylang-Ylang"
+      ]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Aristocrático, Marcante, Elegante, Envolvente e Inesquecível",
+    "notes": [
+      "Maçã Verde",
+      "Bergamota",
+      "Limão",
+      "Patchouli",
+      "Pimenta Rosa",
+      "Violeta",
+      "Musk",
+      "Rosa",
+      "Sândalo",
+      "Styrax",
+      "Groselha Preta",
+      "Pêssego",
+      "Âmbar",
+      "Lilás",
+      "Ylang-Ylang"
+    ],
+    "sourceRecord": {
+      "number": 1,
+      "gender": "F",
+      "name": "ALTESSE",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Chypre Frutada | Estilo: Aristocrático, Marcante, Elegante, Envolvente e Inesquecível"
+    }
+  },
+  {
+    "id": "araya-elixir",
+    "slug": "araya-elixir",
+    "name": "Araya Elixir",
+    "category": "perfumes",
+    "photo": {
+      "src": "/products/araya-elixir.webp",
+      "alt": "Frasco do perfume Araya Elixir"
+    },
+    "family": "Floral Oriental Gourmand",
+    "tagline": "A nobreza cremosa das flores brancas aliada à doçura gourmand e ao calor do âmbar em uma presença inesquecível.",
+    "description": "Araya Elixir revela a sofisticação magnética de uma fragrância envolvente da família Floral Oriental Gourmand. Sua abertura traz o brilho sucinto e vibrante de Frutas Doces envoltas por Notas Cítricas Suaves. No coração, a elegância aveludada das Flores Brancas une-se à textura e ao acolhimento dos Acordes Cremosos. A base fecha com a riqueza viciante da Baunilha e do Âmbar, harmonizados pela profundidade do Almíscar e das Notas Amadeiradas, criando um rastro de alta fixação e puro luxo na pele.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Frutas Doces",
+        "Notas Cítricas Suaves"
+      ],
+      "heart": [
+        "Flores Brancas",
+        "Acordes Cremosos"
+      ],
+      "base": [
+        "Baunilha",
+        "Âmbar",
+        "Almíscar",
+        "Notas Amadeiradas"
+      ]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Cremoso, Gourmand, Magnético, Envolvente e Inesquecível",
+    "notes": [
+      "Frutas Doces",
+      "Notas Cítricas Suaves",
+      "Flores Brancas",
+      "Acordes Cremosos",
+      "Baunilha",
+      "Âmbar",
+      "Almíscar",
+      "Notas Amadeiradas"
+    ],
+    "sourceRecord": {
+      "number": 2,
+      "gender": "F",
+      "name": "ARAYA ELIXIR",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Oriental Gourmand | Estilo: Cremoso, Gourmand, Magnético, Envolvente e Inesquecível"
+    }
+  },
+  {
+    "id": "dark-kiss",
+    "slug": "dark-kiss",
+    "name": "Dark Kiss",
+    "category": "perfumes",
+    "photo": {
+      "src": "/products/dark-kiss.webp",
+      "alt": "Frasco do perfume Dark Kiss"
+    },
+    "family": "Oriental Floral",
+    "tagline": "A sensualidade cativante da pimenta e do cacau em uma assinatura misteriosa, poderosa e inesquecível.",
+    "description": "Dark Kiss revela o magnetismo sedutor e a sofisticação de uma fragrância envolvente da família Oriental Floral. Sua abertura radiante combina a doçura aveludada do Cassis ao toque refinado da Amêndoa e ao frescor vibrante da Bergamota. No seu coração nobre e apaixonante, a elegância clássica da Rosa une-se à exuberância misteriosa do Jasmim e da Tuberosa. A base fecha com a riqueza gourmand e quente do Cacau e da Fava Tonka, harmonizados pela profundidade do Âmbar e pelo aconchego sensual do Musk, criando um rastro de alta fixação e puro luxo na pele.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Cassis",
+        "Amêndoa",
+        "Bergamota"
+      ],
+      "heart": [
+        "Rosa",
+        "Jasmim",
+        "Tuberosa"
+      ],
+      "base": [
+        "Musk",
+        "Cacau",
+        "Âmbar",
+        "Fava Tonka"
+      ]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Sensual, Misterioso, Poderoso, Sedutor e Envolvente",
+    "notes": [
+      "Cassis",
+      "Amêndoa",
+      "Bergamota",
+      "Rosa",
+      "Jasmim",
+      "Tuberosa",
+      "Musk",
+      "Cacau",
+      "Âmbar",
+      "Fava Tonka"
+    ],
+    "sourceRecord": {
+      "number": 3,
+      "gender": "F",
+      "name": "DARK KISS",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Floral | Estilo: Sensual, Misterioso, Poderoso, Sedutor e Envolvente"
+    }
+  },
+  {
+    "id": "vanille-imperial",
+    "slug": "vanille-imperial",
+    "name": "Vanille Imperial",
+    "category": "perfumes",
+    "photo": {
+      "src": "/products/vanille-imperial.webp",
+      "alt": "Frasco do perfume Vanille Imperial"
+    },
+    "family": "Oriental Gourmand",
+    "tagline": "A imponência nobre da baunilha e do coco aliada ao mistério resinoso do palo santo em uma assinatura inesquecível.",
+    "description": "Vanille Imperial revela a sofisticação aristocrática e o abraço envolvente de uma criação Oriental Gourmand majestosa. Sua abertura radiante combina a doçura aveludada da Baunilha ao toque cremoso e aconchegante do Coco em Pó. No seu coração nobre, a riqueza quente da Fava Tonka une-se à profundidade mística e resinosa do Palo Santo. A base fecha com a sensualidade marcante do Almíscar harmonizado pelo calor opulento do Âmbar Cinza, criando um rastro de alta fixação e puro luxo na pele.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Baunilha",
+        "Coco em Pó"
+      ],
+      "heart": [
+        "Fava Tonka",
+        "Palo Santo"
+      ],
+      "base": [
+        "Almíscar",
+        "Âmbar Cinza"
+      ]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Imponente, Aristocrático, Majestoso, Resinoso e Envolvente",
+    "notes": [
+      "Baunilha",
+      "Coco em Pó",
+      "Fava Tonka",
+      "Palo Santo",
+      "Almíscar",
+      "Âmbar Cinza"
+    ],
+    "sourceRecord": {
+      "number": 5,
+      "gender": "F",
+      "name": "VANILLE IMPERIAL",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Gourmand | Estilo: Imponente, Aristocrático, Majestoso, Resinoso e Envolvente"
+    }
+  },
+  {
+    "id": "vellours",
+    "slug": "vellours",
+    "name": "Vellours",
+    "category": "perfumes",
+    "photo": {
+      "src": "/products/vellours.webp",
+      "alt": "Frasco do perfume Vellours"
+    },
+    "family": "Chypre Floral",
+    "tagline": "A sofisticação atemporal da família Chypre Floral em uma presença aveludada, marcante e inesquecível.",
+    "description": "Vellours traduz a elegância tátil e a sofisticação magnética de uma fragrância Chypre Floral refinada. Sua abertura desperta os sentidos com a vivacidade borbulhante do Pomelo e da Mandarina, envoltos pela doçura suculenta do Pêssego. No seu coração nobre e apaixonante, a delicadeza aveludada do Jasmim e da Gardênia une-se à riqueza preciosa do Mel, criando um corpo floral inebriante. A base assenta sobre a pele com a cremosidade do Sândalo e o abraço envolvente do Cashmere e do Musk, garantindo um rastro marcante e de puro luxo.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Pomelo",
+        "Pêssego",
+        "Mandarina"
+      ],
+      "heart": [
+        "Mel",
+        "Jasmim",
+        "Gardênia"
+      ],
+      "base": [
+        "Musk",
+        "Sândalo",
+        "Cashmere"
+      ]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Aveludado, Atemporal, Marcante, Refinado e Magnético",
+    "notes": [
+      "Pomelo",
+      "Pêssego",
+      "Mandarina",
+      "Mel",
+      "Jasmim",
+      "Gardênia",
+      "Musk",
+      "Sândalo",
+      "Cashmere"
+    ],
+    "sourceRecord": {
+      "number": 6,
+      "gender": "F",
+      "name": "VELLOURS",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Chypre Floral | Estilo: Aveludado, Atemporal, Marcante, Refinado e Magnético"
+    }
+  },
+  {
+    "id": "hypnos",
+    "slug": "hypnos",
+    "name": "Hypnos",
+    "category": "perfumes",
+    "photo": {
+      "src": "/products/hypnos.webp",
+      "alt": "Frasco do perfume Hypnos"
+    },
+    "family": "Oriental Gourmand",
+    "tagline": "A sensualidade hipnótica e a doçura envelopedora em uma assinatura oriental inesquecível.",
+    "description": "Hypnos revela o magnetismo sedutor e o abraço aveludado de uma fragrância Oriental Gourmand marcante. Sua abertura desperta os sentidos com a riqueza suculenta do Coco, da Ameixa e do Damasco, envolvidos pelo toque refinado da Amêndoa. No seu coração apaixonante, a elegância clássica da Rosa e do Jasmim une-se à exuberância misteriosa da Tuberosa e do Lírio do Vale. A base fecha com o aconchego cremoso da Baunilha e do Sândalo, harmonizados pela profundidade sensual do Musk, criando um rastro de alta fixação e puro luxo na pele.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Coco",
+        "Ameixa",
+        "Damasco",
+        "Amêndoa"
+      ],
+      "heart": [
+        "Rosa",
+        "Jasmim",
+        "Tuberosa",
+        "Lírio do Vale"
+      ],
+      "base": [
+        "Musk",
+        "Baunilha",
+        "Sândalo"
+      ]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Hipnótico, Sedutor, Marcante, Envolvente e Aveludado",
+    "notes": [
+      "Coco",
+      "Ameixa",
+      "Damasco",
+      "Amêndoa",
+      "Rosa",
+      "Jasmim",
+      "Tuberosa",
+      "Lírio do Vale",
+      "Musk",
+      "Baunilha",
+      "Sândalo"
+    ],
+    "sourceRecord": {
+      "number": 7,
+      "gender": "F",
+      "name": "HYPNOS",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Gourmand | Estilo: Hipnótico, Sedutor, Marcante, Envolvente e Aveludado"
+    }
+  },
+  {
+    "id": "imperator",
+    "slug": "imperator",
+    "name": "Imperator",
+    "category": "perfumes",
+    "photo": {
+      "src": "/products/imperator.webp",
+      "alt": "Frasco do perfume Imperator"
+    },
+    "productType": "Perfume compartilhável",
+    "family": "Floral Frutal",
+    "tagline": "A suculência solar do abacaxi unida à nobreza do patchouli e da baunilha em uma assinatura inesquecível.",
+    "description": "IMPERATOR reflete a autoridade, a imponência e o magnetismo marcante de uma criação floral frutal moderna. Sua abertura se destaca pelo frescor vibrante e pela suculência solar do abacaxi. No coração, a energia cítrica e refinada da bergamota traz brilho e sofisticação. A base fecha com a densidade envolvente do patchouli, o aconchego caloroso da Baunilha de Bourbon e o toque aveludado do âmbar, criando um rastro nobre e memorável na pele.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Abacaxi"
+      ],
+      "heart": [
+        "Bergamota"
+      ],
+      "base": [
+        "Patchouli",
+        "Baunilha de Bourbon",
+        "Âmbar"
+      ]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "gender": "compartilhavel",
+    "style": "Imponente, Autoridade, Magnético, Nobre e Moderno",
+    "suggestedUse": "Perfume Compartilhável",
+    "notes": [
+      "Abacaxi",
+      "Bergamota",
+      "Patchouli",
+      "Baunilha de Bourbon",
+      "Âmbar"
+    ],
+    "sourceRecord": {
+      "number": 13,
+      "gender": "F",
+      "name": "IMPERATOR",
+      "volumeType": "PERFUME COMPARTILHÁVEL • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Frutal | Estilo: Imponente, Autoridade, Magnético, Nobre e Moderno | Sugestão de Uso: Perfume Compartilhável"
+    }
+  },
+  {
+    "id": "jade",
+    "slug": "jade",
+    "name": "Jade",
+    "category": "perfumes",
+    "photo": {
+      "src": "/products/jade.webp",
+      "alt": "Frasco do perfume Jade"
+    },
+    "family": "Floral Frutada",
+    "tagline": "A delicadeza radiante de um buquê de florais brancos unida à suculência solar das frutas em uma assinatura inesquecível.",
+    "description": "Jade revela a sofisticação luminosa e o encantamento envolvente de uma criação Floral Frutada inesquecível. Sua abertura desperta os sentidos com a suculência vibrante da Pêra, do Melão, da Amora e do Pêssego, equilibrados pelo toque cítrico e refrescante da Bergamota. No seu coração nobre e apaixonante, desabrocha um buquê majestoso e aveludado de Rosa, Frésia, Jasmim, Orquídea, Tuberosa e Lírio do Vale. A base assenta sobre a pele com a cremosidade macia do Sândalo e da Baunilha, harmonizados pela profundidade acolhedora do Musk, garantindo um rastro marcante e de alta fixação.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Pêra",
+        "Melão",
+        "Amora",
+        "Pêssego",
+        "Bergamota"
+      ],
+      "heart": [
+        "Rosa",
+        "Frésia",
+        "Jasmim",
+        "Orquídea",
+        "Tuberosa",
+        "Lírio do Vale"
+      ],
+      "base": [
+        "Musk",
+        "Sândalo",
+        "Baunilha"
+      ]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Radiante, Luminoso, Solar, Encantador e Sofisticado",
+    "notes": [
+      "Pêra",
+      "Melão",
+      "Amora",
+      "Pêssego",
+      "Bergamota",
+      "Rosa",
+      "Frésia",
+      "Jasmim",
+      "Orquídea",
+      "Tuberosa",
+      "Lírio do Vale",
+      "Musk",
+      "Sândalo",
+      "Baunilha"
+    ],
+    "sourceRecord": {
+      "number": 9,
+      "gender": "F",
+      "name": "JADE",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Frutada | Estilo: Radiante, Luminoso, Solar, Encantador e Sofisticado"
+    }
+  },
+  {
+    "id": "madellune",
+    "slug": "madellune",
+    "name": "Madellune",
+    "category": "perfumes",
+    "photo": {
+      "src": "/products/madellune.webp",
+      "alt": "Frasco do perfume Madellune"
+    },
+    "family": "Chypre Floral",
+    "tagline": "A sofisticação atemporal e o magnetismo sedutor da família Chypre Floral em uma presença inesquecível.",
+    "description": "Madellune revela a aura envolvente, graciosa e marcante de uma fragrância Chypre Floral inesquecível. Sua abertura desperta os sentidos com uma efervescência cítrica e radiante de Laranja, Tangerina e Bergamota, suavizada pelo toque delicado e solar da Flor de Laranjeira. No seu coração nobre e apaixonante, desabrocha a elegância atalcada da Íris unida à nobreza da Rosa, do Jasmim e do Ylang-Ylang. A base assenta sobre a pele com a cremosidade viciante da Baunilha e da Fava Tonka, harmonizadas pela profundidade marcante do Patchouli e do Musk, garantindo um rastro sensual e de alta fixação.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Laranja",
+        "Tangerina",
+        "Bergamota",
+        "Flor de Laranjeira"
+      ],
+      "heart": [
+        "Íris",
+        "Rosa",
+        "Jasmim",
+        "Ylang-Ylang"
+      ],
+      "base": [
+        "Musk",
+        "Baunilha",
+        "Patchouli",
+        "Fava Tonka"
+      ]
+    },
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Atemporal, Sedutor, Gracioso, Marcante e Envolvente",
+    "notes": [
+      "Laranja",
+      "Tangerina",
+      "Bergamota",
+      "Flor de Laranjeira",
+      "Íris",
+      "Rosa",
+      "Jasmim",
+      "Ylang-Ylang",
+      "Musk",
+      "Baunilha",
+      "Patchouli",
+      "Fava Tonka"
+    ],
+    "sourceRecord": {
+      "number": 10,
+      "gender": "F",
+      "name": "MADELLUNE",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Chypre Floral | Estilo: Atemporal, Sedutor, Gracioso, Marcante e Envolvente"
+    }
+  },
+  {
+    "id": "serena",
+    "slug": "serena",
+    "name": "Serena",
+    "category": "perfumes",
+    "photo": {
+      "src": "/products/serena.webp",
+      "alt": "Frasco do perfume Serena"
+    },
+    "family": "Floral Amadeirada Musk",
+    "tagline": "A sofisticação atemporal e a sensibilidade feminina da rosa turca e da peônia em uma assinatura inesquecível.",
+    "description": "Serena revela a delicadeza radiante, o luxo e a aura apaixonante de uma criação Floral Amadeirada Musk inesquecível. Sua abertura desperta os sentidos com a suculência efervescente da Lichia e da Ameixa, combinadas ao toque vibrante do Ruibarbo, da Bergamota e da Noz Moscada. No seu coração nobre e opulentamente feminino, desabrocha a poesia aveludada da Peônia e da Rosa Turca, abraçadas pelo toque macio da Petalia e da Madeira de Cashmere. A base assenta sobre a pele com a profundidade elegante do Cedro e do Vetiver, harmonizados pelo calor do Âmbar, da Baunilha e do Musk, garantindo um rastro sensual, luxuoso e de altíssima fixação.",
+    "notePyramid": {
+      "top": [
+        "Lichia",
+        "Ameixa",
+        "Ruibarbo",
+        "Bergamota",
+        "Noz Moscada"
+      ],
+      "heart": [
+        "Petalia",
+        "Peônia",
+        "Rosa Turca",
+        "Madeira de Cashmere"
+      ],
+      "base": [
+        "Musk",
+        "Cedro",
+        "Âmbar",
+        "Baunilha",
+        "Vetiver"
+      ]
+    },
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Radiante, Atemporal, Luxuoso, Apaixonante e Sensual",
+    "notes": [
+      "Lichia",
+      "Ameixa",
+      "Ruibarbo",
+      "Bergamota",
+      "Noz Moscada",
+      "Petalia",
+      "Peônia",
+      "Rosa Turca",
+      "Madeira de Cashmere",
+      "Musk",
+      "Cedro",
+      "Âmbar",
+      "Baunilha",
+      "Vetiver"
+    ],
+    "sourceRecord": {
+      "number": 14,
+      "gender": "F",
+      "name": "SERENA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Amadeirada Musk | Estilo: Radiante, Atemporal, Luxuoso, Apaixonante e Sensual"
+    }
+  },
+  {
+    "id": "aurora-verde",
+    "slug": "aurora-verde",
+    "name": "Aurora Verde",
+    "category": "perfumes",
+    "photo": {
+      "src": "/products/aurora-verde.webp",
+      "alt": "Frasco do perfume Aurora Verde"
+    },
+    "family": "Chypre Floral",
+    "tagline": "O contraste borbulhante e gelado das notas cítricas sob a nobreza das madeiras em uma assinatura inesquecível.",
+    "description": "Aurora Verde traduz a aura revigorante, aristocrática e marcante de uma criação Chypre Floral inesquecível. Sua abertura desperta os sentidos com um impacto gelado e cítrico de Abacaxi e Limão Siciliano, entranhados na vivacidade do Mandarino e no toque levemente picante da Pimenta Rosa. No seu coração nobre e aromático, a sofisticação atalcada da Íris une-se ao mistério apaixonante do Jasmim e da Rosa. A base assenta sobre a pele com a densidade imponente do Vetiver, do Patchouli e do Sândalo, harmonizados pelo aconchego sensual do Musk, garantindo um rastro denso, refinado e de alta fixação.",
+    "notePyramid": {
+      "top": [
+        "Abacaxi",
+        "Mandarino",
+        "Pimenta Rosa",
+        "Limão Siciliano"
+      ],
+      "heart": [
+        "Íris",
+        "Jasmim",
+        "Rosa"
+      ],
+      "base": [
+        "Musk",
+        "Vetiver",
+        "Sândalo",
+        "Patchouli"
+      ]
+    },
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Revigorante, Gelado, Aristocrático, Refinado e Marcante",
+    "notes": [
+      "Abacaxi",
+      "Mandarino",
+      "Pimenta Rosa",
+      "Limão Siciliano",
+      "Íris",
+      "Jasmim",
+      "Rosa",
+      "Musk",
+      "Vetiver",
+      "Sândalo",
+      "Patchouli"
+    ],
+    "sourceRecord": {
+      "number": 15,
+      "gender": "F",
+      "name": "AURORA VERDE",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Chypre Floral | Estilo: Revigorante, Gelado, Aristocrático, Refinado e Marcante"
+    }
+  },
+  {
+    "id": "eterna",
+    "slug": "eterna",
+    "name": "Eterna",
+    "category": "perfumes",
+    "photo": {
+      "src": "/products/eterna.webp",
+      "alt": "Frasco do perfume Eterna"
+    },
+    "family": "Oriental Floral",
+    "tagline": "A elegância luminosa das flores brancas aliada à doçura envolvente do baunilha e do benjoim em uma presença inesquecível.",
+    "description": "Eterna revela a sofisticação atemporal e o magnetismo delicado de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos com o brilho frutado e efervescente da Pera, da Bergamota e da Mandarina, envoltos pelo toque levemente adocicado do Cassis. No seu coração nobre e apaixonante, desabrocha um buquê radiante de Lírio-do-Vale, Jasmim Sambac e Flor de Laranjeira. A base assenta sobre a pele com o conforto cremoso da Baunilha e do Açúcar, harmonizados pela profundidade nobre do Âmbar, do Benjoim, do Musgo e do Musk, garantindo um rastro marcante e de alta fixação.",
+    "notePyramid": {
+      "top": [
+        "Pera",
+        "Bergamota",
+        "Mandarina",
+        "Cassis"
+      ],
+      "heart": [
+        "Lírio-do-Vale",
+        "Jasmim Sambac",
+        "Flor de Laranjeira"
+      ],
+      "base": [
+        "Baunilha",
+        "Âmbar",
+        "Musk",
+        "Benjoim",
+        "Musgo",
+        "Açúcar"
+      ]
+    },
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "style": "Luminoso, Atemporal, Delicado, Magnético e Sofisticado",
+    "notes": [
+      "Pera",
+      "Bergamota",
+      "Mandarina",
+      "Cassis",
+      "Lírio-do-Vale",
+      "Jasmim Sambac",
+      "Flor de Laranjeira",
+      "Baunilha",
+      "Âmbar",
+      "Musk",
+      "Benjoim",
+      "Musgo",
+      "Açúcar"
+    ],
+    "sourceRecord": {
+      "number": 16,
+      "gender": "F",
+      "name": "ETERNA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Floral | Estilo: Luminoso, Atemporal, Delicado, Magnético e Sofisticado"
+    }
+  },
+  {
+    "id": "catalog-eclat-de-frisson",
+    "slug": "eclat-de-frisson",
+    "name": "Eclat de Frisson",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A energia vibrante das frutas vermelhas e a sofisticação da tuberosa envolvidas pela elegância atalcada da íris em uma assinatura inesquecível.",
+    "description": "Eclat de Frisson revela a sofisticação magnética, o brilho radiante e o arrepio envolvente de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos com a efervescência cítrica da Bergamota e da Toranja, contrastadas pela suculência vibrante e levemente adocicada das Frutas Vermelhas. No seu coração nobre e apaixonante, a exuberância aveludada da Tuberosa funde-se à delicadeza fascinante da Rosa de Rangoon. A base assenta sobre a pele com a sofisticação atalcada da Íris harmonizada pelo abraço macio e aconchegante do Almíscar Suave, garantindo um rastro denso, refinado e de alta fixação.",
+    "family": "Oriental Floral",
+    "style": "Radiante, Envolvente, Sofisticado e Inesquecível",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Bergamota",
+        "Toranja",
+        "Frutas Vermelhas"
+      ],
+      "heart": [
+        "Rosa de Rangoon",
+        "Tuberosa"
+      ],
+      "base": [
+        "Íris",
+        "Almíscar Suave"
+      ]
+    },
+    "notes": [
+      "Bergamota",
+      "Toranja",
+      "Frutas Vermelhas",
+      "Rosa de Rangoon",
+      "Tuberosa",
+      "Íris",
+      "Almíscar Suave"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 21,
+      "gender": "F",
+      "name": "ECLAT DE FRISSON",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Floral | Estilo: Radiante, Envolvente, Sofisticado e Inesquecível"
+    },
+    "photo": {
+      "src": "/products/eclat-de-frisson.webp",
+      "alt": "Frasco do perfume Eclat de Frisson"
+    }
+  },
+  {
+    "id": "catalog-lunevoque-noir",
+    "slug": "lunevoque-noir",
+    "name": "Lunévoque Noir",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A elegância hipnótica da cereja amarga e das flores brancas unida ao mistério denso do âmbar, da baunilha e do patchouli em uma presença inesquecível.",
+    "description": "Lunévoque Noir revela a sofisticação noturna, a opulência e a ousadia de uma criação Oriental Floral intensa e magnética. Sua abertura desperta os sentidos com o brilho frutado e envolvente da Pera e da Bergamota, contrastados pelo toque marcante, licoroso e sedutor da Cereja Amarga. No seu coração nobre e misterioso, um buquê majestoso de Narciso, Jasmim, Tuberosa e Flor de Laranjeira desabrocha com textura aveludada e apaixonante. A base assenta sobre a pele com a cremosidade viciante da Baunilha e do Caramelo, harmonizados pelo calor sensual do Âmbar, a profundidade terrosa do Patchouli e do Vetiver, e o abraço macio do Musk, garantindo um rastro denso, elegante e de altíssima fixação.",
+    "family": "Oriental Floral",
+    "style": "Intenso, Elegante, Ousado, Noturno e Marcante",
+    "suggestedUse": "Ideal para eventos noturnos e ocasiões especiais.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Pera",
+        "Bergamota",
+        "Cereja Amarga"
+      ],
+      "heart": [
+        "Narciso",
+        "Jasmim",
+        "Tuberosa",
+        "Flor de Laranjeira"
+      ],
+      "base": [
+        "Musk",
+        "Âmbar",
+        "Vetiver",
+        "Baunilha",
+        "Patchouli",
+        "Caramelo"
+      ]
+    },
+    "notes": [
+      "Pera",
+      "Bergamota",
+      "Cereja Amarga",
+      "Narciso",
+      "Jasmim",
+      "Tuberosa",
+      "Flor de Laranjeira",
+      "Musk",
+      "Âmbar",
+      "Vetiver",
+      "Baunilha",
+      "Patchouli",
+      "Caramelo"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 22,
+      "gender": "F",
+      "name": "LUNÉVOQUE NOIR",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Floral | Estilo: Intenso, Elegante, Ousado, Noturno e Marcante | Sugestão de Uso: Ideal para eventos noturnos e ocasiões especiais."
+    },
+    "photo": {
+      "src": "/products/lunevoque-noir.webp",
+      "alt": "Frasco do perfume Lunévoque Noir"
+    }
+  },
+  {
+    "id": "catalog-bourbon-noir",
+    "slug": "bourbon-noir",
+    "name": "Bourbon Noir",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A obscuridade aveludada do couro e das especiarias quentes em uma presença viciante, densa e inesquecível.",
+    "description": "Bourbon Noir revela a sofisticação noturna, o magnetismo e a sensualidade aristocrática de uma criação Oriental Especiada inesquecível. Sua abertura desperta os sentidos com o contraste efervescente da Pimenta Preta e da Pimenta Rosa, enriquecidos pela nobreza resinosa do Elemi. No seu coração misterioso e denso, o toque místico do Olíbano funde-se à riqueza preciosa do Açafrão. A base assenta sobre a pele com a cremosidade acolhedora da Baunilha de Bourbon abraçada pela textura aveludada da Camurça e pela profundidade nobre do Cedro, garantindo um rastro denso, sedutor e de altíssima fixação.",
+    "family": "Oriental Especiada",
+    "style": "Obscuro, Aveludado, Sensual, Noturno e Imponente",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Pimenta Preta",
+        "Elemi",
+        "Pimenta Rosa"
+      ],
+      "heart": [
+        "Olíbano",
+        "Açafrão"
+      ],
+      "base": [
+        "Baunilha de Bourbon",
+        "Camurça",
+        "Cedro"
+      ]
+    },
+    "notes": [
+      "Pimenta Preta",
+      "Elemi",
+      "Pimenta Rosa",
+      "Olíbano",
+      "Açafrão",
+      "Baunilha de Bourbon",
+      "Camurça",
+      "Cedro"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 23,
+      "gender": "F",
+      "name": "BOURBON NOIR",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Especiada | Estilo: Obscuro, Aveludado, Sensual, Noturno e Imponente"
+    },
+    "photo": {
+      "src": "/products/bourbon-noir.webp",
+      "alt": "Frasco do perfume Bourbon Noir"
+    }
+  },
+  {
+    "id": "catalog-amor-profundo",
+    "slug": "amor-profundo",
+    "name": "Amor Profundo",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A delicadeza apaixonante da flor de laranjeira unida ao toque licoroso do rum e à doçura cremosa da pana cota em uma assinatura inesquecível.",
+    "description": "Amor Profundo revela a sofisticação romântica, a intensidade e o calor envolvente de uma criação Oriental Âmbar singular. Sua abertura desperta os sentidos com o frescor borbulhante e solar do Limão Açucarado, equilibrando a vivacidade cítrica com uma doçura suave. No seu coração nobre e apaixonante, a elegância aveludada da Flor de Laranjeira une-se à sofisticação licorosa do Rum e à textura irresistível da Pana Cota. A base assenta sobre a pele com a cremosidade viciante e o abraço confortante da Baunilha, garantindo um rastro marcante, sofisticado e de alta fixação.",
+    "family": "Oriental Âmbar",
+    "style": "Romântico, Elegante, Envolvente e Sofisticado",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Limão Açucarado"
+      ],
+      "heart": [
+        "Rum",
+        "Pana Cota",
+        "Flor de Laranjeira"
+      ],
+      "base": [
+        "Baunilha"
+      ]
+    },
+    "notes": [
+      "Limão Açucarado",
+      "Rum",
+      "Pana Cota",
+      "Flor de Laranjeira",
+      "Baunilha"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 24,
+      "gender": "F",
+      "name": "AMOR PROFUNDO",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Âmbar | Estilo: Romântico, Elegante, Envolvente e Sofisticado"
+    },
+    "photo": {
+      "src": "/products/amor-profundo.webp",
+      "alt": "Frasco do perfume Amor Profundo"
+    }
+  },
+  {
+    "id": "catalog-euforia",
+    "slug": "euforia",
+    "name": "Euforia",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A doçura viciante do caramelo e do chocolate aliada à sensualidade das frutas escuras e das madeiras em uma assinatura inesquecível.",
+    "description": "Euforia revela o magnetismo envolvente, a opulência e a sedução de uma criação Oriental Gourmand Amadeirada marcante e hipnótica. Sua abertura desperta os sentidos com a riqueza suculenta do Cassis e do Coco, contrastados pela efervescência cítrica e luminosa da Bergamota. No seu coração nobre e apaixonante, um buquê aveludado de Rosa e Jasmim entranha-se na doçura tentadora da Amora, da Ameixa e do Pêssego. A base assenta sobre a pele com a cremosidade irresistível do Caramelo, do Chocolate e da Fava Tonka, harmonizados pela profundidade marcante e terrosa do Patchouli, garantindo um rastro denso, sedutor e de altíssima fixação.",
+    "family": "Oriental Gourmand Amadeirada",
+    "style": "Doce, Sedutor, Marcante, Envolvente e Inesquecível",
+    "suggestedUse": "Ideal para eventos noturnos, encontros especiais e momentos em que se deseja transmitir uma aura doce, sedutora e inesquecível",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Coco",
+        "Cassis",
+        "Bergamota"
+      ],
+      "heart": [
+        "Rosa",
+        "Amora",
+        "Ameixa",
+        "Jasmim",
+        "Pêssego"
+      ],
+      "base": [
+        "Patchouli",
+        "Caramelo",
+        "Chocolate",
+        "Fava Tonka"
+      ]
+    },
+    "notes": [
+      "Coco",
+      "Cassis",
+      "Bergamota",
+      "Rosa",
+      "Amora",
+      "Ameixa",
+      "Jasmim",
+      "Pêssego",
+      "Patchouli",
+      "Caramelo",
+      "Chocolate",
+      "Fava Tonka"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 25,
+      "gender": "F",
+      "name": "EUFORIA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Gourmand Amadeirada | Estilo: Doce, Sedutor, Marcante, Envolvente e Inesquecível | Sugestão de Uso: Ideal para eventos noturnos, encontros especiais e momentos em que se deseja transmitir uma aura doce, sedutora e inesquecível"
+    },
+    "photo": {
+      "src": "/products/euforia.webp",
+      "alt": "Frasco do perfume Euforia"
+    }
+  },
+  {
+    "id": "catalog-aenya",
+    "slug": "aenya",
+    "name": "Aenya",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "Uma joia invisível de presença institucional, que traduz a tradição e a opulência da alta perfumaria em uma assinatura inesquecível.",
+    "description": "Aenya revela a elegância majestosa, a tradição aristocrática e a sofisticação pura de uma criação Floral Aldeídica imponente. Sua abertura desperta os sentidos com a efervescência cintilante dos Aldeídos e o brilho cítrico da Bergamota, envoltos pela nobreza clássica do Pau-Rosa. No seu coração florido e verdadeiramente majestoso, desabrocha a delicadeza aveludada do Lírio do Vale, a sofisticação atalcada da Íris e a paixão atemporal da Rosa. A base assenta sobre o ambiente e a pele com o calor nobre do Sândalo, da Baunilha e da Fava Tonka, abraçados pela profundidade macia do Musk, garantindo um rastro denso, refinado e de altíssima fixação.",
+    "family": "Floral Aldeídico",
+    "style": "Imponente, Clássico, Luxuoso, Institucional e Inesquecível",
+    "suggestedUse": "Atua como uma joia invisível para o ambiente ou para quem valoriza o luxo clássico francês. Ideal para espaços que exigem uma presença de autoridade, tradição e bom gosto impecável",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Pau Rosa",
+        "Bergamota",
+        "Notas Aldeídicas"
+      ],
+      "heart": [
+        "Íris",
+        "Rosa",
+        "Lírio do Vale"
+      ],
+      "base": [
+        "Musk",
+        "Sândalo",
+        "Baunilha",
+        "Fava Tonka"
+      ]
+    },
+    "notes": [
+      "Pau Rosa",
+      "Bergamota",
+      "Notas Aldeídicas",
+      "Íris",
+      "Rosa",
+      "Lírio do Vale",
+      "Musk",
+      "Sândalo",
+      "Baunilha",
+      "Fava Tonka"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 26,
+      "gender": "F",
+      "name": "AENYA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Aldeídico | Estilo: Imponente, Clássico, Luxuoso, Institucional e Inesquecível | Sugestão de Uso: Atua como uma joia invisível para o ambiente ou para quem valoriza o luxo clássico francês. Ideal para espaços que exigem uma presença de autoridade, tradição e bom gosto impecável"
+    },
+    "photo": {
+      "src": "/products/aenya.webp",
+      "alt": "Frasco do perfume Aenya"
+    }
+  },
+  {
+    "id": "catalog-seraphine-absolu",
+    "slug": "seraphine-absolu",
+    "name": "Seraphine Absolu",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A intensidade picante do gengibre e a nobreza das flores brancas unidas ao toque aveludado do cashmere em uma presença inesquecível.",
+    "description": "Seraphine Absolu revela a aura sensual, intensa e aristocraticamente sofisticada de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos com a vivacidade borbulhante da Tangerina e da Bergamota, enriquecidas pelo toque picante e moderno do Gengibre. No seu coração nobre e apaixonante, a elegância aveludada do Jasmim funde-se à doçura acolhedora da Baunilha, criando uma assinatura verdadeiramente envolvente. A base assenta sobre a pele com a cremosidade luxuosa do Sândalo e o abraço macio do Cashmere e do Musk, garantindo um rastro denso, sedutor e de altíssima fixação.",
+    "family": "Oriental Floral",
+    "style": "Sensual, Intenso, Sofisticado e Envolvente",
+    "suggestedUse": "Ideal para uso noturno, ocasiões especiais, encontros e momentos em que se deseja transmitir sensualidade, elegância e intensidade.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Gengibre",
+        "Tangerina",
+        "Bergamota"
+      ],
+      "heart": [
+        "Jasmim",
+        "Baunilha"
+      ],
+      "base": [
+        "Musk",
+        "Sândalo",
+        "Cashmere"
+      ]
+    },
+    "notes": [
+      "Gengibre",
+      "Tangerina",
+      "Bergamota",
+      "Jasmim",
+      "Baunilha",
+      "Musk",
+      "Sândalo",
+      "Cashmere"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 27,
+      "gender": "F",
+      "name": "SERAPHINE ABSOLU",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Floral | Estilo: Sensual, Intenso, Sofisticado e Envolvente | Sugestão de Uso: Ideal para uso noturno, ocasiões especiais, encontros e momentos em que se deseja transmitir sensualidade, elegância e intensidade."
+    },
+    "photo": {
+      "src": "/products/seraphine-absolu.webp",
+      "alt": "Frasco do perfume Seraphine Absolu"
+    }
+  },
+  {
+    "id": "catalog-eclisse",
+    "slug": "eclisse",
+    "name": "Éclisse",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A alegria radiante e o charme autêntico do ruibarbo e do leite de amêndoas em uma presença inesquecível.",
+    "description": "Éclisse revela a sofisticação leve, o charme cativante e a atmosfera alegre de uma criação Floral Verde autêntica. Sua abertura desperta os sentidos com o frescor vibrante e levemente ácido do Ruibarbo, equilibrado pela suculência da Pera e pela delicadeza solar da Mimosa. No seu coração envolvente e acolhedor, a elegância clássica do Jasmim encontra a textura aveludada e o aconchego cremoso do Leite de Amêndoas. A base assenta sobre a pele com a profundidade nobre do Cedro e da Madeira de Cashmere, harmonizados pela maciez sensual do Musk, garantindo um rastro charmoso, elegante e de altíssima fixação.",
+    "family": "Floral Verde",
+    "style": "Autêntico, Alegre, Charmoso, Leve e Envolvente",
+    "suggestedUse": "Ideal para momentos descontraídos e encontros leves.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Pera",
+        "Mimosa",
+        "Ruibarbo"
+      ],
+      "heart": [
+        "Jasmim",
+        "Leite de Amêndoas"
+      ],
+      "base": [
+        "Musk",
+        "Cedro",
+        "Madeira de Cashmere"
+      ]
+    },
+    "notes": [
+      "Pera",
+      "Mimosa",
+      "Ruibarbo",
+      "Jasmim",
+      "Leite de Amêndoas",
+      "Musk",
+      "Cedro",
+      "Madeira de Cashmere"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 28,
+      "gender": "F",
+      "name": "ÉCLISSE",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Verde | Estilo: Autêntico, Alegre, Charmoso, Leve e Envolvente | Sugestão de Uso: Ideal para momentos descontraídos e encontros leves."
+    },
+    "photo": {
+      "src": "/products/eclisse.webp",
+      "alt": "Frasco do perfume Éclisse"
+    }
+  },
+  {
+    "id": "catalog-aurellia",
+    "slug": "aurellia",
+    "name": "Aurellia",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A luminosidade radiante do yuzu e do néroli unida à nobreza das flores brancas e ao calor do âmbar em uma assinatura inesquecível.",
+    "description": "Aurellia revela a aura radiante, a nobreza aristocrática e o magnetismo encantador de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos com a efervescência solar e cítrica do Yuzu e da Bergamota, suavizados pelo toque luminoso da Flor de Laranjeira. No seu coração nobre e apaixonante, um buquê aveludado de Jasmim Sambac e Lírio do Vale desabrocha com sofisticação e graça. A base assenta sobre a pele com a cremosidade viciante da Baunilha e da Fava Tonka, harmonizadas pelo calor acolhedor e opulento do Âmbar, garantindo um rastro denso, refinado e de altíssima fixação.",
+    "family": "Oriental Floral",
+    "style": "Radiante, Encantador, Elegante, Envolvente e Sofisticado",
+    "suggestedUse": "Perfeita para eventos especiais, jantares elegantes, encontros marcantes ou momentos em que você deseja projetar sofisticação, calor e elegância atemporal.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Flor de Laranjeira",
+        "Bergamota",
+        "Yuzu"
+      ],
+      "heart": [
+        "Jasmim Sambac",
+        "Lírio do Vale"
+      ],
+      "base": [
+        "Baunilha",
+        "Fava Tonka",
+        "Âmbar"
+      ]
+    },
+    "notes": [
+      "Flor de Laranjeira",
+      "Bergamota",
+      "Yuzu",
+      "Jasmim Sambac",
+      "Lírio do Vale",
+      "Baunilha",
+      "Fava Tonka",
+      "Âmbar"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 29,
+      "gender": "F",
+      "name": "AURELLIA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Floral | Estilo: Radiante, Encantador, Elegante, Envolvente e Sofisticado | Sugestão de Uso: Perfeita para eventos especiais, jantares elegantes, encontros marcantes ou momentos em que você deseja projetar sofisticação, calor e elegância atemporal."
+    },
+    "photo": {
+      "src": "/products/aurellia.webp",
+      "alt": "Frasco do perfume Aurellia"
+    }
+  },
+  {
+    "id": "catalog-zahara-exclusif",
+    "slug": "zahara-exclusif",
+    "name": "Zahara Exclusif",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A leveza dos acordes cítricos e a nobreza das flores brancas aliadas ao abraço macio e aveludado do almíscar em uma presença inesquecível.",
+    "description": "Zahara Exclusif revela a sofisticação pura, o conforto envolvente e a elegância atemporal de uma fragrância Floral Almiscarada Amadeirada singular. A fragrância se inicia com um frescor leve, borbulhante e sofisticado de notas frescas e acordes cítricos suaves. No seu coração nobre, a delicadeza aveludada de flores brancas e notas florais delicadas desabrocha com sofisticação e radiância. A base assenta sobre a pele com um fundo almiscarado amadeirado macio, enriquecido por nuances cremosas e pelo abraço do almíscar, proporcionando uma excelente fixação e um rastro refinado e de puro luxo.",
+    "family": "Floral Almiscarado Amadeirado",
+    "style": "Sofisticado, Macio, Elegante, Envolvente e Inesquecível",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Notas Frescas",
+        "Acordes Cítricos Suaves"
+      ],
+      "heart": [
+        "Flores Brancas",
+        "Notas Florais Delicadas"
+      ],
+      "base": [
+        "Almíscar",
+        "Notas Amadeiradas",
+        "Nuances Cremosas"
+      ]
+    },
+    "notes": [
+      "Notas Frescas",
+      "Acordes Cítricos Suaves",
+      "Flores Brancas",
+      "Notas Florais Delicadas",
+      "Almíscar",
+      "Notas Amadeiradas",
+      "Nuances Cremosas"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 30,
+      "gender": "F",
+      "name": "ZAHARA EXCLUSIF",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Almiscarado Amadeirado | Estilo: Sofisticado, Macio, Elegante, Envolvente e Inesquecível"
+    },
+    "photo": {
+      "src": "/products/zahara-exclusif.webp",
+      "alt": "Frasco do perfume Zahara Exclusif"
+    }
+  },
+  {
+    "id": "catalog-crystalea",
+    "slug": "crystalea",
+    "name": "Crystálea",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A delicadeza radiante da flor de lótus e a leveza cristalina do bambu em uma presença aquosa, pura e inesquecível.",
+    "description": "Crystálea revela o frescor revigorante, a elegância serena e a atmosfera cristalina de uma criação Floral Aquosa fascinante. Sua abertura desperta os sentidos com a suculência leve da Pera combinada à transparência natural e limpa do Bambu. No seu coração nobre e sereno, a delicadeza aquática da Flor de Lótus funde-se à elegância sutil do Chá e da Acácia, criando uma sensação aveludada de calma e harmonia. A base assenta sobre a pele com a sobriedade sofisticada da Madeira de Guaiaco e do Musgo de Carvalho, harmonizados pela maciez acolhedora do Musk, garantindo um rastro refinado, diáfano e de puro luxo na pele.",
+    "family": "Floral Aquosa",
+    "style": "Delicado, Refrescante, Elegante, Leve e Cristalino",
+    "suggestedUse": "Ideal para o uso diário, ambientes profissionais, climas quentes e momentos que pedem leveza e elegância.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Pera",
+        "Bambu"
+      ],
+      "heart": [
+        "Chá",
+        "Lótus",
+        "Acácia"
+      ],
+      "base": [
+        "Musk",
+        "Musgo de Carvalho",
+        "Madeira de Guaiaco"
+      ]
+    },
+    "notes": [
+      "Pera",
+      "Bambu",
+      "Chá",
+      "Lótus",
+      "Acácia",
+      "Musk",
+      "Musgo de Carvalho",
+      "Madeira de Guaiaco"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 31,
+      "gender": "F",
+      "name": "CRYSTÁLEA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Aquosa | Estilo: Delicado, Refrescante, Elegante, Leve e Cristalino | Sugestão de Uso: Ideal para o uso diário, ambientes profissionais, climas quentes e momentos que pedem leveza e elegância."
+    },
+    "photo": {
+      "src": "/products/crystalea.webp",
+      "alt": "Frasco do perfume Crystálea"
+    }
+  },
+  {
+    "id": "catalog-aurora-rose",
+    "slug": "aurora-rose",
+    "name": "Aurora Rosé",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A delicadeza radiante do jasmim e da toranja envolvida no conforto aveludado do musk de algodão em uma presença inesquecível.",
+    "description": "Aurora Rosé revela a sofisticação suave, a leveza envolvente e a aura romântica de uma criação Floral Frutada graciosa. Sua abertura desperta os sentidos com a suculência delicada do Marmelo combinada à vivacidade cítrica e efervescente da Toranja. No seu coração nobre e radiante, a elegância aveludada do Jasmim funde-se ao frescor refinado do Jacinto, criando um buquê floral precioso e harmônico. A base assenta sobre a pele com a sobriedade macia do Almíscar Branco (Musk de Algodão) e da Íris, aquecidos pela profundidade nobre do Cedro da Virgínia e do Âmbar, garantindo um rastro denso, elegante e de altíssima fixação.",
+    "family": "Floral Frutado",
+    "style": "Suave, Feminino, Elegante, Leve e Radiante",
+    "suggestedUse": "Ideal para o uso diário, ambientes de trabalho, encontros leves, passeios ao ar livre e momentos em que se deseja transmitir delicadeza, leveza e frescor.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Marmelo",
+        "Toranja (Grapefruit)"
+      ],
+      "heart": [
+        "Jasmim",
+        "Jacinto"
+      ],
+      "base": [
+        "Almíscar Branco (Musk)",
+        "Íris",
+        "Cedro da Virgínia",
+        "Âmbar"
+      ]
+    },
+    "notes": [
+      "Marmelo",
+      "Toranja (Grapefruit)",
+      "Jasmim",
+      "Jacinto",
+      "Almíscar Branco (Musk)",
+      "Íris",
+      "Cedro da Virgínia",
+      "Âmbar"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 32,
+      "gender": "F",
+      "name": "AURORA ROSÉ",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Frutado | Estilo: Suave, Feminino, Elegante, Leve e Radiante | Sugestão de Uso: Ideal para o uso diário, ambientes de trabalho, encontros leves, passeios ao ar livre e momentos em que se deseja transmitir delicadeza, leveza e frescor."
+    },
+    "photo": {
+      "src": "/products/aurora-rose.webp",
+      "alt": "Frasco do perfume Aurora Rosé"
+    }
+  },
+  {
+    "id": "catalog-allurea",
+    "slug": "allurea",
+    "name": "Alluréa",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A exotismo apaixonante da flor de maracujá e da gardênia unido ao aconchego cremoso da baunilha em uma assinatura inesquecível.",
+    "description": "Alluréa revela a sofisticação exótica, a aura envolvente e o magnetismo delicado de uma criação floral singular. Sua abertura desperta os sentidos com o toque radiante e cativante da Flor de Maracujá, introduzindo a fragrância com leveza e encantamento. No seu coração nobre e apaixonante, desabrocha a elegância aveludada do Jasmim e da Gardênia, criando um corpo floral rico, luminoso e gracioso. A base assenta sobre a pele com a cremosidade confortante da Baunilha harmonizada pela profundidade elegante do Vetiver, garantindo um rastro marcante, sofisticado e de altíssima fixação.",
+    "family": "Floral Envolvente",
+    "style": "Exótico, Elegante, Aconchegante e Sofisticado",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Flor de Maracujá"
+      ],
+      "heart": [
+        "Jasmim",
+        "Gardênia"
+      ],
+      "base": [
+        "Baunilha",
+        "Vetiver"
+      ]
+    },
+    "notes": [
+      "Flor de Maracujá",
+      "Jasmim",
+      "Gardênia",
+      "Baunilha",
+      "Vetiver"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 33,
+      "gender": "F",
+      "name": "ALLURÉA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Envolvente | Estilo: Exótico, Elegante, Aconchegante e Sofisticado"
+    },
+    "photo": {
+      "src": "/products/allurea.webp",
+      "alt": "Frasco do perfume Alluréa"
+    }
+  },
+  {
+    "id": "catalog-veralya",
+    "slug": "veralya",
+    "name": "Veralya",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A delicadeza radiante da magnólia e a crocância do pepino unidas à nobreza das madeiras em uma assinatura inesquecível.",
+    "description": "Veralya revela a leveza refrescante, a sofisticação floral e a atmosfera envolvente de uma criação Floral Frutada feminina singular. Sua abertura desperta os sentidos com o frescor cristalino do Pepino harmonizado com o toque delicado e radiante da Magnólia. No seu coração nobre e apaixonante, desabrocha um buquê aveludado de Tuberosa, Rosa, Lírio-do-Vale e Violeta, realçado pela suculência vibrante da Maçã Verde. A base assenta sobre a pele com a profundidade marcante das Notas Amadeiradas e do Sândalo, aquecidos pela elegância do Âmbar, garantindo um rastro denso, refinado e de pura sofisticação.",
+    "family": "Floral Frutado Feminino",
+    "style": "Refrescante, Elegante, Delicado e Sofisticado",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Pepino",
+        "Magnólia"
+      ],
+      "heart": [
+        "Tuberosa",
+        "Rosa",
+        "Lírio-do-Vale",
+        "Violeta",
+        "Maçã Verde"
+      ],
+      "base": [
+        "Notas Amadeiradas",
+        "Âmbar",
+        "Sândalo"
+      ]
+    },
+    "notes": [
+      "Pepino",
+      "Magnólia",
+      "Tuberosa",
+      "Rosa",
+      "Lírio-do-Vale",
+      "Violeta",
+      "Maçã Verde",
+      "Notas Amadeiradas",
+      "Âmbar",
+      "Sândalo"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 34,
+      "gender": "F",
+      "name": "VERALYA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Frutado Feminino | Estilo: Refrescante, Elegante, Delicado e Sofisticado"
+    },
+    "photo": {
+      "src": "/products/veralya.webp",
+      "alt": "Frasco do perfume Veralya"
+    }
+  },
+  {
+    "id": "catalog-zyra",
+    "slug": "zyra",
+    "name": "Zyra",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A efervescência tropical da manga e do coco unida ao mistério espiritual do olíbano e à cremosidade da baunilha em uma assinatura inesquecível.",
+    "description": "Zyra revela o magnetismo radiante, a sensualidade vibrante e a opulência exótica de uma criação Floral Amadeirada Musk singular. Sua abertura desperta os sentidos com a suculência solar e tropical da Manga e do Cassis, contrastadas pela nobreza resinosa e incensada do Olíbano. No seu coração apaixonante e aveludado, a textura cremosa do Coco funde-se à elegância atemporal do Jasmim e ao toque refinado do Sândalo. A base assenta sobre a pele com o calor acolhedor da Baunilha e do Âmbar, harmonizados pela profundidade marcante do Vetiver e a maciez sensual do Musk, garantindo um rastro denso, envolvente e de altíssima fixação.",
+    "family": "Floral Amadeirada Musk",
+    "style": "Tropical, Vibrante, Incensado, Envolvente e Sofisticado",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Cassis",
+        "Manga",
+        "Olíbano"
+      ],
+      "heart": [
+        "Coco",
+        "Jasmim",
+        "Sândalo"
+      ],
+      "base": [
+        "Musk",
+        "Âmbar",
+        "Vetiver",
+        "Baunilha"
+      ]
+    },
+    "notes": [
+      "Cassis",
+      "Manga",
+      "Olíbano",
+      "Coco",
+      "Jasmim",
+      "Sândalo",
+      "Musk",
+      "Âmbar",
+      "Vetiver",
+      "Baunilha"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 35,
+      "gender": "F",
+      "name": "ZYRA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Amadeirada Musk | Estilo: Tropical, Vibrante, Incensado, Envolvente e Sofisticado"
+    },
+    "photo": {
+      "src": "/products/zyra.webp",
+      "alt": "Frasco do perfume Zyra"
+    }
+  },
+  {
+    "id": "catalog-elyndra",
+    "slug": "elyndra",
+    "name": "Elyndra",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A energia vibrante do ruibarbo e das folhas verdes unida à nobreza do ylang-ylang e ao aconchego da baunilha em uma assinatura selvagem e hipnotizante.",
+    "description": "Elyndra revela a sofisticação exótica, o mistério e a força magnética de uma criação Oriental Floral Verde autêntica. Sua abertura desperta os sentidos com o frescor crocante, vibrante e levemente ácido do Ruibarbo, harmonizado à naturalidade límpida das Folhas Verdes. No seu coração nobre e hipnotizante, desabrocha a delicadeza solar do Ylang-Ylang combinada à elegância radiante da Flor de Laranjeira. A base assenta sobre a pele com a profundidade marcante das Notas Amadeiradas aquecidas pelo abraço cremoso da Baunilha, garantindo um rastro denso, sedutor e de altíssima fixação.",
+    "family": "Oriental Floral Verde",
+    "style": "Selvagem, Hipnotizante, Magnético, Misterioso e Autêntico",
+    "suggestedUse": "Ideal para ocasiões especiais e para quem deseja transmitir autenticidade, mistério e magnetismo. Perfeito para mulheres que buscam se conectar com sua essência mais profunda e natural.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Folhas Verdes",
+        "Ruibarbo"
+      ],
+      "heart": [
+        "Flor de Laranjeira",
+        "Ylang-Ylang"
+      ],
+      "base": [
+        "Baunilha",
+        "Notas Amadeiradas"
+      ]
+    },
+    "notes": [
+      "Folhas Verdes",
+      "Ruibarbo",
+      "Flor de Laranjeira",
+      "Ylang-Ylang",
+      "Baunilha",
+      "Notas Amadeiradas"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 36,
+      "gender": "F",
+      "name": "ELYNDRA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Floral Verde | Estilo: Selvagem, Hipnotizante, Magnético, Misterioso e Autêntico | Sugestão de Uso: Ideal para ocasiões especiais e para quem deseja transmitir autenticidade, mistério e magnetismo. Perfeito para mulheres que buscam se conectar com sua essência mais profunda e natural."
+    },
+    "photo": {
+      "src": "/products/elyndra.webp",
+      "alt": "Frasco do perfume Elyndra"
+    }
+  },
+  {
+    "id": "catalog-zahara",
+    "slug": "zahara",
+    "name": "Zahara",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "Uma aura cristalina e iluminada de flores brancas envolvida pela suavidade aveludada do pêssego e do musk em uma presença inesquecível.",
+    "description": "Zahara revela o frescor radiante, a elegância arejada e o luxo refinado de uma criação Floral Amadeirada Musk singular. Sua abertura desperta os sentidos como um sopro de luz borbulhante e suculento, combinando a doçura aveludada do Pêssego Branco à efervescência cítrica da Mandarina e da Mexerica. No seu coração nobre e diáfano, um buquê cristalino de Flor de Laranjeira, Lírio-do-Vale, Petália e Uva de Oregon traz uma sofisticação floral envolvente e luminosa. A base assenta sobre a pele com a sobriedade cremosa do Sândalo e da Baunilha, harmonizados pela profundidade nobre do Âmbar e o abraço macio do Musk, garantindo um rastro limpo, refinado e de alta fixação.",
+    "family": "Floral Amadeirada Musk",
+    "style": "Cristalino, Arejado, Sofisticado, Iluminado e Confortável",
+    "suggestedUse": "Atua como um sopro de luz e a escolha definitiva para quem busca o \"cheiro do luxo clean\". Transforma qualquer ocasião ou ambiente em um cenário de pura claridade, paz e alto padrão.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Pêssego Branco",
+        "Mandarina",
+        "Mexerica"
+      ],
+      "heart": [
+        "Flor de Laranjeira",
+        "Lírio-do-Vale",
+        "Petália",
+        "Uva de Oregon"
+      ],
+      "base": [
+        "Musk",
+        "Âmbar",
+        "Baunilha",
+        "Sândalo"
+      ]
+    },
+    "notes": [
+      "Pêssego Branco",
+      "Mandarina",
+      "Mexerica",
+      "Flor de Laranjeira",
+      "Lírio-do-Vale",
+      "Petália",
+      "Uva de Oregon",
+      "Musk",
+      "Âmbar",
+      "Baunilha",
+      "Sândalo"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 37,
+      "gender": "F",
+      "name": "ZAHARA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Amadeirada Musk | Estilo: Cristalino, Arejado, Sofisticado, Iluminado e Confortável | Sugestão de Uso: Atua como um sopro de luz e a escolha definitiva para quem busca o \"cheiro do luxo clean\". Transforma qualquer ocasião ou ambiente em um cenário de pura claridade, paz e alto padrão."
+    },
+    "photo": {
+      "src": "/products/zahara.webp",
+      "alt": "Frasco do perfume Zahara"
+    }
+  },
+  {
+    "id": "catalog-femme",
+    "slug": "femme",
+    "name": "Femme",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A imponência do ruibarbo e das frutas secas unida à nobreza das flores brancas e à densidade do patchouli em uma assinatura inesquecível.",
+    "description": "Femme revela a aura poderosa, misteriosa e aristocraticamente sofisticada de uma criação Chypre Floral inesquecível. Sua abertura desperta os sentidos com o frescor marcante e levemente ácido do Ruibarbo combinada à suculência envolvente do Morango, da Bergamota e das Frutas Secas. No seu coração nobre e hipnótico, desabrocha um buquê aveludado e gracioso de Rosa, Jasmim, Gardênia e Ylang-Ylang. A base assenta sobre a pele com a profundidade marcante e terrosa do Patchouli, harmonizada pelo calor sensual do Âmbar, a doçura aconchegante da Baunilha e o abraço macio do Almíscar, garantindo um rastro denso, refinado e de altíssima fixação.",
+    "family": "Chypre Floral",
+    "style": "Misterioso, Poderoso, Sofisticado, Marcante e Envolvente",
+    "suggestedUse": "Ideal para eventos sociais e ocasiões de destaque.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Ruibarbo",
+        "Morango",
+        "Bergamota",
+        "Frutas Secas"
+      ],
+      "heart": [
+        "Rosa",
+        "Jasmim",
+        "Gardênia",
+        "Ylang-Ylang"
+      ],
+      "base": [
+        "Âmbar",
+        "Almíscar",
+        "Baunilha",
+        "Patchouli"
+      ]
+    },
+    "notes": [
+      "Ruibarbo",
+      "Morango",
+      "Bergamota",
+      "Frutas Secas",
+      "Rosa",
+      "Jasmim",
+      "Gardênia",
+      "Ylang-Ylang",
+      "Âmbar",
+      "Almíscar",
+      "Baunilha",
+      "Patchouli"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 38,
+      "gender": "F",
+      "name": "FEMME",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Chypre Floral | Estilo: Misterioso, Poderoso, Sofisticado, Marcante e Envolvente | Sugestão de Uso: Ideal para eventos sociais e ocasiões de destaque."
+    },
+    "photo": {
+      "src": "/products/femme.webp",
+      "alt": "Frasco do perfume Femme"
+    }
+  },
+  {
+    "id": "catalog-solyse",
+    "slug": "solyse",
+    "name": "Solysé",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "O brilho frutado e a elegância das flores brancas envolvidos no calor acolhedor da baunilha e do cedro em uma presença inesquecível.",
+    "description": "Solysé revela a sofisticação radiante, a luminosidade cativante e o charme envolvente de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos com um frescor frutado e cítrico de Bergamota, Pêra e Mandarina, proporcionando uma introdução efervescente e vibrante. No seu coração nobre e radiante, desabrocha um buquê floral elegante de Jasmim, Rosa e Flor de Laranjeira, criando um corpo gracioso e cheio de luz. A base assenta sobre a pele com o calor adocicado e viciante da Baunilha harmonizado pela sobriedade marcante do Cedro e o abraço macio do Almíscar, garantindo um rastro sofisticado, delicado, marcante e de alta fixação.",
+    "family": "Oriental Floral",
+    "style": "Luminoso, Elegante, Sofisticado, Delicado e Marcante",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Bergamota",
+        "Pêra",
+        "Mandarina"
+      ],
+      "heart": [
+        "Jasmim",
+        "Rosa",
+        "Flor de Laranjeira"
+      ],
+      "base": [
+        "Almíscar",
+        "Cedro",
+        "Baunilha"
+      ]
+    },
+    "notes": [
+      "Bergamota",
+      "Pêra",
+      "Mandarina",
+      "Jasmim",
+      "Rosa",
+      "Flor de Laranjeira",
+      "Almíscar",
+      "Cedro",
+      "Baunilha"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 39,
+      "gender": "F",
+      "name": "SOLYSÉ",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Floral | Estilo: Luminoso, Elegante, Sofisticado, Delicado e Marcante"
+    },
+    "photo": {
+      "src": "/products/solyse.webp",
+      "alt": "Frasco do perfume Solysé"
+    }
+  },
+  {
+    "id": "catalog-elyra",
+    "slug": "elyra",
+    "name": "Elyra",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A efervescência suculenta da cereja e das amêndoas unida ao conforto cremoso dos acordes lactônicos e da baunilha em uma assinatura inesquecível.",
+    "description": "Elyra revela a sofisticação apaixonante, a cremosidade sedutora e a doçura envolvente de uma criação Floral Frutal Gourmand singular. Sua abertura desperta os sentidos com a tentadora suculência da Cereja e da Framboesa, enriquecidas pela nobreza aveludada e ligeiramente licorosa das Amêndoas. No seu coração nobre e acolhedor, desabrocha a delicadeza radiante do Jasmim e da Peônia, banhados pela textura abraçadora e viciante dos Acordes Lactônicos. A base assenta sobre a pele com a profundidade tátil e aveludada do Cashmeran, harmonizado pelo calor reconfortante da Baunilha e pela maciez sensual do Musk, garantindo um rastro denso, marcante e de alta fixação.",
+    "family": "Floral Frutal Gourmand Feminino",
+    "style": "Gourmand, Cremoso, Envolvente, Sedutor e Sofisticado",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Cereja",
+        "Amêndoas",
+        "Framboesa"
+      ],
+      "heart": [
+        "Acordes Lactônicos",
+        "Jasmim",
+        "Peônia"
+      ],
+      "base": [
+        "Cashmeran",
+        "Baunilha",
+        "Musk"
+      ]
+    },
+    "notes": [
+      "Cereja",
+      "Amêndoas",
+      "Framboesa",
+      "Acordes Lactônicos",
+      "Jasmim",
+      "Peônia",
+      "Cashmeran",
+      "Baunilha",
+      "Musk"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 40,
+      "gender": "F",
+      "name": "ELYRA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Frutal Gourmand Feminino | Estilo: Gourmand, Cremoso, Envolvente, Sedutor e Sofisticado"
+    },
+    "photo": {
+      "src": "/products/elyra.webp",
+      "alt": "Frasco do perfume Elyra"
+    }
+  },
+  {
+    "id": "catalog-elisym",
+    "slug": "elisym",
+    "name": "Élisym",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A efervescência revitalizante do limão e da hortelã unida à delicadeza da peônia e ao aconchego do açúcar mascavo em uma assinatura inesquecível.",
+    "description": "Élisym revela a sofisticação natural, o dinamismo e a elegância serena de uma criação Floral Aquosa verdadeiramente refrescante. Sua abertura desperta os sentidos com o frescor borbulhante e solar do Limão Siciliano combinado ao toque gelado e revigorante da Hortelã, envoltos por notas aquáticas cristalinas. No seu coração nobre e luminoso, a graciosidade aveludada da Peônia e a doçura radiante do Jasmim ganham um contraste moderno e levemente picante com a Pimenta Rosa. A base assenta sobre a pele com a profundidade elegante do Cedro e a nobreza resinosa do Ládano Francês, aquecidos pela doçura acolhedora do Açúcar Mascavo, garantindo um rastro charmoso, leve e de excelente fixação.",
+    "family": "Floral Aquosa",
+    "style": "Refrescante, Feminino, Natural, Leve e Radiante",
+    "suggestedUse": "Ideal para o dia a dia, climas quentes, momentos ao ar livre e ocasiões que pedem leveza e frescor.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Hortelã",
+        "Limão Siciliano",
+        "Notas Aquáticas"
+      ],
+      "heart": [
+        "Peônia",
+        "Jasmim",
+        "Pimenta Rosa"
+      ],
+      "base": [
+        "Cedro",
+        "Ládano Francês",
+        "Açúcar Mascavo"
+      ]
+    },
+    "notes": [
+      "Hortelã",
+      "Limão Siciliano",
+      "Notas Aquáticas",
+      "Peônia",
+      "Jasmim",
+      "Pimenta Rosa",
+      "Cedro",
+      "Ládano Francês",
+      "Açúcar Mascavo"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 41,
+      "gender": "F",
+      "name": "ÉLISYM",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Aquosa | Estilo: Refrescante, Feminino, Natural, Leve e Radiante | Sugestão de Uso: Ideal para o dia a dia, climas quentes, momentos ao ar livre e ocasiões que pedem leveza e frescor."
+    },
+    "photo": {
+      "src": "/products/elisym.webp",
+      "alt": "Frasco do perfume Élisym"
+    }
+  },
+  {
+    "id": "catalog-fayla-rose",
+    "slug": "fayla-rose",
+    "name": "Fayla Rose",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A elegância radiante do buquê de rosas e peônias unida ao aconchego envolvente da baunilha e do sândalo em uma assinatura inesquecível.",
+    "description": "Fayla Rose revela a sofisticação graciosa, a feminilidade radiante e a delicadeza cativante de uma criação Floral inesquecível. Sua abertura desperta os sentidos com um frescor frutado suave e efervescente de Laranja, Framboesa e Pêssego. No seu coração nobre e apaixonante, um buquê florido exuberante desabrocha com a elegância luminosa da Rosa, da Peônia e do Jasmim. A base assenta sobre a pele com um fundo suave e macio, harmonizando a sobriedade cremosa do Sândalo à doçura confortante da Baunilha e ao abraço sensual do Almíscar, garantindo excelente fixação e uma presença marcante e inesquecível.",
+    "family": "Floral",
+    "style": "Delicado, Elegante, Luminoso, Suave e Marcante",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Laranja",
+        "Framboesa",
+        "Pêssego"
+      ],
+      "heart": [
+        "Rosa",
+        "Peônia",
+        "Jasmim"
+      ],
+      "base": [
+        "Sândalo",
+        "Almíscar",
+        "Baunilha"
+      ]
+    },
+    "notes": [
+      "Laranja",
+      "Framboesa",
+      "Pêssego",
+      "Rosa",
+      "Peônia",
+      "Jasmim",
+      "Sândalo",
+      "Almíscar",
+      "Baunilha"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 42,
+      "gender": "F",
+      "name": "FAYLA ROSE",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral | Estilo: Delicado, Elegante, Luminoso, Suave e Marcante"
+    },
+    "photo": {
+      "src": "/products/fayla-rose.webp",
+      "alt": "Frasco do perfume Fayla Rose"
+    }
+  },
+  {
+    "id": "catalog-florance",
+    "slug": "florance",
+    "name": "Florance",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A elegância luminosa da flor de laranjeira e do jasmim unida ao calor sensual do cedro e da baunilha em uma assinatura inesquecível.",
+    "description": "Florance revela a sofisticação radiante, a opulência e o charme marcante de uma criação Floral Oriental inesquecível. Sua abertura desperta os sentidos com um frescor aromático e cítrico borbulhante de Lavanda, Tangerina e Bergamota. No seu coração nobre e radiante, desabrocha um buquê floral fascinante e elegante de Jasmim, Flor de Laranjeira e Lírio. A base assenta sobre a pele com o calor acolhedor e adocicado da Baunilha, harmonizada pela sobriedade nobre do Cedro e o abraço sensual do Almíscar, garantindo um rastro denso, sofisticado, intenso e de alta fixação.",
+    "family": "Floral Oriental",
+    "style": "Sofisticado, Intenso, Luminoso, Sensual e Marcante",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Lavanda",
+        "Tangerina",
+        "Bergamota"
+      ],
+      "heart": [
+        "Jasmim",
+        "Flor de Laranjeira",
+        "Lírio"
+      ],
+      "base": [
+        "Baunilha",
+        "Almíscar",
+        "Cedro"
+      ]
+    },
+    "notes": [
+      "Lavanda",
+      "Tangerina",
+      "Bergamota",
+      "Jasmim",
+      "Flor de Laranjeira",
+      "Lírio",
+      "Baunilha",
+      "Almíscar",
+      "Cedro"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 43,
+      "gender": "F",
+      "name": "FLORANCE",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Oriental | Estilo: Sofisticado, Intenso, Luminoso, Sensual e Marcante"
+    },
+    "photo": {
+      "src": "/products/florance.webp",
+      "alt": "Frasco do perfume Florance"
+    }
+  },
+  {
+    "id": "catalog-belle",
+    "slug": "belle",
+    "name": "Belle",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A suculência envolvente da groselha preta e da pêra unida à nobreza da íris e ao calor do patchouli e da baunilha em uma assinatura inesquecível.",
+    "description": "Belle revela a sofisticação radiante, a aura de doçura e o charme encantador de uma criação Floral Frutal feminina irresistível. Sua abertura desperta os sentidos com a suculência efervescente da Groselha Preta e da Pêra, trazendo uma textura frutada luminosa e acolhedora. No seu coração nobre e delicado, desabrocha a elegância atalcada da Íris combinada à graça aveludada do Jasmim e da Flor de Laranjeira. A base assenta sobre a pele com a profundidade marcante e refinada do Patchouli, harmonizado pela doçura confortante da Baunilha e da Fava Tonka, garantindo um rastro denso, sedutor e de altíssima fixação.",
+    "family": "Floral Frutal",
+    "style": "Encantador, Elegante, Doce, Sofisticado e Confiante",
+    "suggestedUse": "Ideal para uso em qualquer ocasião, desde o dia a dia até eventos especiais, transmitindo uma aura de doçura e sofisticação. Perfeita para mulheres que desejam uma fragrância que as faça se sentir bonitas e confiantes.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Groselha Preta",
+        "Pêra"
+      ],
+      "heart": [
+        "Íris",
+        "Flor de Laranjeira",
+        "Jasmim"
+      ],
+      "base": [
+        "Patchouli",
+        "Fava Tonka",
+        "Baunilha"
+      ]
+    },
+    "notes": [
+      "Groselha Preta",
+      "Pêra",
+      "Íris",
+      "Flor de Laranjeira",
+      "Jasmim",
+      "Patchouli",
+      "Fava Tonka",
+      "Baunilha"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 44,
+      "gender": "F",
+      "name": "BELLE",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Frutal | Estilo: Encantador, Elegante, Doce, Sofisticado e Confiante | Sugestão de Uso: Ideal para uso em qualquer ocasião, desde o dia a dia até eventos especiais, transmitindo uma aura de doçura e sofisticação. Perfeita para mulheres que desejam uma fragrância que as faça se sentir bonitas e confiantes."
+    },
+    "photo": {
+      "src": "/products/belle.webp",
+      "alt": "Frasco do perfume Belle"
+    }
+  },
+  {
+    "id": "catalog-aurea",
+    "slug": "aurea",
+    "name": "Aurea",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "A elegância atemporal e a luminosidade radiante de um majestoso buquê de flores brancas em uma assinatura inesquecível.",
+    "description": "Aurea revela a sofisticação solar, a nobreza e o magnetismo envolvente de uma criação Floral Solar inesquecível. Sua abertura desperta os sentidos com o brilho frutado e efervescente da Mandarina e da Toranja, contrastados pelo toque refinado do Cassis. No seu coração majestoso e radiante, desabrocha a poesia aveludada da Flor de Laranjeira, do Ylang-Ylang, do Jasmim Sambac e da Tuberosa de Grasse. A base assenta sobre a pele com a cremosidade nobre do Sândalo, a maciez do Almíscar Branco e o calor acolhedor do Âmbar Dourado, garantindo um rastro denso, refinado e de altíssima fixação.",
+    "family": "Floral Solar",
+    "style": "Solar, Radiante, Elegante, Nobre e Sofisticado",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Mandarina",
+        "Toranja",
+        "Cassis Radiante"
+      ],
+      "heart": [
+        "Flor de Laranjeira",
+        "Ylang-Ylang",
+        "Jasmim Sambac",
+        "Tuberosa de Grasse"
+      ],
+      "base": [
+        "Sândalo Aveludado",
+        "Almíscar Branco",
+        "Âmbar Dourado"
+      ]
+    },
+    "notes": [
+      "Mandarina",
+      "Toranja",
+      "Cassis Radiante",
+      "Flor de Laranjeira",
+      "Ylang-Ylang",
+      "Jasmim Sambac",
+      "Tuberosa de Grasse",
+      "Sândalo Aveludado",
+      "Almíscar Branco",
+      "Âmbar Dourado"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 45,
+      "gender": "F",
+      "name": "AUREA",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Floral Solar | Estilo: Solar, Radiante, Elegante, Nobre e Sofisticado"
+    },
+    "photo": {
+      "src": "/products/aurea.webp",
+      "alt": "Frasco do perfume Aurea"
+    }
+  },
+  {
+    "id": "catalog-floree",
+    "slug": "floree",
+    "name": "Florée",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "tagline": "O brilho radiante da mandarina e da frésia unido à elegância atemporal do lírio branco e ao calor marcante do patchouli em uma assinatura inesquecível.",
+    "description": "Florée revela a elegância vibrante, a luminosidade natural e o encanto refinado de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos com um frescor frutado e aromático borbulhante de Mandarina, Frésia e Sálvia. No seu coração nobre e radiante, desabrocha um buquê floral aristocrático de Lírio Branco, Muguet, Calêndula e Narciso, criando um corpo rico, gracioso e cheio de vida. A base assenta sobre a pele com a profundidade marcante e terrosa do Patchouli, harmonizada pela cremosidade nobre do Sândalo e pelo calor sensual do Âmbar, garantindo um rastro denso, refinado e de altíssima fixação.",
+    "family": "Oriental Floral (Floral Aromático)",
+    "style": "Radiante, Elegante, Aromático, Sofisticado e Marcante",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "notePyramid": {
+      "top": [
+        "Mandarina",
+        "Frésia",
+        "Sálvia"
+      ],
+      "heart": [
+        "Lírio Branco",
+        "Muguet",
+        "Calêndula",
+        "Narciso"
+      ],
+      "base": [
+        "Patchouli",
+        "Sândalo",
+        "Âmbar"
+      ]
+    },
+    "notes": [
+      "Mandarina",
+      "Frésia",
+      "Sálvia",
+      "Lírio Branco",
+      "Muguet",
+      "Calêndula",
+      "Narciso",
+      "Patchouli",
+      "Sândalo",
+      "Âmbar"
+    ],
+    "availability": "available",
+    "sourceRecord": {
+      "number": 46,
+      "gender": "F",
+      "name": "FLORÉE",
+      "volumeType": "PERFUME • 50ML / 100ML",
+      "profile": "Família Olfativa: Oriental Floral (Floral Aromático) | Estilo: Radiante, Elegante, Aromático, Sofisticado e Marcante"
+    },
+    "photo": {
+      "src": "/products/floree.webp",
+      "alt": "Frasco do perfume Florée"
+    }
+  }
 ]

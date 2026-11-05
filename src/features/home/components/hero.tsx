@@ -25,11 +25,12 @@ export function Hero() {
       </Reveal>
       <Reveal className="hero-art" aria-hidden="true">
         <Image
-          src="/branding/ceu-de-lavanda-monogram-graphite.svg"
+          src="/campaigns/ceu-de-lavanda-hero.webp"
           alt=""
-          width={111.56}
-          height={176.35}
-          priority
+          width={1536}
+          height={1024}
+          sizes="(max-width: 760px) 100vw, 50vw"
+          preload
         />
       </Reveal>
     </section>

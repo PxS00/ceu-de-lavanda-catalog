@@ -5,12 +5,14 @@ export function ProductArt({ product }: { product: Product }) {
   if (product.photo)
     return (
       <div className="product-art has-photo">
-        <Image
-          src={product.photo.src}
-          alt={product.photo.alt}
-          fill
-          sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 25vw"
-        />
+        <div className="product-photo-frame">
+          <Image
+            src={product.photo.src}
+            alt={product.photo.alt}
+            fill
+            sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 25vw"
+          />
+        </div>
       </div>
     );
   return (
