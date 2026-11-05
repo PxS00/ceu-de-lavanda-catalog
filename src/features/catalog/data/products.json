@@ -2478,6 +2478,10 @@
       "name": "FEMME",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Chypre Floral | Estilo: Misterioso, Poderoso, Sofisticado, Marcante e Envolvente | Sugestão de Uso: Ideal para eventos sociais e ocasiões de destaque."
+    },
+    "photo": {
+      "src": "/products/femme.webp",
+      "alt": "Frasco do perfume Femme"
     }
   },
   {
@@ -2731,6 +2735,10 @@
       "name": "FAYLA ROSE",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral | Estilo: Delicado, Elegante, Luminoso, Suave e Marcante"
+    },
+    "photo": {
+      "src": "/products/fayla-rose.webp",
+      "alt": "Frasco do perfume Fayla Rose"
     }
   },
   {
