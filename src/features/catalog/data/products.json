@@ -1781,6 +1781,10 @@
       "name": "SERAPHINE ABSOLU",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Oriental Floral | Estilo: Sensual, Intenso, Sofisticado e Envolvente | Sugestão de Uso: Ideal para uso noturno, ocasiões especiais, encontros e momentos em que se deseja transmitir sensualidade, elegância e intensidade."
+    },
+    "photo": {
+      "src": "/products/seraphine-absolu.webp",
+      "alt": "Frasco do perfume Seraphine Absolu"
     }
   },
   {
@@ -2801,6 +2805,10 @@
       "name": "FLORANCE",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Oriental | Estilo: Sofisticado, Intenso, Luminoso, Sensual e Marcante"
+    },
+    "photo": {
+      "src": "/products/florance.webp",
+      "alt": "Frasco do perfume Florance"
     }
   },
   {
