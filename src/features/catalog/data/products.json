@@ -2701,6 +2701,10 @@
       "name": "ÉLISYM",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Aquosa | Estilo: Refrescante, Feminino, Natural, Leve e Radiante | Sugestão de Uso: Ideal para o dia a dia, climas quentes, momentos ao ar livre e ocasiões que pedem leveza e frescor."
+    },
+    "photo": {
+      "src": "/products/elisym.webp",
+      "alt": "Frasco do perfume Élisym"
     }
   },
   {
@@ -2962,6 +2966,10 @@
       "name": "AUREA",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Solar | Estilo: Solar, Radiante, Elegante, Nobre e Sofisticado"
+    },
+    "photo": {
+      "src": "/products/aurea.webp",
+      "alt": "Frasco do perfume Aurea"
     }
   },
   {
