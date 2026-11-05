@@ -1895,6 +1895,10 @@
       "name": "AURELLIA",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Oriental Floral | Estilo: Radiante, Encantador, Elegante, Envolvente e Sofisticado | Sugestão de Uso: Perfeita para eventos especiais, jantares elegantes, encontros marcantes ou momentos em que você deseja projetar sofisticação, calor e elegância atemporal."
+    },
+    "photo": {
+      "src": "/products/aurellia.webp",
+      "alt": "Frasco do perfume Aurellia"
     }
   },
   {
@@ -2075,6 +2079,10 @@
       "name": "AURORA ROSÉ",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Frutado | Estilo: Suave, Feminino, Elegante, Leve e Radiante | Sugestão de Uso: Ideal para o uso diário, ambientes de trabalho, encontros leves, passeios ao ar livre e momentos em que se deseja transmitir delicadeza, leveza e frescor."
+    },
+    "photo": {
+      "src": "/products/aurora-rose.webp",
+      "alt": "Frasco do perfume Aurora Rosé"
     }
   },
   {
