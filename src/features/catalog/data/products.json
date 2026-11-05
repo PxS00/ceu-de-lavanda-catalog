@@ -1969,6 +1969,10 @@
       "name": "ZAHARA EXCLUSIF",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Almiscarado Amadeirado | Estilo: Sofisticado, Macio, Elegante, Envolvente e Inesquecível"
+    },
+    "photo": {
+      "src": "/products/zahara-exclusif.webp",
+      "alt": "Frasco do perfume Zahara Exclusif"
     }
   },
   {
@@ -2417,6 +2421,10 @@
       "name": "ZAHARA",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Amadeirada Musk | Estilo: Cristalino, Arejado, Sofisticado, Iluminado e Confortável | Sugestão de Uso: Atua como um sopro de luz e a escolha definitiva para quem busca o \"cheiro do luxo clean\". Transforma qualquer ocasião ou ambiente em um cenário de pura claridade, paz e alto padrão."
+    },
+    "photo": {
+      "src": "/products/zahara.webp",
+      "alt": "Frasco do perfume Zahara"
     }
   },
   {
