@@ -16,6 +16,9 @@
 .product-card:hover .product-art {
   border-color: var(--control-border);
 }
+.product-card .product-photo-frame {
+  inset: -7%;
+}
 .product-card .has-photo img {
   transition: transform 280ms var(--motion-ease);
 }
