@@ -26,3 +26,5 @@ Notas também compõem `notes`. Gênero, estilo e sugestão de uso aparecem no d
 - 20 fotos existentes preservadas e 24 novas fotos WebP vinculadas em 5 de novembro de 2026. O catálogo tem 44 fotos; Eclat de Frisson e Lunévoque Noir ainda usam o placeholder. As conversões foram salvas também na pasta de origem, preservando os PNGs. Os outros arquivos sem correspondência com o catálogo não foram associados por semelhança.
 - Preços e disponibilidade seguem a regra previamente confirmada para todos os perfumes: 50 ml por R$ 157,00, 100 ml por R$ 287,00, disponíveis. Esses campos não constam na planilha.
 - Nomes de exibição novos usam capitalização legível; nomes comerciais originais ficam registrados para conferência. Não foram conciliadas fragrâncias por semelhança de notas.
+
+Atualização de 5 de novembro: Eclat de Frisson e Lunévoque Noir recebidos na subpasta webp e vinculados. Os 46 perfumes agora possuem foto WebP.

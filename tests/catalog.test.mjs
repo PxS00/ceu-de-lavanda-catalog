@@ -92,7 +92,7 @@ test("search is accent insensitive, intersects initials, sorts without mutating 
 test("commercial workbook merge preserves photographs and source identity without duplicates", () => {
   assert.equal(products.length, 46);
   assert.equal(new Set(products.map(p => p.sourceRecord.number)).size, 46);
-  assert.equal(products.filter(p => p.photo).length, 44);
+  assert.equal(products.filter(p => p.photo).length, 46);
   for (const p of products) {
     assert.ok(p.sourceRecord.name);
     assert.ok(p.sourceRecord.volumeType);
