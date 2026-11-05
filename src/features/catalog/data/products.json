@@ -1846,6 +1846,10 @@
       "name": "ÉCLISSE",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Verde | Estilo: Autêntico, Alegre, Charmoso, Leve e Envolvente | Sugestão de Uso: Ideal para momentos descontraídos e encontros leves."
+    },
+    "photo": {
+      "src": "/products/eclisse.webp",
+      "alt": "Frasco do perfume Éclisse"
     }
   },
   {
@@ -2293,6 +2297,10 @@
       "name": "ZYRA",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Amadeirada Musk | Estilo: Tropical, Vibrante, Incensado, Envolvente e Sofisticado"
+    },
+    "photo": {
+      "src": "/products/zyra.webp",
+      "alt": "Frasco do perfume Zyra"
     }
   },
   {
