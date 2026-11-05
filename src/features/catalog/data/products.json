@@ -2022,6 +2022,10 @@
       "name": "CRYSTÁLEA",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Aquosa | Estilo: Delicado, Refrescante, Elegante, Leve e Cristalino | Sugestão de Uso: Ideal para o uso diário, ambientes profissionais, climas quentes e momentos que pedem leveza e elegância."
+    },
+    "photo": {
+      "src": "/products/crystalea.webp",
+      "alt": "Frasco do perfume Crystálea"
     }
   },
   {
@@ -2330,6 +2334,10 @@
       "name": "ELYNDRA",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Oriental Floral Verde | Estilo: Selvagem, Hipnotizante, Magnético, Misterioso e Autêntico | Sugestão de Uso: Ideal para ocasiões especiais e para quem deseja transmitir autenticidade, mistério e magnetismo. Perfeito para mulheres que buscam se conectar com sua essência mais profunda e natural."
+    },
+    "photo": {
+      "src": "/products/elyndra.webp",
+      "alt": "Frasco do perfume Elyndra"
     }
   },
   {
