@@ -1570,6 +1570,10 @@
       "name": "AMOR PROFUNDO",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Oriental Âmbar | Estilo: Romântico, Elegante, Envolvente e Sofisticado"
+    },
+    "photo": {
+      "src": "/products/amor-profundo.webp",
+      "alt": "Frasco do perfume Amor Profundo"
     }
   },
   {
@@ -2125,6 +2129,10 @@
       "name": "ALLURÉA",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Envolvente | Estilo: Exótico, Elegante, Aconchegante e Sofisticado"
+    },
+    "photo": {
+      "src": "/products/allurea.webp",
+      "alt": "Frasco do perfume Alluréa"
     }
   },
   {
