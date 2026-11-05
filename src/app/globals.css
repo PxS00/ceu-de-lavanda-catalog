@@ -15,6 +15,7 @@
 @import "../features/catalog/styles/product-art.css";
 @import "../features/catalog/styles/product-card.css";
 @import "../features/catalog/styles/product-detail.css";
+@import "../features/catalog/styles/related-products.css";
 @import "../shared/styles/site-footer.css";
 @import "../shared/styles/accessibility.css";
 @import "../shared/styles/motion.css";

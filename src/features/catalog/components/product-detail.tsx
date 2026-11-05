@@ -5,6 +5,7 @@ import { categories, type Product } from "../lib/catalog";
 import { ProductArt } from "./product-art";
 import { ProductPrices } from "./product-prices";
 import { ProductProfile } from "./product-profile";
+import { RelatedProducts } from "./related-products";
 
 export function ProductDetail({ product }: { product: Product }) {
   const category = categories.find((item) => item.slug === product.category);
@@ -105,6 +106,7 @@ export function ProductDetail({ product }: { product: Product }) {
           </Link>
         </Reveal>
       </div>
+      <RelatedProducts product={product} />
     </main>
   );
 }

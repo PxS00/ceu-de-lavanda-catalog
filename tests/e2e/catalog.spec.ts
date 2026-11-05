@@ -110,7 +110,7 @@ test("@visual individual product and return navigation", async ({ page }, info) 
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Acquaré");
   await expect(page.getByRole("complementary", { name: "Uma descoberta que continua." })).toHaveCount(0);
   await expect(page.locator(".detail-price .price-option")).toHaveText([/50 ml\s+R\$\s*157,00/, /100 ml\s+R\$\s*287,00/]);
-  await expect(page.getByText("Disponível", { exact: true })).toBeVisible();
+  await expect(page.locator(".detail-copy").getByText("Disponível", { exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Pirâmide olfativa" })).toBeVisible();
   await review(page, info, "product");
   await page.reload();
@@ -131,7 +131,7 @@ test("@visual new and completed perfumes show their notes, prices and availabili
       product.notePyramid!.base.join(" · "),
     ]);
     await expect(page.locator(".detail-price .price-option")).toHaveText([/50 ml\s+R\$\s*157,00/, /100 ml\s+R\$\s*287,00/]);
-    await expect(page.getByText("Disponível", { exact: true })).toBeVisible();
+    await expect(page.locator(".detail-copy").getByText("Disponível", { exact: true })).toBeVisible();
     await expect(page.locator(".detail-note")).toHaveCount(0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
   }
