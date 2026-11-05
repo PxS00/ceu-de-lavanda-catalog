@@ -1647,6 +1647,10 @@
       "name": "EUFORIA",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Oriental Gourmand Amadeirada | Estilo: Doce, Sedutor, Marcante, Envolvente e Inesquecível | Sugestão de Uso: Ideal para eventos noturnos, encontros especiais e momentos em que se deseja transmitir uma aura doce, sedutora e inesquecível"
+    },
+    "photo": {
+      "src": "/products/euforia.webp",
+      "alt": "Frasco do perfume Euforia"
     }
   },
   {
@@ -2598,6 +2602,10 @@
       "name": "ELYRA",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Frutal Gourmand Feminino | Estilo: Gourmand, Cremoso, Envolvente, Sedutor e Sofisticado"
+    },
+    "photo": {
+      "src": "/products/elyra.webp",
+      "alt": "Frasco do perfume Elyra"
     }
   },
   {
