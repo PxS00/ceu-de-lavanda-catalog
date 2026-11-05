@@ -1385,6 +1385,10 @@
       "name": "ECLAT DE FRISSON",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Oriental Floral | Estilo: Radiante, Envolvente, Sofisticado e Inesquecível"
+    },
+    "photo": {
+      "src": "/products/eclat-de-frisson.webp",
+      "alt": "Frasco do perfume Eclat de Frisson"
     }
   },
   {
@@ -1456,6 +1460,10 @@
       "name": "LUNÉVOQUE NOIR",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Oriental Floral | Estilo: Intenso, Elegante, Ousado, Noturno e Marcante | Sugestão de Uso: Ideal para eventos noturnos e ocasiões especiais."
+    },
+    "photo": {
+      "src": "/products/lunevoque-noir.webp",
+      "alt": "Frasco do perfume Lunévoque Noir"
     }
   },
   {
