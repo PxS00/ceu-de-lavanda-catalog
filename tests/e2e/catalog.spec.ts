@@ -97,7 +97,7 @@ test("commercial workbook profiles and new perfumes are rendered", async ({ page
   await expect(page.locator(".detail-copy dl").first()).toContainText("Feminino");
   await expect(page.locator(".detail-copy dl").first()).toContainText("Sugestão de uso");
   await expect(page.getByRole("heading", { name: "Pirâmide olfativa" })).toBeVisible();
-  await expect(page.getByText("Fotografia em breve")).toBeVisible();
+  await expect(page.getByRole("img", { name: "Frasco do perfume Elyndra" })).toBeVisible();
   await review(page, info, "workbook-product");
   await page.goto("/produtos/illusion/");
   await expect(page.locator(".detail-copy dl").first()).toContainText("Compartilhável");
