@@ -1704,6 +1704,10 @@
       "name": "AENYA",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Aldeídico | Estilo: Imponente, Clássico, Luxuoso, Institucional e Inesquecível | Sugestão de Uso: Atua como uma joia invisível para o ambiente ou para quem valoriza o luxo clássico francês. Ideal para espaços que exigem uma presença de autoridade, tradição e bom gosto impecável"
+    },
+    "photo": {
+      "src": "/products/aenya.webp",
+      "alt": "Frasco do perfume Aenya"
     }
   },
   {
@@ -2942,6 +2946,10 @@
       "name": "FLORÉE",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Oriental Floral (Floral Aromático) | Estilo: Radiante, Elegante, Aromático, Sofisticado e Marcante"
+    },
+    "photo": {
+      "src": "/products/floree.webp",
+      "alt": "Frasco do perfume Florée"
     }
   }
 ]
