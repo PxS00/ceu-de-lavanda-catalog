@@ -1516,6 +1516,10 @@
       "name": "BOURBON NOIR",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Oriental Especiada | Estilo: Obscuro, Aveludado, Sensual, Noturno e Imponente"
+    },
+    "photo": {
+      "src": "/products/bourbon-noir.webp",
+      "alt": "Frasco do perfume Bourbon Noir"
     }
   },
   {
@@ -2834,6 +2838,10 @@
       "name": "BELLE",
       "volumeType": "PERFUME • 50ML / 100ML",
       "profile": "Família Olfativa: Floral Frutal | Estilo: Encantador, Elegante, Doce, Sofisticado e Confiante | Sugestão de Uso: Ideal para uso em qualquer ocasião, desde o dia a dia até eventos especiais, transmitindo uma aura de doçura e sofisticação. Perfeita para mulheres que desejam uma fragrância que as faça se sentir bonitas e confiantes."
+    },
+    "photo": {
+      "src": "/products/belle.webp",
+      "alt": "Frasco do perfume Belle"
     }
   },
   {
