@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { categories } from "@/features/catalog/lib/catalog";
+import { categories, products } from "@/features/catalog/lib/catalog";
 import { Reveal } from "@/shared/components/reveal";
 
 const categoryIntroductions = {
-  perfumes: { count: "Aproximadamente 90 fragrâncias", description: "Um convite para encontrar o seu próximo perfume." },
-  "body-splash": { count: "Aproximadamente 10 opções", description: "Um caminho dedicado à coleção de Body Splash." },
-  "perfume-capilar": { count: "1 fragrância", description: "Conheça o espaço do perfume capilar, também chamado Hair Mist." },
+  perfumes: { description: "Um convite para encontrar o seu próximo perfume." },
+  "body-splash": { description: "Um caminho dedicado à coleção de Body Splash." },
+  "perfume-capilar": { description: "Conheça o espaço do perfume capilar, também chamado Hair Mist." },
 };
 
 export function CategoryDiscovery() {
@@ -23,7 +23,9 @@ export function CategoryDiscovery() {
         </div>
       </Reveal>
       <Reveal className="category-grid">
-        {categories.map((category) => (
+        {categories.map((category) => {
+          const count = products.filter(product => product.category === category.slug).length;
+          return (
           <Link
             className="category-card"
             key={category.slug}
@@ -40,11 +42,12 @@ export function CategoryDiscovery() {
             <div className="category-card-title">
               <h3>{category.name}</h3>
             </div>
-            <p className="category-count">{categoryIntroductions[category.slug].count}</p>
+            <p className="category-count">{count} {count === 1 ? "fragrância" : "fragrâncias"}</p>
             <p className="category-description">{categoryIntroductions[category.slug].description}</p>
             <span className="category-link">Explorar {category.name} <ArrowUpRight aria-hidden="true" /></span>
           </Link>
-        ))}
+          );
+        })}
       </Reveal>
     </section>
   );

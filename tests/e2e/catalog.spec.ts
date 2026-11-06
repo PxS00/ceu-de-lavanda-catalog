@@ -41,7 +41,11 @@ test("@visual homepage and category discovery", async ({ page }, info) => {
   await expect(page.locator(".about h2")).toHaveText("A essência da Céu de Lavanda", { useInnerText: true });
   await expect(page.locator(".phrase-strip p")).toHaveText(["Presença nos detalhes", "Beleza em cada descoberta", "O seu próximo encanto"]);
   await expect(page.locator(".category-card")).toHaveCount(3);
-  await expect(page.locator(".category-count")).toHaveText(["Aproximadamente 90 fragrâncias", "Aproximadamente 10 opções", "1 fragrância"]);
+  const expectedCounts = ["perfumes", "body-splash", "perfume-capilar"].map(category => {
+    const count = catalogProducts.filter(product => product.category === category).length;
+    return `${count} ${count === 1 ? "fragrância" : "fragrâncias"}`;
+  });
+  await expect(page.locator(".category-count")).toHaveText(expectedCounts);
   await expect(page.locator(".product-card")).toHaveCount(4);
   const columns = await page.locator(".collection-preview .product-grid").evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(" ").length);
   expect(columns).toBe(info.project.name === "desktop" ? 4 : 2);
