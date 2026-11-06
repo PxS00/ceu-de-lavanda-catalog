@@ -2,15 +2,16 @@ import { test, expect } from "@playwright/test";
 
 test("each guide card expands its catalog options independently", async ({ page }) => {
   await page.goto("/familias-olfativas/");
-  const card = page.locator(".family-guide-card").filter({ has: page.locator(".family-guide-more") }).first();
+  const card = page.locator(".family-guide-card").filter({ has: page.locator(".family-perfumes-toggle") }).first();
   await expect(card.locator(".family-guide-links a:visible")).toHaveCount(3);
-  const more = card.locator(".family-guide-more");
-  await more.locator("summary").focus();
+  const more = card.locator(".family-perfumes-toggle");
+  await more.focus();
   await page.keyboard.press("Enter");
-  await expect(more).toHaveAttribute("open", "");
-  await expect(more.locator("a").first()).toBeVisible();
-  await more.locator("summary").click();
-  await expect(more).not.toHaveAttribute("open");
+  await expect(more).toHaveAttribute("aria-expanded", "true");
+  const links = card.locator(".family-guide-links");
+  expect((await more.boundingBox())!.y).toBeGreaterThan((await links.boundingBox())!.y + (await links.boundingBox())!.height);
+  await more.click();
+  await expect(more).toHaveAttribute("aria-expanded", "false");
 });
 
 test("family guide links to actual perfume pages and catalog filter remains shareable", async ({ page }) => {

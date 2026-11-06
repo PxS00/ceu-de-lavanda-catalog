@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { familyGuide } from "@/features/catalog/data/family-guide";
 import { normalize, products } from "@/features/catalog/lib/catalog";
+import { GuidePerfumes } from "@/features/catalog/components/guide-perfumes";
 
 export const metadata = { title: "Guia de famílias olfativas" };
 
@@ -16,18 +17,7 @@ export default function FamilyGuidePage() {
             <h3>Quando explorar</h3>
             <p>{guide.occasion}</p>
             <h3>No nosso catálogo</h3>
-            <div className="family-guide-links">
-              {matching.slice(0, 3).map((product) => <Link href={`/produtos/${product.slug}/`} key={product.id}>{product.name} ↗</Link>)}
-            </div>
-            {matching.length > 3 && <details className="family-guide-more">
-              <summary className="button">
-                <span className="family-show-all">Ver todos <span className="sr-only">os perfumes de {guide.name}</span></span>
-                <span className="family-show-less">Mostrar menos <span className="sr-only">opções de {guide.name}</span></span>
-              </summary>
-              <div className="family-guide-links">
-                {matching.slice(3).map((product) => <Link href={`/produtos/${product.slug}/`} key={product.id}>{product.name} ↗</Link>)}
-              </div>
-            </details>}
+            <GuidePerfumes perfumes={matching.map(({ id, slug, name }) => ({ id, slug, name }))} family={guide.name} />
           </section>;
         }).filter(Boolean);
   return (
