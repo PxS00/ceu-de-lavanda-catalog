@@ -21,7 +21,6 @@ export function CategoryDiscovery() {
           <p className="eyebrow">ENCONTRE O SEU CAMINHO</p>
           <h2 id="category-title">Uma coleção, três caminhos</h2>
         </div>
-        <p>Dimensão prevista da coleção.<br /><span>O cadastro dos produtos acontece aos poucos.</span></p>
       </Reveal>
       <Reveal className="category-grid">
         {categories.map((category) => (
