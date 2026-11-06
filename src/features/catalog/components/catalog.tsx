@@ -13,7 +13,7 @@ import { ProductCard } from "./product-card";
 import { CatalogFilters, type CatalogFilterState } from "./catalog-filters";
 import { CatalogEmptyState } from "./catalog-empty-state";
 import { CatalogPagination } from "./catalog-pagination";
-import { whatsappUrl } from "@/features/contact/contact";
+import { whatsappUrl } from "@/shared/contact";
 
 const PAGE_SIZE = 12;
 const DEFAULT_FILTERS = { query: "", initial: "", sort: "az" };

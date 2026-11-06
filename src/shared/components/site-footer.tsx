@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { contact, whatsappUrl } from "@/shared/contact";
+import { SocialLinks } from "./social-links";
 
 export function SiteFooter() {
   return (
@@ -29,6 +31,13 @@ export function SiteFooter() {
             Sobre a marca <ArrowUpRight aria-hidden="true" />
           </Link>
         </nav>
+        <div className="footer-contact">
+          <h2>Estamos por aqui</h2>
+          <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">WhatsApp <span className="sr-only">(abre em nova aba)</span></a>
+          <a href={`tel:+${contact.whatsapp}`}>{contact.phoneDisplay}</a>
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          <SocialLinks className="footer-social" />
+        </div>
       </div>
       <div className="wrap footer-bottom">
         <span>© {new Date().getFullYear()} Céu de Lavanda</span>

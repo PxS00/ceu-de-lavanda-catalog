@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/shared/components/reveal";
+import { SocialLinks } from "@/shared/components/social-links";
 
 export function AboutSection() {
   return (
@@ -24,6 +25,10 @@ export function AboutSection() {
         <Link className="text-link" href="/catalogo/">
           Explore a coleção <ArrowUpRight aria-hidden="true" />
         </Link>
+        <div className="about-social">
+          <p>Acompanhe a Céu de Lavanda</p>
+          <SocialLinks className="about-social-links" />
+        </div>
       </Reveal>
     </section>
   );
