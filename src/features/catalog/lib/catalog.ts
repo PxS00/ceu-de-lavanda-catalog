@@ -172,6 +172,7 @@ export function filterProducts(
   initial: string,
   sort: string,
   category: CategorySlug | "" = "",
+  family = "",
 ) {
   return items
     .filter(
@@ -179,6 +180,9 @@ export function filterProducts(
         normalize(p.name).includes(normalize(query)) &&
         (!initial || normalize(p.name).startsWith(normalize(initial))) &&
         (!category || p.category === category),
+    )
+    .filter(
+      (p) => !family || normalize(p.family ?? "") === normalize(family),
     )
     .sort((a, b) =>
       sort === "za"

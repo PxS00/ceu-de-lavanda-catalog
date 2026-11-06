@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { Reveal, useReveal } from "@/shared/components/reveal";
 import {
   filterProducts,
@@ -17,6 +17,12 @@ import { whatsappUrl } from "@/shared/contact";
 
 const PAGE_SIZE = 12;
 const DEFAULT_FILTERS = { query: "", initial: "", sort: "az" };
+const subscribe = (callback: () => void) => {
+  window.addEventListener("popstate", callback);
+  return () => window.removeEventListener("popstate", callback);
+};
+const familySnapshot = () => new URLSearchParams(window.location.search).get("familia") ?? "";
+const serverSnapshot = () => "";
 
 export function Catalog({
   products,
@@ -28,7 +34,9 @@ export function Catalog({
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const { query, initial, sort } = filters;
   const [page, setPage] = useState(1);
-  const filtered = filterProducts(products, query, initial, sort, category);
+  const family = useSyncExternalStore(subscribe, familySnapshot, serverSnapshot);
+  const families = [...new Set(products.filter((p) => !category || p.category === category).map((p) => p.family).filter((v): v is string => Boolean(v)))].sort((a, b) => a.localeCompare(b, "pt-BR"));
+  const filtered = filterProducts(products, query, initial, sort, category, family);
   const categoryName = categories.find((item) => item.slug === category)?.name;
   const categoryPending = Boolean(
     category && !products.some((product) => product.category === category),
@@ -37,7 +45,8 @@ export function Catalog({
     ...new Set(products.map((p) => normalize(p.name)[0].toUpperCase())),
   ].sort();
   const pageCount = Math.ceil(filtered.length / PAGE_SIZE);
-  const pageItems = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const currentPage = Math.min(page, Math.max(1, pageCount));
+  const pageItems = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
   const grid = useReveal(
     JSON.stringify(pageItems.map((product) => product.id)),
   );
@@ -54,7 +63,15 @@ export function Catalog({
       animation.cancel();
       motion.removeEventListener("change", stop);
     };
-  }, [query, initial, sort, page, category, grid]);
+  }, [query, initial, sort, page, category, family, grid]);
+  function changeFamily(value: string) {
+    const url = new URL(window.location.href);
+    if (value) url.searchParams.set("familia", value);
+    else url.searchParams.delete("familia");
+    window.history.pushState(null, "", url);
+    window.dispatchEvent(new PopStateEvent("popstate"));
+    setPage(1);
+  }
   function updateFilters(changes: Partial<CatalogFilterState>) {
     setFilters((current) => ({ ...current, ...changes }));
     setPage(1);
@@ -62,6 +79,7 @@ export function Catalog({
 
   function reset() {
     setFilters(DEFAULT_FILTERS);
+    changeFamily("");
     setPage(1);
   }
 
@@ -84,6 +102,9 @@ export function Catalog({
         categoryPending={categoryPending}
         initials={initials}
         count={filtered.length}
+        family={family}
+        families={families}
+        onFamilyChange={changeFamily}
       />
       <div className="catalog-results" ref={grid}>
         {filtered.length ? (
@@ -100,7 +121,7 @@ export function Catalog({
           />
         )}
       </div>
-      <CatalogPagination page={page} pageCount={pageCount} onPageChange={setPage} />
+      <CatalogPagination page={currentPage} pageCount={pageCount} onPageChange={setPage} />
       <p className="whatsapp-catalog"><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Fale com a gente pelo WhatsApp</a></p>
     </section>
   );

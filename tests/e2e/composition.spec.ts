@@ -35,7 +35,7 @@ test("catalog and category controls remain compact, accessible and within the vi
         return { height: box.height, left: box.left, right: box.right };
       }),
     }));
-    expect(geometry.top).toBeLessThan(info.project.name === "mobile" ? 650 : 500);
+    expect(geometry.top).toBeLessThan(info.project.name === "mobile" ? 730 : 580);
     expect(geometry.overflow).toBe(false);
     for (const control of geometry.controls) {
       expect(control.height).toBeGreaterThanOrEqual(44);
@@ -55,8 +55,10 @@ test("catalog and category controls remain compact, accessible and within the vi
     await expect(page.getByRole("searchbox")).toBeFocused();
     await expect(page.locator(".search-field")).toHaveCSS("outline-style", "solid");
     await page.keyboard.press("Tab");
-    await expect(page.getByRole("combobox")).toBeFocused();
-    await expect(page.getByRole("combobox")).toHaveCSS("outline-style", "solid");
+    await expect(page.locator(".sort-label select")).toBeFocused();
+    await expect(page.locator(".sort-label select")).toHaveCSS("outline-style", "solid");
+    await page.keyboard.press("Tab");
+    await expect(page.getByRole("combobox", { name: "Família olfativa" })).toBeFocused();
     await page.keyboard.press("Tab");
     await expect(page.getByRole("button", { name: "Todos os nomes" })).toBeFocused();
     await expect(page.getByRole("button", { name: "Todos os nomes" })).toHaveCSS("outline-style", "solid");

@@ -11,6 +11,9 @@ type CatalogFiltersProps = {
   categoryPending: boolean;
   initials: string[];
   count: number;
+  family: string;
+  families: string[];
+  onFamilyChange: (value: string) => void;
 };
 
 export function CatalogFilters({
@@ -20,16 +23,20 @@ export function CatalogFilters({
   categoryPending,
   initials,
   count,
+  family,
+  families,
+  onFamilyChange,
 }: CatalogFiltersProps) {
+  const familyQuery = family ? `?familia=${encodeURIComponent(family)}` : "";
   return (
     <>
       <nav className="category-filters" aria-label="Categorias comerciais">
-        <Link href="/catalogo/" aria-current={!category ? "page" : undefined}>
+        <Link href={`/catalogo/${familyQuery}`} aria-current={!category ? "page" : undefined}>
           Todas as categorias
         </Link>
         {categories.map((item) => (
           <Link
-            href={`/catalogo/${item.slug}/`}
+            href={`/catalogo/${item.slug}/${familyQuery}`}
             key={item.slug}
             aria-current={category === item.slug ? "page" : undefined}
           >
@@ -61,6 +68,13 @@ export function CatalogFilters({
           </select>
         </label>
       </div>
+      <label className="family-filter">Família olfativa
+        <select value={family} onChange={(event) => onFamilyChange(event.target.value)}>
+          <option value="">Todas as famílias</option>
+          {family && !families.includes(family) && <option value={family}>{family}</option>}
+          {families.map((item) => <option key={item} value={item}>{item}</option>)}
+        </select>
+      </label>
       <div className="filter-row">
         <div
           className="initial-filters"
