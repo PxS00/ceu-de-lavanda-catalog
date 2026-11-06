@@ -8,9 +8,9 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: #246b43;
-  color: white;
-  box-shadow: 0 4px 16px #0003;
+  background: var(--selected-background);
+  color: var(--selected-foreground);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--foreground) 20%, transparent);
 }
 .whatsapp-help { margin: 20px 0 28px; }
 .whatsapp-help h2 { font-size: 1.5rem; margin-bottom: 8px; }
@@ -22,11 +22,11 @@
   gap: 10px;
   min-height: 48px;
   padding: 12px 18px;
-  background: #246b43;
-  color: #fff;
+  background: var(--selected-background);
+  color: var(--selected-foreground);
   font-size: var(--text-small);
   text-align: center;
 }
-.whatsapp-action:hover { background: #1b5032; }
+.whatsapp-action:hover, .whatsapp-float:hover { background: var(--surface-accent); }
 .whatsapp-action svg { flex: none; width: 20px; height: 20px; }
 .whatsapp-catalog { margin-bottom: 20px; }
