@@ -8,13 +8,17 @@ import { randomSelection } from "../lib/random-selection";
 
 export function RandomPreview({ items }: { items: Product[] }) {
   const [selection, setSelection] = useState(() => items.slice(0, 4));
+  const [ready, setReady] = useState(false);
   const grid = useReveal(JSON.stringify(selection.map(product => product.id)));
   useEffect(() => {
-    const timer = window.setTimeout(() => setSelection(randomSelection(items, 4)), 0);
+    const timer = window.setTimeout(() => {
+      setSelection(randomSelection(items, 4));
+      setReady(true);
+    }, 0);
     return () => window.clearTimeout(timer);
   }, [items]);
   return (
-    <div className="product-grid" ref={grid}>
+    <div className="product-grid" ref={grid} data-selection-ready={ready}>
       {selection.map((product, index) => <ProductCard product={product} index={index} key={product.id} />)}
     </div>
   );
