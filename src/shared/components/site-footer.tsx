@@ -20,7 +20,6 @@ export function SiteFooter() {
             <br />
             Um novo encanto.
           </p>
-          <span className="footer-artisan">Produção 100% artesanal</span>
         </div>
         <nav aria-label="Navegação do rodapé">
           <Link href="/catalogo/">

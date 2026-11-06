@@ -12,7 +12,7 @@ export function AboutSection() {
           <br />
           <em className="decorative-text">Céu de Lavanda</em>
         </h2>
-        <p className="about-subtitle">Perfumaria 100% artesanal</p>
+        <p className="about-subtitle">Produção artesanal</p>
         <p>
           Na Céu de Lavanda, acreditamos que uma fragrância pode tornar os
           momentos do dia mais especiais e revelar um pouco de quem somos.
