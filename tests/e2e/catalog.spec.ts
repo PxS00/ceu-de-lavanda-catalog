@@ -80,9 +80,9 @@ test("@visual catalog search, initials, sorting and reset", async ({ page }, inf
   await expect(cards).toHaveCount(3);
   await expect(cards.first().locator("h3")).toHaveText("Belle");
   await page.getByRole("button", { name: "Todos os nomes" }).click();
-  await page.getByRole("combobox").selectOption("za");
+  await page.locator(".sort-label select").selectOption("za");
   await expect(cards.first()).toContainText("Zyra");
-  await page.getByRole("combobox").selectOption("az");
+  await page.locator(".sort-label select").selectOption("az");
   await expect(cards.first()).toContainText("Acquaré");
   await page.getByRole("searchbox").fill("inexistente");
   await expect(cards).toHaveCount(0);
@@ -161,7 +161,7 @@ test("@visual header, sticky geometry and keyboard navigation", async ({ page },
     const dialog = page.getByRole("dialog");
     const close = page.getByRole("button", { name: "Fechar navegação" });
     await expect(close).toBeFocused();
-    for (const name of ["Início", "Catálogo", "Sobre a marca", "Explorar a coleção"]) {
+    for (const name of ["Início", "Catálogo", "Famílias olfativas", "Sobre a marca", "Explorar a coleção"]) {
       await page.keyboard.press("Tab");
       await expect(dialog.getByRole("link", { name, exact: true })).toBeFocused();
     }
@@ -222,7 +222,7 @@ test.describe("101-product test-only catalog", () => {
     await expect(count).toHaveText("30 fragrâncias");
     await expect(pagination.locator("span")).toHaveText("1 de 3");
     await next.click();
-    await page.getByRole("combobox").selectOption("za");
+    await page.locator(".sort-label select").selectOption("za");
     await expect(pagination.locator("span")).toHaveText("1 de 3");
     await expect(cards.first()).toContainText("Água de Rosas 088");
     await next.click();
@@ -239,7 +239,7 @@ test.describe("101-product test-only catalog", () => {
     await page.getByRole("button", { name: "Limpar filtros" }).click();
     await expect(count).toHaveText("90 fragrâncias");
     await expect(page.getByRole("searchbox")).toHaveValue("");
-    await expect(page.getByRole("combobox")).toHaveValue("az");
+    await expect(page.locator(".sort-label select")).toHaveValue("az");
     await expect(page.getByRole("button", { name: "Todos os nomes" })).toHaveAttribute("aria-pressed", "true");
     await expect(pagination.locator("span")).toHaveText("1 de 8");
     await expect(cards.first()).toContainText("Água de Rosas 001");
