@@ -24,7 +24,9 @@ export function InspirationRibbon({ brands }: { brands: string[] }) {
     <ul className="inspirations-list">
       {brands.map((brand) => <li key={brand}>{brand}</li>)}
     </ul>
-    {animate && <div className="inspirations-motion" data-paused={paused}>
+    {animate && <button type="button" className="inspirations-motion" data-paused={paused}
+      aria-label={paused ? "Retomar movimento das inspirações" : "Pausar movimento das inspirações"}
+      aria-pressed={paused} onClick={() => setPaused((value) => !value)}>
       {rows.map((row, rowIndex) => <div className="inspirations-row" key={rowIndex} aria-hidden="true">
         <div className={`inspirations-track${rowIndex % 2 ? " inspirations-reverse" : ""}`}>
           {[0, 1].map((group) => <div className="inspirations-group" key={group}>
@@ -33,10 +35,7 @@ export function InspirationRibbon({ brands }: { brands: string[] }) {
           </div>)}
         </div>
       </div>)}
-      <button type="button" className="inspirations-toggle" onClick={() => setPaused((value) => !value)}>
-        {paused ? "Retomar movimento" : "Pausar movimento"}
-      </button>
-    </div>}
+    </button>}
     <p className="inspirations-note wrap">As marcas citadas pertencem aos seus titulares e são mencionadas como referências olfativas, sem indicar vínculo ou afiliação.</p>
   </section>;
 }
