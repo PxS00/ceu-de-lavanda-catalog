@@ -187,6 +187,19 @@ export function filterProducts(
     );
 }
 
+export function getStartingPrice(product: Product): number | null {
+  const prices = (product.volumePrices ?? [])
+    .filter(({ volume, priceCents }) =>
+      (!product.volumeOptions?.length || product.volumeOptions.includes(volume)) &&
+      Number.isSafeInteger(priceCents) && priceCents > 0
+    )
+    .map(({ priceCents }) => priceCents);
+  if (prices.length) return Math.min(...prices);
+  return !product.volumePrices?.length && Number.isSafeInteger(product.priceCents) && (product.priceCents ?? 0) > 0
+    ? product.priceCents ?? null
+    : null;
+}
+
 export function formatPrice(price: number | null | undefined) {
   return price == null
     ? "Preço ainda não informado"

@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
-import { formatPrice, type Product } from "@/features/catalog/lib/catalog";
+import type { Product } from "@/features/catalog/lib/catalog";
 import { ProductArt } from "./product-art";
+import { ProductPrices } from "./product-prices";
 
 export function ProductCard({
   product,
@@ -13,15 +14,6 @@ export function ProductCard({
 }) {
   const gender = product.gender === "compartilhavel" ? "Compartilhável" : product.gender;
   const profile = [gender, product.family].filter(Boolean).join(" · ");
-  const prices = (product.volumePrices ?? [])
-    .filter(({ volume, priceCents }) =>
-      (!product.volumeOptions?.length || product.volumeOptions.includes(volume)) &&
-      Number.isSafeInteger(priceCents) && priceCents > 0
-    )
-    .map(({ priceCents }) => priceCents);
-  const startingPrice = prices.length ? Math.min(...prices) :
-    !product.volumePrices?.length && Number.isSafeInteger(product.priceCents) && (product.priceCents ?? 0) > 0
-      ? product.priceCents : null;
   return (
     <Link
       className="product-card"
@@ -39,9 +31,7 @@ export function ProductCard({
         <h3>{product.name}</h3>
         <ArrowUpRight aria-hidden="true" />
       </div>
-      <p className="product-prices">
-        {startingPrice != null ? <>A partir de <strong>{formatPrice(startingPrice)}</strong></> : formatPrice(null)}
-      </p>
+      <ProductPrices product={product} className="product-prices" variant="starting" />
       {!!product.volumeOptions?.length && <p className="product-card-volumes">{product.volumeOptions.join(" · ")}</p>}
       {product.availability && (
         <p className="product-availability">
