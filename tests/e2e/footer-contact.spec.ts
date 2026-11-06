@@ -11,4 +11,8 @@ test("footer exposes official contacts throughout the catalog", async ({ page })
     await expect(footer.getByRole("link", { name: /TikTok/ })).toHaveAttribute("href", "https://www.tiktok.com/@ceu_de_lavanda");
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
+  await page.goto("/");
+  const about = page.locator("#sobre");
+  await expect(about.getByRole("link", { name: /Instagram/ })).toHaveAttribute("href", "https://www.instagram.com/ceu_de_lavanda/");
+  await expect(about.getByRole("link", { name: /TikTok/ })).toHaveAttribute("href", "https://www.tiktok.com/@ceu_de_lavanda");
 });
