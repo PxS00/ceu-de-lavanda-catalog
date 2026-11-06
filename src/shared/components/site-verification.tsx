@@ -13,7 +13,7 @@ export function SiteVerification() {
       label: "Verificar conexão HTTPS", tone: "gold" },
     ...(contact.companyName && contact.cnpj ? [
       { source: "Receita Federal", title: "Dados da empresa", detail: "CNPJ " + contact.cnpj, icon: Building2,
-        href: "https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/",
+        href: "https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj=" + contact.cnpj.replace(/\D/g, ""),
         label: "Consultar CNPJ na Receita Federal", tone: "lavender" },
     ] : []),
   ];
@@ -38,7 +38,7 @@ export function SiteVerification() {
       <p className="verification-caption">Cada cartão abre a consulta em um serviço independente.</p>
       {contact.companyName && contact.cnpj && <div className="verification-company">
         <span>{contact.companyName}</span><CopyCnpj cnpj={contact.cnpj} />
-        <span>Informe o CNPJ na página da Receita.</span>
+        <span>O CNPJ abre preenchido. Confirme a verificação da Receita para consultar.</span>
       </div>}
     </section>
   );
