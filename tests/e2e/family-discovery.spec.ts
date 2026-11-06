@@ -2,8 +2,10 @@ import { test, expect } from "@playwright/test";
 
 test("family discovery opens a shareable filter that combines with search", async ({ page }) => {
   await page.goto("/");
-  const link = page.locator(".family-discovery-card").first();
-  const family = await link.locator("h3").innerText();
+  await page.getByRole("link", { name: "Conhecer as famílias olfativas ↗" }).click();
+  await expect(page).toHaveURL("/familias-olfativas/");
+  const link = page.locator(".family-guide-links a").first();
+  const family = (await link.innerText()).replace(" ↗", "");
   await link.click();
   await expect(page.getByRole("combobox", { name: "Família olfativa" })).toHaveValue(family);
   await page.reload();

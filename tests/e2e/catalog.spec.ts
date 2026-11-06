@@ -161,7 +161,7 @@ test("@visual header, sticky geometry and keyboard navigation", async ({ page },
     const dialog = page.getByRole("dialog");
     const close = page.getByRole("button", { name: "Fechar navegação" });
     await expect(close).toBeFocused();
-    for (const name of ["Início", "Catálogo", "Sobre a marca", "Explorar a coleção"]) {
+    for (const name of ["Início", "Catálogo", "Famílias olfativas", "Sobre a marca", "Explorar a coleção"]) {
       await page.keyboard.press("Tab");
       await expect(dialog.getByRole("link", { name, exact: true })).toBeFocused();
     }
