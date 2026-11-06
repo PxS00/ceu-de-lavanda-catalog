@@ -14,11 +14,14 @@ export function SiteFooter() {
             height={145.21}
           />
         </Link>
-        <p>
-          Um nome. Uma descoberta.
-          <br />
-          Um novo encanto.
-        </p>
+        <div className="footer-message">
+          <p>
+            Um nome. Uma descoberta.
+            <br />
+            Um novo encanto.
+          </p>
+          <span className="footer-artisan">Produção 100% artesanal</span>
+        </div>
         <nav aria-label="Navegação do rodapé">
           <Link href="/catalogo/">
             Explore a coleção <ArrowUpRight aria-hidden="true" />
