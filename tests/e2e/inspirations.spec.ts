@@ -8,6 +8,8 @@ test("inspirations remain readable, pausable and non-interactive", async ({ page
   await expect(section.locator(".inspirations-list a")).toHaveCount(0);
   const button = section.getByRole("button", { name: "Pausar movimento" });
   await expect(button).toBeVisible();
+  await expect(section.locator(".inspirations-row")).toHaveCount(2);
+  await expect(section.locator(".inspirations-item img").first()).toHaveAttribute("src", /lavender-ornament-gold/);
   await button.click();
   await expect(section.locator(".inspirations-motion")).toHaveAttribute("data-paused", "true");
   await expect(section.getByRole("button", { name: "Retomar movimento" })).toBeVisible();

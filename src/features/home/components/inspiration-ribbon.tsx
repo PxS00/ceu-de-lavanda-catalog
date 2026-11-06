@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export function InspirationRibbon({ brands }: { brands: string[] }) {
   const [animate, setAnimate] = useState(false);
@@ -13,6 +14,7 @@ export function InspirationRibbon({ brands }: { brands: string[] }) {
     return () => { window.clearTimeout(timer); media.removeEventListener("change", update); };
   }, []);
   if (!brands.length) return null;
+  const rows = [brands.filter((_, index) => index % 2 === 0), brands.filter((_, index) => index % 2 === 1)].filter((row) => row.length);
   return <section className="inspirations" aria-labelledby="inspirations-title">
     <div className="wrap inspirations-heading">
       <p className="eyebrow">INSPIRAÇÕES</p>
@@ -23,12 +25,14 @@ export function InspirationRibbon({ brands }: { brands: string[] }) {
       {brands.map((brand) => <li key={brand}>{brand}</li>)}
     </ul>
     {animate && <div className="inspirations-motion" data-paused={paused}>
-      <div className="inspirations-track" aria-hidden="true">
-        {[0, 1].map((group) => <div className="inspirations-group" key={group}>
-          {Array.from({ length: 8 }, (_, copy) => brands.map((brand, index) =>
-            <span className="inspirations-item" key={`${copy}-${index}`}><span>{brand}</span><span className="inspirations-separator">✦</span></span>))}
-        </div>)}
-      </div>
+      {rows.map((row, rowIndex) => <div className="inspirations-row" key={rowIndex} aria-hidden="true">
+        <div className={`inspirations-track${rowIndex % 2 ? " inspirations-reverse" : ""}`}>
+          {[0, 1].map((group) => <div className="inspirations-group" key={group}>
+            {Array.from({ length: 8 }, (_, copy) => row.map((brand, index) =>
+              <span className="inspirations-item" key={`${copy}-${index}`}><span>{brand}</span><Image src="/branding/lavender-ornament-gold.svg" alt="" width={76} height={138} /></span>))}
+          </div>)}
+        </div>
+      </div>)}
       <button type="button" className="inspirations-toggle" onClick={() => setPaused((value) => !value)}>
         {paused ? "Retomar movimento" : "Pausar movimento"}
       </button>
