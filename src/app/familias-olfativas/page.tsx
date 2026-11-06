@@ -5,9 +5,9 @@ import { normalize, products } from "@/features/catalog/lib/catalog";
 export const metadata = { title: "Guia de famílias olfativas" };
 
 export default function FamilyGuidePage() {
-  const families = [...new Set(products.map((product) => product.family).filter((family): family is string => Boolean(family)))];
   const cards = familyGuide.map((guide) => {
-          const matching = families.filter((family) => guide.terms.some((term) => normalize(family).includes(term)));
+          const matching = products.filter((product) => product.category === "perfumes" && product.family && guide.terms.some((term) => normalize(product.family ?? "").includes(term)))
+            .sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
           if (!matching.length) return null;
           return <section className="family-guide-card" id={guide.id} key={guide.id}>
             <p className="eyebrow">{guide.mood}</p>
@@ -17,8 +17,17 @@ export default function FamilyGuidePage() {
             <p>{guide.occasion}</p>
             <h3>No nosso catálogo</h3>
             <div className="family-guide-links">
-              {matching.map((family) => <Link href={`/catalogo/?familia=${encodeURIComponent(family)}`} key={family}>{family} ↗</Link>)}
+              {matching.slice(0, 3).map((product) => <Link href={`/produtos/${product.slug}/`} key={product.id}>{product.name} ↗</Link>)}
             </div>
+            {matching.length > 3 && <details className="family-guide-more">
+              <summary className="button">
+                <span className="family-show-all">Ver todos <span className="sr-only">os perfumes de {guide.name}</span></span>
+                <span className="family-show-less">Mostrar menos <span className="sr-only">opções de {guide.name}</span></span>
+              </summary>
+              <div className="family-guide-links">
+                {matching.slice(3).map((product) => <Link href={`/produtos/${product.slug}/`} key={product.id}>{product.name} ↗</Link>)}
+              </div>
+            </details>}
           </section>;
         }).filter(Boolean);
   return (
@@ -27,14 +36,7 @@ export default function FamilyGuidePage() {
       <h1>Qual aroma combina com você?</h1>
       <p className="family-guide-intro">Conheça as famílias olfativas e explore sensações como frescor, doçura e aconchego. Um perfume pode reunir mais de uma dessas características.</p>
       <p>As sugestões de ocasião são pontos de partida. Seu gosto, o clima e a quantidade aplicada também fazem parte da escolha.</p>
-      <div className="family-guide-grid">{cards.slice(0, 4)}</div>
-      {cards.length > 4 && <details className="family-guide-more">
-        <summary className="button">
-          <span className="family-show-all">Ver todas as famílias</span>
-          <span className="family-show-less">Mostrar menos famílias</span>
-        </summary>
-        <div className="family-guide-grid">{cards.slice(4)}</div>
-      </details>}
+      <div className="family-guide-grid">{cards}</div>
       <Link className="text-link" href="/catalogo/">Explorar todas as fragrâncias ↗</Link>
     </main>
   );

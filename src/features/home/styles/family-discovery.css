@@ -9,7 +9,8 @@
 .family-guide-links { display: flex; flex-wrap: wrap; gap: 8px; }
 .family-guide-links a { padding: 12px; border: 1px solid var(--border); font-size: var(--text-small); min-height: 44px; }
 .family-guide-links a:hover { background: var(--surface-accent); }
-.family-guide-more { margin-bottom: 32px; }
+.family-guide-more { margin-top: 12px; }
+.family-guide-more .family-guide-links { margin-top: 12px; }
 .family-guide-more summary { cursor: pointer; width: fit-content; }
 .family-guide-more .family-show-less { display: none; }
 .family-guide-more[open] .family-show-all { display: none; }
