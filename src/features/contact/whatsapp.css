@@ -1,0 +1,18 @@
+.whatsapp-float {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #246b43;
+  color: white;
+  box-shadow: 0 4px 16px #0003;
+}
+.whatsapp-help { margin: 32px 0; }
+.whatsapp-help h2 { font-size: 1.5rem; margin-bottom: 8px; }
+.whatsapp-help p { margin-bottom: 12px; }
+.whatsapp-catalog { margin-bottom: 20px; }

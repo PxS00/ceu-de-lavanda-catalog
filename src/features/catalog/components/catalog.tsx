@@ -13,6 +13,7 @@ import { ProductCard } from "./product-card";
 import { CatalogFilters, type CatalogFilterState } from "./catalog-filters";
 import { CatalogEmptyState } from "./catalog-empty-state";
 import { CatalogPagination } from "./catalog-pagination";
+import { whatsappUrl } from "@/features/contact/contact";
 
 const PAGE_SIZE = 12;
 const DEFAULT_FILTERS = { query: "", initial: "", sort: "az" };
@@ -76,6 +77,7 @@ export function Catalog({
         </h1>
         <p>Encontre a sua próxima descoberta.</p>
       </Reveal>
+      <p className="whatsapp-catalog"><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Fale com a gente pelo WhatsApp</a></p>
       <CatalogFilters
         value={filters}
         onChange={updateFilters}
