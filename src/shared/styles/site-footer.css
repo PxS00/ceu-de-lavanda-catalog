@@ -38,6 +38,11 @@
 .footer-social { display: flex; gap: 8px; }
 .footer-social a { display: inline-flex; justify-content: center; align-items: center; width: 44px; height: 44px; border: 1px solid var(--primary); border-radius: 50%; }
 .footer-social svg { width: 20px; height: 20px; }
+.site-verification { border-top: 1px solid var(--primary); padding-block: 22px; }
+.site-verification h2 { font-family: var(--font-heading); font-size: 1.25rem; margin: 0 0 12px; }
+.verification-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.verification-links a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: var(--text-small); text-decoration: underline; text-underline-offset: 4px; }
+.verification-links svg { width: 16px; height: 16px; }
 .footer-bottom {
   border-top: 1px solid var(--primary);
   display: flex;

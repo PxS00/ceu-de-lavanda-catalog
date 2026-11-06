@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { contact, whatsappUrl } from "@/shared/contact";
 import { SocialLinks } from "./social-links";
+import { SiteVerification } from "./site-verification";
 
 export function SiteFooter() {
   return (
@@ -39,6 +40,7 @@ export function SiteFooter() {
           <SocialLinks className="footer-social" />
         </div>
       </div>
+      <SiteVerification />
       <div className="wrap footer-bottom">
         <span>© {new Date().getFullYear()} Céu de Lavanda</span>
         <span>Sinta o toque da lavanda.</span>
