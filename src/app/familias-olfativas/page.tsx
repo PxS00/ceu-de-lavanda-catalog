@@ -6,14 +6,7 @@ export const metadata = { title: "Guia de famílias olfativas" };
 
 export default function FamilyGuidePage() {
   const families = [...new Set(products.map((product) => product.family).filter((family): family is string => Boolean(family)))];
-  return (
-    <main id="conteudo" className="wrap family-guide">
-      <p className="eyebrow">UM CAMINHO PARA DESCOBRIR</p>
-      <h1>Qual aroma combina com você?</h1>
-      <p className="family-guide-intro">Conheça as famílias olfativas e explore sensações como frescor, doçura e aconchego. Um perfume pode reunir mais de uma dessas características.</p>
-      <p>As sugestões de ocasião são pontos de partida. Seu gosto, o clima e a quantidade aplicada também fazem parte da escolha.</p>
-      <div className="family-guide-grid">
-        {familyGuide.map((guide) => {
+  const cards = familyGuide.map((guide) => {
           const matching = families.filter((family) => guide.terms.some((term) => normalize(family).includes(term)));
           if (!matching.length) return null;
           return <section className="family-guide-card" id={guide.id} key={guide.id}>
@@ -27,8 +20,21 @@ export default function FamilyGuidePage() {
               {matching.map((family) => <Link href={`/catalogo/?familia=${encodeURIComponent(family)}`} key={family}>{family} ↗</Link>)}
             </div>
           </section>;
-        })}
-      </div>
+        }).filter(Boolean);
+  return (
+    <main id="conteudo" className="wrap family-guide">
+      <p className="eyebrow">UM CAMINHO PARA DESCOBRIR</p>
+      <h1>Qual aroma combina com você?</h1>
+      <p className="family-guide-intro">Conheça as famílias olfativas e explore sensações como frescor, doçura e aconchego. Um perfume pode reunir mais de uma dessas características.</p>
+      <p>As sugestões de ocasião são pontos de partida. Seu gosto, o clima e a quantidade aplicada também fazem parte da escolha.</p>
+      <div className="family-guide-grid">{cards.slice(0, 4)}</div>
+      {cards.length > 4 && <details className="family-guide-more">
+        <summary className="button">
+          <span className="family-show-all">Ver todas as famílias</span>
+          <span className="family-show-less">Mostrar menos famílias</span>
+        </summary>
+        <div className="family-guide-grid">{cards.slice(4)}</div>
+      </details>}
       <Link className="text-link" href="/catalogo/">Explorar todas as fragrâncias ↗</Link>
     </main>
   );
