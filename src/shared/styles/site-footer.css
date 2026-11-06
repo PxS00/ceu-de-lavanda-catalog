@@ -43,6 +43,10 @@
 .verification-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .verification-links a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: var(--text-small); text-decoration: underline; text-underline-offset: 4px; }
 .verification-links svg { width: 16px; height: 16px; }
+.company-details { font-size: var(--text-small); margin-bottom: 14px; }
+.company-details p { margin: 0 0 6px; }
+.company-details .company-hint { font-size: var(--text-label); }
+.copy-cnpj { min-height: 44px; background: transparent; border: 0; color: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; font: inherit; }
 .footer-bottom {
   border-top: 1px solid var(--primary);
   display: flex;
