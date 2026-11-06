@@ -5,23 +5,23 @@ import { Reveal } from "@/shared/components/reveal";
 export function AboutSection() {
   return (
     <section className="about wrap" id="sobre" tabIndex={-1}>
-      <p className="eyebrow">O UNIVERSO CÉU DE LAVANDA</p>
+      <p className="eyebrow">SOBRE A MARCA</p>
       <Reveal>
         <h2>
-          O começo de uma
+          A essência da
           <br />
-          <em className="decorative-text">bela descoberta</em>
+          <em className="decorative-text">Céu de Lavanda</em>
         </h2>
         <p>
-          Nosso catálogo está florescendo. Por aqui, você já pode explorar os
-          nomes da coleção e conhecer o espaço de cada fragrância.
+          Na Céu de Lavanda, acreditamos que uma fragrância pode tornar os
+          momentos do dia mais especiais e revelar um pouco de quem somos.
         </p>
         <p>
-          Fotografias e informações de cada produto serão adicionadas conforme
-          forem confirmadas. Volte para acompanhar os próximos detalhes.
+          Nossa coleção reúne perfumes para diferentes gostos e ocasiões, em um
+          convite para descobrir aromas que acompanhem você de um jeito único.
         </p>
         <Link className="text-link" href="/catalogo/">
-          Conheça todos os nomes <ArrowUpRight aria-hidden="true" />
+          Explore a coleção <ArrowUpRight aria-hidden="true" />
         </Link>
       </Reveal>
     </section>
