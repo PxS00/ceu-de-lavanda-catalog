@@ -14,6 +14,7 @@ import { CatalogFilters, type CatalogFilterState } from "./catalog-filters";
 import { CatalogEmptyState } from "./catalog-empty-state";
 import { CatalogPagination } from "./catalog-pagination";
 import { whatsappUrl } from "@/shared/contact";
+import { WhatsAppIcon } from "@/features/contact/whatsapp-icon";
 
 const PAGE_SIZE = 12;
 const DEFAULT_FILTERS = { query: "", initial: "", sort: "az" };
@@ -107,6 +108,15 @@ export function Catalog({
         onFamilyChange={changeFamily}
       />
       <div className="catalog-results" ref={grid}>
+        <aside className="whatsapp-catalog" aria-labelledby="catalog-contact-title">
+          <div>
+            <h2 id="catalog-contact-title">Precisa de ajuda para escolher?</h2>
+            <p>Conte para a gente o que você procura.</p>
+          </div>
+          <a className="whatsapp-action" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+            <WhatsAppIcon /> Fale com a gente pelo WhatsApp
+          </a>
+        </aside>
         {filtered.length ? (
           <div className="product-grid">
             {pageItems.map((product, index) => (
@@ -122,7 +132,6 @@ export function Catalog({
         )}
       </div>
       <CatalogPagination page={currentPage} pageCount={pageCount} onPageChange={setPage} />
-      <p className="whatsapp-catalog"><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Fale com a gente pelo WhatsApp</a></p>
     </section>
   );
 }
