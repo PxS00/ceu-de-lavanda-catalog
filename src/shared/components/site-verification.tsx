@@ -4,39 +4,42 @@ import { CopyCnpj } from "./copy-cnpj";
 
 export function SiteVerification() {
   const domain = new URL(contact.siteUrl).hostname;
-  const tlsUrl = new URL("https://www.ssllabs.com/ssltest/analyze.html");
-  tlsUrl.searchParams.set("d", domain);
-  const safeBrowsingUrl = new URL("https://transparencyreport.google.com/safe-browsing/search");
-  safeBrowsingUrl.searchParams.set("url", contact.siteUrl);
-
+  const cards = [
+    { source: "Google Safe Browsing", title: "Consulta de segurança", detail: "Verificação independente", icon: ShieldCheck,
+      href: "https://transparencyreport.google.com/safe-browsing/search?url=" + encodeURIComponent(contact.siteUrl),
+      label: "Consultar no Google Safe Browsing", tone: "lavender" },
+    { source: "Qualys SSL Labs", title: "Conexão HTTPS", detail: "Consulte o certificado SSL", icon: LockKeyhole,
+      href: "https://www.ssllabs.com/ssltest/analyze.html?d=" + encodeURIComponent(domain),
+      label: "Verificar conexão HTTPS", tone: "gold" },
+    ...(contact.companyName && contact.cnpj ? [
+      { source: "Receita Federal", title: "Dados da empresa", detail: "CNPJ " + contact.cnpj, icon: Building2,
+        href: "https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/",
+        label: "Consultar CNPJ na Receita Federal", tone: "lavender" },
+    ] : []),
+  ];
   return (
     <section className="wrap site-verification" aria-labelledby="verification-title">
-      <h2 id="verification-title">Consulte você mesmo</h2>
+      <h2 id="verification-title">Transparência · confira você mesmo</h2>
       <div className="verification-cards">
-        <article className="verification-card">
-          <ShieldCheck className="verification-icon" aria-hidden="true" />
-          <div className="verification-content"><span className="verification-source">Google Safe Browsing</span><strong>Consulta de segurança</strong><span>Verifique o endereço no Google</span>
-            <a href={safeBrowsingUrl.toString()} target="_blank" rel="noopener noreferrer">Consultar no Google Safe Browsing <ArrowUpRight aria-hidden="true" /><span className="sr-only"> (abre em nova aba)</span></a>
-          </div>
-        </article>
-        <article className="verification-card">
-          <LockKeyhole className="verification-icon" aria-hidden="true" />
-          <div className="verification-content"><span className="verification-source">SSL Labs</span><strong>Conexão HTTPS</strong><span>Consulte o certificado</span>
-            <a href={tlsUrl.toString()} target="_blank" rel="noopener noreferrer">Verificar conexão HTTPS <ArrowUpRight aria-hidden="true" /><span className="sr-only"> (abre em nova aba)</span></a>
-          </div>
-        </article>
-        {contact.companyName && contact.cnpj && (
-          <article className="verification-card">
-            <Building2 className="verification-icon" aria-hidden="true" />
-            <div className="verification-content"><span className="verification-source">Receita Federal</span><strong>Dados da empresa</strong><span>{contact.companyName}</span><span>CNPJ: {contact.cnpj}</span>
-              <a href="https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/" target="_blank" rel="noopener noreferrer">Consultar CNPJ na Receita Federal <ArrowUpRight aria-hidden="true" /><span className="sr-only"> (abre em nova aba)</span></a>
-              <CopyCnpj cnpj={contact.cnpj} />
-              <span>Informe o CNPJ na página de consulta.</span>
+        {cards.map(({ source, title, detail, icon: Icon, href, label, tone }) => (
+          <article className={"verification-card verification-" + tone} key={source}>
+            <span className="verification-badge"><Icon aria-hidden="true" /></span>
+            <div className="verification-content">
+              <span className="verification-source">{source}</span>
+              <strong>{title}</strong>
+              <span>{detail}</span>
             </div>
+            <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label + " (abre em nova aba)"}>
+              <ArrowUpRight aria-hidden="true" /><span>Conferir</span>
+            </a>
           </article>
-        )}
+        ))}
       </div>
-      <p className="verification-caption">Cada consulta abre em um serviço independente.</p>
+      <p className="verification-caption">Cada cartão abre a consulta em um serviço independente.</p>
+      {contact.companyName && contact.cnpj && <div className="verification-company">
+        <span>{contact.companyName}</span><CopyCnpj cnpj={contact.cnpj} />
+        <span>Informe o CNPJ na página da Receita.</span>
+      </div>}
     </section>
   );
 }
