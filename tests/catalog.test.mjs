@@ -6,8 +6,22 @@ import {
   validateProducts,
   filterProducts,
   formatPrice,
+  getStartingPrice,
   categories,
 } from "../src/features/catalog/lib/catalog.ts";
+
+test("starting price uses the lowest valid offered volume and handles missing prices", () => {
+  const base = { id: "test", slug: "test", name: "Teste" };
+  assert.equal(getStartingPrice({ ...base, volumeOptions: ["50 ml", "100 ml"], volumePrices: [
+    { volume: "100 ml", priceCents: 28700 }, { volume: "50 ml", priceCents: 15700 },
+  ] }), 15700);
+  assert.equal(getStartingPrice({ ...base, volumeOptions: ["100 ml"], volumePrices: [
+    { volume: "50 ml", priceCents: 100 }, { volume: "100 ml", priceCents: 28700 },
+  ] }), 28700);
+  assert.equal(getStartingPrice({ ...base, volumePrices: [{ volume: "50 ml", priceCents: 0 }] }), null);
+  assert.equal(getStartingPrice({ ...base }), null);
+  assert.equal(getStartingPrice({ ...base, priceCents: 15700 }), 15700);
+});
 
 test("101-product fixture validates and filters Portuguese names without mutation", () => {
   const original = structuredClone(syntheticProducts);
