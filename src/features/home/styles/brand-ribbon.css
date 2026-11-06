@@ -48,39 +48,39 @@
   .phrase-strip img:nth-child(3) { grid-area: 2 / 1; }
   .phrase-strip img:nth-child(5) { grid-area: 2 / 3; }
   .phrase-strip img:last-child { grid-area: 3 / 3; }
-  .phrase-strip[data-carousel="true"] {
-    grid-template-columns: 12px minmax(0, 1fr) 44px;
-    gap: 8px;
-    padding-block: 10px;
-  }
-  .phrase-strip[data-carousel="true"] p {
-    grid-area: 1 / 2;
-    font-size: clamp(1.2rem, 5.6vw, 1.65rem);
-    white-space: nowrap;
-    text-wrap: nowrap;
-    animation: phrase-enter 350ms ease both;
-  }
-  .phrase-strip[data-carousel="true"] p[data-active="false"],
-  .phrase-strip[data-carousel="true"] img:nth-child(3),
-  .phrase-strip[data-carousel="true"] img:nth-child(5),
-  .phrase-strip[data-carousel="true"] img:nth-child(7) { display: none; }
-  .phrase-strip[data-carousel="true"] img:first-child { grid-area: 1 / 1; }
-  .phrase-pause {
-    grid-area: 1 / 3;
-    display: grid;
-    place-items: center;
-    width: 44px;
-    height: 44px;
-    padding: 0;
+  .phrase-strip[data-ticker="true"] { display: none; }
+  .phrase-ticker {
+    display: block;
+    width: 100%;
+    min-height: 58px;
+    padding: 10px 0;
     color: var(--foreground);
     background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 50%;
+    border: 0;
+    overflow: hidden;
+    text-align: left;
     cursor: pointer;
   }
-  .phrase-pause svg { width: 16px; height: 16px; }
+  .phrase-ticker-track, .phrase-ticker-group, .phrase-ticker-item {
+    display: flex;
+    width: max-content;
+    align-items: center;
+  }
+  .phrase-ticker-track { animation: phrase-scroll 30s linear infinite; }
+  .phrase-ticker[data-paused="true"] .phrase-ticker-track { animation-play-state: paused; }
+  .phrase-ticker-group { gap: 32px; padding-right: 32px; }
+  .phrase-ticker-item {
+    gap: 16px;
+    font: 400 1.65rem/1.35 var(--font-decorative);
+    white-space: nowrap;
+  }
+  .phrase-ticker-item img { width: 12px; height: auto; }
 }
-@keyframes phrase-enter {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+.phrase-ticker { display: none; }
+@media (max-width: 760px) {
+  .phrase-ticker { display: block; }
+}
+@keyframes phrase-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }

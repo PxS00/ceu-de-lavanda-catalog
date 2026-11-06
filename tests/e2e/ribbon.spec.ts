@@ -1,63 +1,36 @@
 import { expect, test } from "@playwright/test";
 
 for (const width of [320, 375, 390, 430]) {
-  test(`mobile ribbon fits and rotates accessibly at ${width}px`, async ({ page }, info) => {
+  test(`continuous mobile ribbon moves and pauses at ${width}px`, async ({ page }, info) => {
     test.skip(info.project.name !== "mobile");
     await page.setViewportSize({ width, height: 844 });
     await page.emulateMedia({ reducedMotion: "no-preference" });
-    await page.clock.install();
     await page.goto("/");
-    const strip = page.locator(".phrase-strip");
-    await expect(strip).toHaveAttribute("data-carousel", "true");
-    await page.evaluate(() => document.fonts.ready);
-    const phrases = strip.locator("p");
-    for (let index = 0; index < 3; index++) {
-      const phrase = phrases.nth(index);
-      await expect(phrase).toBeVisible();
-      const fit = await phrase.evaluate(element => {
-        const box = element.getBoundingClientRect();
-        const parent = element.parentElement!.getBoundingClientRect();
-        return { fits: element.scrollWidth <= element.clientWidth + 1 && box.left >= parent.left && box.right <= parent.right, height: box.height, line: parseFloat(getComputedStyle(element).lineHeight), pageWidth: document.documentElement.scrollWidth <= innerWidth };
-      });
-      expect(fit.fits && fit.pageWidth).toBe(true);
-      expect(fit.height).toBeLessThanOrEqual(fit.line + 1);
-      if (index < 2) await page.clock.runFor(5000);
-    }
-    const pause = page.getByRole("button", { name: "Pausar troca de frases" });
-    await pause.focus();
-    await page.clock.runFor(6000);
-    await expect(phrases.nth(2)).toBeVisible();
-    await pause.press("Enter");
-    await expect(page.getByRole("button", { name: "Retomar troca de frases" })).toBeVisible();
-    await page.locator("h1").click({ force: true });
-    await page.clock.runFor(6000);
-    await expect(phrases.nth(2)).toBeVisible();
-    await page.getByRole("button", { name: "Retomar troca de frases" }).click();
-    await page.clock.runFor(5000);
-    await expect(phrases.nth(0)).toBeVisible();
+    const ticker = page.locator(".phrase-ticker");
+    await ticker.scrollIntoViewIfNeeded();
+    await expect(ticker).toBeVisible();
+    await expect(ticker).toHaveAccessibleName(/^Pausar movimento das frases/);
+    const track = ticker.locator(".phrase-ticker-track");
+    await expect(track).toHaveCSS("animation-name", "phrase-scroll");
+    await expect(track).toHaveCSS("animation-iteration-count", "infinite");
+    const before = await track.evaluate(el => new DOMMatrix(getComputedStyle(el).transform).m41);
+    await page.waitForTimeout(500);
+    const after = await track.evaluate(el => new DOMMatrix(getComputedStyle(el).transform).m41);
+    expect(after).toBeLessThan(before);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await ticker.tap();
+    await expect(track).toHaveCSS("animation-play-state", "paused");
+    await expect(page.getByRole("button", { name: /^Retomar movimento das frases/ })).toBeVisible();
+    await ticker.tap();
+    await expect(track).toHaveCSS("animation-play-state", "running");
+    await ticker.focus();
+    await ticker.press("Space");
+    await expect(track).toHaveCSS("animation-play-state", "paused");
+    await ticker.press("Space");
+    await expect(track).toHaveCSS("animation-play-state", "running");
     await page.emulateMedia({ reducedMotion: "reduce" });
-    await expect(strip).toHaveAttribute("data-carousel", "false");
+    await expect(ticker).toHaveCount(0);
+    const phrases = page.locator(".phrase-strip p");
     for (const phrase of await phrases.all()) await expect(phrase).toBeVisible();
-    await expect(page.getByRole("button", { name: /troca de frases/ })).toHaveCount(0);
   });
 }
-
-test("touch pause and resume starts rotation without requiring focus to move", async ({ page }, info) => {
-  test.skip(info.project.name !== "mobile");
-  await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.clock.install();
-  await page.goto("/");
-  const strip = page.locator(".phrase-strip");
-  await expect(strip).toHaveAttribute("data-carousel", "true");
-  await strip.scrollIntoViewIfNeeded();
-  const phrases = strip.locator("p");
-  await expect(phrases.nth(0)).toBeVisible();
-  await page.clock.runFor(5000);
-  await expect(phrases.nth(1)).toBeVisible();
-  await page.getByRole("button", { name: "Pausar troca de frases" }).tap();
-  await page.clock.runFor(6000);
-  await expect(phrases.nth(1)).toBeVisible();
-  await page.getByRole("button", { name: "Retomar troca de frases" }).tap();
-  await page.clock.runFor(5000);
-  await expect(phrases.nth(2)).toBeVisible();
-});

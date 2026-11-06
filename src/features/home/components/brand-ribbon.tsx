@@ -2,16 +2,14 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Pause, Play } from "lucide-react";
 import { Reveal } from "@/shared/components/reveal";
+
+const phrases = ["Presença nos detalhes", "Beleza em cada descoberta", "O seu próximo encanto"];
+const ornament = "/branding/lavender-ornament-gold.svg";
 
 export function BrandRibbon() {
   const [enabled, setEnabled] = useState(false);
-  const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [hovering, setHovering] = useState(false);
-  const [focused, setFocused] = useState(false);
-  const [explicitResume, setExplicitResume] = useState(false);
   useEffect(() => {
     const media = window.matchMedia("(max-width: 760px) and (prefers-reduced-motion: no-preference)");
     const update = () => setEnabled(media.matches);
@@ -19,25 +17,32 @@ export function BrandRibbon() {
     media.addEventListener("change", update);
     return () => { window.clearTimeout(initial); media.removeEventListener("change", update); };
   }, []);
-  useEffect(() => {
-    if (!enabled || paused || ((hovering || focused) && !explicitResume)) return;
-    const timer = window.setInterval(() => {
-      if (!document.hidden) setCurrent(value => (value + 1) % 3);
-    }, 5000);
-    return () => window.clearInterval(timer);
-  }, [enabled, paused, hovering, focused, explicitResume]);
   return (
-    <section className="brand-ribbon" aria-label="A essência da marca" onMouseEnter={() => { if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) setHovering(true); }} onMouseLeave={() => setHovering(false)} onFocus={() => { setFocused(true); setExplicitResume(false); }} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) { setFocused(false); setExplicitResume(false); } }}>
-      <Reveal className="phrase-strip wrap" data-carousel={enabled}>
-        <Image src="/branding/lavender-ornament-gold.svg" alt="" width={76} height={138} />
-        <p data-active={current === 0}>Presença nos detalhes</p>
-        <Image src="/branding/lavender-ornament-gold.svg" alt="" width={76} height={138} />
-        <p data-active={current === 1}>Beleza em cada descoberta</p>
-        <Image src="/branding/lavender-ornament-gold.svg" alt="" width={76} height={138} />
-        <p data-active={current === 2}>O seu próximo encanto</p>
-        <Image src="/branding/lavender-ornament-gold.svg" alt="" width={76} height={138} />
-        {enabled && <button className="phrase-pause" type="button" onClick={() => { setExplicitResume(paused); setPaused(value => !value); }} aria-label={paused ? "Retomar troca de frases" : "Pausar troca de frases"}>{paused ? <Play aria-hidden="true" /> : <Pause aria-hidden="true" />}</button>}
+    <section className="brand-ribbon" aria-label="A essência da marca">
+      <Reveal className="phrase-strip wrap" data-ticker={enabled}>
+        <Image src={ornament} alt="" width={76} height={138} />
+        <p>{phrases[0]}</p>
+        <Image src={ornament} alt="" width={76} height={138} />
+        <p>{phrases[1]}</p>
+        <Image src={ornament} alt="" width={76} height={138} />
+        <p>{phrases[2]}</p>
+        <Image src={ornament} alt="" width={76} height={138} />
       </Reveal>
+      {enabled && (
+        <button className="phrase-ticker" type="button" data-paused={paused}
+          aria-label={`${paused ? "Retomar" : "Pausar"} movimento das frases: ${phrases.join(", ")}`}
+          onClick={() => setPaused(value => !value)}>
+          <span className="phrase-ticker-track" aria-hidden="true">
+            {[0, 1].map(copy => (
+              <span className="phrase-ticker-group" key={copy}>
+                {phrases.map(phrase => <span className="phrase-ticker-item" key={phrase}>
+                  <Image src={ornament} alt="" width={76} height={138} /><span>{phrase}</span>
+                </span>)}
+              </span>
+            ))}
+          </span>
+        </button>
+      )}
     </section>
   );
 }
