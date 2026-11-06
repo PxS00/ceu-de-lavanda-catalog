@@ -115,7 +115,7 @@ Limites: não foi feita auditoria manual com leitores de tela nem publicação n
 
 Foram removidos o rótulo “CÉU DE LAVANDA · CATÁLOGO”, a pequena linha dourada, a nota auxiliar do hero e as legendas repetidas no painel lavanda. O hero usa Ativo 5, com proporções originais; o cabeçalho mantém Ativo 3 em grafite.
 
-A faixa horizontal permanece com as frases exatas “Presença nos detalhes”, “Beleza em cada descoberta” e “O seu próximo encanto”. Usa Pinyon Script sob OFL, tinta sobre marfim e bordas finas douradas. Desktop/tablet apresentam três frases em colunas alinhadas; mobile apresenta as três em sequência vertical, sem esconder frases nem usar marquee. A entrada respeita movimento reduzido e o conteúdo permanece visível sem JavaScript.
+A faixa horizontal permanece com as frases exatas “Presença nos detalhes”, “Beleza em cada descoberta” e “O seu próximo encanto”. Usa Pinyon Script sob OFL, tinta sobre marfim e bordas finas douradas. Desktop/tablet apresentam três frases em colunas alinhadas; no celular, uma frase aparece por vez e alterna a cada cinco segundos, com botão para pausar. O movimento também pausa durante foco ou interação e enquanto a aba está oculta. Com movimento reduzido ou sem JavaScript, as três frases ficam visíveis em sequência vertical.
 
 O ornamento `public/branding/lavender-ornament-gold.svg` é uma derivação decorativa dos três caminhos botânicos de **Ativo 6.svg**, com os `d` preservados, sem as duas molduras, preenchimento sólido oficial **#BD8C40** e viewport **18 28 76 138**. O recorte foi conferido no Chromium para abranger todos os caminhos. Não se apresenta como um novo logo oficial e não modifica o original em `.local/brand/`. O teste compara os caminhos com a cópia íntegra do Ativo 6.
 
@@ -125,7 +125,7 @@ Validação deste refinamento: ESLint, TypeScript, 12 testes e build de produç�
 
 ### Ajuste de ornamentos e títulos de categorias
 
-A faixa tem quatro lavandas douradas: duas entre as frases e uma em cada ponta, também preservadas no arranjo vertical mobile. O anúncio superior usa o mesmo SVG botânico como máscara CSS, com preenchimento grafite, sem ícone genérico. O estado vazio do catálogo segue esse mesmo desenho. O aviso “Uma coleção em construção. Novos detalhes serão revelados em breve.” e seu ícone foram retirados.
+A faixa tem quatro lavandas douradas no desktop, tablet e arranjo vertical de fallback; o carrossel mobile usa um ornamento. O anúncio superior usa o mesmo SVG botânico como máscara CSS, com preenchimento grafite, sem ícone genérico. O estado vazio do catálogo segue esse mesmo desenho. O aviso “Uma coleção em construção. Novos detalhes serão revelados em breve.” e seu ícone foram retirados.
 
 Os nomes individuais dos produtos usam a fonte editorial original, em grafite, nos cartões e nos detalhes. Pinyon Script com o tom auxiliar lavanda é aplicada apenas aos títulos grandes das categorias nas rotas `/catalogo/perfumes/`, `/catalogo/body-splash/` e `/catalogo/perfume-capilar/`. Os cartões de categoria na homepage e os links dos filtros permanecem com suas fontes anteriores. O token `--text-accent: #766B7D` tem contraste **4,78:1** sobre marfim. Preços e descrições continuam na fonte de corpo.
 
