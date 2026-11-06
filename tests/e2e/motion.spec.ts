@@ -42,6 +42,8 @@ test.describe("delicate catalog motion", () => {
     });
     for (const route of ["/", "/catalogo/"]) {
       await page.goto(route);
+      if (route === "/")
+        await expect(page.locator(".collection-preview .product-grid")).toHaveAttribute("data-selection-ready", "true");
       const card = page.locator(".product-card").first();
       await card.scrollIntoViewIfNeeded();
       await expect(card).toHaveAttribute("data-test-reveals", "1");

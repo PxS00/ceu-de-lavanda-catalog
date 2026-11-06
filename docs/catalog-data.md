@@ -40,7 +40,9 @@ Registro mínimo válido:
 
 Campo opcional `category`: `perfumes`, `body-splash`, `perfume-capilar` ou `null`. As opções e nomes públicos ficam em `categories` de `src/features/catalog/lib/catalog.ts`, compartilhados por validação, filtros, cartões e páginas. Campo omitido/null significa classificação ainda não confirmada, sem excluir o produto da coleção completa.
 
-As três categorias foram confirmadas pelo usuário, com escopo de aproximadamente 90 Perfumes, 10 Body Splash e 1 Perfume Capilar no inventário futuro. Esses totais não são contagens de registros publicados e não são usados para gerar produtos fictícios. Os produtos já identificados como perfumes estão marcados como `perfumes`; os demais só recebem categoria quando confirmada.
+As três categorias foram confirmadas pelo usuário. A home calcula a quantidade de cada categoria a partir dos produtos publicados, inclusive zero, e usa singular para um produto. Os totais são atualizados a cada build do site; não representam estoque. Os produtos só recebem categoria quando confirmada.
+
+A vitrine “Nomes para despertar a curiosidade” sorteia até quatro produtos distintos a cada carregamento com JavaScript, sem alterar o cadastro. Antes da hidratação ou sem JavaScript, mostra os quatro primeiros para manter o conteúdo acessível. Uma seleção sorteada pode coincidir com a anterior.
 
 Cada cartão leva a uma página filtrada estática: `/catalogo/perfumes/`, `/catalogo/body-splash/` e `/catalogo/perfume-capilar/`. As páginas são geradas mesmo enquanto vazias; mostram cadastro em preparação e um link para a coleção completa. A categoria combina com busca, inicial, ordenação e paginação. Mudar de categoria reinicia os filtros locais. A categoria selecionada é compartilhável na URL e funciona ao abrir diretamente o HTML exportado, sem depender de query string ou servidor.
 

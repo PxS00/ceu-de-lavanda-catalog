@@ -13,11 +13,18 @@
   align-self: start;
 }
 .about h2 {
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 .about div > p {
   color: var(--foreground);
   max-width: 440px;
+}
+.about .about-subtitle {
+  margin-bottom: 24px;
+  color: var(--text-accent);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  line-height: 1.4;
 }
 @media (max-width: 1050px) {
   .about {

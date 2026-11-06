@@ -49,3 +49,40 @@
   .phrase-strip img:nth-child(5) { grid-area: 2 / 3; }
   .phrase-strip img:last-child { grid-area: 3 / 3; }
 }
+@media (max-width: 1050px) {
+  .phrase-strip[data-ticker="true"] { display: none; }
+  .phrase-ticker {
+    display: block;
+    width: 100%;
+    min-height: 58px;
+    padding: 10px 0;
+    color: var(--foreground);
+    background: transparent;
+    border: 0;
+    overflow: hidden;
+    text-align: left;
+    cursor: pointer;
+  }
+  .phrase-ticker-track, .phrase-ticker-group, .phrase-ticker-item {
+    display: flex;
+    width: max-content;
+    align-items: center;
+  }
+  .phrase-ticker-track { animation: phrase-scroll 30s linear infinite; }
+  .phrase-ticker[data-paused="true"] .phrase-ticker-track { animation-play-state: paused; }
+  .phrase-ticker-group { gap: 32px; padding-right: 32px; }
+  .phrase-ticker-item {
+    gap: 16px;
+    font: 400 1.65rem/1.35 var(--font-decorative);
+    white-space: nowrap;
+  }
+  .phrase-ticker-item img { width: 12px; height: auto; }
+}
+.phrase-ticker { display: none; }
+@media (max-width: 1050px) {
+  .phrase-ticker { display: block; }
+}
+@keyframes phrase-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
