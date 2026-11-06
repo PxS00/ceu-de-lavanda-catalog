@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { whatsappUrl } from "../src/features/contact/contact.ts";
+import { whatsappUrl } from "../src/shared/contact.ts";
 
 test("WhatsApp links contain the correct recipient and product context", () => {
   const general = new URL(whatsappUrl());

@@ -6,7 +6,7 @@ import { ProductArt } from "./product-art";
 import { ProductPrices } from "./product-prices";
 import { ProductProfile } from "./product-profile";
 import { RelatedProducts } from "./related-products";
-import { whatsappUrl } from "@/features/contact/contact";
+import { whatsappUrl } from "@/shared/contact";
 import { WhatsAppIcon } from "@/features/contact/whatsapp-icon";
 
 export function ProductDetail({ product }: { product: Product }) {

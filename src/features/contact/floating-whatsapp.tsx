@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { products } from "@/features/catalog/lib/catalog";
-import { whatsappUrl } from "./contact";
+import { whatsappUrl } from "@/shared/contact";
 import { WhatsAppIcon } from "./whatsapp-icon";
 
 export function FloatingWhatsApp() {
