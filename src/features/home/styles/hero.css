@@ -55,6 +55,9 @@
     padding-block: 24px 28px;
     gap: 24px;
   }
+  .hero-copy {
+    text-align: center;
+  }
   .hero-art {
     max-width: 460px;
     width: 100%;

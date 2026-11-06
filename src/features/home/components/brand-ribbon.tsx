@@ -11,7 +11,7 @@ export function BrandRibbon() {
   const [enabled, setEnabled] = useState(false);
   const [paused, setPaused] = useState(false);
   useEffect(() => {
-    const media = window.matchMedia("(max-width: 760px) and (prefers-reduced-motion: no-preference)");
+    const media = window.matchMedia("(max-width: 1050px) and (prefers-reduced-motion: no-preference)");
     const update = () => setEnabled(media.matches);
     const initial = window.setTimeout(update, 0);
     media.addEventListener("change", update);

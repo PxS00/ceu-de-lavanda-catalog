@@ -48,6 +48,8 @@
   .phrase-strip img:nth-child(3) { grid-area: 2 / 1; }
   .phrase-strip img:nth-child(5) { grid-area: 2 / 3; }
   .phrase-strip img:last-child { grid-area: 3 / 3; }
+}
+@media (max-width: 1050px) {
   .phrase-strip[data-ticker="true"] { display: none; }
   .phrase-ticker {
     display: block;
@@ -77,7 +79,7 @@
   .phrase-ticker-item img { width: 12px; height: auto; }
 }
 .phrase-ticker { display: none; }
-@media (max-width: 760px) {
+@media (max-width: 1050px) {
   .phrase-ticker { display: block; }
 }
 @keyframes phrase-scroll {
