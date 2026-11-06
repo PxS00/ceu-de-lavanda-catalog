@@ -67,7 +67,8 @@ test("@visual catalog search, initials, sorting and reset", async ({ page }, inf
   await page.goto("/catalogo/");
   const cards = page.locator(".product-card");
   await expect(cards).toHaveCount(firstPageCount);
-  await expect(cards.first().locator(".price-option")).toHaveText([/50 ml\s+R\$\s*157,00/, /100 ml\s+R\$\s*287,00/]);
+  await expect(cards.first().locator(".product-prices")).toHaveText(/A partir de\s+R\$\s*157,00/);
+  await expect(cards.first().locator(".product-card-volumes")).toHaveText("50 ml · 100 ml");
   await expect(cards.first().locator(".product-availability")).toHaveText("Disponível");
   await review(page, info, "catalog");
   await page.getByRole("searchbox").fill("ACQUARE");
@@ -92,7 +93,8 @@ test("@visual catalog search, initials, sorting and reset", async ({ page }, inf
   await expect(pagination.locator("span")).toHaveText("1 de 4");
   await pagination.getByRole("button", { name: "Próxima" }).click();
   await expect(cards).toHaveCount(firstPageCount);
-  await expect(cards.last().locator(".price-option")).toHaveText([/50 ml\s+R\$\s*157,00/, /100 ml\s+R\$\s*287,00/]);
+  await expect(cards.last().locator(".product-prices")).toHaveText(/A partir de\s+R\$\s*157,00/);
+  await expect(cards.last().locator(".product-card-volumes")).toHaveText("50 ml · 100 ml");
 });
 
 test("commercial workbook profiles and new perfumes are rendered", async ({ page }, info) => {
