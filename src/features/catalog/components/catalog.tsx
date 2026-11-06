@@ -77,7 +77,6 @@ export function Catalog({
         </h1>
         <p>Encontre a sua próxima descoberta.</p>
       </Reveal>
-      <p className="whatsapp-catalog"><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Fale com a gente pelo WhatsApp</a></p>
       <CatalogFilters
         value={filters}
         onChange={updateFilters}
@@ -102,6 +101,7 @@ export function Catalog({
         )}
       </div>
       <CatalogPagination page={page} pageCount={pageCount} onPageChange={setPage} />
+      <p className="whatsapp-catalog"><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Fale com a gente pelo WhatsApp</a></p>
     </section>
   );
 }
