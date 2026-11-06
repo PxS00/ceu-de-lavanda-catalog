@@ -1,0 +1,21 @@
+"use client";
+
+import { useState } from "react";
+
+export function CopyCnpj({ cnpj }: { cnpj: string }) {
+  const [message, setMessage] = useState("");
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(cnpj);
+      setMessage("CNPJ copiado.");
+    } catch {
+      setMessage("Não foi possível copiar. Selecione o número acima.");
+    }
+  }
+  return (
+    <>
+      <button className="copy-cnpj" type="button" onClick={copy}>Copiar CNPJ</button>
+      <span className="sr-only" role="status">{message}</span>
+    </>
+  );
+}

@@ -58,7 +58,7 @@ test("@visual homepage and category discovery", async ({ page }, info) => {
     await page.goto("/");
     await page.locator(`.category-card[href='/catalogo/${slug}/']`).click();
     await expect(page).toHaveURL(`/catalogo/${slug}/`);
-    await expect(page.getByRole("status")).toHaveText(slug === "perfumes" ? `${catalogProducts.length} fragrâncias` : "Cadastro em preparação");
+    await expect(page.locator(".catalog").getByRole("status")).toHaveText(slug === "perfumes" ? `${catalogProducts.length} fragrâncias` : "Cadastro em preparação");
     await review(page, info, slug);
   }
 });
@@ -190,7 +190,7 @@ test.describe("101-product test-only catalog", () => {
 
   test("pagination visits every product once and respects both boundaries", async ({ page }, info) => {
     await page.goto("/catalogo/");
-    await expect(page.getByRole("status")).toHaveText("101 fragrâncias");
+    await expect(page.locator(".catalog").getByRole("status")).toHaveText("101 fragrâncias");
     const pagination = page.getByRole("navigation", { name: "Páginas do catálogo" });
     const previous = pagination.getByRole("button", { name: "Anterior" });
     const next = pagination.getByRole("button", { name: "Próxima" });
@@ -213,7 +213,7 @@ test.describe("101-product test-only catalog", () => {
     await page.goto("/catalogo/");
     await page.getByRole("navigation", { name: "Categorias comerciais" }).getByRole("link", { name: "Perfumes", exact: true }).click();
     const cards = page.locator(".product-card");
-    const count = page.getByRole("status");
+    const count = page.locator(".catalog").getByRole("status");
     const pagination = page.getByRole("navigation", { name: "Páginas do catálogo" });
     const next = page.getByRole("button", { name: "Próxima", exact: true });
     await expect(count).toHaveText("90 fragrâncias");
