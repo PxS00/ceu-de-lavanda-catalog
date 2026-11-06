@@ -33,7 +33,6 @@ for (const width of [320, 375, 390, 430]) {
     await page.clock.runFor(6000);
     await expect(phrases.nth(2)).toBeVisible();
     await page.getByRole("button", { name: "Retomar troca de frases" }).click();
-    await page.locator("h1").click({ force: true });
     await page.clock.runFor(5000);
     await expect(phrases.nth(0)).toBeVisible();
     await page.emulateMedia({ reducedMotion: "reduce" });
@@ -42,3 +41,23 @@ for (const width of [320, 375, 390, 430]) {
     await expect(page.getByRole("button", { name: /troca de frases/ })).toHaveCount(0);
   });
 }
+
+test("touch pause and resume starts rotation without requiring focus to move", async ({ page }, info) => {
+  test.skip(info.project.name !== "mobile");
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.clock.install();
+  await page.goto("/");
+  const strip = page.locator(".phrase-strip");
+  await expect(strip).toHaveAttribute("data-carousel", "true");
+  await strip.scrollIntoViewIfNeeded();
+  const phrases = strip.locator("p");
+  await expect(phrases.nth(0)).toBeVisible();
+  await page.clock.runFor(5000);
+  await expect(phrases.nth(1)).toBeVisible();
+  await page.getByRole("button", { name: "Pausar troca de frases" }).tap();
+  await page.clock.runFor(6000);
+  await expect(phrases.nth(1)).toBeVisible();
+  await page.getByRole("button", { name: "Retomar troca de frases" }).tap();
+  await page.clock.runFor(5000);
+  await expect(phrases.nth(2)).toBeVisible();
+});

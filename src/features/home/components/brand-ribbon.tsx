@@ -9,7 +9,9 @@ export function BrandRibbon() {
   const [enabled, setEnabled] = useState(false);
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [interacting, setInteracting] = useState(false);
+  const [hovering, setHovering] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [explicitResume, setExplicitResume] = useState(false);
   useEffect(() => {
     const media = window.matchMedia("(max-width: 760px) and (prefers-reduced-motion: no-preference)");
     const update = () => setEnabled(media.matches);
@@ -18,14 +20,14 @@ export function BrandRibbon() {
     return () => { window.clearTimeout(initial); media.removeEventListener("change", update); };
   }, []);
   useEffect(() => {
-    if (!enabled || paused || interacting) return;
+    if (!enabled || paused || ((hovering || focused) && !explicitResume)) return;
     const timer = window.setInterval(() => {
       if (!document.hidden) setCurrent(value => (value + 1) % 3);
     }, 5000);
     return () => window.clearInterval(timer);
-  }, [enabled, paused, interacting]);
+  }, [enabled, paused, hovering, focused, explicitResume]);
   return (
-    <section className="brand-ribbon" aria-label="A essência da marca" onMouseEnter={() => setInteracting(true)} onMouseLeave={() => setInteracting(false)} onFocus={() => setInteracting(true)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setInteracting(false); }}>
+    <section className="brand-ribbon" aria-label="A essência da marca" onMouseEnter={() => { if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) setHovering(true); }} onMouseLeave={() => setHovering(false)} onFocus={() => { setFocused(true); setExplicitResume(false); }} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) { setFocused(false); setExplicitResume(false); } }}>
       <Reveal className="phrase-strip wrap" data-carousel={enabled}>
         <Image src="/branding/lavender-ornament-gold.svg" alt="" width={76} height={138} />
         <p data-active={current === 0}>Presença nos detalhes</p>
@@ -34,7 +36,7 @@ export function BrandRibbon() {
         <Image src="/branding/lavender-ornament-gold.svg" alt="" width={76} height={138} />
         <p data-active={current === 2}>O seu próximo encanto</p>
         <Image src="/branding/lavender-ornament-gold.svg" alt="" width={76} height={138} />
-        {enabled && <button className="phrase-pause" type="button" onClick={() => setPaused(value => !value)} aria-label={paused ? "Retomar troca de frases" : "Pausar troca de frases"}>{paused ? <Play aria-hidden="true" /> : <Pause aria-hidden="true" />}</button>}
+        {enabled && <button className="phrase-pause" type="button" onClick={() => { setExplicitResume(paused); setPaused(value => !value); }} aria-label={paused ? "Retomar troca de frases" : "Pausar troca de frases"}>{paused ? <Play aria-hidden="true" /> : <Pause aria-hidden="true" />}</button>}
       </Reveal>
     </section>
   );
