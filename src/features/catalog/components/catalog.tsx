@@ -13,6 +13,7 @@ import { ProductCard } from "./product-card";
 import { CatalogFilters, type CatalogFilterState } from "./catalog-filters";
 import { CatalogEmptyState } from "./catalog-empty-state";
 import { CatalogPagination } from "./catalog-pagination";
+import { whatsappUrl } from "@/features/contact/contact";
 
 const PAGE_SIZE = 12;
 const DEFAULT_FILTERS = { query: "", initial: "", sort: "az" };
@@ -100,6 +101,7 @@ export function Catalog({
         )}
       </div>
       <CatalogPagination page={page} pageCount={pageCount} onPageChange={setPage} />
+      <p className="whatsapp-catalog"><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Fale com a gente pelo WhatsApp</a></p>
     </section>
   );
 }

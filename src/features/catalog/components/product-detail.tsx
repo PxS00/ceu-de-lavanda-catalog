@@ -6,6 +6,8 @@ import { ProductArt } from "./product-art";
 import { ProductPrices } from "./product-prices";
 import { ProductProfile } from "./product-profile";
 import { RelatedProducts } from "./related-products";
+import { whatsappUrl } from "@/features/contact/contact";
+import { WhatsAppIcon } from "@/features/contact/whatsapp-icon";
 
 export function ProductDetail({ product }: { product: Product }) {
   const category = categories.find((item) => item.slug === product.category);
@@ -32,6 +34,14 @@ export function ProductDetail({ product }: { product: Product }) {
           {product.family && (
             <p className="detail-family">Família olfativa · {product.family}</p>
           )}
+          <ProductPrices product={product} className="detail-price" />
+          <section className="whatsapp-help" aria-labelledby="whatsapp-help-title">
+            <h2 id="whatsapp-help-title">Precisa de ajuda para escolher?</h2>
+            <p>Converse com a gente sobre esta fragrância.</p>
+            <a className="whatsapp-action" href={whatsappUrl(product)} target="_blank" rel="noopener noreferrer">
+              <WhatsAppIcon /> Falar sobre {product.name} no WhatsApp
+            </a>
+          </section>
           {product.tagline && (
             <p className="detail-tagline">{product.tagline}</p>
           )}
@@ -39,7 +49,6 @@ export function ProductDetail({ product }: { product: Product }) {
             {product.description ??
               "Cada descoberta tem seu tempo. A descrição desta fragrância será revelada em breve."}
           </p>
-          <ProductPrices product={product} className="detail-price" />
           <dl>
             <ProductProfile product={product} />
             {category && (

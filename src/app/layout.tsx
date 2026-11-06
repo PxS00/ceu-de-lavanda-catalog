@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/shared/components/site-header";
 import { SiteFooter } from "@/shared/components/site-footer";
+import { FloatingWhatsApp } from "@/features/contact/floating-whatsapp";
 import { editorial, decorative } from "@/shared/fonts/typography";
 import "./globals.css";
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <SiteFooter />
+        <FloatingWhatsApp />
       </body>
     </html>
   );
