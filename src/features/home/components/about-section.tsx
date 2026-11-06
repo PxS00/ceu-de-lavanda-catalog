@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/shared/components/reveal";
 
@@ -12,7 +13,11 @@ export function AboutSection() {
           <br />
           <em className="decorative-text">Céu de Lavanda</em>
         </h2>
-        <span className="about-artisan">Produção 100% artesanal</span>
+        <span className="about-artisan">
+          <Image src="/branding/lavender-ornament-gold.svg" alt="" width={20} height={36} />
+          <strong>100%</strong>
+          <span>produção<br />artesanal</span>
+        </span>
         <p>
           Na Céu de Lavanda, acreditamos que uma fragrância pode tornar os
           momentos do dia mais especiais e revelar um pouco de quem somos.

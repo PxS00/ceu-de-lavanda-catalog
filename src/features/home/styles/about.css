@@ -18,21 +18,28 @@
 .about-artisan {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 22px;
-  padding: 8px 14px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--surface-accent);
+  gap: 14px;
+  margin: 0 0 24px;
+  padding: 2px 0;
   color: var(--foreground);
-  font-size: var(--text-small);
 }
-.about-artisan::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--primary);
+.about-artisan img {
+  width: 18px;
+  height: auto;
+}
+.about-artisan strong {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  line-height: 1;
+  font-weight: 400;
+}
+.about-artisan > span {
+  border-left: 1px solid var(--primary);
+  padding-left: 14px;
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 }
 .about div > p {
   color: var(--foreground);
