@@ -33,7 +33,7 @@ export function OlfactoryStory() {
       // The plume advances with scrolling, rather than an automatic loop.
       const burst = (phase % 1) / 0.65;
       const pressure = burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
-      element.style.setProperty("--pump-press", `${pressure * 15}px`);
+      element.style.setProperty("--pump-press", `${pressure * 7}px`);
       element.style.setProperty("--mist-opacity", String(burst < 1 ? Math.sin(burst * Math.PI) * 0.85 : 0));
       element.style.setProperty("--mist-travel", `${Math.min(burst, 1) * 12}px`);
       element.style.setProperty("--mist-scale", String(0.45 + Math.min(burst, 1) * 0.8));

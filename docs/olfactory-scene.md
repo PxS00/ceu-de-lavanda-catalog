@@ -6,7 +6,7 @@ A cena abre a página de famílias olfativas. A rolagem conduz três etapas: sa�
 
 ## Prompt utilizado
 
-O botão original foi separado em uma camada SVG e desce até 15 pixels nas coordenadas da imagem durante cada pressão. A cena editada com a ferramenta integrada de imagens fornece um fundo contínuo sem o botão estático. O botão original retorna ao repouso após cada borrifada. O movimento respeita a preferência de movimento reduzido.
+O botão original foi separado em uma camada SVG e desce até 7 pixels nas coordenadas da imagem durante cada pressão. A cena editada com a ferramenta integrada de imagens fornece um fundo contínuo sem o botão estático. O botão original retorna ao repouso após cada borrifada. O movimento respeita a preferência de movimento reduzido.
 
 ### Fundo para o botão móvel
 

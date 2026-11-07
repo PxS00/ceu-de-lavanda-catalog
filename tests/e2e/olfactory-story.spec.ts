@@ -31,7 +31,7 @@ test("scroll reveals the three olfactory moments and reverses with the page", as
     expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(viewport.width);
     expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(viewport.height);
     await expect(story.locator(".olfactory-mist")).not.toHaveCSS("opacity", "0");
-    await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 15)");
+    await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 7)");
     expect(await story.locator(".olfactory-scene").evaluate(el => Math.abs(el.getBoundingClientRect().top - Number.parseFloat(getComputedStyle(el).top)))).toBeLessThan(2);
     await page.screenshot({ path: `artifacts/visual-review/spray-${testInfo.project.name}-${stage}.png` });
   }
