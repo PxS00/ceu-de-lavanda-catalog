@@ -2,11 +2,11 @@
 
 A imagem genérica da marca é uma ilustração comercial editada com a ferramenta integrada de geração de imagens. Não representa a pirâmide de um produto específico. Arquivo: `public/campaigns/olfactory-panorama.webp`.
 
-A cena abre a página de famílias olfativas. A rolagem conduz três etapas: saída, corpo e fundo, percorridas em aproximadamente 72% da altura da tela (antes: 200%). A névoa em leque reúne vapor difuso e pequenas gotas, avançando com a posição da página, sem reprodução automática. O link abaixo leva diretamente ao guia. Com movimento reduzido ou sem JavaScript, as três explicações são apresentadas juntas, sem cena fixa.
+A cena abre a página de famílias olfativas. A rolagem conduz três etapas: saída, corpo e fundo, percorridas em aproximadamente 72% da altura da tela (antes: 200%). Traços dourados representam a borrifada e acompanham a pressão do botão. Nas duas primeiras etapas somem ao soltar; na última, o botão e o traço permanecem no estado pressionado. Não há névoa branca nem reprodução automática. O link abaixo leva diretamente ao guia. Com movimento reduzido ou sem JavaScript, as três explicações são apresentadas juntas, sem cena fixa.
 
 ## Prompt utilizado
 
-O botão original foi separado em uma camada SVG e desce até 7 pixels nas coordenadas da imagem durante cada pressão. A cena editada com a ferramenta integrada de imagens fornece um fundo contínuo sem o botão estático. O botão original retorna ao repouso após cada borrifada. O movimento respeita a preferência de movimento reduzido.
+O botão original foi separado em uma camada SVG e desce até 7 pixels nas coordenadas da imagem durante cada pressão. A cena editada com a ferramenta integrada de imagens fornece um fundo contínuo sem o botão estático. O botão original retorna ao repouso após as duas primeiras borrifadas; na última permanece pressionado. A peça dourada fixa foi restaurada da imagem original para manter o encaixe sem fresta. O movimento respeita a preferência de movimento reduzido.
 
 ### Fundo para o botão móvel
 

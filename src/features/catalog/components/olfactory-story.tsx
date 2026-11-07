@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { OlfactoryMist } from "./olfactory-mist";
 import { OlfactoryPump } from "./olfactory-pump";
 
 const moments = [
@@ -30,13 +29,11 @@ export function OlfactoryStory() {
       const progress = Math.max(0, Math.min(1, (stickyTop - rect.top) / distance));
       const phase = Math.min(progress * 3, 2.999);
       element.dataset.stage = String(Math.floor(phase));
-      // The plume advances with scrolling, rather than an automatic loop.
+      // The last spray remains pressed; earlier sprays release as scrolling advances.
       const burst = (phase % 1) / 0.65;
-      const pressure = burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
+      const pressure = phase >= 2 ? Math.min(burst / .25, 1) : burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
       element.style.setProperty("--pump-press", `${pressure * 7}px`);
-      element.style.setProperty("--mist-opacity", String(burst < 1 ? Math.sin(burst * Math.PI) * 0.85 : 0));
-      element.style.setProperty("--mist-travel", `${Math.min(burst, 1) * 12}px`);
-      element.style.setProperty("--mist-scale", String(0.45 + Math.min(burst, 1) * 0.8));
+      element.style.setProperty("--spray-strength", String(pressure));
       element.style.setProperty("--story-progress", String(progress));
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
@@ -56,7 +53,6 @@ export function OlfactoryStory() {
       <div className="olfactory-story-art" aria-hidden="true">
         <Image src="/campaigns/olfactory-panorama.webp" alt="" fill sizes="100vw" />
         <OlfactoryPump />
-        <OlfactoryMist />
       </div>
       <header className="olfactory-heading">
         <p className="eyebrow">UM RITUAL DE DESCOBERTA</p>
@@ -67,7 +63,7 @@ export function OlfactoryStory() {
           <p className="eyebrow">0{index + 1} / 03</p><h3>{moment.signature}</h3><p>{moment.description}</p>
         </div>)}
       </div>
-      <svg className="olfactory-trails" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+      <svg className="olfactory-trails olfactory-spray" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
         <path pathLength="1" d="M 510 125 C 570 60 610 165 675 165" />
         <path pathLength="1" d="M 510 125 C 580 120 610 300 675 300" />
         <path pathLength="1" d="M 510 125 C 590 160 600 435 675 435" />
