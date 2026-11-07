@@ -2,6 +2,7 @@ import Link from "next/link";
 import { familyGuide } from "@/features/catalog/data/family-guide";
 import { normalize, products } from "@/features/catalog/lib/catalog";
 import { GuidePerfumes } from "@/features/catalog/components/guide-perfumes";
+import { OlfactoryStory } from "@/features/catalog/components/olfactory-story";
 
 export const metadata = { title: "Guia de famílias olfativas" };
 
@@ -21,13 +22,16 @@ export default function FamilyGuidePage() {
           </section>;
         }).filter(Boolean);
   return (
-    <main id="conteudo" className="wrap family-guide">
+    <main id="conteudo">
+      <OlfactoryStory />
+      <div id="guia-familias" className="wrap family-guide">
       <p className="eyebrow">UM CAMINHO PARA DESCOBRIR</p>
       <h1>Qual aroma combina com você?</h1>
       <p className="family-guide-intro">Conheça as famílias olfativas e explore sensações como frescor, doçura e aconchego. Um perfume pode reunir mais de uma dessas características.</p>
       <p>As sugestões de ocasião são pontos de partida. Seu gosto, o clima e a quantidade aplicada também fazem parte da escolha.</p>
       <div className="family-guide-grid">{cards}</div>
       <Link className="text-link" href="/catalogo/">Explorar todas as fragrâncias ↗</Link>
+      </div>
     </main>
   );
 }
