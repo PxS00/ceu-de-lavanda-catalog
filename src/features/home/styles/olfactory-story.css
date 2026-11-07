@@ -1,0 +1,15 @@
+.olfactory-story { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding-block: 64px; }
+.olfactory-story-art { position: relative; overflow: hidden; }
+.olfactory-story-art img { display: block; width: 100%; height: auto; }
+.olfactory-mist { position: absolute; left: 52%; top: 17%; width: 30%; height: 20%; pointer-events: none; opacity: 0; transform-origin: left center; background: radial-gradient(ellipse at left, color-mix(in srgb, var(--color-paper) 80%, transparent), transparent 70%); filter: blur(5px); }
+.olfactory-story-art[data-playing="true"] .olfactory-mist { animation: olfactory-spray 7s ease-out infinite; }
+.olfactory-story-copy h2 { margin: 12px 0 18px; }
+.olfactory-story-copy > p { max-width: 50ch; }
+.olfactory-story-copy dl { margin: 24px 0; }
+.olfactory-story-copy dl div { border-top: 1px solid var(--border); padding: 14px 0; }
+.olfactory-story-copy dt { font-family: var(--font-heading); font-size: 1.3rem; }
+.olfactory-story-copy dd { margin: 5px 0 0; color: var(--muted); font-size: var(--text-small); }
+.olfactory-motion-control { display: block; margin-top: 20px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--control-border); background: transparent; color: var(--foreground); cursor: pointer; }
+@keyframes olfactory-spray { 0%, 10%, 80%, 100% { opacity: 0; transform: scale(.2); } 22% { opacity: .8; transform: scale(1); } 45% { opacity: 0; transform: scale(1.4); } }
+@media (prefers-reduced-motion: reduce) { .olfactory-story-art[data-playing="true"] .olfactory-mist { animation: none; } .olfactory-motion-control { display: none; } }
+@media (max-width: 760px) { .olfactory-story { grid-template-columns: 1fr; gap: 24px; padding-block: 40px; } }
