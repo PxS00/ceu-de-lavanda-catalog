@@ -20,6 +20,12 @@ test("scroll reveals the three olfactory moments and reverses with the page", as
   await page.screenshot({ path: `artifacts/visual-review/spray-${testInfo.project.name}-rest.png` });
   await scrollTo(.3);
   await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 0)");
+  await scrollTo(.22);
+  const firstConnector = story.locator(page.viewportSize()!.width <= 1050 ? ".olfactory-pump-trails" : ".olfactory-trails").locator("path").first();
+  await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 0)");
+  await expect.poll(() => firstConnector.evaluate(el => Number(getComputedStyle(el).opacity))).toBeGreaterThan(.9);
+  await scrollTo(.32);
+  await expect(firstConnector).toHaveCSS("opacity", "0");
   for (const [progress, stage] of [[.1, "0"], [.45, "1"], [.78, "2"]] as const) {
     await scrollTo(progress);
     await expect(story).toHaveAttribute("data-stage", stage);
@@ -50,7 +56,7 @@ test("scroll reveals the three olfactory moments and reverses with the page", as
   await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 7)");
   await scrollTo(.99);
   await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 7)");
-  await expect(finalSpray).toHaveCSS("opacity", "0");
+  await expect(finalSpray).toHaveCSS("opacity", "1");
   await scrollTo(1.3);
   await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 7)");
   await expect(story.locator(".olfactory-story-art > img")).toHaveAttribute("src", /olfactory-pump-plate/);
