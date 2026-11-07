@@ -35,11 +35,11 @@ export function OlfactoryStory() {
       finalPressureReached ||= phase >= 2;
       const pressure = finalPressureReached ? 1 : burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
       element.style.setProperty("--pump-press", `${pressure * 7}px`);
-      // Keep the connector until the button has fully returned, then dissipate it.
-      const fade = phase >= 2 ? 0 : Math.max(0, Math.min(1, (burst - 1) / .45));
-      element.style.setProperty("--spray-opacity", String(1 - fade));
-      element.style.setProperty("--spray-dash", String(phase >= 2 ? 0 : 1 - Math.min(burst * 3, 1)));
-      element.style.setProperty("--spray-blur", `${fade * 3}px`);
+      // Each line follows its spray: it draws on pressure and fades on release.
+      const spray = phase >= 2 ? Math.min(burst / .35, 1) : burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
+      element.style.setProperty("--spray-opacity", String(spray));
+      element.style.setProperty("--spray-dash", String(1 - spray));
+      element.style.setProperty("--spray-blur", `${(1 - spray) * 2}px`);
       element.style.setProperty("--story-progress", String(progress));
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };

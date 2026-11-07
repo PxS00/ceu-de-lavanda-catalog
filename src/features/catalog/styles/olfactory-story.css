@@ -22,7 +22,7 @@
 .olfactory-pump-trails { display: none; }
 .olfactory-pump { display: block; position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 @media (prefers-reduced-motion: no-preference) {
-  .olfactory-story.is-scroll-ready { height: calc(162svh - 110px); }
+  .olfactory-story.is-scroll-ready { height: calc(142svh - 110px); }
   .is-scroll-ready .olfactory-scene { position: sticky; top: 110px; height: calc(90svh - 110px); min-height: 560px; }
   .is-scroll-ready .olfactory-scroll-hint { display: inline; }
   .is-scroll-ready .olfactory-pump { display: block; }
@@ -35,8 +35,6 @@
   .is-scroll-ready[data-stage="0"] .olfactory-spray path:nth-child(1),
   .is-scroll-ready[data-stage="1"] .olfactory-spray path:nth-child(2),
   .is-scroll-ready[data-stage="2"] .olfactory-spray path:nth-child(3) { opacity: var(--spray-opacity, 0); }
-  .is-scroll-ready[data-stage="1"] .olfactory-spray path:nth-child(1),
-  .is-scroll-ready[data-stage="2"] .olfactory-spray path:nth-child(-n+2) { opacity: 1; stroke-dashoffset: 0; filter: none; }
   .is-scroll-ready[data-stage="0"] .olfactory-chapter:nth-child(1),
   .is-scroll-ready[data-stage="1"] .olfactory-chapter:nth-child(2),
   .is-scroll-ready[data-stage="2"] .olfactory-chapter:nth-child(3) { display: block; }
@@ -58,7 +56,7 @@
   .olfactory-pump-trails { display: block; }
   .olfactory-scene-footer { position: static; order: 4; flex-wrap: wrap; gap: 8px; padding: 10px 12px; }
   @media (prefers-reduced-motion: no-preference) {
-    .olfactory-story.is-scroll-ready { height: 172svh; }
+    .olfactory-story.is-scroll-ready { height: 152svh; }
     .is-scroll-ready .olfactory-scene { top: 0; height: 100svh; padding-top: 100px; gap: 14px; min-height: 780px; }
     .is-scroll-ready .olfactory-story-art { height: clamp(170px, 23svh, 240px); }
     .is-scroll-ready .olfactory-notes { position: relative; display: block; min-height: 86px; }

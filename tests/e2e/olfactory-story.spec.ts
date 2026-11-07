@@ -23,7 +23,7 @@ test("scroll reveals the three olfactory moments and reverses with the page", as
   await scrollTo(.22);
   const firstConnector = story.locator(page.viewportSize()!.width <= 1050 ? ".olfactory-pump-trails" : ".olfactory-trails").locator("path").first();
   await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 0)");
-  await expect.poll(() => firstConnector.evaluate(el => Number(getComputedStyle(el).opacity))).toBeGreaterThan(.9);
+  await expect.poll(() => firstConnector.evaluate(el => Number(getComputedStyle(el).opacity))).toBeLessThan(.1);
   await scrollTo(.32);
   await expect(firstConnector).toHaveCSS("opacity", "0");
   for (const [progress, stage] of [[.1, "0"], [.45, "1"], [.78, "2"]] as const) {
@@ -42,7 +42,7 @@ test("scroll reveals the three olfactory moments and reverses with the page", as
     const spray = story.locator(viewport.width <= 1050 ? ".olfactory-pump-trails" : ".olfactory-trails");
     await expect(spray.locator("path").nth(Number(stage))).toHaveCSS("opacity", "1");
     for (let index = 0; index < 3; index++) {
-      await expect(spray.locator("path").nth(index)).toHaveCSS("opacity", index <= Number(stage) ? "1" : "0");
+      await expect(spray.locator("path").nth(index)).toHaveCSS("opacity", index === Number(stage) ? "1" : "0");
     }
     await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 7)");
     expect(await story.locator(".olfactory-scene").evaluate(el => Math.abs(el.getBoundingClientRect().top - Number.parseFloat(getComputedStyle(el).top)))).toBeLessThan(2);
