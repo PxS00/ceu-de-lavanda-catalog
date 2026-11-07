@@ -17,6 +17,8 @@ test("scroll reveals the three olfactory moments and reverses with the page", as
   };
   await scrollTo(0);
   await expect.poll(() => story.locator(".olfactory-pump-button").evaluate(el => new DOMMatrix(getComputedStyle(el).transform).m42)).toBeLessThan(.25);
+  const initialSpray = story.locator(page.viewportSize()!.width <= 1050 ? ".olfactory-pump-trails" : ".olfactory-trails").locator("path").first();
+  await expect(initialSpray).toHaveCSS("opacity", "0");
   await page.screenshot({ path: `artifacts/visual-review/spray-${testInfo.project.name}-rest.png` });
   await scrollTo(.3);
   await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 0)");
@@ -56,7 +58,7 @@ test("scroll reveals the three olfactory moments and reverses with the page", as
   await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 7)");
   await scrollTo(.99);
   await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 7)");
-  await expect(finalSpray).toHaveCSS("opacity", "1");
+  await expect(finalSpray).toHaveCSS("opacity", "0");
   await scrollTo(1.3);
   await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 7)");
   await expect(story.locator(".olfactory-story-art > img")).toHaveAttribute("src", /olfactory-pump-plate/);

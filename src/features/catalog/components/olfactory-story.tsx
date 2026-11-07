@@ -31,12 +31,12 @@ export function OlfactoryStory() {
       const phase = Math.min(progress * 3, 2.999);
       element.dataset.stage = String(Math.floor(phase));
       // Once the last spray is reached, keep the pump pressed for this visit.
-      const burst = (phase % 1) / 0.65;
+      const burst = Math.max(0, (phase % 1) - .05) / .6;
       finalPressureReached ||= phase >= 2;
       const pressure = finalPressureReached ? 1 : burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
       element.style.setProperty("--pump-press", `${pressure * 7}px`);
       // Each line follows its spray: it draws on pressure and fades on release.
-      const spray = phase >= 2 ? Math.min(burst / .35, 1) : burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
+      const spray = burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
       element.style.setProperty("--spray-opacity", String(spray));
       element.style.setProperty("--spray-dash", String(1 - spray));
       element.style.setProperty("--spray-blur", `${(1 - spray) * 2}px`);
