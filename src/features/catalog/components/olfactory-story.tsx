@@ -19,10 +19,42 @@ export function OlfactoryStory() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let frame = 0;
     let finalPressureReached = false;
+    let activeStage = -1;
+    let animations: Animation[] = [];
+    const stopAnimations = () => { animations.forEach(animation => animation.cancel()); animations = []; };
+    const playSpray = (stage: number) => {
+      stopAnimations();
+      const pump = element.querySelector<SVGGElement>(".olfactory-pump-button");
+      if (!pump) return;
+      const hold = stage === 2 || finalPressureReached;
+      const start = finalPressureReached ? 7 : 0;
+      animations.push(pump.animate([
+        { transform: `translateY(${start}px)`, offset: 0 },
+        { transform: "translateY(7px)", offset: .3 },
+        { transform: "translateY(7px)", offset: .65 },
+        { transform: `translateY(${hold ? 7 : 0}px)`, offset: 1 },
+      ], { duration: 1100, easing: "ease-in-out" }));
+      element.querySelectorAll<SVGPathElement>(`.olfactory-spray path:nth-child(${stage + 1})`).forEach(path => {
+        animations.push(path.animate([
+          { opacity: 0, strokeDashoffset: "1", filter: "blur(0px)", offset: 0 },
+          { opacity: 1, strokeDashoffset: "0", filter: "blur(0px)", offset: .3 },
+          { opacity: 1, strokeDashoffset: "0", filter: "blur(0px)", offset: .65 },
+          { opacity: 0, strokeDashoffset: "0", filter: "blur(2px)", offset: 1 },
+        ], { duration: 1100, easing: "ease-in-out" }));
+      });
+      if (stage === 2) finalPressureReached = true;
+      element.style.setProperty("--pump-press", finalPressureReached ? "7px" : "0px");
+    };
     const update = () => {
       frame = 0;
       element.classList.toggle("is-scroll-ready", !reducedMotion.matches);
-      if (reducedMotion.matches) return;
+      if (reducedMotion.matches) {
+        stopAnimations();
+        activeStage = -1;
+        finalPressureReached = false;
+        element.style.removeProperty("--pump-press");
+        return;
+      }
       const rect = element.getBoundingClientRect();
       const scene = element.firstElementChild as HTMLElement;
       const distance = Math.max(1, rect.height - scene.offsetHeight);
@@ -30,16 +62,16 @@ export function OlfactoryStory() {
       const progress = Math.max(0, Math.min(1, (stickyTop - rect.top) / distance));
       const phase = Math.min(progress * 3, 2.999);
       element.dataset.stage = String(Math.floor(phase));
-      // Once the last spray is reached, keep the pump pressed for this visit.
-      const burst = Math.max(0, (phase % 1) - .05) / .6;
-      finalPressureReached ||= phase >= 2;
-      const pressure = finalPressureReached ? 1 : burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
-      element.style.setProperty("--pump-press", `${pressure * 7}px`);
-      // Each line follows its spray: it draws on pressure and fades on release.
-      const spray = burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
-      element.style.setProperty("--spray-opacity", String(spray));
-      element.style.setProperty("--spray-dash", String(1 - spray));
-      element.style.setProperty("--spray-blur", `${(1 - spray) * 2}px`);
+      const stage = Math.floor(phase);
+      if (progress <= .005) {
+        if (activeStage !== -1) stopAnimations();
+        activeStage = -1;
+        finalPressureReached = false;
+        element.style.setProperty("--pump-press", "0px");
+      } else if (progress > .015 && stage !== activeStage && rect.bottom > 0 && rect.top < innerHeight) {
+        activeStage = stage;
+        playSpray(stage);
+      }
       element.style.setProperty("--story-progress", String(progress));
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
@@ -49,6 +81,7 @@ export function OlfactoryStory() {
     reducedMotion.addEventListener("change", schedule);
     return () => {
       cancelAnimationFrame(frame);
+      stopAnimations();
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
       reducedMotion.removeEventListener("change", schedule);
