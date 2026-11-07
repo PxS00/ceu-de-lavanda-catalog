@@ -2,7 +2,7 @@
 
 A imagem genérica da marca é uma ilustração comercial editada com a ferramenta integrada de geração de imagens. Não representa a pirâmide de um produto específico. Arquivo: `public/campaigns/olfactory-panorama.webp`.
 
-A cena abre a página de famílias olfativas. A rolagem conduz três etapas: saída, corpo e fundo, percorridas em aproximadamente 72% da altura da tela (antes: 200%). Traços dourados representam a borrifada e acompanham a pressão do botão. Nas duas primeiras etapas somem ao soltar; na última, o botão e o traço permanecem no estado pressionado. Não há névoa branca nem reprodução automática. O link abaixo leva diretamente ao guia. Com movimento reduzido ou sem JavaScript, as três explicações são apresentadas juntas, sem cena fixa.
+A cena abre a página de famílias olfativas. A rolagem conduz três etapas: saída, corpo e fundo, percorridas em aproximadamente 72% da altura da tela (antes: 200%). Traços dourados representam a borrifada e acompanham a pressão do botão. As linhas saem do borrifador e permanecem visíveis conforme as etapas são reveladas; na etapa 3, as três linhas e o botão pressionado permanecem estáveis, sem reiniciar. Não há névoa branca nem reprodução automática. O link abaixo leva diretamente ao guia. Com movimento reduzido ou sem JavaScript, as três explicações são apresentadas juntas, sem cena fixa.
 
 ## Prompt utilizado
 

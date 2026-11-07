@@ -31,9 +31,8 @@ export function OlfactoryStory() {
       element.dataset.stage = String(Math.floor(phase));
       // The last spray remains pressed; earlier sprays release as scrolling advances.
       const burst = (phase % 1) / 0.65;
-      const pressure = phase >= 2 ? Math.min(burst / .25, 1) : burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
+      const pressure = phase >= 2 ? 1 : burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
       element.style.setProperty("--pump-press", `${pressure * 7}px`);
-      element.style.setProperty("--spray-strength", String(pressure));
       element.style.setProperty("--story-progress", String(progress));
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };

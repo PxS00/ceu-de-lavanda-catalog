@@ -34,7 +34,7 @@ test("scroll reveals the three olfactory moments and reverses with the page", as
     const spray = story.locator(viewport.width <= 1050 ? ".olfactory-pump-trails" : ".olfactory-trails");
     await expect(spray.locator("path").nth(Number(stage))).toHaveCSS("opacity", "1");
     for (let index = 0; index < 3; index++) {
-      if (index !== Number(stage)) await expect(spray.locator("path").nth(index)).toHaveCSS("opacity", "0");
+      await expect(spray.locator("path").nth(index)).toHaveCSS("opacity", index <= Number(stage) ? "1" : "0");
     }
     await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 7)");
     expect(await story.locator(".olfactory-scene").evaluate(el => Math.abs(el.getBoundingClientRect().top - Number.parseFloat(getComputedStyle(el).top)))).toBeLessThan(2);
@@ -43,12 +43,19 @@ test("scroll reveals the three olfactory moments and reverses with the page", as
   const finalSpray = story.locator(page.viewportSize()!.width <= 1050 ? ".olfactory-pump-trails" : ".olfactory-trails").locator("path").nth(2);
   await page.waitForTimeout(250);
   await expect(finalSpray).toHaveCSS("opacity", "1");
+  await scrollTo(.67);
+  await expect(story).toHaveAttribute("data-stage", "2");
+  await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 7)");
   await scrollTo(.99);
   await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 7)");
   await expect(finalSpray).toHaveCSS("opacity", "1");
   await scrollTo(.3);
   await expect(story.locator(".olfactory-pump-button")).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 0)");
-  for (const path of await story.locator(".olfactory-spray path").all()) await expect(path).toHaveCSS("opacity", "0");
+  for (const spray of await story.locator(".olfactory-spray").all()) {
+    await expect(spray.locator("path").nth(0)).toHaveCSS("opacity", "1");
+    await expect(spray.locator("path").nth(1)).toHaveCSS("opacity", "0");
+    await expect(spray.locator("path").nth(2)).toHaveCSS("opacity", "0");
+  }
   await scrollTo(.1);
   await expect(story).toHaveAttribute("data-stage", "0");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
