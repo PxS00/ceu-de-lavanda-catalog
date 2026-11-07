@@ -35,6 +35,8 @@
   .is-scroll-ready[data-stage="0"] .olfactory-spray path:nth-child(1),
   .is-scroll-ready[data-stage="1"] .olfactory-spray path:nth-child(2),
   .is-scroll-ready[data-stage="2"] .olfactory-spray path:nth-child(3) { opacity: var(--spray-opacity, 0); }
+  .is-scroll-ready[data-stage="1"] .olfactory-spray path:nth-child(1),
+  .is-scroll-ready[data-stage="2"] .olfactory-spray path:nth-child(-n+2) { opacity: 1; stroke-dashoffset: 0; filter: none; }
   .is-scroll-ready[data-stage="0"] .olfactory-chapter:nth-child(1),
   .is-scroll-ready[data-stage="1"] .olfactory-chapter:nth-child(2),
   .is-scroll-ready[data-stage="2"] .olfactory-chapter:nth-child(3) { display: block; }
