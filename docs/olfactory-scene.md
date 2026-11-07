@@ -1,8 +1,8 @@
-# Cena olfativa da home
+# Cena de abertura das famílias olfativas
 
 A imagem genérica da marca é uma ilustração comercial editada com a ferramenta integrada de geração de imagens. Não representa a pirâmide de um produto específico. Arquivo: `public/campaigns/olfactory-panorama.webp`.
 
-A rolagem conduz três etapas: saída, corpo e fundo. A névoa avança com a posição da página, sem reprodução automática. Com movimento reduzido ou sem JavaScript, as três explicações são apresentadas juntas, sem cena fixa.
+A cena abre a página de famílias olfativas. A rolagem conduz três etapas: saída, corpo e fundo, percorridas em aproximadamente 72% da altura da tela (antes: 200%). A névoa em leque reúne vapor difuso e pequenas gotas, avançando com a posição da página, sem reprodução automática. O link abaixo leva diretamente ao guia. Com movimento reduzido ou sem JavaScript, as três explicações são apresentadas juntas, sem cena fixa.
 
 ## Prompt utilizado
 

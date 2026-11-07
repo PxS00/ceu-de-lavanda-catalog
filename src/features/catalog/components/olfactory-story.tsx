@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { OlfactoryMist } from "./olfactory-mist";
 
 const moments = [
   { title: "Notas de saída", detail: "A primeira impressão que percebemos ao aplicar.", signature: "O primeiro encontro", description: "A abertura apresenta a fragrância e desperta os sentidos." },
@@ -30,8 +31,8 @@ export function OlfactoryStory() {
       // The plume advances with scrolling, rather than an automatic loop.
       const burst = (phase % 1) / 0.65;
       element.style.setProperty("--mist-opacity", String(burst < 1 ? Math.sin(burst * Math.PI) * 0.85 : 0));
-      element.style.setProperty("--mist-travel", `${Math.min(burst, 1) * 90}px`);
-      element.style.setProperty("--mist-scale", String(0.3 + Math.min(burst, 1) * 1.5));
+      element.style.setProperty("--mist-travel", `${Math.min(burst, 1) * 12}px`);
+      element.style.setProperty("--mist-scale", String(0.45 + Math.min(burst, 1) * 0.8));
       element.style.setProperty("--story-progress", String(progress));
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
@@ -50,7 +51,7 @@ export function OlfactoryStory() {
     <div className="olfactory-scene">
       <div className="olfactory-story-art" aria-hidden="true">
         <Image src="/campaigns/olfactory-panorama.webp" alt="" fill sizes="100vw" />
-        <span className="olfactory-mist" />
+        <OlfactoryMist />
       </div>
       <header className="olfactory-heading">
         <p className="eyebrow">UM RITUAL DE DESCOBERTA</p>
@@ -73,7 +74,7 @@ export function OlfactoryStory() {
       </dl>
       <div className="olfactory-scene-footer">
         <span className="olfactory-scroll-hint">Role para descobrir <span aria-hidden="true">↓</span></span>
-        <Link href="/familias-olfativas/" className="text-link">Conheça as famílias olfativas ↗</Link>
+        <Link href="#guia-familias" className="text-link">Explore as famílias olfativas ↓</Link>
       </div>
       <span className="olfactory-progress" aria-hidden="true" />
     </div>
