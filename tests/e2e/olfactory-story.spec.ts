@@ -11,7 +11,8 @@ test("scroll reveals the three olfactory moments and reverses with the page", as
   const scrollTo = async (progress: number) => {
     await story.evaluate((el, p) => {
       const scene = el.querySelector(".olfactory-scene") as HTMLElement;
-      window.scrollTo({ top: el.getBoundingClientRect().top + scrollY + (el.clientHeight - scene.offsetHeight) * p, behavior: "instant" });
+      const stickyTop = Number.parseFloat(getComputedStyle(scene).top) || 0;
+      window.scrollTo({ top: el.getBoundingClientRect().top + scrollY + (el.clientHeight - scene.offsetHeight) * p - stickyTop, behavior: "instant" });
     }, progress);
   };
   for (const [progress, stage] of [[.1, "0"], [.45, "1"], [.8, "2"]] as const) {
@@ -28,7 +29,7 @@ test("scroll reveals the three olfactory moments and reverses with the page", as
     expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(viewport.width);
     expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(viewport.height);
     await expect(story.locator(".olfactory-mist")).not.toHaveCSS("opacity", "0");
-    expect(await story.locator(".olfactory-scene").evaluate(el => Math.abs(el.getBoundingClientRect().top))).toBeLessThan(2);
+    expect(await story.locator(".olfactory-scene").evaluate(el => Math.abs(el.getBoundingClientRect().top - Number.parseFloat(getComputedStyle(el).top)))).toBeLessThan(2);
     await page.screenshot({ path: `artifacts/visual-review/spray-${testInfo.project.name}-${stage}.png` });
   }
   const opacity = await story.locator(".olfactory-mist").evaluate(el => getComputedStyle(el).opacity);

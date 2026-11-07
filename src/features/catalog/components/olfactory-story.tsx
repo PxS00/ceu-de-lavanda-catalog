@@ -25,7 +25,8 @@ export function OlfactoryStory() {
       const rect = element.getBoundingClientRect();
       const scene = element.firstElementChild as HTMLElement;
       const distance = Math.max(1, rect.height - scene.offsetHeight);
-      const progress = Math.max(0, Math.min(1, -rect.top / distance));
+      const stickyTop = Number.parseFloat(getComputedStyle(scene).top) || 0;
+      const progress = Math.max(0, Math.min(1, (stickyTop - rect.top) / distance));
       const phase = Math.min(progress * 3, 2.999);
       element.dataset.stage = String(Math.floor(phase));
       // The plume advances with scrolling, rather than an automatic loop.

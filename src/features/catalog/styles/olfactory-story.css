@@ -1,5 +1,5 @@
 .olfactory-story { position: relative; background: var(--surface-accent); }
-.olfactory-scene { position: relative; min-height: 700px; overflow: clip; isolation: isolate; }
+.olfactory-scene { position: relative; min-height: 620px; overflow: clip; isolation: isolate; }
 .olfactory-story-art { position: absolute; inset: 0; z-index: -2; }
 .olfactory-story-art img { object-fit: cover; object-position: center; }
 .olfactory-heading { position: absolute; top: 18%; left: 5%; max-width: 29%; }
@@ -22,8 +22,8 @@
 .olfactory-mist { position: absolute; left: 51%; top: 12%; width: 27%; height: 20%; overflow: visible; pointer-events: none; opacity: 0; transform-origin: left center; }
 .olfactory-mist-cloud { filter: blur(4px); }
 @media (prefers-reduced-motion: no-preference) {
-  .olfactory-story.is-scroll-ready { height: 172svh; }
-  .is-scroll-ready .olfactory-scene { position: sticky; top: 0; height: 100svh; min-height: 640px; }
+  .olfactory-story.is-scroll-ready { height: calc(172svh - 110px); }
+  .is-scroll-ready .olfactory-scene { position: sticky; top: 110px; height: calc(100svh - 110px); min-height: 560px; }
   .is-scroll-ready .olfactory-scroll-hint { display: inline; }
   .is-scroll-ready .olfactory-note { opacity: 0; transform: translateY(20px); transition: opacity .5s ease, transform .5s ease; }
   .is-scroll-ready .olfactory-trails path { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .7s ease; }
@@ -44,7 +44,7 @@
   .olfactory-heading { position: static; max-width: none; order: 0; }
   .olfactory-heading h2 { font-size: 2rem; margin: 8px 0 0; }
   .olfactory-heading h2 br { display: none; }
-  .olfactory-story-art { position: relative; inset: auto; height: 260px; flex-shrink: 0; order: 1; margin-inline: -20px; }
+  .olfactory-story-art { position: relative; inset: auto; height: 230px; flex-shrink: 0; order: 1; margin-inline: -20px; }
   .olfactory-narrative { position: static; width: auto; order: 2; min-height: 104px; }
   .olfactory-chapter h3 { font-size: 1.8rem; margin: 4px 0; }
   .olfactory-chapter p { margin: 0; }
@@ -55,8 +55,9 @@
   .olfactory-scene-footer { position: static; order: 4; flex-wrap: wrap; gap: 8px; }
   .olfactory-mist { top: 8%; width: 34%; height: 24%; }
   @media (prefers-reduced-motion: no-preference) {
-    .is-scroll-ready .olfactory-scene { padding-top: 100px; gap: 14px; min-height: 780px; }
-    .is-scroll-ready .olfactory-story-art { height: clamp(200px, 29svh, 300px); }
+    .olfactory-story.is-scroll-ready { height: 172svh; }
+    .is-scroll-ready .olfactory-scene { top: 0; height: 100svh; padding-top: 100px; gap: 14px; min-height: 780px; }
+    .is-scroll-ready .olfactory-story-art { height: clamp(180px, 26svh, 270px); }
     .is-scroll-ready .olfactory-notes { position: relative; display: block; min-height: 86px; }
     .is-scroll-ready .olfactory-note { position: absolute; inset: 0; }
     .is-scroll-ready[data-stage] .olfactory-note { opacity: 0; visibility: hidden; }
@@ -68,5 +69,5 @@
 .olfactory-story:not(.is-scroll-ready) .olfactory-narrative { display: none; }
 @media (min-width: 761px) and (max-width: 1050px) and (prefers-reduced-motion: no-preference) {
   .is-scroll-ready .olfactory-scene { padding-top: 128px; }
-  .is-scroll-ready .olfactory-story-art { height: min(38svh, 420px); }
+  .is-scroll-ready .olfactory-story-art { height: min(34svh, 380px); }
 }
