@@ -8,7 +8,6 @@ export function OlfactoryPump() {
         <path d="M1047 148 Q1075 135 1115 131 L1116 187 L1047 187Z" />
       </clipPath>
     </defs>
-    <image href="/campaigns/olfactory-pump-plate.webp" width="2172" height="724" />
     <image href="/campaigns/olfactory-panorama.webp" width="2172" height="724" clipPath="url(#olfactory-pump-collar)" />
     <g className="olfactory-pump-button">
       <image href="/campaigns/olfactory-panorama.webp" width="2172" height="724" clipPath="url(#olfactory-pump-button)" />

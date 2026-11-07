@@ -18,6 +18,7 @@ export function OlfactoryStory() {
     if (!element) return;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     let frame = 0;
+    let finalPressureReached = false;
     const update = () => {
       frame = 0;
       element.classList.toggle("is-scroll-ready", !reducedMotion.matches);
@@ -29,10 +30,15 @@ export function OlfactoryStory() {
       const progress = Math.max(0, Math.min(1, (stickyTop - rect.top) / distance));
       const phase = Math.min(progress * 3, 2.999);
       element.dataset.stage = String(Math.floor(phase));
-      // The last spray remains pressed; earlier sprays release as scrolling advances.
+      // Once the last spray is reached, keep the pump pressed for this visit.
       const burst = (phase % 1) / 0.65;
-      const pressure = phase >= 2 ? 1 : burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
+      finalPressureReached ||= phase >= 2;
+      const pressure = finalPressureReached ? 1 : burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
       element.style.setProperty("--pump-press", `${pressure * 7}px`);
+      const fade = Math.max(0, Math.min(1, (burst - .6) / .4));
+      element.style.setProperty("--spray-opacity", String(Math.min(burst / .3, 1) * (1 - fade)));
+      element.style.setProperty("--spray-dash", String(1 - Math.min(burst * 2, 1)));
+      element.style.setProperty("--spray-blur", `${fade * 3}px`);
       element.style.setProperty("--story-progress", String(progress));
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
@@ -50,7 +56,7 @@ export function OlfactoryStory() {
   return <section id="notas-olfativas" className="olfactory-story" ref={section} aria-labelledby="olfactory-story-title" data-stage="0">
     <div className="olfactory-scene">
       <div className="olfactory-story-art" aria-hidden="true">
-        <Image src="/campaigns/olfactory-panorama.webp" alt="" fill sizes="100vw" />
+        <Image src="/campaigns/olfactory-pump-plate.webp" alt="" fill sizes="100vw" />
         <OlfactoryPump />
       </div>
       <header className="olfactory-heading">
