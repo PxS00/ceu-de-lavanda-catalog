@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { OlfactoryMist } from "./olfactory-mist";
+import { OlfactoryPump } from "./olfactory-pump";
 
 const moments = [
   { title: "Notas de saída", detail: "A primeira impressão que percebemos ao aplicar.", signature: "O primeiro encontro", description: "A abertura apresenta a fragrância e desperta os sentidos." },
@@ -31,6 +32,8 @@ export function OlfactoryStory() {
       element.dataset.stage = String(Math.floor(phase));
       // The plume advances with scrolling, rather than an automatic loop.
       const burst = (phase % 1) / 0.65;
+      const pressure = burst < .25 ? burst / .25 : burst < .65 ? 1 : Math.max(0, (1 - burst) / .35);
+      element.style.setProperty("--pump-press", `${pressure * 15}px`);
       element.style.setProperty("--mist-opacity", String(burst < 1 ? Math.sin(burst * Math.PI) * 0.85 : 0));
       element.style.setProperty("--mist-travel", `${Math.min(burst, 1) * 12}px`);
       element.style.setProperty("--mist-scale", String(0.45 + Math.min(burst, 1) * 0.8));
@@ -52,6 +55,7 @@ export function OlfactoryStory() {
     <div className="olfactory-scene">
       <div className="olfactory-story-art" aria-hidden="true">
         <Image src="/campaigns/olfactory-panorama.webp" alt="" fill sizes="100vw" />
+        <OlfactoryPump />
         <OlfactoryMist />
       </div>
       <header className="olfactory-heading">
@@ -64,9 +68,9 @@ export function OlfactoryStory() {
         </div>)}
       </div>
       <svg className="olfactory-trails" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
-        <path pathLength="1" d="M 510 125 C 610 60 630 165 735 165" />
-        <path pathLength="1" d="M 510 125 C 620 120 625 300 735 300" />
-        <path pathLength="1" d="M 510 125 C 625 160 610 435 735 435" />
+        <path pathLength="1" d="M 510 125 C 570 60 610 165 675 165" />
+        <path pathLength="1" d="M 510 125 C 580 120 610 300 675 300" />
+        <path pathLength="1" d="M 510 125 C 590 160 600 435 675 435" />
       </svg>
       <dl className="olfactory-notes">
         {moments.map((moment, index) => <div className="olfactory-note" key={moment.title}>
