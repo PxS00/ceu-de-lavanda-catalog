@@ -69,26 +69,30 @@
   }
 }
 @media (max-width: 760px) {
-  .olfactory-scene { gap: 16px; }
-  .olfactory-heading h2 { max-width: 15ch; }
-  .olfactory-story-art { height: clamp(230px, 38svh, 350px); }
-  .olfactory-story-art img, .olfactory-pump { transform: scale(1.15); }
+  .olfactory-scene { display: grid; grid-template-columns: minmax(0, .44fr) minmax(0, .56fr); align-items: center; gap: 20px 16px; padding-inline: 16px; }
+  .olfactory-heading { grid-column: 1 / -1; }
+  .olfactory-heading h2 { max-width: 17ch; }
+  .olfactory-story-art { grid-column: 1; grid-row: 2; height: auto; aspect-ratio: 3 / 5; width: 100%; margin: 0; }
+  .olfactory-story-art img, .olfactory-pump { transform: none; }
   .olfactory-narrative { display: none; }
-  .olfactory-mobile-signature { display: block; font-size: 1.5em; line-height: 1.1; margin-bottom: 8px; }
-  .olfactory-note dd { max-width: 35ch; font-size: 1rem; }
-  .olfactory-scene-footer { background: transparent; border: 0; padding: 0; }
+  .olfactory-notes { grid-column: 2; grid-row: 2; min-width: 0; }
+  .olfactory-mobile-signature { display: block; font-size: 1.35rem; line-height: 1.15; margin-bottom: 10px; }
+  .olfactory-note { border-top: 0; padding-top: 0; }
+  .olfactory-note dt { letter-spacing: .06em; }
+  .olfactory-note dt span { display: block; margin: 0 0 6px; }
+  .olfactory-note dd { font-size: .875rem; line-height: 1.4; margin-top: 12px; }
+  .olfactory-scene-footer { grid-column: 1 / -1; background: transparent; border: 0; padding: 0; }
   @media (prefers-reduced-motion: no-preference) {
-    .is-scroll-ready .olfactory-scene { min-height: 0; padding-top: 100px; gap: clamp(8px, 1.6svh, 16px); }
+    .olfactory-story.is-scroll-ready { height: calc(min(100svh, 660px) + 45svh); }
+    .is-scroll-ready .olfactory-scene { height: min(100svh, 660px); min-height: 0; grid-template-rows: auto minmax(220px, 1fr) auto; padding-top: 100px; gap: 16px; }
     .is-scroll-ready .olfactory-heading h2 { font-size: clamp(1.5rem, 4svh, 2rem); }
-    .is-scroll-ready .olfactory-story-art { height: clamp(180px, 38svh, 350px); }
-    .is-scroll-ready .olfactory-notes { min-height: 130px; }
+    .is-scroll-ready .olfactory-story-art { height: auto; }
+    .is-scroll-ready .olfactory-notes { min-height: 220px; }
   }
 }
 @media (max-width: 760px) and (max-height: 700px) and (prefers-reduced-motion: no-preference) {
-  .is-scroll-ready .olfactory-scene { padding-bottom: 12px; }
+  .is-scroll-ready .olfactory-scene { padding-bottom: 12px; gap: 8px 16px; }
   .is-scroll-ready .olfactory-scroll-hint { display: none; }
-  .is-scroll-ready .olfactory-story-art { height: clamp(160px, 32svh, 220px); }
-  .is-scroll-ready .olfactory-notes { min-height: 120px; }
 }
 .olfactory-story:not(.is-scroll-ready) .olfactory-narrative { display: none; }
 @media (min-width: 761px) and (max-width: 1050px) and (prefers-reduced-motion: no-preference) {

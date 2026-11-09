@@ -129,11 +129,14 @@ test("mobile spray stays near the nozzle without overlapping content", async ({ 
       const heading = rect(".olfactory-heading");
       const indicator = rect(".olfactory-spray-indicator");
       const art = rect(".olfactory-story-art");
-      return { noteBottom: note.bottom, footerTop: footer.top, footerBottom: footer.bottom, headingTop: heading.top, indicatorWidth: indicator.width, indicatorRight: indicator.right, indicatorBottom: indicator.bottom, artRight: art.right, artBottom: art.bottom, scrollWidth: document.documentElement.scrollWidth };
+      return { noteLeft: note.left, noteTop: note.top, noteBottom: note.bottom, footerTop: footer.top, footerBottom: footer.bottom, headingTop: heading.top, indicatorWidth: indicator.width, indicatorRight: indicator.right, indicatorBottom: indicator.bottom, artRight: art.right, artTop: art.top, artBottom: art.bottom, scrollWidth: document.documentElement.scrollWidth };
     });
     expect(layout.headingTop).toBeGreaterThanOrEqual(90);
     expect(layout.noteBottom).toBeLessThanOrEqual(layout.footerTop);
     expect(layout.footerBottom).toBeLessThanOrEqual(size.height);
+    expect(layout.noteLeft).toBeGreaterThan(layout.artRight);
+    expect(layout.noteTop).toBeLessThan(layout.artBottom);
+    expect(layout.noteBottom).toBeGreaterThan(layout.artTop);
     expect(layout.indicatorWidth).toBeLessThan(50);
     expect(layout.indicatorRight).toBeLessThan(layout.artRight);
     expect(layout.indicatorBottom).toBeLessThan(layout.artBottom);
