@@ -55,9 +55,10 @@ test("the spray fades with the returning pump before the next stage", async ({ p
     await expect(story).toHaveAttribute("data-stage", String(index));
     const line = spray.locator("path").nth(index);
     await expect.poll(() => line.evaluate(el => el.getAnimations().length)).toBeGreaterThan(0);
+    await expect.poll(() => line.evaluate(el => el.getAnimations()[0]?.effect?.getTiming().duration)).toBe(1800);
     const state = await story.evaluate((el, stage) => {
       const targets = [el.querySelector(".olfactory-pump-button")!, ...el.querySelectorAll(`.olfactory-spray path:nth-child(${stage + 1})`)];
-      for (const target of targets) for (const animation of target.getAnimations()) { animation.pause(); animation.currentTime = 850; }
+      for (const target of targets) for (const animation of target.getAnimations()) { animation.pause(); animation.currentTime = 1550; }
       const pump = el.querySelector(".olfactory-pump-button")!;
       const line = el.querySelector(`.olfactory-spray path:nth-child(${stage + 1})`)!;
       return { pressure: new DOMMatrix(getComputedStyle(pump).transform).m42, opacity: Number(getComputedStyle(line).opacity) };

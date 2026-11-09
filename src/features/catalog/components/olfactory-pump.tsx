@@ -13,9 +13,9 @@ export function OlfactoryPump() {
       <image href="/campaigns/olfactory-panorama.webp" width="2172" height="724" clipPath="url(#olfactory-pump-button)" />
     </g>
     <g className="olfactory-pump-trails olfactory-spray" fill="none" stroke="var(--primary)" strokeWidth="1.5">
-      <path pathLength="1" d="M1108 157 Q1230 95 1450 150" />
-      <path pathLength="1" d="M1108 157 Q1270 150 1450 235" />
-      <path pathLength="1" d="M1108 157 Q1270 175 1450 320" />
+      <path pathLength="1" d="M1117 164 Q1250 164 1450 150" />
+      <path pathLength="1" d="M1117 164 Q1270 164 1450 235" />
+      <path pathLength="1" d="M1117 164 Q1270 180 1450 320" />
     </g>
   </svg>;
 }

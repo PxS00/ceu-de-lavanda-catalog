@@ -30,17 +30,17 @@ export function OlfactoryStory() {
       const start = finalPressureReached ? 7 : 0;
       animations.push(pump.animate([
         { transform: `translateY(${start}px)`, offset: 0 },
-        { transform: "translateY(7px)", offset: .3 },
-        { transform: "translateY(7px)", offset: .65 },
+        { transform: "translateY(7px)", offset: .2 },
+        { transform: "translateY(7px)", offset: .72 },
         { transform: `translateY(${hold ? 7 : 0}px)`, offset: 1 },
-      ], { duration: 1100, easing: "ease-in-out" }));
+      ], { duration: 1800, easing: "ease-in-out" }));
       element.querySelectorAll<SVGPathElement>(`.olfactory-spray path:nth-child(${stage + 1})`).forEach(path => {
         animations.push(path.animate([
           { opacity: 0, strokeDashoffset: "1", filter: "blur(0px)", offset: 0 },
-          { opacity: 1, strokeDashoffset: "0", filter: "blur(0px)", offset: .3 },
-          { opacity: 1, strokeDashoffset: "0", filter: "blur(0px)", offset: .65 },
+          { opacity: 1, strokeDashoffset: "0", filter: "blur(0px)", offset: .2 },
+          { opacity: 1, strokeDashoffset: "0", filter: "blur(0px)", offset: .72 },
           { opacity: 0, strokeDashoffset: "0", filter: "blur(2px)", offset: 1 },
-        ], { duration: 1100, easing: "ease-in-out" }));
+        ], { duration: 1800, easing: "ease-in-out" }));
       });
       if (stage === 2) finalPressureReached = true;
       element.style.setProperty("--pump-press", finalPressureReached ? "7px" : "0px");
@@ -103,9 +103,9 @@ export function OlfactoryStory() {
         </div>)}
       </div>
       <svg className="olfactory-trails olfactory-spray" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
-        <path pathLength="1" d="M 510 125 C 570 60 610 165 675 165" />
-        <path pathLength="1" d="M 510 125 C 580 120 610 300 675 300" />
-        <path pathLength="1" d="M 510 125 C 590 160 600 435 675 435" />
+        <path pathLength="1" d="M 514 137 C 570 137 615 165 675 165" />
+        <path pathLength="1" d="M 514 137 C 580 137 610 300 675 300" />
+        <path pathLength="1" d="M 514 137 C 590 145 600 435 675 435" />
       </svg>
       <dl className="olfactory-notes">
         {moments.map((moment, index) => <div className="olfactory-note" key={moment.title}>
