@@ -17,6 +17,7 @@ export function OlfactoryStory() {
     const element = section.current;
     if (!element) return;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mobile = window.matchMedia("(max-width: 760px)");
     let frame = 0;
     let finalPressureReached = false;
     let activeStage = -1;
@@ -47,8 +48,9 @@ export function OlfactoryStory() {
     };
     const update = () => {
       frame = 0;
-      element.classList.toggle("is-scroll-ready", !reducedMotion.matches);
-      if (reducedMotion.matches) {
+      const staticScene = reducedMotion.matches || mobile.matches;
+      element.classList.toggle("is-scroll-ready", !staticScene);
+      if (staticScene) {
         stopAnimations();
         activeStage = -1;
         finalPressureReached = false;
@@ -79,16 +81,22 @@ export function OlfactoryStory() {
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
     reducedMotion.addEventListener("change", schedule);
+    mobile.addEventListener("change", schedule);
     return () => {
       cancelAnimationFrame(frame);
       stopAnimations();
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
       reducedMotion.removeEventListener("change", schedule);
+      mobile.removeEventListener("change", schedule);
     };
   }, []);
   return <section id="notas-olfativas" className="olfactory-story" ref={section} aria-labelledby="olfactory-story-title" data-stage="0">
     <div className="olfactory-scene">
+      <svg className="olfactory-mobile-bottle" viewBox="850 120 460 540" aria-hidden="true">
+        <defs><clipPath id="olfactory-mobile-bottle-clip"><path d="M1045 132 L1118 128 L1118 185 L1130 185 L1130 250 L1230 255 Q1265 255 1270 285 L1270 620 Q1268 637 1250 638 L920 638 Q900 636 900 620 L900 285 Q904 258 940 255 L1038 250 L1038 190 L1045 190 Z" /></clipPath></defs>
+        <image href="/campaigns/olfactory-panorama.webp" width="2172" height="724" clipPath="url(#olfactory-mobile-bottle-clip)" />
+      </svg>
       <div className="olfactory-story-art" aria-hidden="true">
         <Image src="/campaigns/olfactory-pump-plate.webp" alt="" fill sizes="100vw" />
         <OlfactoryPump />
@@ -109,7 +117,7 @@ export function OlfactoryStory() {
       </svg>
       <dl className="olfactory-notes">
         {moments.map((moment, index) => <div className="olfactory-note" key={moment.title}>
-          <dt><span>0{index + 1}</span> {moment.title}</dt><dd>{moment.detail}</dd>
+          <dt><span>0{index + 1}</span> {moment.title}</dt><dd><span className="olfactory-mobile-signature">{moment.signature}</span>{moment.detail}</dd>
         </div>)}
       </dl>
       <div className="olfactory-scene-footer">
