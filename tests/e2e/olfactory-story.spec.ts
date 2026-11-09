@@ -5,7 +5,7 @@ test("each spray plays visibly after a normal scroll and can replay", async ({ p
   await page.goto("/familias-olfativas/");
   const story = page.locator(".olfactory-story");
   const pump = story.locator(".olfactory-pump-button");
-  const spray = (stage: number) => story.locator(page.viewportSize()!.width <= 1050 ? ".olfactory-spray-indicator" : `.olfactory-trails path:nth-child(${stage + 1})`);
+  const spray = (stage: number) => story.locator(page.viewportSize()!.width <= 760 ? ".olfactory-spray-indicator" : `.olfactory-trails path:nth-child(${stage + 1})`);
   await expect(story).toHaveClass(/is-scroll-ready/);
   const scrollTo = async (progress: number) => story.evaluate((el, p) => {
     const scene = el.querySelector(".olfactory-scene") as HTMLElement;
@@ -43,7 +43,7 @@ test("the spray fades with the returning pump before the next stage", async ({ p
   await page.goto("/familias-olfativas/");
   const story = page.locator(".olfactory-story");
   const pump = story.locator(".olfactory-pump-button");
-  const spray = (stage: number) => story.locator(page.viewportSize()!.width <= 1050 ? ".olfactory-spray-indicator" : `.olfactory-trails path:nth-child(${stage + 1})`);
+  const spray = (stage: number) => story.locator(page.viewportSize()!.width <= 760 ? ".olfactory-spray-indicator" : `.olfactory-trails path:nth-child(${stage + 1})`);
   const scrollTo = async (progress: number) => story.evaluate((el, p) => {
     const scene = el.querySelector(".olfactory-scene") as HTMLElement;
     const stickyTop = Number.parseFloat(getComputedStyle(scene).top) || 0;
@@ -60,7 +60,7 @@ test("the spray fades with the returning pump before the next stage", async ({ p
       const targets = [el.querySelector(".olfactory-pump-button")!, ...el.querySelectorAll(`.olfactory-spray path:nth-child(${stage + 1}), .olfactory-spray-indicator`)];
       for (const target of targets) for (const animation of target.getAnimations()) { animation.pause(); animation.currentTime = 1550; }
       const pump = el.querySelector(".olfactory-pump-button")!;
-      const line = el.querySelector(innerWidth <= 1050 ? ".olfactory-spray-indicator" : `.olfactory-spray path:nth-child(${stage + 1})`)!;
+      const line = el.querySelector(innerWidth <= 760 ? ".olfactory-spray-indicator" : `.olfactory-spray path:nth-child(${stage + 1})`)!;
       return { pressure: new DOMMatrix(getComputedStyle(pump).transform).m42, opacity: Number(getComputedStyle(line).opacity) };
     }, index);
     expect(state.pressure).toBeGreaterThan(0);

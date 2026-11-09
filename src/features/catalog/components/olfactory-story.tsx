@@ -96,6 +96,9 @@ export function OlfactoryStory() {
   }, []);
   return <section id="notas-olfativas" className="olfactory-story" ref={section} aria-labelledby="olfactory-story-title" data-stage="0">
     <div className="olfactory-scene">
+      <svg className="olfactory-mobile-backdrop" viewBox="400 0 360 724" preserveAspectRatio="none" aria-hidden="true">
+        <image href="/campaigns/olfactory-pump-plate.webp" width="2172" height="724" />
+      </svg>
       <div className="olfactory-story-art" aria-hidden="true">
         <Image src="/campaigns/olfactory-pump-plate.webp" alt="" fill sizes="100vw" />
         <OlfactoryPump />
