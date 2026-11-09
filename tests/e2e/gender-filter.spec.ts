@@ -62,3 +62,20 @@ test("shortcuts and filters fit a narrow mobile screen", async ({ page }, testIn
   await expect(page.getByRole("combobox", { name: "Gênero", exact: true })).toHaveValue("masculino");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
+
+test("cards shine on hover or mobile entry and respect reduced motion", async ({ page }, testInfo) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/");
+  const card = page.getByRole("region", { name: "Encontre o seu jeito de sentir" }).getByRole("link", { name: /Femininos/ });
+  await card.scrollIntoViewIfNeeded();
+  if (testInfo.project.name === "mobile") {
+    await expect(card).toHaveClass(/is-glinting/);
+    await expect.poll(() => card.evaluate((element) => getComputedStyle(element, "::after").animationName)).toBe("gender-discovery-glint");
+  } else {
+    await card.hover();
+    await expect.poll(() => card.evaluate((element) => Number(getComputedStyle(element, "::after").opacity))).toBeGreaterThan(.3);
+  }
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect.poll(() => card.evaluate((element) => getComputedStyle(element, "::after").animationName)).toBe("none");
+  await expect.poll(() => card.evaluate((element) => getComputedStyle(element, "::after").opacity)).toBe("0");
+});
