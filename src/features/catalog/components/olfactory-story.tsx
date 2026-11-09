@@ -97,10 +97,6 @@ export function OlfactoryStory() {
         <defs><clipPath id="olfactory-mobile-bottle-clip"><path d="M1045 132 L1118 128 L1118 185 L1130 185 L1130 250 L1230 255 Q1265 255 1270 285 L1270 620 Q1268 637 1250 638 L920 638 Q900 636 900 620 L900 285 Q904 258 940 255 L1038 250 L1038 190 L1045 190 Z" /></clipPath></defs>
         <image href="/campaigns/olfactory-panorama.webp" width="2172" height="724" clipPath="url(#olfactory-mobile-bottle-clip)" />
       </svg>
-      <svg className="olfactory-mobile-spray" viewBox="850 120 460 540" aria-hidden="true">
-        <defs><linearGradient id="olfactory-mist-gradient" x1="1117" y1="164" x2="1270" y2="164" gradientUnits="userSpaceOnUse"><stop stopColor="var(--primary)" stopOpacity=".65" /><stop offset="1" stopColor="var(--primary)" stopOpacity="0" /></linearGradient></defs>
-        <path className="olfactory-mobile-mist" d="M1117 164 C1155 144 1200 132 1270 135 L1270 193 C1200 196 1155 184 1117 164 Z" fill="url(#olfactory-mist-gradient)" />
-      </svg>
       <div className="olfactory-story-art" aria-hidden="true">
         <Image src="/campaigns/olfactory-pump-plate.webp" alt="" fill sizes="100vw" />
         <OlfactoryPump />

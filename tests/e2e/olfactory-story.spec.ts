@@ -120,30 +120,18 @@ test("mobile shows all notes without animating the pump", async ({ page }, testI
     const story = page.locator(".olfactory-story");
     const pump = story.locator(".olfactory-pump-button");
     await expect(story).not.toHaveClass(/is-scroll-ready/);
-    await expect(story.locator(".olfactory-mobile-mist")).toHaveCSS("animation-name", "olfactory-mobile-mist");
-    const originOffset = await story.evaluate(el => {
-      const mist = el.querySelector<SVGPathElement>(".olfactory-mobile-mist")!;
-      const bottle = el.querySelector<SVGSVGElement>(".olfactory-mobile-bottle")!;
-      const animation = mist.getAnimations()[0];
-      animation.pause();
-      animation.currentTime = 600;
-      const origin = new DOMPoint(1117, 164);
-      const sprayPoint = origin.matrixTransform(mist.getScreenCTM()!);
-      const nozzlePoint = origin.matrixTransform(bottle.getScreenCTM()!);
-      animation.play();
-      return Math.hypot(sprayPoint.x - nozzlePoint.x, sprayPoint.y - nozzlePoint.y);
-    });
-    expect(originOffset).toBeLessThan(2);
     await expect(story.locator(".olfactory-note")).toHaveCount(3);
     for (const note of await story.locator(".olfactory-note").all()) await expect(note).toBeVisible();
     await story.locator(".olfactory-note").last().scrollIntoViewIfNeeded();
     await expect(pump).toHaveCSS("transform", "none");
     expect(await pump.evaluate(el => el.getAnimations().length)).toBe(0);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    const spacing = await story.evaluate(el => ({ bottom: el.getBoundingClientRect().bottom, footer: el.querySelector(".olfactory-scene-footer")!.getBoundingClientRect().bottom, guide: document.querySelector("#guia-familias")!.getBoundingClientRect().top }));
+    expect(spacing.bottom - spacing.footer).toBeLessThanOrEqual(12);
+    expect(Math.abs(spacing.guide - spacing.bottom)).toBeLessThanOrEqual(1);
+    await expect(story.locator(".olfactory-mobile-spray")).toHaveCount(0);
     await story.screenshot({ path: "artifacts/visual-review/olfactory-static-mobile-" + size.width + ".png" });
     await story.getByRole("link", { name: "Explore as famílias olfativas" }).click();
     await expect(page).toHaveURL(/#guia-familias$/);
   }
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await expect(page.locator(".olfactory-mobile-mist")).toHaveCSS("animation-name", "none");
 });
