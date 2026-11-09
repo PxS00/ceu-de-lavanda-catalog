@@ -72,8 +72,9 @@
   .is-scroll-ready .olfactory-spray-indicator { display: block; fill: var(--primary); fill-opacity: .35; filter: blur(5px); transform-box: fill-box; transform-origin: left center; }
   .olfactory-scene-footer { position: static; grid-column: 1 / -1; flex-wrap: wrap; gap: 8px; background: var(--background); padding: 8px 12px; }
   @media (prefers-reduced-motion: no-preference) {
-    .olfactory-story.is-scroll-ready { height: calc(min(100svh, 660px) + 45svh); }
-    .is-scroll-ready .olfactory-scene { top: 0; height: min(100svh, 660px); min-height: 0; grid-template-rows: auto auto minmax(125px, 1fr) auto; padding-top: 100px; gap: 8px; }
+    .olfactory-story.is-scroll-ready { height: calc(100svh - 94px + 45svh); }
+    .is-scroll-ready .olfactory-scene { top: 94px; height: calc(100svh - 94px); min-height: 0; grid-template-rows: auto auto minmax(125px, 1fr) auto; padding-top: 14px; gap: 8px; }
+    .is-scroll-ready .olfactory-scroll-hint { display: none; }
     .is-scroll-ready .olfactory-heading h2 { font-size: clamp(1.5rem, 4svh, 2rem); }
     .is-scroll-ready .olfactory-notes { position: relative; display: block; min-height: 125px; }
     .is-scroll-ready .olfactory-note { position: absolute; inset: 0; }
