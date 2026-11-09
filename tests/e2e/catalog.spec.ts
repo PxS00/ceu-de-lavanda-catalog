@@ -19,6 +19,22 @@ const test = base.extend<{ browserHealth: void }>({
   }, { auto: true }],
 });
 
+test("pagination returns to the products without obscuring them beneath the header", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/catalogo/");
+  const pagination = page.getByRole("navigation", { name: "Páginas do catálogo" });
+  const grid = page.locator(".catalog .product-grid");
+  for (const [button, expected] of [["Próxima", "2 de 4"], ["Anterior", "1 de 4"]] as const) {
+    await pagination.getByRole("button", { name: button }).click();
+    await expect(pagination.locator("span")).toHaveText(expected);
+    await expect.poll(() => grid.evaluate(el => {
+      const top = el.getBoundingClientRect().top;
+      const header = document.querySelector(".site-header")!.getBoundingClientRect().bottom;
+      return Math.abs(top - header - 16);
+    })).toBeLessThan(3);
+  }
+});
+
 async function review(page: Page, info: TestInfo, name: string) {
   await page.evaluate(() => document.fonts.ready);
   // Load offscreen and closed-dialog images before checking the full-page capture.
