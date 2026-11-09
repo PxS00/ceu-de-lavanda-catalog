@@ -12,6 +12,6 @@ export function OlfactoryPump() {
     <g className="olfactory-pump-button">
       <image href="/campaigns/olfactory-panorama.webp" width="2172" height="724" clipPath="url(#olfactory-pump-button)" />
     </g>
-    <circle className="olfactory-nozzle" cx="1117" cy="164" r="1" opacity="0" />
+    <ellipse className="olfactory-spray-indicator" cx="1138" cy="164" rx="20" ry="9" />
   </svg>;
 }

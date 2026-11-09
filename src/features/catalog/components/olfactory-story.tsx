@@ -42,6 +42,13 @@ export function OlfactoryStory() {
           { opacity: 0, strokeDashoffset: "0", filter: "blur(2px)", offset: 1 },
         ], { duration: 1800, easing: "ease-in-out" }));
       });
+      const indicator = element.querySelector<SVGEllipseElement>(".olfactory-spray-indicator");
+      if (indicator) animations.push(indicator.animate([
+        { opacity: 0, transform: "translateX(0px) scale(.4)", offset: 0 },
+        { opacity: 1, transform: "translateX(8px) scale(.8)", offset: .2 },
+        { opacity: 1, transform: "translateX(18px) scale(1.1)", offset: .72 },
+        { opacity: 0, transform: "translateX(28px) scale(1.3)", offset: 1 },
+      ], { duration: 1800, easing: "ease-out" }));
       if (stage === 2) finalPressureReached = true;
       element.style.setProperty("--pump-press", finalPressureReached ? "7px" : "0px");
     };
@@ -57,20 +64,6 @@ export function OlfactoryStory() {
       }
       const rect = element.getBoundingClientRect();
       const scene = element.firstElementChild as HTMLElement;
-      const mobileTrails = element.querySelector<SVGSVGElement>(".olfactory-mobile-trails");
-      const nozzle = element.querySelector<SVGCircleElement>(".olfactory-nozzle");
-      if (mobileTrails && nozzle && getComputedStyle(mobileTrails).display !== "none") {
-        const sceneRect = scene.getBoundingClientRect();
-        const nozzleRect = nozzle.getBoundingClientRect();
-        const x = nozzleRect.left + nozzleRect.width / 2 - sceneRect.left;
-        const y = nozzleRect.top + nozzleRect.height / 2 - sceneRect.top;
-        const length = Math.min(76, sceneRect.width * .2);
-        mobileTrails.setAttribute("viewBox", `0 0 ${sceneRect.width} ${sceneRect.height}`);
-        const mist = [-2, -1, 0, 1, 2].map(spread =>
-          `M ${x} ${y} Q ${x + length * .55} ${y + spread * 3} ${x + length} ${y + spread * 9}`
-        ).join(" ");
-        mobileTrails.querySelectorAll("path").forEach(path => path.setAttribute("d", mist));
-      }
       const distance = Math.max(1, rect.height - scene.offsetHeight);
       const stickyTop = Number.parseFloat(getComputedStyle(scene).top) || 0;
       const progress = Math.max(0, Math.min(1, (stickyTop - rect.top) / distance));
@@ -120,9 +113,6 @@ export function OlfactoryStory() {
         <path pathLength="1" d="M 514 137 C 570 137 615 165 675 165" />
         <path pathLength="1" d="M 514 137 C 580 137 610 300 675 300" />
         <path pathLength="1" d="M 514 137 C 590 145 600 435 675 435" />
-      </svg>
-      <svg className="olfactory-mobile-trails olfactory-spray" aria-hidden="true">
-        <path pathLength="1" /><path pathLength="1" /><path pathLength="1" />
       </svg>
       <dl className="olfactory-notes">
         {moments.map((moment, index) => <div className="olfactory-note" key={moment.title}>
