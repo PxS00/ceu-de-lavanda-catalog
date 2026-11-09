@@ -93,8 +93,9 @@ export function OlfactoryStory() {
   }, []);
   return <section id="notas-olfativas" className="olfactory-story" ref={section} aria-labelledby="olfactory-story-title" data-stage="0">
     <div className="olfactory-scene">
-      <svg className="olfactory-mobile-backdrop" viewBox="400 0 360 724" preserveAspectRatio="none" aria-hidden="true">
-        <image href="/campaigns/olfactory-pump-plate.webp" width="2172" height="724" />
+      <svg className="olfactory-mobile-bottle" viewBox="850 120 460 540" aria-hidden="true">
+        <defs><clipPath id="olfactory-mobile-bottle-clip"><path d="M1045 132 L1118 128 L1118 185 L1130 185 L1130 250 L1230 255 Q1265 255 1270 285 L1270 620 Q1268 637 1250 638 L920 638 Q900 636 900 620 L900 285 Q904 258 940 255 L1038 250 L1038 190 L1045 190 Z" /></clipPath></defs>
+        <image href="/campaigns/olfactory-panorama.webp" width="2172" height="724" clipPath="url(#olfactory-mobile-bottle-clip)" />
       </svg>
       <div className="olfactory-story-art" aria-hidden="true">
         <Image src="/campaigns/olfactory-pump-plate.webp" alt="" fill sizes="100vw" />

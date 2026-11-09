@@ -20,7 +20,7 @@
 .olfactory-scroll-hint { display: none; font-size: var(--text-price); }
 .olfactory-scroll-hint span { margin-left: 12px; }
 .olfactory-progress { display: none; }
-.olfactory-mobile-backdrop { display: none; }
+.olfactory-mobile-bottle { display: none; }
 .olfactory-pump { display: block; position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 @media (prefers-reduced-motion: no-preference) {
   .olfactory-story.is-scroll-ready { height: calc(142svh - 110px); }
@@ -54,12 +54,11 @@
   }
 }
 @media (max-width: 760px) {
-  .olfactory-story { background: url('/campaigns/olfactory-pump-plate.webp') left center / auto 100%; }
   .olfactory-scene { min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; gap: 20px; padding: 32px 20px; }
-  .olfactory-mobile-backdrop { display: block; position: absolute; inset: 0; width: 100%; height: 100%; z-index: -3; }
+  .olfactory-mobile-bottle { display: block; position: absolute; top: 120px; left: 0; width: 100%; height: clamp(390px, 100vw, 520px); opacity: .3; z-index: -1; pointer-events: none; }
   .olfactory-heading { position: static; max-width: none; grid-column: 1 / -1; }
   .olfactory-heading h2 { max-width: 17ch; font-size: 2rem; margin-top: 8px; }
-  .olfactory-story-art { position: absolute; inset: 120px 0 auto; height: clamp(390px, 100vw, 520px); width: 100%; opacity: .4; mask-image: radial-gradient(ellipse, black 30%, transparent 75%); }
+  .olfactory-story-art { display: none; }
   .olfactory-narrative { display: none; }
   .olfactory-notes { position: static; inset: auto; display: grid; grid-column: 1; grid-row: 2; width: 100%; min-width: 0; gap: 12px; }
   .olfactory-mobile-signature { display: block; font-size: 1.35rem; line-height: 1.15; margin-bottom: 10px; }
