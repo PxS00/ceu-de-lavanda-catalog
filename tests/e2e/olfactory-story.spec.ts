@@ -5,7 +5,7 @@ test("each spray plays visibly after a normal scroll and can replay", async ({ p
   await page.goto("/familias-olfativas/");
   const story = page.locator(".olfactory-story");
   const pump = story.locator(".olfactory-pump-button");
-  const spray = story.locator(page.viewportSize()!.width <= 1050 ? ".olfactory-pump-trails" : ".olfactory-trails");
+  const spray = story.locator(page.viewportSize()!.width <= 1050 ? ".olfactory-mobile-trails" : ".olfactory-trails");
   await expect(story).toHaveClass(/is-scroll-ready/);
   const scrollTo = async (progress: number) => story.evaluate((el, p) => {
     const scene = el.querySelector(".olfactory-scene") as HTMLElement;
@@ -43,7 +43,7 @@ test("the spray fades with the returning pump before the next stage", async ({ p
   await page.goto("/familias-olfativas/");
   const story = page.locator(".olfactory-story");
   const pump = story.locator(".olfactory-pump-button");
-  const spray = story.locator(page.viewportSize()!.width <= 1050 ? ".olfactory-pump-trails" : ".olfactory-trails");
+  const spray = story.locator(page.viewportSize()!.width <= 1050 ? ".olfactory-mobile-trails" : ".olfactory-trails");
   const scrollTo = async (progress: number) => story.evaluate((el, p) => {
     const scene = el.querySelector(".olfactory-scene") as HTMLElement;
     const stickyTop = Number.parseFloat(getComputedStyle(scene).top) || 0;
@@ -107,4 +107,41 @@ test("notes remain readable without JavaScript", async ({ browser, baseURL }) =>
   await expect(story.locator(".olfactory-note")).toHaveCount(3);
   for (const note of await story.locator(".olfactory-note").all()) await expect(note).toBeVisible();
   await context.close();
+});
+
+test("mobile spray connects the bottle and note without overlapping content", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile");
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  for (const size of [{ width: 320, height: 568 }, { width: 375, height: 667 }, { width: 390, height: 844 }]) {
+    await page.setViewportSize(size);
+    await page.goto("/familias-olfativas/");
+    const story = page.locator(".olfactory-story");
+    await expect(story).toHaveClass(/is-scroll-ready/);
+    await story.evaluate(el => {
+      const scene = el.querySelector(".olfactory-scene") as HTMLElement;
+      window.scrollTo(0, el.getBoundingClientRect().top + scrollY + (el.clientHeight - scene.offsetHeight) * .45);
+    });
+    await expect(story).toHaveAttribute("data-stage", "1");
+    const layout = await story.evaluate(el => {
+      const rect = (selector: string) => el.querySelector(selector)!.getBoundingClientRect();
+      const note = rect(".olfactory-note:nth-child(2) dd");
+      const footer = rect(".olfactory-scene-footer");
+      const heading = rect(".olfactory-heading");
+      const nozzle = rect(".olfactory-nozzle");
+      const line = el.querySelector<SVGPathElement>(".olfactory-mobile-trails path:nth-child(2)")!;
+      const start = line.getPointAtLength(0).matrixTransform(line.getScreenCTM()!);
+      const end = line.getPointAtLength(line.getTotalLength()).matrixTransform(line.getScreenCTM()!);
+      const notes = rect(".olfactory-notes");
+      return { noteBottom: note.bottom, footerTop: footer.top, footerBottom: footer.bottom, headingTop: heading.top, startX: start.x, startY: start.y, nozzleX: nozzle.x + nozzle.width / 2, nozzleY: nozzle.y + nozzle.height / 2, endX: end.x, endY: end.y, notesRight: notes.right, notesTop: notes.top, scrollWidth: document.documentElement.scrollWidth };
+    });
+    expect(layout.headingTop).toBeGreaterThanOrEqual(90);
+    expect(layout.noteBottom).toBeLessThanOrEqual(layout.footerTop);
+    expect(layout.footerBottom).toBeLessThanOrEqual(size.height);
+    expect(Math.abs(layout.startX - layout.nozzleX)).toBeLessThan(2);
+    expect(Math.abs(layout.startY - layout.nozzleY)).toBeLessThan(2);
+    expect(Math.abs(layout.endX - layout.notesRight)).toBeLessThan(2);
+    expect(Math.abs(layout.endY - layout.notesTop)).toBeLessThan(2);
+    expect(layout.scrollWidth).toBeLessThanOrEqual(size.width);
+    await page.screenshot({ path: `artifacts/visual-review/olfactory-mobile-${size.width}.png` });
+  }
 });

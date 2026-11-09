@@ -57,6 +57,21 @@ export function OlfactoryStory() {
       }
       const rect = element.getBoundingClientRect();
       const scene = element.firstElementChild as HTMLElement;
+      const mobileTrails = element.querySelector<SVGSVGElement>(".olfactory-mobile-trails");
+      const nozzle = element.querySelector<SVGCircleElement>(".olfactory-nozzle");
+      const notes = element.querySelector<HTMLElement>(".olfactory-notes");
+      if (mobileTrails && nozzle && notes && getComputedStyle(mobileTrails).display !== "none") {
+        const sceneRect = scene.getBoundingClientRect();
+        const nozzleRect = nozzle.getBoundingClientRect();
+        const notesRect = notes.getBoundingClientRect();
+        const x = nozzleRect.left + nozzleRect.width / 2 - sceneRect.left;
+        const y = nozzleRect.top + nozzleRect.height / 2 - sceneRect.top;
+        const endX = notesRect.right - sceneRect.left;
+        const endY = notesRect.top - sceneRect.top;
+        mobileTrails.setAttribute("viewBox", `0 0 ${sceneRect.width} ${sceneRect.height}`);
+        const curve = `M ${x} ${y} C ${endX} ${y}, ${endX} ${endY - 25}, ${endX} ${endY}`;
+        mobileTrails.querySelectorAll("path").forEach(path => path.setAttribute("d", curve));
+      }
       const distance = Math.max(1, rect.height - scene.offsetHeight);
       const stickyTop = Number.parseFloat(getComputedStyle(scene).top) || 0;
       const progress = Math.max(0, Math.min(1, (stickyTop - rect.top) / distance));
@@ -106,6 +121,9 @@ export function OlfactoryStory() {
         <path pathLength="1" d="M 514 137 C 570 137 615 165 675 165" />
         <path pathLength="1" d="M 514 137 C 580 137 610 300 675 300" />
         <path pathLength="1" d="M 514 137 C 590 145 600 435 675 435" />
+      </svg>
+      <svg className="olfactory-mobile-trails olfactory-spray" aria-hidden="true">
+        <path pathLength="1" /><path pathLength="1" /><path pathLength="1" />
       </svg>
       <dl className="olfactory-notes">
         {moments.map((moment, index) => <div className="olfactory-note" key={moment.title}>
