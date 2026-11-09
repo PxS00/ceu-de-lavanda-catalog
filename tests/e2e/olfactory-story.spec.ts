@@ -1,11 +1,12 @@
 import { test, expect } from "@playwright/test";
 
 test("each spray plays visibly after a normal scroll and can replay", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name === "mobile");
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/familias-olfativas/");
   const story = page.locator(".olfactory-story");
   const pump = story.locator(".olfactory-pump-button");
-  const spray = (stage: number) => story.locator(page.viewportSize()!.width <= 760 ? ".olfactory-spray-indicator" : `.olfactory-trails path:nth-child(${stage + 1})`);
+  const spray = (stage: number) => story.locator(`.olfactory-trails path:nth-child(${stage + 1})`);
   await expect(story).toHaveClass(/is-scroll-ready/);
   const scrollTo = async (progress: number) => story.evaluate((el, p) => {
     const scene = el.querySelector(".olfactory-scene") as HTMLElement;
@@ -38,12 +39,13 @@ test("each spray plays visibly after a normal scroll and can replay", async ({ p
   await expect(page.getByRole("heading", { name: "Qual aroma combina com você?" })).toBeInViewport();
 });
 
-test("the spray fades with the returning pump before the next stage", async ({ page }) => {
+test("the spray fades with the returning pump before the next stage", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name === "mobile");
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/familias-olfativas/");
   const story = page.locator(".olfactory-story");
   const pump = story.locator(".olfactory-pump-button");
-  const spray = (stage: number) => story.locator(page.viewportSize()!.width <= 760 ? ".olfactory-spray-indicator" : `.olfactory-trails path:nth-child(${stage + 1})`);
+  const spray = (stage: number) => story.locator(`.olfactory-trails path:nth-child(${stage + 1})`);
   const scrollTo = async (progress: number) => story.evaluate((el, p) => {
     const scene = el.querySelector(".olfactory-scene") as HTMLElement;
     const stickyTop = Number.parseFloat(getComputedStyle(scene).top) || 0;
@@ -57,10 +59,10 @@ test("the spray fades with the returning pump before the next stage", async ({ p
     await expect.poll(() => line.evaluate(el => el.getAnimations().length)).toBeGreaterThan(0);
     await expect.poll(() => line.evaluate(el => el.getAnimations()[0]?.effect?.getTiming().duration)).toBe(1800);
     const state = await story.evaluate((el, stage) => {
-      const targets = [el.querySelector(".olfactory-pump-button")!, ...el.querySelectorAll(`.olfactory-spray path:nth-child(${stage + 1}), .olfactory-spray-indicator`)];
+      const targets = [el.querySelector(".olfactory-pump-button")!, ...el.querySelectorAll(`.olfactory-spray path:nth-child(${stage + 1})`)];
       for (const target of targets) for (const animation of target.getAnimations()) { animation.pause(); animation.currentTime = 1550; }
       const pump = el.querySelector(".olfactory-pump-button")!;
-      const line = el.querySelector(innerWidth <= 760 ? ".olfactory-spray-indicator" : `.olfactory-spray path:nth-child(${stage + 1})`)!;
+      const line = el.querySelector(`.olfactory-spray path:nth-child(${stage + 1})`)!;
       return { pressure: new DOMMatrix(getComputedStyle(pump).transform).m42, opacity: Number(getComputedStyle(line).opacity) };
     }, index);
     expect(state.pressure).toBeGreaterThan(0);
@@ -68,7 +70,7 @@ test("the spray fades with the returning pump before the next stage", async ({ p
     expect(state.opacity).toBeGreaterThan(0);
     expect(state.opacity).toBeLessThan(1);
     await story.evaluate((el, stage) => {
-      for (const target of [el.querySelector(".olfactory-pump-button")!, ...el.querySelectorAll(`.olfactory-spray path:nth-child(${stage + 1}), .olfactory-spray-indicator`)]) {
+      for (const target of [el.querySelector(".olfactory-pump-button")!, ...el.querySelectorAll(`.olfactory-spray path:nth-child(${stage + 1})`)]) {
         for (const animation of target.getAnimations()) animation.finish();
       }
     }, index);
@@ -79,7 +81,7 @@ test("the spray fades with the returning pump before the next stage", async ({ p
   await expect(story).toHaveAttribute("data-stage", "2");
   await expect.poll(() => spray(2).evaluate(el => el.getAnimations().length)).toBeGreaterThan(0);
   await story.evaluate(el => {
-    for (const target of [el.querySelector(".olfactory-pump-button")!, ...el.querySelectorAll(".olfactory-spray path:nth-child(3), .olfactory-spray-indicator")]) {
+    for (const target of [el.querySelector(".olfactory-pump-button")!, ...el.querySelectorAll(".olfactory-spray path:nth-child(3)")]) {
       for (const animation of target.getAnimations()) animation.finish();
     }
   });
@@ -109,38 +111,23 @@ test("notes remain readable without JavaScript", async ({ browser, baseURL }) =>
   await context.close();
 });
 
-test("mobile spray stays near the nozzle without overlapping content", async ({ page }, testInfo) => {
+test("mobile shows all notes without animating the pump", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile");
   await page.emulateMedia({ reducedMotion: "no-preference" });
   for (const size of [{ width: 320, height: 568 }, { width: 375, height: 667 }, { width: 390, height: 844 }]) {
     await page.setViewportSize(size);
     await page.goto("/familias-olfativas/");
     const story = page.locator(".olfactory-story");
-    await expect(story).toHaveClass(/is-scroll-ready/);
-    await story.evaluate(el => {
-      const scene = el.querySelector(".olfactory-scene") as HTMLElement;
-      window.scrollTo(0, el.getBoundingClientRect().top + scrollY + (el.clientHeight - scene.offsetHeight) * .45);
-    });
-    await expect(story).toHaveAttribute("data-stage", "1");
-    const layout = await story.evaluate(el => {
-      const rect = (selector: string) => el.querySelector(selector)!.getBoundingClientRect();
-      const note = rect(".olfactory-note:nth-child(2) dd");
-      const footer = rect(".olfactory-scene-footer");
-      const heading = rect(".olfactory-heading");
-      const indicator = rect(".olfactory-spray-indicator");
-      const art = rect(".olfactory-story-art");
-      return { noteLeft: note.left, noteTop: note.top, noteBottom: note.bottom, footerTop: footer.top, footerBottom: footer.bottom, headingTop: heading.top, indicatorWidth: indicator.width, indicatorRight: indicator.right, indicatorBottom: indicator.bottom, artRight: art.right, artTop: art.top, artBottom: art.bottom, scrollWidth: document.documentElement.scrollWidth };
-    });
-    expect(layout.headingTop).toBeGreaterThanOrEqual(90);
-    expect(layout.noteBottom).toBeLessThanOrEqual(layout.footerTop);
-    expect(layout.footerBottom).toBeLessThanOrEqual(size.height);
-    expect(layout.noteTop).toBeGreaterThanOrEqual(layout.artBottom);
-    expect(layout.indicatorWidth).toBeLessThan(50);
-    expect(layout.indicatorRight).toBeLessThan(layout.artRight);
-    expect(layout.indicatorBottom).toBeLessThan(layout.artBottom);
-    await expect(story.locator(".olfactory-trails")).toBeHidden();
-    await expect(story.locator(".olfactory-mobile-trails")).toHaveCount(0);
-    expect(layout.scrollWidth).toBeLessThanOrEqual(size.width);
-    await page.screenshot({ path: `artifacts/visual-review/olfactory-mobile-${size.width}.png` });
+    const pump = story.locator(".olfactory-pump-button");
+    await expect(story).not.toHaveClass(/is-scroll-ready/);
+    await expect(story.locator(".olfactory-note")).toHaveCount(3);
+    for (const note of await story.locator(".olfactory-note").all()) await expect(note).toBeVisible();
+    await story.locator(".olfactory-note").last().scrollIntoViewIfNeeded();
+    await expect(pump).toHaveCSS("transform", "none");
+    expect(await pump.evaluate(el => el.getAnimations().length)).toBe(0);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await story.screenshot({ path: "artifacts/visual-review/olfactory-static-mobile-" + size.width + ".png" });
+    await story.getByRole("link", { name: "Explore as famílias olfativas" }).click();
+    await expect(page).toHaveURL(/#guia-familias$/);
   }
 });

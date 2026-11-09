@@ -17,6 +17,7 @@ export function OlfactoryStory() {
     const element = section.current;
     if (!element) return;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mobile = window.matchMedia("(max-width: 760px)");
     let frame = 0;
     let finalPressureReached = false;
     let activeStage = -1;
@@ -42,20 +43,14 @@ export function OlfactoryStory() {
           { opacity: 0, strokeDashoffset: "0", filter: "blur(2px)", offset: 1 },
         ], { duration: 1800, easing: "ease-in-out" }));
       });
-      const indicator = element.querySelector<SVGEllipseElement>(".olfactory-spray-indicator");
-      if (indicator) animations.push(indicator.animate([
-        { opacity: 0, transform: "translateX(0px) scale(.4)", offset: 0 },
-        { opacity: 1, transform: "translateX(8px) scale(.8)", offset: .2 },
-        { opacity: 1, transform: "translateX(18px) scale(1.1)", offset: .72 },
-        { opacity: 0, transform: "translateX(28px) scale(1.3)", offset: 1 },
-      ], { duration: 1800, easing: "ease-out" }));
       if (stage === 2) finalPressureReached = true;
       element.style.setProperty("--pump-press", finalPressureReached ? "7px" : "0px");
     };
     const update = () => {
       frame = 0;
-      element.classList.toggle("is-scroll-ready", !reducedMotion.matches);
-      if (reducedMotion.matches) {
+      const staticScene = reducedMotion.matches || mobile.matches;
+      element.classList.toggle("is-scroll-ready", !staticScene);
+      if (staticScene) {
         stopAnimations();
         activeStage = -1;
         finalPressureReached = false;
@@ -86,12 +81,14 @@ export function OlfactoryStory() {
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
     reducedMotion.addEventListener("change", schedule);
+    mobile.addEventListener("change", schedule);
     return () => {
       cancelAnimationFrame(frame);
       stopAnimations();
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
       reducedMotion.removeEventListener("change", schedule);
+      mobile.removeEventListener("change", schedule);
     };
   }, []);
   return <section id="notas-olfativas" className="olfactory-story" ref={section} aria-labelledby="olfactory-story-title" data-stage="0">
