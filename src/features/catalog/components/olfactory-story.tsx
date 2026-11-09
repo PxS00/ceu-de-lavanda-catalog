@@ -59,18 +59,17 @@ export function OlfactoryStory() {
       const scene = element.firstElementChild as HTMLElement;
       const mobileTrails = element.querySelector<SVGSVGElement>(".olfactory-mobile-trails");
       const nozzle = element.querySelector<SVGCircleElement>(".olfactory-nozzle");
-      const notes = element.querySelector<HTMLElement>(".olfactory-notes");
-      if (mobileTrails && nozzle && notes && getComputedStyle(mobileTrails).display !== "none") {
+      if (mobileTrails && nozzle && getComputedStyle(mobileTrails).display !== "none") {
         const sceneRect = scene.getBoundingClientRect();
         const nozzleRect = nozzle.getBoundingClientRect();
-        const notesRect = notes.getBoundingClientRect();
         const x = nozzleRect.left + nozzleRect.width / 2 - sceneRect.left;
         const y = nozzleRect.top + nozzleRect.height / 2 - sceneRect.top;
-        const endX = notesRect.right - sceneRect.left;
-        const endY = notesRect.top - sceneRect.top;
+        const length = Math.min(76, sceneRect.width * .2);
         mobileTrails.setAttribute("viewBox", `0 0 ${sceneRect.width} ${sceneRect.height}`);
-        const curve = `M ${x} ${y} C ${endX} ${y}, ${endX} ${endY - 25}, ${endX} ${endY}`;
-        mobileTrails.querySelectorAll("path").forEach(path => path.setAttribute("d", curve));
+        const mist = [-2, -1, 0, 1, 2].map(spread =>
+          `M ${x} ${y} Q ${x + length * .55} ${y + spread * 3} ${x + length} ${y + spread * 9}`
+        ).join(" ");
+        mobileTrails.querySelectorAll("path").forEach(path => path.setAttribute("d", mist));
       }
       const distance = Math.max(1, rect.height - scene.offsetHeight);
       const stickyTop = Number.parseFloat(getComputedStyle(scene).top) || 0;

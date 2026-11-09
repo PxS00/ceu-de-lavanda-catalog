@@ -109,7 +109,7 @@ test("notes remain readable without JavaScript", async ({ browser, baseURL }) =>
   await context.close();
 });
 
-test("mobile spray connects the bottle and note without overlapping content", async ({ page }, testInfo) => {
+test("mobile spray stays near the nozzle without overlapping content", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile");
   await page.emulateMedia({ reducedMotion: "no-preference" });
   for (const size of [{ width: 320, height: 568 }, { width: 375, height: 667 }, { width: 390, height: 844 }]) {
@@ -131,16 +131,19 @@ test("mobile spray connects the bottle and note without overlapping content", as
       const line = el.querySelector<SVGPathElement>(".olfactory-mobile-trails path:nth-child(2)")!;
       const start = line.getPointAtLength(0).matrixTransform(line.getScreenCTM()!);
       const end = line.getPointAtLength(line.getTotalLength()).matrixTransform(line.getScreenCTM()!);
-      const notes = rect(".olfactory-notes");
-      return { noteBottom: note.bottom, footerTop: footer.top, footerBottom: footer.bottom, headingTop: heading.top, startX: start.x, startY: start.y, nozzleX: nozzle.x + nozzle.width / 2, nozzleY: nozzle.y + nozzle.height / 2, endX: end.x, endY: end.y, notesRight: notes.right, notesTop: notes.top, scrollWidth: document.documentElement.scrollWidth };
+      const art = rect(".olfactory-story-art");
+      return { noteBottom: note.bottom, footerTop: footer.top, footerBottom: footer.bottom, headingTop: heading.top, startX: start.x, startY: start.y, nozzleX: nozzle.x + nozzle.width / 2, nozzleY: nozzle.y + nozzle.height / 2, endX: end.x, endY: end.y, artRight: art.right, artBottom: art.bottom, scrollWidth: document.documentElement.scrollWidth };
     });
     expect(layout.headingTop).toBeGreaterThanOrEqual(90);
     expect(layout.noteBottom).toBeLessThanOrEqual(layout.footerTop);
     expect(layout.footerBottom).toBeLessThanOrEqual(size.height);
     expect(Math.abs(layout.startX - layout.nozzleX)).toBeLessThan(2);
     expect(Math.abs(layout.startY - layout.nozzleY)).toBeLessThan(2);
-    expect(Math.abs(layout.endX - layout.notesRight)).toBeLessThan(2);
-    expect(Math.abs(layout.endY - layout.notesTop)).toBeLessThan(2);
+    expect(layout.endX).toBeGreaterThan(layout.startX);
+    expect(layout.endX - layout.startX).toBeLessThanOrEqual(80);
+    expect(Math.abs(layout.endY - layout.startY)).toBeLessThanOrEqual(20);
+    expect(layout.endX).toBeLessThan(layout.artRight);
+    expect(layout.endY).toBeLessThan(layout.artBottom);
     expect(layout.scrollWidth).toBeLessThanOrEqual(size.width);
     await page.screenshot({ path: `artifacts/visual-review/olfactory-mobile-${size.width}.png` });
   }
