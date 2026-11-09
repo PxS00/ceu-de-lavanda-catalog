@@ -127,7 +127,7 @@ export function OlfactoryStory() {
       </svg>
       <dl className="olfactory-notes">
         {moments.map((moment, index) => <div className="olfactory-note" key={moment.title}>
-          <dt><span>0{index + 1}</span> {moment.title}</dt><dd>{moment.detail}</dd>
+          <dt><span>0{index + 1}</span> {moment.title}</dt><dd><span className="olfactory-mobile-signature">{moment.signature}</span>{moment.detail}</dd>
         </div>)}
       </dl>
       <div className="olfactory-scene-footer">
