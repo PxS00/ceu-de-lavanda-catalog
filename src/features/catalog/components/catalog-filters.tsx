@@ -14,6 +14,8 @@ type CatalogFiltersProps = {
   family: string;
   families: string[];
   onFamilyChange: (value: string) => void;
+  gender: string;
+  onGenderChange: (value: string) => void;
 };
 
 export function CatalogFilters({
@@ -26,8 +28,13 @@ export function CatalogFilters({
   family,
   families,
   onFamilyChange,
+  gender,
+  onGenderChange,
 }: CatalogFiltersProps) {
-  const familyQuery = family ? `?familia=${encodeURIComponent(family)}` : "";
+  const search = new URLSearchParams();
+  if (family) search.set("familia", family);
+  if (gender) search.set("genero", gender);
+  const familyQuery = search.size ? `?${search}` : "";
   return (
     <>
       <nav className="category-filters" aria-label="Categorias comerciais">
@@ -68,6 +75,7 @@ export function CatalogFilters({
           </select>
         </label>
       </div>
+      <div className="catalog-detail-filters">
       <label className="family-filter">Família olfativa
         <select value={family} onChange={(event) => onFamilyChange(event.target.value)}>
           <option value="">Todas as famílias</option>
@@ -75,6 +83,16 @@ export function CatalogFilters({
           {families.map((item) => <option key={item} value={item}>{item}</option>)}
         </select>
       </label>
+      <label className="family-filter">Gênero
+        <select value={gender} onChange={(event) => onGenderChange(event.target.value)}>
+          <option value="">Todos os gêneros</option>
+          {gender && !["feminino", "masculino", "compartilhavel"].includes(gender) && <option value={gender}>{gender}</option>}
+          <option value="feminino">Feminino</option>
+          <option value="masculino">Masculino</option>
+          <option value="compartilhavel">Compartilhável</option>
+        </select>
+      </label>
+      </div>
       <div className="filter-row">
         <div
           className="initial-filters"

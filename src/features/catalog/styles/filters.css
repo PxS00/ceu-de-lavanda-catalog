@@ -1,3 +1,5 @@
+.catalog-detail-filters { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 8px; }
+.catalog-detail-filters .family-filter { min-width: 0; }
 .category-filters {
   display: flex;
   flex-wrap: wrap;
@@ -63,6 +65,9 @@
   margin: 0;
 }
 @media (max-width: 760px) {
+  .catalog-detail-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .catalog-detail-filters .family-filter { display: flex; flex-direction: column; align-items: stretch; gap: 4px; }
+  .catalog-detail-filters select { min-width: 0; width: 100%; }
   .category-filters {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
