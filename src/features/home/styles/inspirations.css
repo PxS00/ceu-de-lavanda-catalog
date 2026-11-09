@@ -24,4 +24,4 @@
 .inspirations:has(.inspirations-motion) .inspirations-list { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 @keyframes inspiration-scroll { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .inspirations-track { animation: none; } }
-@media (max-width: 760px) { .inspirations { padding: 40px 0; background-position: 20% center; } .inspirations-item { font-size: 1.3rem; gap: 30px; padding-right: 30px; } .inspirations-row { padding: 12px 0; } }
+@media (max-width: 760px) { .inspirations { padding: 40px 0; background-position: 20% center; } .inspirations-item { font-size: 1.3rem; gap: 30px; padding-right: 30px; } .inspirations-row { padding: 12px 0; } .inspirations-track { animation-duration: 150s; } }
