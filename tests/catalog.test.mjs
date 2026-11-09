@@ -10,6 +10,17 @@ import {
   categories,
 } from "../src/features/catalog/lib/catalog.ts";
 
+test("gender filtering combines with category, family and search without modifying the catalog", () => {
+  const original = structuredClone(products);
+  const shared = products.find((product) => product.gender === "compartilhavel" && product.family);
+  assert.ok(shared);
+  const filtered = filterProducts(products, shared.name, "", "az", shared.category, shared.family, "compartilhavel");
+  assert.ok(filtered.some((product) => product.id === shared.id));
+  assert.ok(filtered.every((product) => product.gender === "compartilhavel" && product.family === shared.family));
+  assert.deepEqual(filterProducts(products, shared.name, "", "az", shared.category, shared.family, "masculino"), []);
+  assert.deepEqual(products, original);
+});
+
 test("starting price uses the lowest valid offered volume and handles missing prices", () => {
   const base = { id: "test", slug: "test", name: "Teste" };
   assert.equal(getStartingPrice({ ...base, volumeOptions: ["50 ml", "100 ml"], volumePrices: [

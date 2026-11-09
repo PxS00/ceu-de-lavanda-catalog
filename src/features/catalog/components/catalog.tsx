@@ -23,6 +23,7 @@ const subscribe = (callback: () => void) => {
   return () => window.removeEventListener("popstate", callback);
 };
 const familySnapshot = () => new URLSearchParams(window.location.search).get("familia") ?? "";
+const genderSnapshot = () => new URLSearchParams(window.location.search).get("genero") ?? "";
 const serverSnapshot = () => "";
 
 export function Catalog({
@@ -36,12 +37,14 @@ export function Catalog({
   const { query, initial, sort } = filters;
   const [page, setPage] = useState(1);
   const family = useSyncExternalStore(subscribe, familySnapshot, serverSnapshot);
+  const gender = useSyncExternalStore(subscribe, genderSnapshot, serverSnapshot);
   const families = [...new Set(products.filter((p) => !category || p.category === category).map((p) => p.family).filter((v): v is string => Boolean(v)))].sort((a, b) => a.localeCompare(b, "pt-BR"));
-  const filtered = filterProducts(products, query, initial, sort, category, family);
+  const filtered = filterProducts(products, query, initial, sort, category, family, gender);
   const categoryName = categories.find((item) => item.slug === category)?.name;
   const categoryPending = Boolean(
     category && !products.some((product) => product.category === category),
   );
+  const genderPending = Boolean(gender && ["feminino", "masculino", "compartilhavel"].includes(gender) && !products.some((product) => product.gender === gender && (!category || product.category === category)));
   const initials = [
     ...new Set(products.map((p) => normalize(p.name)[0].toUpperCase())),
   ].sort();
@@ -64,15 +67,17 @@ export function Catalog({
       animation.cancel();
       motion.removeEventListener("change", stop);
     };
-  }, [query, initial, sort, page, category, family, grid]);
-  function changeFamily(value: string) {
+  }, [query, initial, sort, page, category, family, gender, grid]);
+  function changeUrlFilter(key: "familia" | "genero", value: string) {
     const url = new URL(window.location.href);
-    if (value) url.searchParams.set("familia", value);
-    else url.searchParams.delete("familia");
+    if (value) url.searchParams.set(key, value);
+    else url.searchParams.delete(key);
     window.history.pushState(null, "", url);
     window.dispatchEvent(new PopStateEvent("popstate"));
     setPage(1);
   }
+  function changeFamily(value: string) { changeUrlFilter("familia", value); }
+  function changeGender(value: string) { changeUrlFilter("genero", value); }
   function updateFilters(changes: Partial<CatalogFilterState>) {
     setFilters((current) => ({ ...current, ...changes }));
     setPage(1);
@@ -80,7 +85,11 @@ export function Catalog({
 
   function reset() {
     setFilters(DEFAULT_FILTERS);
-    changeFamily("");
+    const url = new URL(window.location.href);
+    url.searchParams.delete("familia");
+    url.searchParams.delete("genero");
+    window.history.pushState(null, "", url);
+    window.dispatchEvent(new PopStateEvent("popstate"));
     setPage(1);
   }
 
@@ -106,6 +115,8 @@ export function Catalog({
         family={family}
         families={families}
         onFamilyChange={changeFamily}
+        gender={gender}
+        onGenderChange={changeGender}
       />
       <div className="catalog-results" ref={grid}>
         <aside className="whatsapp-catalog" aria-labelledby="catalog-contact-title">
@@ -127,6 +138,7 @@ export function Catalog({
           <CatalogEmptyState
             categoryPending={categoryPending}
             categoryName={categoryName}
+            genderPending={genderPending && !categoryPending}
             onReset={reset}
           />
         )}
