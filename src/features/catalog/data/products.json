@@ -3100,6 +3100,10 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/aura-rubbra.webp",
+      "alt": "Frasco do perfume Aura Rubbra"
+    }
   }
 ]

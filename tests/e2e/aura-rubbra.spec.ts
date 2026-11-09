@@ -13,5 +13,5 @@ test("new fragrance and corrected genders appear in the catalog", async ({ page 
   await expect(page.getByRole("heading", { name: "Aura Rubbra", exact: true })).toBeVisible();
   await expect(page.locator(".detail-copy")).toContainText("Feminino");
   await expect(page.locator(".detail-copy")).toContainText("Cardamomo Preto");
-  await expect(page.getByText("Fotografia em breve").first()).toBeVisible();
+  await expect(page.getByRole("img", { name: "Frasco do perfume Aura Rubbra" })).toBeVisible();
 });
