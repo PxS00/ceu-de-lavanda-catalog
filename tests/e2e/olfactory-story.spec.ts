@@ -120,7 +120,20 @@ test("mobile shows all notes without animating the pump", async ({ page }, testI
     const story = page.locator(".olfactory-story");
     const pump = story.locator(".olfactory-pump-button");
     await expect(story).not.toHaveClass(/is-scroll-ready/);
-    await expect.poll(() => story.locator(".olfactory-scene").evaluate(el => getComputedStyle(el, "::before").animationName)).toBe("olfactory-mobile-mist");
+    await expect(story.locator(".olfactory-mobile-mist")).toHaveCSS("animation-name", "olfactory-mobile-mist");
+    const originOffset = await story.evaluate(el => {
+      const mist = el.querySelector<SVGPathElement>(".olfactory-mobile-mist")!;
+      const bottle = el.querySelector<SVGSVGElement>(".olfactory-mobile-bottle")!;
+      const animation = mist.getAnimations()[0];
+      animation.pause();
+      animation.currentTime = 600;
+      const origin = new DOMPoint(1117, 164);
+      const sprayPoint = origin.matrixTransform(mist.getScreenCTM()!);
+      const nozzlePoint = origin.matrixTransform(bottle.getScreenCTM()!);
+      animation.play();
+      return Math.hypot(sprayPoint.x - nozzlePoint.x, sprayPoint.y - nozzlePoint.y);
+    });
+    expect(originOffset).toBeLessThan(2);
     await expect(story.locator(".olfactory-note")).toHaveCount(3);
     for (const note of await story.locator(".olfactory-note").all()) await expect(note).toBeVisible();
     await story.locator(".olfactory-note").last().scrollIntoViewIfNeeded();
@@ -132,5 +145,5 @@ test("mobile shows all notes without animating the pump", async ({ page }, testI
     await expect(page).toHaveURL(/#guia-familias$/);
   }
   await page.emulateMedia({ reducedMotion: "reduce" });
-  await expect.poll(() => page.locator(".olfactory-scene").evaluate(el => getComputedStyle(el, "::before").animationName)).toBe("none");
+  await expect(page.locator(".olfactory-mobile-mist")).toHaveCSS("animation-name", "none");
 });
