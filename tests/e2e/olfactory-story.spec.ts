@@ -134,9 +134,7 @@ test("mobile spray stays near the nozzle without overlapping content", async ({ 
     expect(layout.headingTop).toBeGreaterThanOrEqual(90);
     expect(layout.noteBottom).toBeLessThanOrEqual(layout.footerTop);
     expect(layout.footerBottom).toBeLessThanOrEqual(size.height);
-    expect(layout.noteLeft).toBeGreaterThan(layout.artRight);
-    expect(layout.noteTop).toBeLessThan(layout.artBottom);
-    expect(layout.noteBottom).toBeGreaterThan(layout.artTop);
+    expect(layout.noteTop).toBeGreaterThanOrEqual(layout.artBottom);
     expect(layout.indicatorWidth).toBeLessThan(50);
     expect(layout.indicatorRight).toBeLessThan(layout.artRight);
     expect(layout.indicatorBottom).toBeLessThan(layout.artBottom);
