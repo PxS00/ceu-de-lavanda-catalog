@@ -38,6 +38,54 @@ test("each spray plays visibly after a normal scroll and can replay", async ({ p
   await expect(page.getByRole("heading", { name: "Qual aroma combina com você?" })).toBeInViewport();
 });
 
+test("the spray fades with the returning pump before the next stage", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/familias-olfativas/");
+  const story = page.locator(".olfactory-story");
+  const pump = story.locator(".olfactory-pump-button");
+  const spray = story.locator(page.viewportSize()!.width <= 1050 ? ".olfactory-pump-trails" : ".olfactory-trails");
+  const scrollTo = async (progress: number) => story.evaluate((el, p) => {
+    const scene = el.querySelector(".olfactory-scene") as HTMLElement;
+    const stickyTop = Number.parseFloat(getComputedStyle(scene).top) || 0;
+    window.scrollTo({ top: el.getBoundingClientRect().top + scrollY + (el.clientHeight - scene.offsetHeight) * p - stickyTop, behavior: "instant" });
+  }, progress);
+  await scrollTo(0);
+  for (const [progress, index] of [[.1, 0], [.45, 1]] as const) {
+    await scrollTo(progress);
+    await expect(story).toHaveAttribute("data-stage", String(index));
+    const line = spray.locator("path").nth(index);
+    await expect.poll(() => line.evaluate(el => el.getAnimations().length)).toBeGreaterThan(0);
+    const state = await story.evaluate((el, stage) => {
+      const targets = [el.querySelector(".olfactory-pump-button")!, ...el.querySelectorAll(`.olfactory-spray path:nth-child(${stage + 1})`)];
+      for (const target of targets) for (const animation of target.getAnimations()) { animation.pause(); animation.currentTime = 850; }
+      const pump = el.querySelector(".olfactory-pump-button")!;
+      const line = el.querySelector(`.olfactory-spray path:nth-child(${stage + 1})`)!;
+      return { pressure: new DOMMatrix(getComputedStyle(pump).transform).m42, opacity: Number(getComputedStyle(line).opacity) };
+    }, index);
+    expect(state.pressure).toBeGreaterThan(0);
+    expect(state.pressure).toBeLessThan(7);
+    expect(state.opacity).toBeGreaterThan(0);
+    expect(state.opacity).toBeLessThan(1);
+    await story.evaluate((el, stage) => {
+      for (const target of [el.querySelector(".olfactory-pump-button")!, ...el.querySelectorAll(`.olfactory-spray path:nth-child(${stage + 1})`)]) {
+        for (const animation of target.getAnimations()) animation.finish();
+      }
+    }, index);
+    await expect(line).toHaveCSS("opacity", "0");
+    await expect(pump).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 0)");
+  }
+  await scrollTo(.78);
+  await expect(story).toHaveAttribute("data-stage", "2");
+  await expect.poll(() => spray.locator("path").nth(2).evaluate(el => el.getAnimations().length)).toBeGreaterThan(0);
+  await story.evaluate(el => {
+    for (const target of [el.querySelector(".olfactory-pump-button")!, ...el.querySelectorAll(".olfactory-spray path:nth-child(3)")]) {
+      for (const animation of target.getAnimations()) animation.finish();
+    }
+  });
+  await expect(spray.locator("path").nth(2)).toHaveCSS("opacity", "0");
+  await expect(pump).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 7)");
+});
+
 test("reduced motion presents every note without animation", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/familias-olfativas/");
