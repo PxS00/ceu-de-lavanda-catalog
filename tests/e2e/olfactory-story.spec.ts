@@ -120,6 +120,7 @@ test("mobile shows all notes without animating the pump", async ({ page }, testI
     const story = page.locator(".olfactory-story");
     const pump = story.locator(".olfactory-pump-button");
     await expect(story).not.toHaveClass(/is-scroll-ready/);
+    await expect.poll(() => story.locator(".olfactory-scene").evaluate(el => getComputedStyle(el, "::before").animationName)).toBe("olfactory-mobile-mist");
     await expect(story.locator(".olfactory-note")).toHaveCount(3);
     for (const note of await story.locator(".olfactory-note").all()) await expect(note).toBeVisible();
     await story.locator(".olfactory-note").last().scrollIntoViewIfNeeded();
@@ -130,4 +131,6 @@ test("mobile shows all notes without animating the pump", async ({ page }, testI
     await story.getByRole("link", { name: "Explore as famílias olfativas" }).click();
     await expect(page).toHaveURL(/#guia-familias$/);
   }
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect.poll(() => page.locator(".olfactory-scene").evaluate(el => getComputedStyle(el, "::before").animationName)).toBe("none");
 });
