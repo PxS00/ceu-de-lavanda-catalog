@@ -59,3 +59,26 @@ On this development machine Chromium required a locally available ALSA library
 via `LD_LIBRARY_PATH`; no machine-specific path is part of the configuration.
 For a fresh Linux environment, provision the native libraries described by
 `pnpm exec playwright install-deps chromium` through your normal system setup.
+
+
+## Golden snapshots (issue #31 — preparação)
+
+A suíte de revisão manual (`pnpm test:visual`) continua separada das comparações pixel-a-pixel. A suíte `tests/visual-regression/golden.spec.ts` usa a configuração `playwright.visual.config.ts` e cobre **home, catálogo e detalhe Acquaré** em **Chromium desktop 1440×900 e mobile 390×844**: seis imagens de referência quando aprovadas. Não duplica o framework Playwright nem adiciona `test.skip` à suíte E2E.
+
+A geração é **explícita**, e a baseline não deve ser produzida automaticamente pelo CI:
+
+```sh
+pnpm install --frozen-lockfile
+pnpm exec playwright install chromium
+pnpm build
+pnpm test:visual:baseline     # cria/atualiza PNGs de referência: revisar MANUALMENTE
+pnpm test:visual:regression   # comparação contra PNGs aprovados
+```
+
+A execução usa o export estático existente e o mesmo servidor Playwright da suíte principal. Antes de comparar, fixa `Math.random` para as vitrines, a localidade pt-BR, tema claro, `deviceScaleFactor=1`, movimento reduzido, fontes carregadas, decodificação de imagens e carregamento eager nas fotos lazy. O screenshot é da página inteira, desativa animações e caret, e tem tolerância inicial de **0,5% de pixels diferentes**. Isso não substitui inspeção semântica das fotografias e rótulos.
+
+Os golden PNGs ficam versionados em `tests/visual-regression/__screenshots__/{desktop,mobile}/`. Na primeira execução **ainda não há imagens de referência aprovadas**: `pnpm test:visual:regression` deve falhar até que sejam geradas e revisadas. É deliberado: não aceitar um estado visual desconhecido simplesmente para obter CI verde. **A suíte não entra no gate principal até a aprovação dos seis PNGs.**
+
+Processo de aprovação: gerar no ambiente Linux/Chromium compatível com CI, inspecionar lado a lado frascos/rótulos, legibilidade e enquadramento em 390 e 1440 px, adicionar os seis PNGs ao commit após aprovação, executar `pnpm test:visual:regression` duas vezes e verificar estabilidade. Só então adicionar o comando ao workflow com artifacts de screenshots/diffs em falha. Em mudanças futuras, nunca rodar `--update-snapshots` automaticamente no CI; cada alteração deve ter aprovação visual explícita no PR.
+
+**Limitações conhecidas:** renderização de fontes nativas, versão do Chromium e sistema operacional podem mudar pixels; padronizar ambiente e verificar flakiness antes de usar o gate. A comparação de snapshots não substitui testes nos demais breakpoints (320/375/768) nem navegação por teclado, ambos tratados nas suítes funcionais e na revisão manual.
