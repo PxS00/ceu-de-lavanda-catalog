@@ -19,11 +19,14 @@ async function prepareScreenshot(page: Page) {
   // The homepage replaces its initial four cards after hydration. Make sure
   // those client-rendered images exist before resolving lazy loading.
   await page.locator("img").evaluateAll((images) => {
-    for (const image of images) image.loading = "eager";
+    for (const element of images) {
+      if (element instanceof HTMLImageElement) element.loading = "eager";
+    }
   });
   await expect.poll(
     () => page.locator("img").evaluateAll((images) =>
       images.every((image) =>
+        image instanceof HTMLImageElement &&
         image.complete &&
         image.naturalWidth > 0 &&
         image.naturalHeight > 0 &&
@@ -33,7 +36,10 @@ async function prepareScreenshot(page: Page) {
     { timeout: 20_000 },
   ).toBe(true);
   await page.locator("img").evaluateAll(async (images) => {
-    await Promise.all(images.map((image) => image.decode()));
+    await Promise.all(images.map((image) => {
+      if (!(image instanceof HTMLImageElement)) throw new Error("Expected an image element");
+      return image.decode();
+    }));
   });
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
 }
