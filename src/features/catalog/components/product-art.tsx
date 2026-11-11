@@ -12,11 +12,12 @@ export function ProductArt({
   product: Product;
   variant?: "card" | "detail";
 }) {
+  const hasResponsiveWebP = product.photo?.src.startsWith("/products/") && /\.webp$/i.test(product.photo.src);
   if (product.photo)
     return (
       <div className="product-art has-photo">
         <div className="product-photo-frame">
-          {variant === "detail" ? (
+          {variant === "detail" || !hasResponsiveWebP ? (
             <Image
               src={product.photo.src}
               alt={product.photo.alt}
