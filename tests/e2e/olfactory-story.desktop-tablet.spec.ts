@@ -38,8 +38,7 @@ test("each spray plays visibly after a normal scroll and can replay", async ({ p
   await expect(page.getByRole("heading", { name: "Qual aroma combina com você?" })).toBeInViewport();
 });
 
-test("the spray fades with the returning pump before the next stage", async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name === "mobile");
+test("the spray fades with the returning pump before the next stage", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/familias-olfativas/");
   const story = page.locator(".olfactory-story");
