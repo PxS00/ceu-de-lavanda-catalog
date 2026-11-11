@@ -42,6 +42,8 @@ test.describe("delicate catalog motion", () => {
     });
     for (const route of ["/", "/catalogo/"]) {
       await page.goto(route);
+      if (route === "/")
+        await expect(page.locator(".collection-preview .product-grid")).toHaveAttribute("data-selection-ready", "true");
       const card = page.locator(".product-card").first();
       await card.scrollIntoViewIfNeeded();
       await expect(card).toHaveAttribute("data-test-reveals", "1");
@@ -52,7 +54,7 @@ test.describe("delicate catalog motion", () => {
       await expect(card).toHaveAttribute("data-test-reveals", "1");
       if (route === "/catalogo/") {
         await page.getByRole("searchbox").fill("rosas");
-        await expect(page.getByRole("status")).toHaveText("34 fragrâncias");
+        await expect(page.locator(".catalog").getByRole("status")).toHaveText("34 fragrâncias");
         await expect(card).toHaveAttribute("data-test-reveals", "1");
       }
     }
@@ -73,7 +75,7 @@ test.describe("delicate catalog motion", () => {
     const results = page.locator(".catalog-results");
     const previousAnimationCount = Number(await results.getAttribute("data-filter-animation-count") ?? 0);
     await page.getByRole("searchbox").fill("rosas");
-    await expect(page.getByRole("status")).toHaveText("34 fragrâncias");
+    await expect(page.locator(".catalog").getByRole("status")).toHaveText("34 fragrâncias");
     await expect.poll(() => results.getAttribute("data-filter-animation-count").then(Number)).toBeGreaterThan(previousAnimationCount);
     await page.emulateMedia({ reducedMotion: "reduce" });
     await expect.poll(() => results.evaluate((element) => element.getAnimations().length)).toBe(0);

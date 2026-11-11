@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Reveal, useReveal } from "@/shared/components/reveal";
 import {
   filterProducts,
@@ -13,9 +13,18 @@ import { ProductCard } from "./product-card";
 import { CatalogFilters, type CatalogFilterState } from "./catalog-filters";
 import { CatalogEmptyState } from "./catalog-empty-state";
 import { CatalogPagination } from "./catalog-pagination";
+import { whatsappUrl } from "@/shared/contact";
+import { WhatsAppIcon } from "@/features/contact/whatsapp-icon";
 
 const PAGE_SIZE = 12;
 const DEFAULT_FILTERS = { query: "", initial: "", sort: "az" };
+const subscribe = (callback: () => void) => {
+  window.addEventListener("popstate", callback);
+  return () => window.removeEventListener("popstate", callback);
+};
+const familySnapshot = () => new URLSearchParams(window.location.search).get("familia") ?? "";
+const genderSnapshot = () => new URLSearchParams(window.location.search).get("genero") ?? "";
+const serverSnapshot = () => "";
 
 export function Catalog({
   products,
@@ -27,16 +36,22 @@ export function Catalog({
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const { query, initial, sort } = filters;
   const [page, setPage] = useState(1);
-  const filtered = filterProducts(products, query, initial, sort, category);
+  const productGrid = useRef<HTMLDivElement>(null);
+  const family = useSyncExternalStore(subscribe, familySnapshot, serverSnapshot);
+  const gender = useSyncExternalStore(subscribe, genderSnapshot, serverSnapshot);
+  const families = [...new Set(products.filter((p) => !category || p.category === category).map((p) => p.family).filter((v): v is string => Boolean(v)))].sort((a, b) => a.localeCompare(b, "pt-BR"));
+  const filtered = filterProducts(products, query, initial, sort, category, family, gender);
   const categoryName = categories.find((item) => item.slug === category)?.name;
   const categoryPending = Boolean(
     category && !products.some((product) => product.category === category),
   );
+  const genderPending = Boolean(gender && ["feminino", "masculino", "compartilhavel"].includes(gender) && !products.some((product) => product.gender === gender && (!category || product.category === category)));
   const initials = [
     ...new Set(products.map((p) => normalize(p.name)[0].toUpperCase())),
   ].sort();
   const pageCount = Math.ceil(filtered.length / PAGE_SIZE);
-  const pageItems = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const currentPage = Math.min(page, Math.max(1, pageCount));
+  const pageItems = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
   const grid = useReveal(
     JSON.stringify(pageItems.map((product) => product.id)),
   );
@@ -53,14 +68,39 @@ export function Catalog({
       animation.cancel();
       motion.removeEventListener("change", stop);
     };
-  }, [query, initial, sort, page, category, grid]);
+  }, [query, initial, sort, page, category, family, gender, grid]);
+  function changeUrlFilter(key: "familia" | "genero", value: string) {
+    const url = new URL(window.location.href);
+    if (value) url.searchParams.set(key, value);
+    else url.searchParams.delete(key);
+    window.history.pushState(null, "", url);
+    window.dispatchEvent(new PopStateEvent("popstate"));
+    setPage(1);
+  }
+  function changeFamily(value: string) { changeUrlFilter("familia", value); }
+  function changeGender(value: string) { changeUrlFilter("genero", value); }
   function updateFilters(changes: Partial<CatalogFilterState>) {
     setFilters((current) => ({ ...current, ...changes }));
     setPage(1);
   }
+  function changePage(nextPage: number) {
+    setPage(nextPage);
+    window.requestAnimationFrame(() => {
+      if (!productGrid.current) return;
+      const headerHeight = document.querySelector<HTMLElement>(".site-header")?.offsetHeight ?? 0;
+      const top = productGrid.current.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: Math.max(0, top), behavior: reducedMotion ? "instant" : "smooth" });
+    });
+  }
 
   function reset() {
     setFilters(DEFAULT_FILTERS);
+    const url = new URL(window.location.href);
+    url.searchParams.delete("familia");
+    url.searchParams.delete("genero");
+    window.history.pushState(null, "", url);
+    window.dispatchEvent(new PopStateEvent("popstate"));
     setPage(1);
   }
 
@@ -83,10 +123,24 @@ export function Catalog({
         categoryPending={categoryPending}
         initials={initials}
         count={filtered.length}
+        family={family}
+        families={families}
+        onFamilyChange={changeFamily}
+        gender={gender}
+        onGenderChange={changeGender}
       />
       <div className="catalog-results" ref={grid}>
+        <aside className="whatsapp-catalog" aria-labelledby="catalog-contact-title">
+          <div>
+            <h2 id="catalog-contact-title">Precisa de ajuda para escolher?</h2>
+            <p>Conte para a gente o que você procura.</p>
+          </div>
+          <a className="whatsapp-action" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+            <WhatsAppIcon /> Fale com a gente pelo WhatsApp
+          </a>
+        </aside>
         {filtered.length ? (
-          <div className="product-grid">
+          <div className="product-grid" ref={productGrid}>
             {pageItems.map((product, index) => (
               <ProductCard product={product} index={index} key={product.id} />
             ))}
@@ -95,11 +149,12 @@ export function Catalog({
           <CatalogEmptyState
             categoryPending={categoryPending}
             categoryName={categoryName}
+            genderPending={genderPending && !categoryPending}
             onReset={reset}
           />
         )}
       </div>
-      <CatalogPagination page={page} pageCount={pageCount} onPageChange={setPage} />
+      <CatalogPagination page={currentPage} pageCount={pageCount} onPageChange={changePage} />
     </section>
   );
 }

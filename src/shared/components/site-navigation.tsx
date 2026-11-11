@@ -3,6 +3,7 @@ import Link from "next/link";
 const navigation = [
   { href: "/", label: "Início" },
   { href: "/catalogo/", label: "Catálogo" },
+  { href: "/familias-olfativas/", label: "Famílias olfativas" },
   { href: "/#sobre", label: "Sobre a marca" },
 ];
 
@@ -24,8 +25,9 @@ export function SiteNavigation({
         ? about
         : href === "/"
           ? pathname === "/" && !about
-          : pathname.startsWith("/catalogo") ||
-            pathname.startsWith("/produtos/");
+          : href === "/catalogo/"
+            ? pathname.startsWith("/catalogo") || pathname.startsWith("/produtos/")
+            : pathname.startsWith(href);
     return (
       <Link
         href={href}

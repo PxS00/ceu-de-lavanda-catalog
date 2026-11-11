@@ -1,8 +1,12 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/shared/components/reveal";
-import { ProductCard } from "@/features/catalog/components/product-card";
 import { products } from "@/features/catalog/lib/catalog";
+import { RandomPreview } from "./random-preview";
+
+const previewItems = products.map(({ id, slug, name, photo, volumeOptions, volumePrices, priceCents, availability }) => ({
+  id, slug, name, photo, volumeOptions, volumePrices, priceCents, availability,
+}));
 
 export function CollectionPreview() {
   return (
@@ -17,11 +21,7 @@ export function CollectionPreview() {
           <h2 id="preview-title">Nomes para despertar a curiosidade</h2>
         </div>
       </Reveal>
-      <Reveal className="product-grid">
-        {products.slice(0, 4).map((product, index) => (
-          <ProductCard product={product} index={index} key={product.id} />
-        ))}
-      </Reveal>
+      <RandomPreview items={previewItems} />
       <div className="preview-footer">
         <p>Uma pequena seleção. Outras descobertas esperam por você.</p>
         <Link className="button" href="/catalogo/">

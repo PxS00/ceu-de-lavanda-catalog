@@ -1,0 +1,27 @@
+.inspirations {
+  padding: 56px 0;
+  background-color: var(--background);
+  background-image: linear-gradient(color-mix(in srgb, var(--background) 30%, transparent), color-mix(in srgb, var(--background) 30%, transparent)), url("/campaigns/inspirations-lavender.webp");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.inspirations-heading { text-align: center; }
+.inspirations-heading h2 { margin: 12px 0; }
+.inspirations-heading > p:last-child { color: var(--foreground); font-size: var(--text-small); }
+.inspirations-list { display: flex; justify-content: center; gap: 12px 24px; flex-wrap: wrap; padding: 16px 20px; list-style: none; }
+.inspirations-list li { font-family: var(--font-heading); font-size: 1.3rem; }
+.inspirations-motion { display: block; width: 100%; overflow: hidden; text-align: left; padding: 16px 0 0; border: 0; background: transparent; color: inherit; cursor: default; }
+.inspirations-motion ~ .inspirations-note { margin-top: 32px; }
+.inspirations-track, .inspirations-group, .inspirations-item { display: flex; width: max-content; align-items: center; }
+.inspirations-row { overflow: hidden; padding: 16px 0; -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); }
+.inspirations-track { animation: inspiration-scroll 240s linear infinite; }
+.inspirations-track.inspirations-reverse { animation-direction: reverse; }
+.inspirations-motion[data-paused="true"] .inspirations-track { animation-play-state: paused; }
+.inspirations-item { gap: 40px; padding-right: 40px; color: var(--foreground); font: 1.5rem var(--font-heading); white-space: nowrap; }
+.inspirations-item img { width: 15px; height: 27px; object-fit: contain; }
+.inspirations-note { text-align: center; font-size: var(--text-label); color: var(--muted); max-width: 70ch; }
+.inspirations:has(.inspirations-motion) .inspirations-list { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@keyframes inspiration-scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .inspirations-track { animation: none; } }
+@media (max-width: 760px) { .inspirations { padding: 40px 0; background-position: 20% center; } .inspirations-item { font-size: 1.3rem; gap: 30px; padding-right: 30px; } .inspirations-row { padding: 12px 0; } }

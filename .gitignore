@@ -51,3 +51,10 @@ next-env.d.ts
 /.wrangler/
 /.dev.vars
 /.dev.vars.*
+
+# Generated variants and quality reports
+/public/products/generated/
+/public/campaigns/generated/
+/artifacts/quality/
+/artifacts/lighthouse/
+/artifacts/lighthouse-cloudflare/

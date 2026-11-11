@@ -13,12 +13,34 @@
   align-self: start;
 }
 .about h2 {
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 .about div > p {
   color: var(--foreground);
   max-width: 440px;
 }
+.about .about-subtitle {
+  margin-bottom: 24px;
+  color: var(--text-accent);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+.about-social { margin-top: 32px; }
+.about-social p { font-size: var(--text-small); margin-bottom: 10px; }
+.about-social-links { display: flex; gap: 10px; }
+.about-social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  color: var(--foreground);
+}
+.about-social-links a:hover { background: var(--surface-accent); }
+.about-social-links svg { width: 20px; height: 20px; }
 @media (max-width: 1050px) {
   .about {
     gap: 32px;

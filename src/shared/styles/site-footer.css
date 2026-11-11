@@ -14,7 +14,7 @@
   width: 190px;
   height: auto;
 }
-.footer-main > p {
+.footer-message p {
   font-family: var(--font-heading);
   font-size: 1.5rem;
   line-height: 1.5;
@@ -31,6 +31,33 @@
   gap: 8px;
   font-size: var(--text-small);
 }
+.footer-contact { display: grid; gap: 4px; font-size: var(--text-small); min-width: 0; }
+.footer-contact h2 { font-family: var(--font-body); font-size: var(--text-label); letter-spacing: .08em; text-transform: uppercase; margin: 0 0 6px; }
+.footer-contact a { padding-block: 6px; overflow-wrap: anywhere; }
+.footer-contact a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.footer-social { display: flex; gap: 8px; }
+.footer-social a { display: inline-flex; justify-content: center; align-items: center; width: 44px; height: 44px; border: 1px solid var(--primary); border-radius: 50%; }
+.footer-social svg { width: 20px; height: 20px; }
+.site-verification { border-top: 1px solid var(--primary); padding-block: 22px; }
+.site-verification h2 { font-family: var(--font-body); font-size: .65rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--surface-highlight); margin: 0 0 18px; }
+.verification-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.verification-card { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 12px 10px 12px 14px; border-left: 4px solid var(--accent); border-radius: 8px; background: var(--background); color: var(--foreground); }
+.verification-gold { border-left-color: var(--primary); }
+.verification-badge { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 50%; color: var(--foreground); background: var(--surface-accent); border: 3px double var(--text-accent); }
+.verification-gold .verification-badge { background: var(--surface-highlight); border-color: var(--primary); }
+.verification-badge svg { width: 23px; height: 23px; stroke-width: 1.6; }
+.verification-content { display: grid; flex: 1; min-width: 0; gap: 3px; font-size: .65rem; }
+.verification-content strong { font-size: .8125rem; line-height: 1.2; }
+.verification-source { color: var(--text-accent); font-size: .55rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.verification-card > a { display: grid; justify-items: center; align-content: center; gap: 4px; flex: none; min-width: 58px; min-height: 46px; border: 1px solid var(--border); border-radius: 5px; font-size: .5rem; text-transform: uppercase; letter-spacing: .1em; }
+.verification-card > a:hover { background: var(--surface-accent); }
+.verification-card > a svg { width: 13px; height: 13px; }
+.verification-card a:focus-visible { outline-color: var(--foreground); }
+.copy-cnpj { background: transparent; border: 0; padding: 0; cursor: pointer; }
+.verification-caption { font-size: .65rem; margin: 14px 0 0; }
+.verification-company { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 16px; font-size: .65rem; margin-top: 8px; }
+.verification-company .copy-cnpj { color: inherit; font: inherit; text-decoration: underline; min-height: 44px; }
+@media (min-width: 761px) and (max-width: 1100px) { .verification-cards { grid-template-columns: 1fr; } }
 .footer-bottom {
   border-top: 1px solid var(--primary);
   display: flex;
@@ -40,12 +67,13 @@
   font-size: var(--text-label);
 }
 @media (max-width: 760px) {
+  .verification-cards { grid-template-columns: 1fr; }
   .footer-main {
     flex-wrap: wrap;
     padding-block: 24px;
     gap: 16px;
   }
-  .footer-main > p {
+  .footer-message p {
     font-size: 1.125rem;
   }
   .footer-main nav {
@@ -54,6 +82,7 @@
     width: 100%;
     gap: 24px;
   }
+  .footer-contact { width: 100%; }
   .footer-main img {
     width: 124px;
   }

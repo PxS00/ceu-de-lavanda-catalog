@@ -11,6 +11,11 @@ type CatalogFiltersProps = {
   categoryPending: boolean;
   initials: string[];
   count: number;
+  family: string;
+  families: string[];
+  onFamilyChange: (value: string) => void;
+  gender: string;
+  onGenderChange: (value: string) => void;
 };
 
 export function CatalogFilters({
@@ -20,16 +25,25 @@ export function CatalogFilters({
   categoryPending,
   initials,
   count,
+  family,
+  families,
+  onFamilyChange,
+  gender,
+  onGenderChange,
 }: CatalogFiltersProps) {
+  const search = new URLSearchParams();
+  if (family) search.set("familia", family);
+  if (gender) search.set("genero", gender);
+  const familyQuery = search.size ? `?${search}` : "";
   return (
     <>
       <nav className="category-filters" aria-label="Categorias comerciais">
-        <Link href="/catalogo/" aria-current={!category ? "page" : undefined}>
+        <Link href={`/catalogo/${familyQuery}`} aria-current={!category ? "page" : undefined}>
           Todas as categorias
         </Link>
         {categories.map((item) => (
           <Link
-            href={`/catalogo/${item.slug}/`}
+            href={`/catalogo/${item.slug}/${familyQuery}`}
             key={item.slug}
             aria-current={category === item.slug ? "page" : undefined}
           >
@@ -61,6 +75,24 @@ export function CatalogFilters({
           </select>
         </label>
       </div>
+      <div className="catalog-detail-filters">
+      <label className="family-filter">Família olfativa
+        <select value={family} onChange={(event) => onFamilyChange(event.target.value)}>
+          <option value="">Todas as famílias</option>
+          {family && !families.includes(family) && <option value={family}>{family}</option>}
+          {families.map((item) => <option key={item} value={item}>{item}</option>)}
+        </select>
+      </label>
+      <label className="family-filter">Gênero
+        <select value={gender} onChange={(event) => onGenderChange(event.target.value)}>
+          <option value="">Todos os gêneros</option>
+          {gender && !["feminino", "masculino", "compartilhavel"].includes(gender) && <option value={gender}>{gender}</option>}
+          <option value="feminino">Feminino</option>
+          <option value="masculino">Masculino</option>
+          <option value="compartilhavel">Compartilhável</option>
+        </select>
+      </label>
+      </div>
       <div className="filter-row">
         <div
           className="initial-filters"
@@ -70,9 +102,11 @@ export function CatalogFilters({
           <button
             className={!initial ? "active" : ""}
             aria-pressed={!initial}
+            aria-label="Todos os nomes A–Z"
             onClick={() => onChange({ initial: "" })}
           >
-            Todos os nomes
+            <span className="initial-all-label">Todos os nomes</span>
+            <span className="initial-all-short" aria-hidden="true">A–Z</span>
           </button>
           {initials.map((letter) => (
             <button

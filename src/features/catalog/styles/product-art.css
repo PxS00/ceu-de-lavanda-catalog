@@ -25,9 +25,13 @@
   color: var(--muted);
   font-size: var(--text-label);
 }
+.product-photo-frame {
+  position: absolute;
+  inset: 0;
+}
 .has-photo img {
-  object-fit: contain;
-  padding: 16px;
+  object-fit: cover;
+  object-position: center;
 }
 @media (max-width: 760px) {
   .product-art > img:not([data-nimg="fill"]) {
