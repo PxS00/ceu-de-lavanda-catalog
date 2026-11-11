@@ -1,21 +1,10 @@
 # SEO técnico e publicação controlada
 
-## Situação e segurança de indexação
+## Indexação do beta
 
-O catálogo continua em preparação. Por padrão, o HTML exportado publica `robots: noindex, nofollow` via Metadata API do Next.js. Além disso, `public/_headers` mantém `X-Robots-Tag: noindex` em hosts `*.pages.dev`, inclusive URLs de preview. `robots.txt` permite rastreamento para que o crawler possa ler o noindex — `Disallow` não substitui `noindex`.
+O responsável autorizou a indexação do beta em `https://ceu-de-lavanda.pages.dev`. O workflow habilita `index,follow` para builds de produção da `main`; PRs e `develop` permanecem com `noindex`. Os aliases de preview recebem `X-Robots-Tag: noindex` também quando servem o build de produção. Categorias vazias e a página 404 continuam com `noindex`.
 
-A origem canônica padrão é o endereço existente `https://ceu-de-lavanda.pages.dev`, que permanece **não indexável**. Essa origem não autoriza lançamento ou indexação.
-
-### Lançamento futuro com domínio próprio
-
-Após aprovar o conteúdo, o domínio final e os textos comerciais, configurar **nas GitHub Actions Variables** (repositório) para builds de publicação na `main`:
-
-- `CATALOG_SITE_URL=https://dominio-confirmado.com.br` (sem caminho ou credenciais)
-- `CATALOG_INDEXABLE=true` (aprovação explícita de lançamento)
-
-Somente a combinação desses dois fatores e um host fora de `*.pages.dev` habilita `index,follow` no HTML. O domínio final precisa apontar para o deploy aprovado. **Nunca** aplicar essas variáveis na pipeline de prévia ou em PR. O `X-Robots-Tag` de Pages continua protegendo os aliases `*.pages.dev` mesmo em build indexável.
-
-Após deploy, validar a resposta **real** do Cloudflare, a origem canônica e o código HTTP. Conferir Search Console depois de publicar no domínio definitivo. Não confundir aprovação de meta robots com publicação, verificação de domínio ou inclusão garantida no Google.
+O robots.txt permite rastreamento e aponta para o sitemap. Após publicar, conferir os metadados e cabeçalhos reais dos hosts e verificar o sitemap no Search Console. A indexação depende dos buscadores. Um futuro domínio próprio exige atualização explícita da origem e nova validação.
 
 ## Rotas e conteúdo
 
@@ -33,4 +22,4 @@ Após deploy, validar a resposta **real** do Cloudflare, a origem canônica e o 
 
 O 404 exportado tem título e descrição próprios, não declara canonical nem metadados sociais da home e permanece `noindex`. O Next.js também injeta uma meta `noindex` automaticamente no 404; essa meta pode coexistir com a política explícita `noindex, nofollow`. O verificador do Pages exige HTTP 404 e confere esses metadados tanto no Wrangler quanto na prévia real.
 
-O workflow só encaminha essas variáveis para a compilação em eventos de **push na main**. Em PRs e em push para `develop`, o workflow as limpa, de modo que a prévia não se torne indexável por acidente. A mudança de variáveis deve fazer parte do checklist de publicação, não da implementação técnica.
+O workflow configura a origem e a indexação somente em builds de produção da `main`, incluindo execução manual; PRs e `develop` usam a política de prévia.

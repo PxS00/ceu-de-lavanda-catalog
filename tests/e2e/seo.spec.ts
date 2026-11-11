@@ -43,7 +43,8 @@ test.describe("SEO no export estático", () => {
       const robots = await page.locator('meta[name="robots"]').getAttribute("content");
       const approved = process.env.CATALOG_INDEXABLE === "true" &&
         Boolean(process.env.CATALOG_SITE_URL) &&
-        !new URL(process.env.CATALOG_SITE_URL!).hostname.endsWith(".pages.dev");
+        (new URL(process.env.CATALOG_SITE_URL!).hostname === "ceu-de-lavanda.pages.dev" ||
+          !new URL(process.env.CATALOG_SITE_URL!).hostname.endsWith(".pages.dev"));
       const isEmptyCategory = emptyCategories.some(({ slug }) => route === `/catalogo/${slug}/`);
       expect(robots).toMatch(approved && !isEmptyCategory ? /^index/ : /noindex/);
     });

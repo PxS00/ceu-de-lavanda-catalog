@@ -19,12 +19,12 @@ export function siteUrl(path: string): string {
   return new URL(path, siteOrigin()).toString();
 }
 
-// Indexação exige uma aprovação explícita de release e um domínio próprio confirmado.
-// A proteção X-Robots-Tag de *.pages.dev continua atuando independentemente deste flag.
+// Indexação autorizada para o beta no host principal e builds aprovados.
 export function indexingApproved(): boolean {
   return process.env.CATALOG_INDEXABLE === "true" &&
     Boolean(process.env.CATALOG_SITE_URL) &&
-    !new URL(siteOrigin()).hostname.endsWith(".pages.dev");
+    (new URL(siteOrigin()).hostname === "ceu-de-lavanda.pages.dev" ||
+      !new URL(siteOrigin()).hostname.endsWith(".pages.dev"));
 }
 
 type PageInfo = {

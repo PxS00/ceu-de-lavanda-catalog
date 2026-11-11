@@ -11,10 +11,10 @@ permissions:
   contents: read
 
 # A indexação só pode ser habilitada num push aprovado para a main,
-# com as duas GitHub Actions Variables preenchidas deliberadamente.
+# para o beta aprovado; prévias continuam sem indexação.
 env:
-  CATALOG_SITE_URL: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.CATALOG_SITE_URL || '' }}
-  CATALOG_INDEXABLE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.CATALOG_INDEXABLE || 'false' }}
+  CATALOG_SITE_URL: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && 'https://ceu-de-lavanda.pages.dev' || '' }}
+  CATALOG_INDEXABLE: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && 'true' || 'false' }}
 
 concurrency:
   group: pages-${{ github.ref }}
