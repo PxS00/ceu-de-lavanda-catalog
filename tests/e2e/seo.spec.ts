@@ -1,6 +1,9 @@
 import { test, expect } from "@playwright/test";
 import { categories, products } from "../../src/features/catalog/lib/catalog";
 
+const emptyCategories = categories.filter(({ slug }) => !products.some((product) => product.category === slug));
+const populatedCategories = categories.filter(({ slug }) => products.some((product) => product.category === slug));
+
 const routes = [
   "/",
   "/catalogo/",
@@ -29,7 +32,8 @@ test.describe("SEO no export estático", () => {
       const approved = process.env.CATALOG_INDEXABLE === "true" &&
         Boolean(process.env.CATALOG_SITE_URL) &&
         !new URL(process.env.CATALOG_SITE_URL!).hostname.endsWith(".pages.dev");
-      expect(robots).toMatch(approved ? /^index/ : /noindex/);
+      const isEmptyCategory = emptyCategories.some(({ slug }) => route === `/catalogo/${slug}/`);
+      expect(robots).toMatch(approved && !isEmptyCategory ? /^index/ : /noindex/);
     });
   }
 
@@ -41,11 +45,15 @@ test.describe("SEO no export estático", () => {
     const locations = [...content.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
     const expectedPaths = [
       "/", "/catalogo/", "/familias-olfativas/",
-      ...categories.map(({ slug }) => `/catalogo/${slug}/`),
+      ...populatedCategories.map(({ slug }) => `/catalogo/${slug}/`),
       ...products.map(({ slug }) => `/produtos/${slug}/`),
     ];
     expect(new Set(locations).size).toBe(expectedPaths.length);
-    for (const path of expectedPaths) expect(locations.map((value) => new URL(value).pathname)).toContain(path);
+    const actualPaths = locations.map((value) => new URL(value).pathname);
+    expect(actualPaths.sort()).toEqual([...expectedPaths].sort());
+    for (const { slug } of emptyCategories) {
+      expect(actualPaths).not.toContain(`/catalogo/${slug}/`);
+    }
     expect(content).not.toMatch(/localhost|127\.0\.0\.1/);
     const robots = await request.get("/robots.txt");
     expect(robots.status()).toBe(200);

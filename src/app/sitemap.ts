@@ -9,7 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/",
     "/catalogo/",
     "/familias-olfativas/",
-    ...categories.map(({ slug }) => `/catalogo/${slug}/`),
+    ...categories
+      .filter(({ slug }) => products.some((product) => product.category === slug))
+      .map(({ slug }) => `/catalogo/${slug}/`),
     ...products.map(({ slug }) => `/produtos/${slug}/`),
   ];
   return routes.map((path) => ({

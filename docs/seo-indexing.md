@@ -21,7 +21,7 @@ Após deploy, validar a resposta **real** do Cloudflare, a origem canônica e o 
 
 - `src/features/seo/lib/metadata.ts` centraliza origem, autorização e metadados. As páginas e produtos usam apenas atributos aprovados de `products.json`.
 - `src/app/robots.ts` e `src/app/sitemap.ts` geram `robots.txt` e `sitemap.xml` no export; a origem é a mesma usada para canonical.
-- O sitemap contempla home, catálogo, guia olfativo, categorias e produtos publicados.
+- O sitemap contempla home, catálogo, guia olfativo, **apenas categorias com produtos cadastrados** e produtos publicados. Categorias sem produtos não são listadas no sitemap, mas suas rotas continuam acessíveis com `noindex,nofollow`, inclusive se a indexação global for liberada no futuro. Ao cadastrar o primeiro produto de uma categoria, ela passa a integrar o sitemap no próximo build.
 - Open Graph/Twitter usam imagem aprovada do hero e fotografias de produto quando presentes, sem conteúdo fictício.
 - JSON-LD institucional contém somente marca, URL e logo; JSON-LD `Product` usa nome, imagem, família/tipo quando confirmados e ofertas apenas com preços positivos por volume **e** disponibilidade explícita. Não inventar avaliações nem parceiros.
 - Slugs são URLs públicas: mudanças precisam de revisão de links/redirecionamentos. Este PR não altera slugs.

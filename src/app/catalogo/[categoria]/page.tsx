@@ -17,11 +17,16 @@ export async function generateMetadata({
   const { categoria } = await params;
   const category = categories.find((entry) => entry.slug === categoria);
   if (!category) return { title: "Categoria não encontrada", robots: { index: false } };
-  return pageMetadata({
-    title: category.name,
-    description: `Conheça a coleção de ${category.name.toLocaleLowerCase("pt-BR")} da Céu de Lavanda e encontre fragrâncias para descobrir.`,
-    path: `/catalogo/${category.slug}/`,
-  });
+  const hasProducts = products.some((product) => product.category === category.slug);
+  return {
+    ...pageMetadata({
+      title: category.name,
+      description: `Conheça a coleção de ${category.name.toLocaleLowerCase("pt-BR")} da Céu de Lavanda e encontre fragrâncias para descobrir.`,
+      path: `/catalogo/${category.slug}/`,
+    }),
+    // A página continua acessível, mas não deve ser indexada enquanto estiver sem produtos.
+    ...(hasProducts ? {} : { robots: { index: false, follow: false } }),
+  };
 }
 
 export default async function CategoryPage({
