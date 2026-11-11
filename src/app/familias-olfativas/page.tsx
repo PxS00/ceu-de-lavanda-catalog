@@ -1,10 +1,15 @@
 import Link from "next/link";
+import { pageMetadata } from "@/features/seo/lib/metadata";
 import { familyGuide } from "@/features/catalog/data/family-guide";
 import { normalize, products } from "@/features/catalog/lib/catalog";
 import { GuidePerfumes } from "@/features/catalog/components/guide-perfumes";
 import { OlfactoryStory } from "@/features/catalog/components/olfactory-story";
 
-export const metadata = { title: "Guia de famílias olfativas" };
+export const metadata = pageMetadata({
+  title: "Guia de famílias olfativas",
+  description: "Explore famílias olfativas da Céu de Lavanda e conheça notas florais, cítricas, amadeiradas e outras presentes no catálogo.",
+  path: "/familias-olfativas/",
+});
 
 export default function FamilyGuidePage() {
   const cards = familyGuide.map((guide) => {
