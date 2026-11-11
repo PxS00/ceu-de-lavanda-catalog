@@ -1,7 +1,7 @@
 .olfactory-story { position: relative; background: var(--surface-accent); }
 .olfactory-scene { position: relative; min-height: 620px; overflow: clip; isolation: isolate; }
 .olfactory-story-art { position: absolute; inset: 0; z-index: -2; }
-.olfactory-story-art img { object-fit: cover; object-position: center; }
+.olfactory-story-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .olfactory-heading { position: absolute; top: 18%; left: 7%; max-width: 27%; }
 .olfactory-heading h2 { font-size: clamp(2rem, 3.2vw, 3.5rem); line-height: 1.1; margin-top: 14px; }
 .olfactory-narrative { position: absolute; left: 7%; top: 50%; width: 25%; }
