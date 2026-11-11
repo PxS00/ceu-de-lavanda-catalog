@@ -19,21 +19,32 @@ const test = base.extend<{ browserHealth: void }>({
   }, { auto: true }],
 });
 
-test("pagination returns to the products without obscuring them beneath the header", async ({ page }) => {
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  await page.goto("/catalogo/");
-  const pagination = page.getByRole("navigation", { name: "Páginas do catálogo" });
-  const grid = page.locator(".catalog .product-grid");
-  for (const [button, expected] of [["Próxima", "2 de 4"], ["Anterior", "1 de 4"]] as const) {
-    await pagination.getByRole("button", { name: button }).click();
-    await expect(pagination.locator("span")).toHaveText(expected);
-    await expect.poll(() => grid.evaluate(el => {
-      const top = el.getBoundingClientRect().top;
-      const header = document.querySelector(".site-header")!.getBoundingClientRect().bottom;
-      return Math.abs(top - header - 16);
-    })).toBeLessThan(3);
-  }
-});
+for (const reducedMotion of ["reduce", "no-preference"] as const) {
+  test("pagination returns to the products without obscuring them beneath the header (" + reducedMotion + ")", async ({ page }) => {
+    await page.emulateMedia({ reducedMotion });
+    await page.goto("/catalogo/?genero=feminino");
+    await page.getByLabel("Ordenar por").selectOption("za");
+    const pageCount = Math.ceil(catalogProducts.filter(product => product.gender === "feminino").length / 12);
+    const pagination = page.getByRole("navigation", { name: "Páginas do catálogo" });
+    const grid = page.locator(".catalog .product-grid");
+    const firstPageNames = await grid.locator("h3").allTextContents();
+    for (const [button, expected] of [["Próxima", 2], ["Anterior", 1]] as const) {
+      await pagination.getByRole("button", { name: button }).click();
+      await expect(pagination.locator("span")).toHaveText(expected + " de " + pageCount);
+      await expect(page.getByLabel("Gênero")).toHaveValue("feminino");
+      await expect(page.getByLabel("Ordenar por")).toHaveValue("za");
+      await expect(page).toHaveURL(/genero=feminino/);
+      await expect.poll(() => grid.evaluate(el => {
+        const top = el.getBoundingClientRect().top;
+        const header = document.querySelector(".site-header")!.getBoundingClientRect().bottom;
+        return Math.abs(top - header - 16);
+      })).toBeLessThan(3);
+      const names = await grid.locator("h3").allTextContents();
+      if (expected === 2) expect(names).not.toEqual(firstPageNames);
+      else expect(names).toEqual(firstPageNames);
+    }
+  });
+}
 
 async function review(page: Page, info: TestInfo, name: string) {
   await page.evaluate(() => document.fonts.ready);
@@ -267,4 +278,3 @@ test.describe("101-product test-only catalog", () => {
     }
   });
 });
-

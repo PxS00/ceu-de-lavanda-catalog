@@ -6,19 +6,15 @@ import Image from "next/image";
 export function InspirationRibbon({ brands }: { brands: string[] }) {
   const [animate, setAnimate] = useState(false);
   const [paused, setPaused] = useState(false);
-  const [mobile, setMobile] = useState(false);
   useEffect(() => {
     const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const mobileMedia = window.matchMedia("(max-width: 760px)");
-    const update = () => { setAnimate(!media.matches); setMobile(mobileMedia.matches); };
+    const update = () => setAnimate(!media.matches);
     const timer = window.setTimeout(update, 0);
     media.addEventListener("change", update);
-    mobileMedia.addEventListener("change", update);
-    return () => { window.clearTimeout(timer); media.removeEventListener("change", update); mobileMedia.removeEventListener("change", update); };
+    return () => { window.clearTimeout(timer); media.removeEventListener("change", update); };
   }, []);
   if (!brands.length) return null;
-  const rowCount = Math.min(mobile ? 3 : 2, brands.length);
-  const rows = Array.from({ length: rowCount }, (_, rowIndex) => brands.filter((_, index) => index % rowCount === rowIndex));
+  const rows = [brands.filter((_, index) => index % 2 === 0), brands.filter((_, index) => index % 2 === 1)].filter((row) => row.length);
   return <section className="inspirations" aria-labelledby="inspirations-title">
     <div className="wrap inspirations-heading">
       <p className="eyebrow">INSPIRAÇÕES</p>
