@@ -15,10 +15,23 @@ export default defineConfig({
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
   },
+  // Discovery por projeto, sem skips: os cenários continuam executando nas mesmas telas.
   projects: [
-    { name: "desktop", use: { viewport: { width: 1440, height: 900 } } },
-    { name: "tablet", use: { viewport: { width: 768, height: 1024 } } },
-    { name: "mobile", use: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true } },
+    {
+      name: "desktop",
+      testIgnore: ["**/*.mobile.spec.ts"],
+      use: { viewport: { width: 1440, height: 900 } },
+    },
+    {
+      name: "tablet",
+      testIgnore: ["**/*.desktop.spec.ts", "**/*.mobile.spec.ts"],
+      use: { viewport: { width: 768, height: 1024 } },
+    },
+    {
+      name: "mobile",
+      testIgnore: ["**/*.desktop.spec.ts", "**/*.desktop-tablet.spec.ts"],
+      use: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true },
+    },
   ],
   webServer: [{
     command: process.env.CI ? "python3 -u -m http.server 4173 --bind 127.0.0.1 --directory out" : "pnpm build && python3 -u -m http.server 4173 --bind 127.0.0.1 --directory out",

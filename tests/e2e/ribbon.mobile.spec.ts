@@ -1,8 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 for (const width of [320, 375, 390, 430]) {
-  test(`continuous mobile ribbon moves and pauses at ${width}px`, async ({ page }, info) => {
-    test.skip(info.project.name !== "mobile");
+  test(`continuous mobile ribbon moves and pauses at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 844 });
     await page.emulateMedia({ reducedMotion: "no-preference" });
     await page.goto("/");

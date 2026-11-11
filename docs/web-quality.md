@@ -60,3 +60,8 @@ A prévia real precisa das secrets existentes `CLOUDFLARE_API_TOKEN` e `CLOUDFLA
 `pnpm assets:responsive` gera WebP reais de cada foto de produto (400/800px) e do hero (540/960px). `pnpm dev` e `pnpm build` executam Sharp 0.35.5 antes do Next.js 16. Os arquivos gerados são ignorados no Git, reproduzidos no build e publicados no Cloudflare Pages sem serviço de imagem em runtime. Cartões usam `srcset`, `sizes` e `loading=lazy`; hero usa prioridade alta. A página de detalhe preserva a foto original.
 
 A CI valida a entrega de variantes com Playwright e com Cloudflare real (HTTP 200, MIME WebP, e menor transferência que o original). `artifacts/quality/responsive-images.json` registra os bytes de todas as variantes. Compare baseline Lighthouse antes e depois **na CDN Cloudflare**, sem confundir economias potenciais de auditoria com ganhos reais.
+
+
+### Suítes específicas por projeto
+
+O Playwright usa arquivos `*.desktop.spec.ts`, `*.desktop-tablet.spec.ts` e `*.mobile.spec.ts` com `testIgnore` por projeto. Isso mantém a mesma cobertura executada de antes (**154 cenários efetivos**: os 26 `test.skip` anteriores eram combinações de dispositivos não aplicáveis), sem gerar entradas `skipped` no relatório. Para conferir, executar `pnpm exec playwright test --list` e revisar os cenários por desktop, tablet e mobile. A seleção não desativa testes e não altera a experiência do usuário.

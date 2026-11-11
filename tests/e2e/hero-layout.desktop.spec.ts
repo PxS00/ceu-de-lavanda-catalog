@@ -1,8 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 for (const width of [320, 390, 768, 1050, 1051, 1440]) {
-  test(`hero and ribbon adapt at ${width}px`, async ({ page }, info) => {
-    test.skip(info.project.name !== "desktop");
+  test(`hero and ribbon adapt at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 1000 });
     await page.emulateMedia({ reducedMotion: "no-preference" });
     await page.goto("/");
