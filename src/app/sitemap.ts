@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   return routes.map((path) => ({
     url: siteUrl(path),
-    changeFrequency: "monthly",
+    changeFrequency: "monthly" as const,
     priority: path === "/" ? 1 : path.startsWith("/produtos/") ? 0.6 : 0.8,
   }));
 }

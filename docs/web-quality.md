@@ -7,9 +7,10 @@ pnpm lint && pnpm typecheck && pnpm test && pnpm test:e2e
 node scripts/audit-assets.mjs
 pnpm build
 pnpm dlx @lhci/cli@0.15.1 autorun --config=.lighthouserc.cjs
+pnpm dlx @lhci/cli@0.15.1 autorun --config=.lighthouserc.desktop.cjs
 ```
 
-O Lighthouse CI usa o HTML exportado em `out/` e um servidor Python na porta 4175, sem `next dev`. São três rodadas por quatro URLs representativas. **As pontuações de configuração são metas informativas (`warn`) até que seja revisada a baseline obtida na CI**; não declarar metas atingidas sem os relatórios. O Lighthouse fornece LCP, CLS e TBT de laboratório; **não mede INP real**. Desempenho desktop pode ser aferido separadamente com o preset desktop após o baseline mobile.
+O Lighthouse CI usa o HTML exportado em `out/` e um servidor Python na porta 4175, sem `next dev`. São três rodadas por quatro URLs representativas. **As pontuações de configuração são metas informativas (`warn`) até que seja revisada a baseline obtida na CI**; não declarar metas atingidas sem os relatórios. O Lighthouse fornece LCP, CLS e TBT de laboratório; **não mede INP real**. A configuração `.lighthouserc.desktop.cjs` mede duas rotas em desktop em três rodadas, sob demanda; a CI principal prioriza mobile para limitar seu tempo de execução.
 
 A CI registra HTML/JSON do Lighthouse em `artifacts/lighthouse/` e o levantamento de tamanho de imagens em `artifacts/quality/assets.json`. Corrigir primeiro os problemas por evidência e comparar várias rodadas; transformar budgets em gates apenas após calibração e revisão técnica.
 
