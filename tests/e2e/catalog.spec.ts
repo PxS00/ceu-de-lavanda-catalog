@@ -23,10 +23,18 @@ for (const reducedMotion of ["reduce", "no-preference"] as const) {
   test("pagination returns to the products without obscuring them beneath the header (" + reducedMotion + ")", async ({ page }) => {
     await page.emulateMedia({ reducedMotion });
     await page.goto("/catalogo/?genero=feminino");
+    await expect(page.getByLabel("Gênero")).toHaveValue("feminino");
     await page.getByLabel("Ordenar por").selectOption("za");
     const pageCount = Math.ceil(catalogProducts.filter(product => product.gender === "feminino").length / 12);
     const pagination = page.getByRole("navigation", { name: "Páginas do catálogo" });
     const grid = page.locator(".catalog .product-grid");
+    const firstPageExpected = catalogProducts
+      .filter(product => product.gender === "feminino")
+      .sort((a, b) => b.name.localeCompare(a.name, "pt-BR"))
+      .slice(0, 12)
+      .map(product => product.name);
+    // Aguarda a hidratação e o re-render real da ordenação antes da paginação.
+    await expect(grid.locator("h3")).toHaveText(firstPageExpected);
     const firstPageNames = await grid.locator("h3").allTextContents();
     for (const [button, expected] of [["Próxima", 2], ["Anterior", 1]] as const) {
       await pagination.getByRole("button", { name: button }).click();
@@ -106,7 +114,7 @@ test("@visual catalog search, initials, sorting and reset", async ({ page }, inf
   await page.getByRole("button", { name: "B", exact: true }).click();
   await expect(cards).toHaveCount(3);
   await expect(cards.first().locator("h3")).toHaveText("Belle");
-  await page.getByRole("button", { name: "Todos os nomes" }).click();
+  await page.getByRole("button", { name: /Todos os nomes/ }).click();
   await page.locator(".sort-label select").selectOption("za");
   await expect(cards.first()).toContainText("Zyra");
   await page.locator(".sort-label select").selectOption("az");
@@ -267,7 +275,7 @@ test.describe("101-product test-only catalog", () => {
     await expect(count).toHaveText("90 fragrâncias");
     await expect(page.getByRole("searchbox")).toHaveValue("");
     await expect(page.locator(".sort-label select")).toHaveValue("az");
-    await expect(page.getByRole("button", { name: "Todos os nomes" })).toHaveAttribute("aria-pressed", "true");
+    await expect(page.getByRole("button", { name: /Todos os nomes/ })).toHaveAttribute("aria-pressed", "true");
     await expect(pagination.locator("span")).toHaveText("1 de 8");
     await expect(cards.first()).toContainText("Água de Rosas 001");
     await review(page, info, "scalability-filters");

@@ -26,3 +26,17 @@ test("fallback is shuffled and missing families do not count as a match", () => 
   assert.deepEqual(recommendProducts(current, [current]), []);
   assert.equal(recommendProducts(current, [current, others[0]]).length, 1);
 });
+
+test("default recommendations are deterministic for static-export rebuilds", () => {
+  const current = item("acquare", "Floral Frutada");
+  const options = Array.from({ length: 24 }, (_, i) =>
+    item(`fragrance-${i}`, i % 3 === 0 ? "Floral Frutada" : "Oriental"),
+  );
+  const catalog = [current, ...options];
+  const first = recommendProducts(current, catalog).map(product => product.slug);
+  const second = recommendProducts(current, catalog).map(product => product.slug);
+  assert.deepEqual(first, second);
+  assert.equal(first.length, 6);
+  assert.ok(first.every(slug => slug !== current.slug));
+  assert.ok(first.slice(0, 6).some(slug => Number(slug.split("-")[1]) % 3 === 0));
+});

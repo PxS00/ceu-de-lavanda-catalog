@@ -102,7 +102,7 @@ export function CatalogFilters({
           <button
             className={!initial ? "active" : ""}
             aria-pressed={!initial}
-            aria-label="Todos os nomes"
+            aria-label="Todos os nomes A–Z"
             onClick={() => onChange({ initial: "" })}
           >
             <span className="initial-all-label">Todos os nomes</span>

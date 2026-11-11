@@ -16,6 +16,8 @@
   --surface-warm: var(--color-warm);
   --surface-highlight: var(--color-gold-light);
   --muted: #746d76;
+  /* AA on tinted surfaces; verified at ≥4.5:1 for normal-sized text. */
+  --muted-on-tint: #6e6670;
   /* Lavender mixed with graphite to preserve AA text contrast on ivory. */
   --text-accent: #766b7d;
   --border: #e5dfe8;

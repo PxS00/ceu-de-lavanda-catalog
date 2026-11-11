@@ -15,7 +15,19 @@ function shuffle(items: Product[], random: () => number) {
   return result;
 }
 
-export function recommendProducts(current: Product, catalog: Product[], random = Math.random) {
+// Stable per-product shuffle: static exports must not change recommendations every build.
+function seededRandom(slug: string): () => number {
+  let state = 2166136261;
+  for (let i = 0; i < slug.length; i++) {
+    state = Math.imul(state ^ slug.charCodeAt(i), 16777619) >>> 0;
+  }
+  return () => {
+    state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
+    return state / 0x100000000;
+  };
+}
+
+export function recommendProducts(current: Product, catalog: Product[], random = seededRandom(current.slug)) {
   const seen = new Set([current.id]);
   const candidates = catalog.filter(p => {
     if (p.slug === current.slug || seen.has(p.id)) return false;

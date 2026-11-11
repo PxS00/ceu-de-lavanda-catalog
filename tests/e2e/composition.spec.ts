@@ -62,7 +62,7 @@ test("catalog and category controls remain compact, accessible and within the vi
     await page.keyboard.press("Tab");
     await expect(page.getByRole("combobox", { name: "Gênero", exact: true })).toBeFocused();
     await page.keyboard.press("Tab");
-    await expect(page.getByRole("button", { name: "Todos os nomes" })).toBeFocused();
-    await expect(page.getByRole("button", { name: "Todos os nomes" })).toHaveCSS("outline-style", "solid");
+    await expect(page.getByRole("button", { name: /Todos os nomes/ })).toBeFocused();
+    await expect(page.getByRole("button", { name: /Todos os nomes/ })).toHaveCSS("outline-style", "solid");
   }
 });
