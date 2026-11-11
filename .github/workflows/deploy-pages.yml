@@ -18,7 +18,7 @@ env:
 
 concurrency:
   group: pages-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   deploy:
@@ -36,10 +36,10 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm test
+      - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e
       - name: Report image asset sizes
         run: node scripts/audit-assets.mjs
