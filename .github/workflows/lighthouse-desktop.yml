@@ -1,9 +1,7 @@
 name: Lighthouse desktop baseline (manual)
 
+# Desktop audits are explicit, to avoid multiplying Lighthouse runs on every PR push.
 on:
-  push:
-    branches: [feat/quality-seo-lighthouse-playwright]
-    paths: [.github/workflows/lighthouse-desktop.yml, .lighthouserc.desktop.cjs, src/features/catalog/styles/olfactory-story.css]
   workflow_dispatch:
 
 permissions:
