@@ -44,3 +44,13 @@ As capturas de `pnpm test:visual` continuam informativas, sem golden snapshots p
 ## Diagnóstico de CI
 
 `pnpm test:e2e` registra trace/screenshot ao falhar. A CI publica os relatórios como artifacts quando disponíveis. Não alterar snapshots automaticamente para forçar aprovação.
+
+## Validação no Cloudflare Pages
+
+A CI executa em sequência: auditoria local do build exportado, smoke com `wrangler pages dev out`, e, **somente em PRs internos do repositório**, deploy de QA para a branch isolada `quality-pr-N` do Cloudflare Pages. A branch `main` e o site de produção **não são alterados**.
+
+O script `scripts/verify-cloudflare-pages.mjs` valida emulação local e URL real de preview: resposta 200, sitemap sem categorias vazias, páginas de categorias vazias ainda acessíveis com `noindex`, além do header `X-Robots-Tag` (com `noarchive` para confirmar as regras do arquivo `public/_headers`) no host real. O teste local **não** afirma que as regras de hostname se aplicam ao `localhost`.
+
+A prévia real precisa das secrets existentes `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID`. Se faltarem, o job falha explicitamente; não declarar Cloudflare validado somente porque o servidor Python passou. A CI produz `artifacts/quality/cloudflare-{local,preview}.json` e mede home e catálogo na CDN pelo `.lighthouserc.cloudflare.cjs`, em modo informativo para performance até a baseline de Pages ser aprovada. A URL da prévia é pública, porém protegida por `noindex` no HTML e headers.
+
+**Observação:** o Lighthouse sobre a CDN ainda é laboratório simulado, não INP real nem dados CrUX. Verificar adicionalmente headers, URL canônica, controle de acesso e domínio definitivo antes do lançamento.
