@@ -1,7 +1,13 @@
 import Image from "next/image";
 import type { Product } from "@/features/catalog/lib/catalog";
 
-export function ProductArt({ product }: { product: Product }) {
+export function ProductArt({
+  product,
+  variant = "card",
+}: {
+  product: Product;
+  variant?: "card" | "detail";
+}) {
   if (product.photo)
     return (
       <div className="product-art has-photo">
@@ -10,7 +16,8 @@ export function ProductArt({ product }: { product: Product }) {
             src={product.photo.src}
             alt={product.photo.alt}
             fill
-            sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 25vw"
+            sizes={variant === "detail" ? "(max-width: 760px) 100vw, 48vw" : "(max-width: 600px) 90vw, (max-width: 900px) 45vw, 25vw"}
+            priority={variant === "detail"}
           />
         </div>
       </div>

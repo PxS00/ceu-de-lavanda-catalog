@@ -78,7 +78,7 @@ export function SiteHeader() {
             alt="Céu de Lavanda — sinta o toque da lavanda"
             width={513.77}
             height={271.81}
-            priority
+            loading="eager"
           />
         </Link>
         <nav className="desktop-nav" aria-label="Navegação principal">

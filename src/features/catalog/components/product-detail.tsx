@@ -24,7 +24,7 @@ export function ProductDetail({ product }: { product: Product }) {
         <span aria-current="page">{product.name}</span>
       </nav>
       <div className="product-detail">
-        <ProductArt product={product} />
+        <ProductArt product={product} variant="detail" />
         <Reveal className="detail-copy">
           <p className="eyebrow">A COLEÇÃO · CÉU DE LAVANDA</p>
           <h1>{product.name}</h1>
