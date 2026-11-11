@@ -27,6 +27,13 @@ for (const reducedMotion of ["reduce", "no-preference"] as const) {
     const pageCount = Math.ceil(catalogProducts.filter(product => product.gender === "feminino").length / 12);
     const pagination = page.getByRole("navigation", { name: "Páginas do catálogo" });
     const grid = page.locator(".catalog .product-grid");
+    const firstPageExpected = catalogProducts
+      .filter(product => product.gender === "feminino")
+      .sort((a, b) => b.name.localeCompare(a.name, "pt-BR"))
+      .slice(0, 12)
+      .map(product => product.name);
+    // Aguarda a hidratação e o re-render real da ordenação antes da paginação.
+    await expect(grid.locator("h3")).toHaveText(firstPageExpected);
     const firstPageNames = await grid.locator("h3").allTextContents();
     for (const [button, expected] of [["Próxima", 2], ["Anterior", 1]] as const) {
       await pagination.getByRole("button", { name: button }).click();
