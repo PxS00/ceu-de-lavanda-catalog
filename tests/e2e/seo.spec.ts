@@ -29,7 +29,7 @@ test.describe("SEO no export estático", () => {
       const approved = process.env.CATALOG_INDEXABLE === "true" &&
         Boolean(process.env.CATALOG_SITE_URL) &&
         !new URL(process.env.CATALOG_SITE_URL!).hostname.endsWith(".pages.dev");
-      expect(robots).toMatch(approved ? /\\bindex\\b/ : /noindex/);
+      expect(robots).toMatch(approved ? /^index/ : /noindex/);
     });
   }
 
