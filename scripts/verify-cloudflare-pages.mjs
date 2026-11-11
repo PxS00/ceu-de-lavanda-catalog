@@ -32,8 +32,8 @@ const inspectedPages = [];
 for (const path of ["/", "/catalogo/", "/produtos/acquare/"]) {
   const response = path === "/" ? homeResponse : await request(path);
   const html = path === "/" ? home : await response.text();
-  const canonicalTag = html.match(/<link\\b[^>]*\\brel="canonical"[^>]*>/i)?.[0] ?? "";
-  const canonical = canonicalTag.match(/\\bhref="([^"]+)"/i)?.[1];
+  const canonicalTag = html.match(/<link\b[^>]*\brel="canonical"[^>]*>/i)?.[0] ?? "";
+  const canonical = canonicalTag.match(/\bhref="([^"]+)"/i)?.[1];
   assert(canonical, "Canonical ausente: " + path);
   const canonicalUrl = new URL(canonical);
   assert.equal(canonicalUrl.protocol, "https:", "Canonical não HTTPS: " + path);
@@ -41,9 +41,9 @@ for (const path of ["/", "/catalogo/", "/produtos/acquare/"]) {
   const routeHeader = response.headers.get("x-robots-tag") ?? "";
   if (mode === "preview") {
     assert.notEqual(canonicalUrl.hostname, base.hostname, "Canonical aponta para a prévia: " + path);
-    assert.match(html, /<meta\\b(?=[^>]*\\bname="robots")(?=[^>]*\\bcontent="[^"]*noindex)/i, "Meta noindex ausente: " + path);
-    assert.match(routeHeader, /\\bnoindex\\b/i, "Header noindex ausente: " + path);
-    assert.match(routeHeader, /\\bnoarchive\\b/i, "Regras customizadas de _headers ausentes: " + path);
+    assert.match(html, /<meta\b(?=[^>]*\bname="robots")(?=[^>]*\bcontent="[^"]*noindex)/i, "Meta noindex ausente: " + path);
+    assert.match(routeHeader, /\bnoindex\b/i, "Header noindex ausente: " + path);
+    assert.match(routeHeader, /\bnoarchive\b/i, "Regras customizadas de _headers ausentes: " + path);
   }
   inspectedPages.push({ path, status: response.status, canonical, xRobotsTag: routeHeader });
 }
