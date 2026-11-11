@@ -6,6 +6,9 @@ on:
       - feat/quality-seo-lighthouse-playwright
     paths:
       - ".github/workflows/visual-baseline.yml"
+      - "playwright.visual.config.ts"
+      - "tests/visual-regression/**"
+      - "package.json"
   workflow_dispatch:
 
 permissions:
