@@ -13,8 +13,8 @@ export function SiteFooter() {
           <Image
             src="/brand/wordmark-gold.svg"
             alt="Céu de Lavanda"
-            width={344.49}
-            height={145.21}
+            width={344}
+            height={145}
           />
         </Link>
         <div className="footer-message">
