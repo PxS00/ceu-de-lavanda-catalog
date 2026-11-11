@@ -73,6 +73,9 @@ jobs:
       - name: Lighthouse on Cloudflare Pages PR preview
         if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
         run: pnpm dlx @lhci/cli@0.15.1 autorun --config=.lighthouserc.cloudflare.cjs
+      - name: Summarize Lighthouse payload and Web Vitals
+        if: always()
+        run: node scripts/summarize-lighthouse.mjs
       - name: Upload quality reports
         if: always()
         uses: actions/upload-artifact@v4
