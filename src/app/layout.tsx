@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     template: `%s | ${brandName}`,
   },
   description: homeDescription,
+  verification: process.env.CATALOG_SITE_URL === "https://ceu-de-lavanda.pages.dev"
+    ? { google: "tq4AKu9OU_YFA70SEhZ-0zs-dsWLgMP0UqPU1FYX5LM" }
+    : undefined,
   robots: indexingApproved()
     ? { index: true, follow: true }
     : { index: false, follow: false, googleBot: { index: false, follow: false } },

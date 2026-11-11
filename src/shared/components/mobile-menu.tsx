@@ -51,8 +51,8 @@ export function MobileMenu({
           <Image
             src="/brand/emblem.svg"
             alt=""
-            width={111.56}
-            height={176.35}
+            width={112}
+            height={176}
           />
           <p>
             Uma descoberta
