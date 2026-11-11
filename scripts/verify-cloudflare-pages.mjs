@@ -74,12 +74,18 @@ if (mode === "preview") {
   assert.match(header, /\bnoarchive\b/i, "Regras específicas de public/_headers não aplicadas");
 }
 const optimizedPath = "/products/generated/acquare-w400.webp";
+const optimizedWidePath = "/products/generated/acquare-w800.webp";
 const optimizedResponse = await request(optimizedPath);
+const optimizedWideResponse = await request(optimizedWidePath);
 const originalResponse = await request("/products/acquare.webp");
 const optimizedBytes = (await optimizedResponse.arrayBuffer()).byteLength;
+const optimizedWideBytes = (await optimizedWideResponse.arrayBuffer()).byteLength;
 const originalBytes = (await originalResponse.arrayBuffer()).byteLength;
-assert.match(optimizedResponse.headers.get("content-type") ?? "", /image\/webp/, "Variante não é WebP");
+for (const [response, width] of [[optimizedResponse, 400], [optimizedWideResponse, 800]]) {
+  assert.match(response.headers.get("content-type") ?? "", /image\/webp/, "Variante " + width + "px não é WebP");
+}
 assert(optimizedBytes < originalBytes, "Variante de 400px não economiza bytes");
+assert(optimizedWideBytes < originalBytes, "Variante de 800px não economiza bytes");
 
 const jsPath = home.match(/src="(\/_next\/static\/[^"]+\.js)"/)?.[1];
 let jsAsset = null;
@@ -106,7 +112,7 @@ const report = {
   noindexHeader: header || "(not applicable on localhost)",
   emptyCategories,
   jsAsset,
-  responsivePhoto: { path: optimizedPath, originalBytes, optimizedBytes },
+  responsivePhoto: { originalBytes, variants: [{ path: optimizedPath, bytes: optimizedBytes }, { path: optimizedWidePath, bytes: optimizedWideBytes }] },
 };
 await mkdir("artifacts/quality", { recursive: true });
 await writeFile("artifacts/quality/cloudflare-" + mode + ".json", JSON.stringify(report, null, 2) + "\n");

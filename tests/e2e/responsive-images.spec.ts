@@ -54,6 +54,18 @@ test("product detail uses a responsive photo on phones without reducing desktop 
   const imageResponse = await request.get(path);
   expect(imageResponse.status()).toBe(200);
   expect(imageResponse.headers()["content-type"]).toMatch(/image\/webp/i);
+  if (testInfo.project.name === "mobile") {
+    const originalResponse = await request.get("/products/acquare.webp");
+    const [variantBytes, originalBytes] = await Promise.all([
+      imageResponse.body().then((bytes) => bytes.length),
+      originalResponse.body().then((bytes) => bytes.length),
+    ]);
+    expect(variantBytes).toBeLessThan(originalBytes);
+    await testInfo.attach("mobile-product-image-bytes", {
+      body: JSON.stringify({ selectedPath: path, variantBytes, originalBytes }, null, 2),
+      contentType: "application/json",
+    });
+  }
   const frame = await page.locator(".product-detail .product-art").boundingBox();
   expect(frame?.width).toBeGreaterThan(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
