@@ -53,3 +53,25 @@ Fontes externas para conferir a licença e configuração: [projeto Cormorant](h
 A partir desta auditoria, `scripts/summarize-lighthouse.mjs` consolida todos os `*.report.json` de `artifacts/lighthouse/` e `artifacts/lighthouse-cloudflare/` por **ambiente e rota**, incluindo mediana, amplitude de LCP, TBT, CLS, LCP selector, bytes transferidos de JS/CSS/fontes e estimativa de JS não utilizado. A CI gera `artifacts/quality/lighthouse-summary.{json,md}` mesmo quando não há relatório de uma etapa anterior; não introduz thresholds novos nem atualiza screenshots.
 
 **Próximas decisões fundamentadas:** (1) completar baseline desktop de quatro rotas em Linux (workflow `lighthouse-desktop.yml`, manual após a primeira execução); (2) acompanhar variabilidade de LCP e comparar múltiplos runs reais Cloudflare por commit; (3) avaliar INP de campo somente após tráfego real e política de privacidade adequada; (4) rever budgets da #28 após amostras suficientes. O Lighthouse atual não prova aprovação editorial da qualidade dos frascos e rótulos.
+
+
+## Baseline desktop e correção de CLS (mesmo ambiente, 3 execuções por rota)
+
+Execuções Linux/Chromium, mesmo Lighthouse desktop e servidor exportado, imediatamente antes e depois do commit [`ea0f9c5`](https://github.com/PxS00/ceu-de-lavanda-catalog/commit/ea0f9c54b03bfa3d86e00018e0f0897b03347ff2). Comparação medida, não estimada:
+
+| Rota | Perf. antes → depois | CLS antes → depois | LCP antes → depois | TBT |
+| --- | --- | --- | --- | --- |
+| `/` | 96 → 96 | 0 → 0 | 1.352 → 1.356 ms | 0 ms |
+| `/catalogo/` | 97 → 97 | 0 → 0 | 1.296 → 1.296 ms | 0 ms |
+| `/familias-olfativas/` | **82 → 97** | **0,311 → 0,008** | 1.215 → 1.214 ms | 0 ms |
+| `/produtos/acquare/` | 97 → 97 | 0 → 0 | 1.278 → 1.277 ms | 0 ms |
+
+- Antes: [workflow #43089654403](https://github.com/PxS00/ceu-de-lavanda-catalog/actions/runs/43089654403), artifact `lighthouse-desktop-43089654403`.
+- Depois: [workflow #43090709689](https://github.com/PxS00/ceu-de-lavanda-catalog/actions/runs/43090709689), artifact `lighthouse-desktop-43090709689`.
+- O problema foi uma alteração tardia da altura `#notas-olfativas` após `useEffect` adicionar `.is-scroll-ready`. O guia seguinte deslocava ~0,31 de CLS. A altura da seção e da cena agora é reservada por media query antes da hidratação em desktop/tablet com movimento permitido. A preferência `prefers-reduced-motion` e o layout mobile permanecem intactos.
+- Proteção adicional: teste `olfactory-story.desktop-tablet.spec.ts` compara a geometria do export sem JavaScript com a geometria após hidratação nos projetos desktop e tablet. Um gate Lighthouse `cumulative-layout-shift <= 0.1` evita regressões significativas, sem reduzir as exigências existentes.
+- Limitação: esses números são **desktop local**; não são métricas reais de usuários nem valores diretamente comparáveis à CDN mobile. A amostragem de três medições não elimina toda variabilidade.
+
+### Próximo achado distinto — imagem LCP do guia em desktop
+
+O Lighthouse desktop também classificou a imagem `/campaigns/olfactory-pump-plate.webp` como LCP com `loading="lazy"`. Esse risco deve ser tratado em uma alteração separada, com uma estratégia que **não obrigue o mobile a baixar** uma imagem que sua versão responsiva não utiliza. Não aplicar `priority` globalmente sem medir o custo nas duas resoluções. O LCP desktop observado (~1,21 s) não justifica uma mudança potencialmente regressiva sem benchmark da CDN.
