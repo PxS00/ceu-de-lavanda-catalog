@@ -87,3 +87,32 @@ test("the spray fades with the returning pump before the next stage", async ({ p
   await expect(pump).toHaveCSS("transform", "matrix(1, 0, 0, 1, 0, 7)");
 });
 
+test("the olfactory guide preserves layout before and after hydration", async ({ page, browser }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/familias-olfativas/");
+  await expect(page.locator(".olfactory-story")).toHaveClass(/is-scroll-ready/);
+  const hydrated = await page.evaluate(() => ({
+    sectionHeight: document.querySelector(".olfactory-story")!.getBoundingClientRect().height,
+    guideTop: document.querySelector("#guia-familias")!.getBoundingClientRect().top,
+  }));
+
+  // A no-JavaScript context captures the exported SSR layout before useEffect.
+  const context = await browser.newContext({
+    baseURL: "http://127.0.0.1:4173",
+    viewport: page.viewportSize()!,
+    reducedMotion: "no-preference",
+    javaScriptEnabled: false,
+  });
+  try {
+    const staticPage = await context.newPage();
+    await staticPage.goto("/familias-olfativas/");
+    const beforeHydration = await staticPage.evaluate(() => ({
+      sectionHeight: document.querySelector(".olfactory-story")!.getBoundingClientRect().height,
+      guideTop: document.querySelector("#guia-familias")!.getBoundingClientRect().top,
+    }));
+    expect(Math.abs(hydrated.sectionHeight - beforeHydration.sectionHeight)).toBeLessThan(2);
+    expect(Math.abs(hydrated.guideTop - beforeHydration.guideTop)).toBeLessThan(2);
+  } finally {
+    await context.close();
+  }
+});
