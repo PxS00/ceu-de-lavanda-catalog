@@ -1,0 +1,53 @@
+name: Promote reviewed Acquare snapshots
+
+on:
+  push:
+    branches: [feat/quality-seo-lighthouse-playwright]
+    paths: [.github/workflows/visual-baselines-promote.yml]
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: visual-baselines-promote
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download candidate images from successful deterministic run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 43084176245 \
+            --name visual-baselines-candidates-43084176245 \
+            --dir /tmp/visual-baselines
+      - name: Check all six approved PNG SHA-256 hashes
+        run: |
+          set -euo pipefail
+          cd /tmp/visual-baselines
+          test "$(find tests/visual-regression/__screenshots__ -type f -name '*.png' | wc -l)" -eq 6
+          sha256sum --check <<'SHA256'
+          57e055a8f042717e7b900276c38b523a2be69ed436399776ddad8fea6037cf3c  tests/visual-regression/__screenshots__/desktop/catalog.png
+          bab828556a919aa10a9d7a71639133a952fc82b29bf8a2aa5a1b22e0fdb81942  tests/visual-regression/__screenshots__/desktop/home.png
+          dc55372426287dabed9a8f179f1f1aacac15892068b4688ea023072a6c8e1670  tests/visual-regression/__screenshots__/desktop/product-acquare.png
+          2920a972649e07998324fa1cd0cc1eeefa5b9b0e9c051047b7c97e0b7e875701  tests/visual-regression/__screenshots__/mobile/catalog.png
+          b54deabcc30bafd9fda663dc52112710a8d5222ffe890df2f1ca9a6ddf80098b  tests/visual-regression/__screenshots__/mobile/home.png
+          9b2b8d42e6af5691474e7dbb0ea7a39ffd78be6e5a27c6f855f77c7e62584f31  tests/visual-regression/__screenshots__/mobile/product-acquare.png
+          SHA256
+      - name: Commit only two changed product-detail baselines
+        run: |
+          set -euo pipefail
+          cp -a /tmp/visual-baselines/tests/visual-regression/__screenshots__ tests/visual-regression/
+          git add -- tests/visual-regression/__screenshots__
+          test "$(git diff --cached --name-only | wc -l)" -eq 2
+          git diff --cached --name-only | grep -Fx 'tests/visual-regression/__screenshots__/desktop/product-acquare.png'
+          git diff --cached --name-only | grep -Fx 'tests/visual-regression/__screenshots__/mobile/product-acquare.png'
+          git -c user.name='github-actions[bot]' \
+            -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m 'test(visual): estabilizar dois snapshots de recomendações'
+          git push origin 'HEAD:refs/heads/feat/quality-seo-lighthouse-playwright'
