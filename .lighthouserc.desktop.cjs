@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- Configuração CommonJS exigida pelo LHCI. */
 const base = require("./.lighthouserc.cjs");
 
 module.exports = {
