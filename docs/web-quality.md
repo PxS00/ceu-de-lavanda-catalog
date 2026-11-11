@@ -65,3 +65,7 @@ A CI valida a entrega de variantes com Playwright e com Cloudflare real (HTTP 20
 ### Suítes específicas por projeto
 
 O Playwright usa arquivos `*.desktop.spec.ts`, `*.desktop-tablet.spec.ts` e `*.mobile.spec.ts` com `testIgnore` por projeto. Isso mantém a mesma cobertura executada de antes (sem reduzir a cobertura efetiva: os 26 `test.skip` anteriores eram combinações de dispositivos não aplicáveis; a quantidade de casos varia conforme novas suítes são adicionadas), sem gerar entradas `skipped` no relatório. Para conferir, executar `pnpm exec playwright test --list` e revisar os cenários por desktop, tablet e mobile. A seleção não desativa testes e não altera a experiência do usuário.
+
+### Fotografia do detalhe por viewport
+
+O detalhe do perfume mantém a imagem original em desktop/tablet e usa a variante WebP de 400/800 px em celulares de até 760 px, com `<picture>`, `srcset` e prioridade alta de carregamento. A fotografia permanece nítida nos displays maiores, enquanto no mobile a transferência é reduzida. `tests/e2e/responsive-images.spec.ts` verifica `currentSrc`, decodificação, formato, presença da imagem e ausência de overflow em todos os projetos Playwright. A avaliação visual ainda precisa da aprovação final do responsável antes do merge; evitar usar somente notas Lighthouse para julgar a fidelidade dos rótulos.

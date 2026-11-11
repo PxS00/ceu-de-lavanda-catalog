@@ -17,7 +17,28 @@ export function ProductArt({
     return (
       <div className="product-art has-photo">
         <div className="product-photo-frame">
-          {variant === "detail" || !hasResponsiveWebP ? (
+          {variant === "detail" && hasResponsiveWebP ? (
+            <picture>
+              <source
+                media="(max-width: 760px)"
+                type="image/webp"
+                srcSet={responsivePhoto(product.photo.src, 400) + " 400w, " + responsivePhoto(product.photo.src, 800) + " 800w"}
+                sizes="100vw"
+              />
+              {/* Keep the full-resolution original for desktop and high-quality fallback. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={product.photo.src}
+                alt={product.photo.alt}
+                width={800}
+                height={1000}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
+              />
+            </picture>
+          ) : variant === "detail" || !hasResponsiveWebP ? (
             <Image
               src={product.photo.src}
               alt={product.photo.alt}
