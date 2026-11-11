@@ -42,6 +42,8 @@ jobs:
       - run: pnpm build
       - run: pnpm exec playwright install chromium --only-shell
       - run: pnpm test:e2e
+      - name: Check approved Playwright golden screenshots
+        run: pnpm test:visual:regression
       - name: Report image asset sizes
         run: node scripts/audit-assets.mjs
       - name: Collect Lighthouse CI baseline
