@@ -68,6 +68,16 @@ for (const slug of emptyCategories) {
 const robotsResponse = await request("/robots.txt");
 assert.match(await robotsResponse.text(), /Sitemap:\s*https:\/\//i);
 
+const missingResponse = await fetch(new URL("/rota-inexistente-verificacao-404/", base));
+assert.equal(missingResponse.status, 404, "Rota inexistente deve retornar HTTP 404");
+const missingHtml = await missingResponse.text();
+assert.match(missingHtml, /<title>Página não encontrada \| Céu de Lavanda<\/title>/i);
+assert.match(missingHtml, /página não foi encontrada/i);
+assert.doesNotMatch(missingHtml, /<link\b[^>]*\brel="canonical"/i);
+assert.doesNotMatch(missingHtml, /<meta\b[^>]*(?:property="og:|name="twitter:)/i);
+assert.match(missingHtml, /<meta\b(?=[^>]*\bname="robots")(?=[^>]*\bcontent="[^"]*noindex)/i);
+if (mode === "preview") assert.match(missingResponse.headers.get("x-robots-tag") ?? "", /\bnoindex\b/i);
+
 const header = homeResponse.headers.get("x-robots-tag") ?? "";
 if (mode === "preview") {
   assert.match(header, /\bnoindex\b/i, "Preview sem X-Robots-Tag noindex");
@@ -108,6 +118,7 @@ const report = {
   origin: base.origin,
   homeStatus: homeResponse.status,
   sitemapStatus: sitemapResponse.status,
+  missingStatus: missingResponse.status,
   inspectedPages,
   noindexHeader: header || "(not applicable on localhost)",
   emptyCategories,

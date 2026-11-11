@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-export const metadata: Metadata = { title: "Página não encontrada", robots: { index: false, follow: false } };
+export const metadata: Metadata = {
+  title: "Página não encontrada",
+  description: "Esta página não foi encontrada. Explore a coleção Céu de Lavanda no catálogo.",
+  robots: { index: false, follow: false },
+  alternates: null,
+  openGraph: null,
+  twitter: null,
+};
 
 export default function NotFound() {
   return (

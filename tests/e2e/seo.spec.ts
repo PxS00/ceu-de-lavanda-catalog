@@ -13,6 +13,18 @@ const routes = [
 ];
 
 test.describe("SEO no export estático", () => {
+  test("404 não herda canonical ou metadados sociais da home", async ({ page }) => {
+    await page.goto("/404.html");
+    await expect(page).toHaveTitle("Página não encontrada | Céu de Lavanda");
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /página não foi encontrada/i);
+    await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
+    await expect(page.locator('meta[property^="og:"]')).toHaveCount(0);
+    await expect(page.locator('meta[name^="twitter:"]')).toHaveCount(0);
+    const robots = await page.locator('meta[name="robots"]').all();
+    expect(robots.length).toBeGreaterThan(0);
+    for (const tag of robots) expect(await tag.getAttribute("content")).toMatch(/noindex/);
+  });
+
   for (const route of routes) {
     test(`metadados válidos em ${route}`, async ({ page }) => {
       await page.goto(route);
