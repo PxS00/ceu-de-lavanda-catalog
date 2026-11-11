@@ -22,6 +22,16 @@
 .olfactory-progress { display: none; }
 .olfactory-mobile-bottle { display: none; }
 .olfactory-pump { display: block; position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+/* Reserve the same dimensions in SSR before useEffect adds .is-scroll-ready.
+   Otherwise the guide below jumps by hundreds of pixels during hydration. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 1051px) {
+  .olfactory-story { height: calc(142svh - 110px); }
+  .olfactory-scene { height: calc(90svh - 110px); min-height: 560px; }
+}
+@media (prefers-reduced-motion: no-preference) and (min-width: 761px) and (max-width: 1050px) {
+  .olfactory-story { height: calc(min(72vw, 560px) + 45svh); }
+  .olfactory-scene { height: min(72vw, 560px); min-height: 500px; }
+}
 @media (prefers-reduced-motion: no-preference) {
   .olfactory-story.is-scroll-ready { height: calc(142svh - 110px); }
   .is-scroll-ready .olfactory-scene { position: sticky; top: 110px; height: calc(90svh - 110px); min-height: 560px; }
