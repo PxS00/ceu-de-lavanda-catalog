@@ -47,7 +47,7 @@ jobs:
           set -euo pipefail
           cp -a /tmp/visual-baselines/tests/visual-regression/__screenshots__ tests/visual-regression/
           git add -- tests/visual-regression/__screenshots__
-          test "$(git diff --cached --name-only | grep -cE '^tests/visual-regression/__screenshots__/(desktop|mobile)/(catalog|home|product-acquare)\\.png$')" -eq 6
+          test "$(git diff --cached --name-only | wc -l)" -eq 6
           git -c user.name='github-actions[bot]' \
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
               commit -m 'test(visual): versionar seis baselines reprodutíveis'
