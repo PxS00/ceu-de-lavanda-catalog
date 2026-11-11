@@ -76,8 +76,8 @@ export function SiteHeader() {
           <Image
             src="/branding/ceu-de-lavanda-logo-graphite.svg"
             alt="Céu de Lavanda — sinta o toque da lavanda"
-            width={513.77}
-            height={271.81}
+            width={514}
+            height={272}
             loading="eager"
           />
         </Link>
