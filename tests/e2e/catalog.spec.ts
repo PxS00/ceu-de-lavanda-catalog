@@ -23,6 +23,7 @@ for (const reducedMotion of ["reduce", "no-preference"] as const) {
   test("pagination returns to the products without obscuring them beneath the header (" + reducedMotion + ")", async ({ page }) => {
     await page.emulateMedia({ reducedMotion });
     await page.goto("/catalogo/?genero=feminino");
+    await expect(page.getByLabel("Gênero")).toHaveValue("feminino");
     await page.getByLabel("Ordenar por").selectOption("za");
     const pageCount = Math.ceil(catalogProducts.filter(product => product.gender === "feminino").length / 12);
     const pagination = page.getByRole("navigation", { name: "Páginas do catálogo" });
