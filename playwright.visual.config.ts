@@ -6,7 +6,7 @@ import base from "./playwright.config";
 export default defineConfig({
   ...base,
   testDir: "./tests/visual-regression",
-  snapshotPathTemplate: "{testDir}/__screenshots__/{projectName}/{arg}",
+  snapshotPathTemplate: "{testDir}/__screenshots__/{projectName}/{arg}{ext}",
   projects: (base.projects ?? []).filter((project) => project.name === "desktop" || project.name === "mobile"),
   use: {
     ...base.use,
