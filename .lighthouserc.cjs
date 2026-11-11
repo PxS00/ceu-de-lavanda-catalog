@@ -8,16 +8,16 @@ module.exports = {
         "http://127.0.0.1:4175/produtos/acquare/",
       ],
       numberOfRuns: 3,
-      startServerCommand: "python3 -m http.server 4175 --bind 127.0.0.1 --directory out",
+      startServerCommand: "python3 -u -m http.server 4175 --bind 127.0.0.1 --directory out 2>&1",
       startServerReadyPattern: "Serving HTTP",
       settings: { chromeFlags: "--headless --no-sandbox", formFactor: "mobile", screenEmulation: { mobile: true, width: 390, height: 844, deviceScaleFactor: 1, disabled: false } },
     },
     assert: {
-      // Baseline inicial: report-only. Não bloquear mudanças por metas sem medições confiáveis.
+      // Gates conservadores da baseline; SEO segue informativo porque noindex é obrigatório na prévia.
       assertions: {
-        "categories:performance": ["warn", { minScore: 0.90 }],
-        "categories:accessibility": ["warn", { minScore: 0.95 }],
-        "categories:best-practices": ["warn", { minScore: 0.95 }],
+        "categories:performance": ["error", { minScore: 0.65 }],
+        "categories:accessibility": ["error", { minScore: 0.90 }],
+        "categories:best-practices": ["error", { minScore: 0.95 }],
         "categories:seo": ["warn", { minScore: 0.95 }],
         "is-crawlable": "off", // noindex é deliberado antes do lançamento.
       },

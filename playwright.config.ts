@@ -21,7 +21,7 @@ export default defineConfig({
     { name: "mobile", use: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true } },
   ],
   webServer: [{
-    command: "pnpm build && python3 -m http.server 4173 --bind 127.0.0.1 --directory out",
+    command: process.env.CI ? "python3 -u -m http.server 4173 --bind 127.0.0.1 --directory out" : "pnpm build && python3 -u -m http.server 4173 --bind 127.0.0.1 --directory out",
     url: "http://127.0.0.1:4173",
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
