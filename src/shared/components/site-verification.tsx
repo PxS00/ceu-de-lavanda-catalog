@@ -7,14 +7,14 @@ export function SiteVerification() {
   const cards = [
     { source: "Google Safe Browsing", title: "Consulta de segurança", detail: "Verificação independente", icon: ShieldCheck,
       href: "https://transparencyreport.google.com/safe-browsing/search?url=" + encodeURIComponent(contact.siteUrl),
-      label: "Consultar no Google Safe Browsing", tone: "lavender" },
+      label: "a segurança no Google Safe Browsing", tone: "lavender" },
     { source: "Qualys SSL Labs", title: "Conexão HTTPS", detail: "Consulte o certificado SSL", icon: LockKeyhole,
       href: "https://www.ssllabs.com/ssltest/analyze.html?d=" + encodeURIComponent(domain),
-      label: "Verificar conexão HTTPS", tone: "gold" },
+      label: "a conexão HTTPS no Qualys SSL Labs", tone: "gold" },
     ...(contact.companyName && contact.cnpj ? [
       { source: "Receita Federal", title: "Dados da empresa", detail: "CNPJ " + contact.cnpj, icon: Building2,
         href: "https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj=" + contact.cnpj.replace(/\D/g, ""),
-        label: "Consultar CNPJ na Receita Federal", tone: "lavender" },
+        label: "o CNPJ na Receita Federal", tone: "lavender" },
     ] : []),
   ];
   return (
@@ -29,7 +29,7 @@ export function SiteVerification() {
               <strong>{title}</strong>
               <span>{detail}</span>
             </div>
-            <a href={href} target="_blank" rel="noopener noreferrer" aria-label={label + " (abre em nova aba)"}>
+            <a href={href} target="_blank" rel="noopener noreferrer" aria-label={"Conferir " + label + " (abre em nova aba)"}>
               <ArrowUpRight aria-hidden="true" /><span>Conferir</span>
             </a>
           </article>
