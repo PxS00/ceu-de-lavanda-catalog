@@ -28,6 +28,25 @@ async function request(path) {
 }
 const homeResponse = await request("/");
 const home = await homeResponse.text();
+const inspectedPages = [];
+for (const path of ["/", "/catalogo/", "/produtos/acquare/"]) {
+  const response = path === "/" ? homeResponse : await request(path);
+  const html = path === "/" ? home : await response.text();
+  const canonicalTag = html.match(/<link\\b[^>]*\\brel="canonical"[^>]*>/i)?.[0] ?? "";
+  const canonical = canonicalTag.match(/\\bhref="([^"]+)"/i)?.[1];
+  assert(canonical, "Canonical ausente: " + path);
+  const canonicalUrl = new URL(canonical);
+  assert.equal(canonicalUrl.protocol, "https:", "Canonical não HTTPS: " + path);
+  assert.equal(canonicalUrl.pathname, path, "Canonical aponta para outra rota: " + path);
+  const routeHeader = response.headers.get("x-robots-tag") ?? "";
+  if (mode === "preview") {
+    assert.notEqual(canonicalUrl.hostname, base.hostname, "Canonical aponta para a prévia: " + path);
+    assert.match(html, /<meta\\b(?=[^>]*\\bname="robots")(?=[^>]*\\bcontent="[^"]*noindex)/i, "Meta noindex ausente: " + path);
+    assert.match(routeHeader, /\\bnoindex\\b/i, "Header noindex ausente: " + path);
+    assert.match(routeHeader, /\\bnoarchive\\b/i, "Regras customizadas de _headers ausentes: " + path);
+  }
+  inspectedPages.push({ path, status: response.status, canonical, xRobotsTag: routeHeader });
+}
 const sitemapResponse = await request("/sitemap.xml");
 const sitemap = await sitemapResponse.text();
 assert.match(home, /<title>[^<]*Céu de Lavanda/i, "Título institucional não encontrado");
@@ -44,6 +63,7 @@ for (const slug of emptyCategories) {
   const response = await request("/catalogo/" + slug + "/");
   const html = await response.text();
   assert.match(html, /<meta\b(?=[^>]*\bname="robots")(?=[^>]*\bcontent="[^"]*noindex)/i, "Categoria vazia indexável: " + slug);
+  if (mode === "preview") assert.match(response.headers.get("x-robots-tag") ?? "", /\bnoindex\b/i, "Header noindex ausente na categoria vazia: " + slug);
 }
 const robotsResponse = await request("/robots.txt");
 assert.match(await robotsResponse.text(), /Sitemap:\s*https:\/\//i);
@@ -72,11 +92,17 @@ if (jsPath) {
     cacheControl: res.headers.get("cache-control") ?? "none",
   };
 }
+if (mode === "preview") {
+  assert(jsAsset, "Não foi possível identificar um arquivo JavaScript para auditar compressão");
+  assert.match(jsAsset.contentEncoding, /^(br|gzip)$/i, "Cloudflare Pages não entregou JavaScript comprimido");
+}
+
 const report = {
   mode,
   origin: base.origin,
   homeStatus: homeResponse.status,
   sitemapStatus: sitemapResponse.status,
+  inspectedPages,
   noindexHeader: header || "(not applicable on localhost)",
   emptyCategories,
   jsAsset,
