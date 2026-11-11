@@ -95,6 +95,8 @@ O primeiro gate completo revelou **4/6 snapshots passando** e diferenças apenas
 
 ## Teclado e foco — issue #31
 
+O workflow também publica o relatório HTML do Playwright em `artifacts/visual-review/html/`, junto ao relatório Markdown, traces e capturas. O HTML usa `open: never` e a mesma retenção de sete dias do artifact de qualidade.
+
 A jornada automatizada usa **teclas reais** no Chromium (Tab, Enter, Escape), sem chamar `Locator.focus()` para saltar controles. O arquivo `tests/e2e/keyboard-journey.spec.ts` percorre catálogo → campo de busca → seleção de Acquaré → detalhes → botão do carrossel de relacionados, validando foco visível, ordem dos filtros, navegação e rolagem por teclado em desktop/tablet/mobile. O arquivo `tests/e2e/keyboard-menu.mobile.spec.ts` confirma no mobile: skip link como primeiro foco, botão de menu alcançável por Tab, abertura por Enter, fechamento por Escape, devolução do foco ao acionador e navegação por links do diálogo com Tab/Enter. Os relatórios anexados à CI incluem uma trilha curta de foco por cenário.
 
 Rodar após o build: 

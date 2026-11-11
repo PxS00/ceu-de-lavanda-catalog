@@ -7,7 +7,7 @@ export default defineConfig({
   retries: 0,
   workers: 3,
   outputDir: "artifacts/visual-review/test-results",
-  reporter: [["list"], ["./tests/e2e/report.ts"]],
+  reporter: [["list"], ["./tests/e2e/report.ts"], ["html", { outputFolder: "artifacts/visual-review/html", open: "never" }]],
   use: {
     baseURL: "http://127.0.0.1:4173",
     browserName: "chromium",

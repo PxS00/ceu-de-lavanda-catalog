@@ -1,5 +1,9 @@
 # Auditoria de fontes, bundles e Core Web Vitals — 11/11/2026
 
+## Complemento de cobertura para aceite
+
+A categoria `/catalogo/perfumes/` foi adicionada às configurações mobile e desktop, com três execuções por rota e os mesmos budgets. Os números históricos abaixo permanecem os das execuções citadas; a nova rota exige evidência na próxima CI mobile e execução desktop sob demanda. Todos os produtos atuais têm descrição, família, fotografia e preços cadastrados; não há produto publicado sem esses dados para auditar. Esse cenário deverá ser incluído quando existir, sem alterar dados comerciais apenas para satisfazer o teste.
+
 **Escopo:** issue [#30](https://github.com/PxS00/ceu-de-lavanda-catalog/issues/30), PR [#32](https://github.com/PxS00/ceu-de-lavanda-catalog/pull/32). Dados de laboratório da [CI #43086884865](https://github.com/PxS00/ceu-de-lavanda-catalog/actions/runs/43086884865), sobre **Next.js 16 com `output: export`**, sem alterações no código comercial. Relatórios brutos: artifact `quality-report-43086884865`.
 
 ## Baseline mobile: Cloudflare Pages QA (com compressão)
