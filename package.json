@@ -10,7 +10,9 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test:e2e": "playwright test",
     "test:visual": "playwright test --grep @visual",
-    "assets:responsive": "node scripts/generate-responsive-images.mjs"
+    "assets:responsive": "node scripts/generate-responsive-images.mjs",
+    "test:visual:regression": "playwright test --config=playwright.visual.config.ts",
+    "test:visual:baseline": "playwright test --config=playwright.visual.config.ts --update-snapshots"
   },
   "dependencies": {
     "lucide-react": "^1.57.0",
