@@ -1,0 +1,47 @@
+name: Prepare visual golden baselines
+
+on:
+  push:
+    branches:
+      - feat/quality-seo-lighthouse-playwright
+    paths:
+      - ".github/workflows/visual-baseline.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.14.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm exec playwright install --with-deps chromium --only-shell
+      - name: Generate six candidate PNGs (not approved)
+        run: pnpm test:visual:baseline
+      - name: Verify deterministic baselines twice
+        run: |
+          pnpm test:visual:regression
+          pnpm test:visual:regression
+      - name: Upload candidate PNGs and diagnostics for manual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-baselines-candidates-${{ github.run_id }}
+          path: |
+            tests/visual-regression/__screenshots__/
+            artifacts/visual-review/
+          if-no-files-found: warn
+          retention-days: 7
+
+# PNGs are candidates only; workflow never commits them or changes the required CI checks.
