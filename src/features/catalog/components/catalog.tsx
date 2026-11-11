@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Reveal, useReveal } from "@/shared/components/reveal";
 import {
   filterProducts,
@@ -36,6 +36,7 @@ export function Catalog({
   const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const { query, initial, sort } = filters;
   const [page, setPage] = useState(1);
+  const productGrid = useRef<HTMLDivElement>(null);
   const family = useSyncExternalStore(subscribe, familySnapshot, serverSnapshot);
   const gender = useSyncExternalStore(subscribe, genderSnapshot, serverSnapshot);
   const families = [...new Set(products.filter((p) => !category || p.category === category).map((p) => p.family).filter((v): v is string => Boolean(v)))].sort((a, b) => a.localeCompare(b, "pt-BR"));
@@ -81,6 +82,16 @@ export function Catalog({
   function updateFilters(changes: Partial<CatalogFilterState>) {
     setFilters((current) => ({ ...current, ...changes }));
     setPage(1);
+  }
+  function changePage(nextPage: number) {
+    setPage(nextPage);
+    window.requestAnimationFrame(() => {
+      if (!productGrid.current) return;
+      const headerHeight = document.querySelector<HTMLElement>(".site-header")?.offsetHeight ?? 0;
+      const top = productGrid.current.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: Math.max(0, top), behavior: reducedMotion ? "instant" : "smooth" });
+    });
   }
 
   function reset() {
@@ -129,7 +140,7 @@ export function Catalog({
           </a>
         </aside>
         {filtered.length ? (
-          <div className="product-grid">
+          <div className="product-grid" ref={productGrid}>
             {pageItems.map((product, index) => (
               <ProductCard product={product} index={index} key={product.id} />
             ))}
@@ -143,7 +154,7 @@ export function Catalog({
           />
         )}
       </div>
-      <CatalogPagination page={currentPage} pageCount={pageCount} onPageChange={setPage} />
+      <CatalogPagination page={currentPage} pageCount={pageCount} onPageChange={changePage} />
     </section>
   );
 }
