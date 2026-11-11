@@ -53,6 +53,14 @@ if (mode === "preview") {
   assert.match(header, /\bnoindex\b/i, "Preview sem X-Robots-Tag noindex");
   assert.match(header, /\bnoarchive\b/i, "Regras específicas de public/_headers não aplicadas");
 }
+const optimizedPath = "/products/generated/acquare-w400.webp";
+const optimizedResponse = await request(optimizedPath);
+const originalResponse = await request("/products/acquare.webp");
+const optimizedBytes = (await optimizedResponse.arrayBuffer()).byteLength;
+const originalBytes = (await originalResponse.arrayBuffer()).byteLength;
+assert.match(optimizedResponse.headers.get("content-type") ?? "", /image\/webp/, "Variante não é WebP");
+assert(optimizedBytes < originalBytes, "Variante de 400px não economiza bytes");
+
 const jsPath = home.match(/src="(\/_next\/static\/[^"]+\.js)"/)?.[1];
 let jsAsset = null;
 if (jsPath) {
@@ -72,6 +80,7 @@ const report = {
   noindexHeader: header || "(not applicable on localhost)",
   emptyCategories,
   jsAsset,
+  responsivePhoto: { path: optimizedPath, originalBytes, optimizedBytes },
 };
 await mkdir("artifacts/quality", { recursive: true });
 await writeFile("artifacts/quality/cloudflare-" + mode + ".json", JSON.stringify(report, null, 2) + "\n");

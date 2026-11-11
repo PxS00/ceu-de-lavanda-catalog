@@ -54,3 +54,9 @@ O script `scripts/verify-cloudflare-pages.mjs` valida emulação local e URL rea
 A prévia real precisa das secrets existentes `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID`. Se faltarem, o job falha explicitamente; não declarar Cloudflare validado somente porque o servidor Python passou. A CI produz `artifacts/quality/cloudflare-{local,preview}.json` e mede home e catálogo na CDN pelo `.lighthouserc.cloudflare.cjs`, em modo informativo para performance até a baseline de Pages ser aprovada. A URL da prévia é pública, porém protegida por `noindex` no HTML e headers.
 
 **Observação:** o Lighthouse sobre a CDN ainda é laboratório simulado, não INP real nem dados CrUX. Verificar adicionalmente headers, URL canônica, controle de acesso e domínio definitivo antes do lançamento.
+
+
+## Imagens responsivas no export estático
+`pnpm assets:responsive` gera WebP reais de cada foto de produto (400/800px) e do hero (540/960px). `pnpm dev` e `pnpm build` executam Sharp 0.35.5 antes do Next.js 16. Os arquivos gerados são ignorados no Git, reproduzidos no build e publicados no Cloudflare Pages sem serviço de imagem em runtime. Cartões usam `srcset`, `sizes` e `loading=lazy`; hero usa prioridade alta. A página de detalhe preserva a foto original.
+
+A CI valida a entrega de variantes com Playwright e com Cloudflare real (HTTP 200, MIME WebP, e menor transferência que o original). `artifacts/quality/responsive-images.json` registra os bytes de todas as variantes. Compare baseline Lighthouse antes e depois **na CDN Cloudflare**, sem confundir economias potenciais de auditoria com ganhos reais.
