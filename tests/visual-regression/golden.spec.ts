@@ -15,19 +15,25 @@ async function stabilize(page: Page) {
 
 async function prepareScreenshot(page: Page) {
   await page.evaluate(() => document.fonts.ready);
-  // Lazy-loaded product photos must be fetched before taking full-page screenshots.
-  await page.evaluate(async () => {
-    const images = Array.from(document.querySelectorAll<HTMLImageElement>("img"));
+
+  // The homepage replaces its initial four cards after hydration. Make sure
+  // those client-rendered images exist before resolving lazy loading.
+  await page.locator("img").evaluateAll((images) => {
     for (const image of images) image.loading = "eager";
-    await Promise.all(images.map(async (image) => {
-      if (!image.complete) {
-        await new Promise<void>((resolve, reject) => {
-          image.addEventListener("load", () => resolve(), { once: true });
-          image.addEventListener("error", () => reject(new Error("Image failed: " + image.src)), { once: true });
-        });
-      }
-      await image.decode();
-    }));
+  });
+  await expect.poll(
+    () => page.locator("img").evaluateAll((images) =>
+      images.every((image) =>
+        image.complete &&
+        image.naturalWidth > 0 &&
+        image.naturalHeight > 0 &&
+        Boolean(image.currentSrc),
+      ),
+    ),
+    { timeout: 20_000 },
+  ).toBe(true);
+  await page.locator("img").evaluateAll(async (images) => {
+    await Promise.all(images.map((image) => image.decode()));
   });
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
 }
@@ -36,6 +42,11 @@ for (const scenario of scenarios) {
   test(`golden: ${scenario.name}`, async ({ page }) => {
     await stabilize(page);
     await page.goto(scenario.url);
+    if (scenario.name === "home") {
+      // Wait for the client-side random selection instead of capturing the SSR fallback.
+      await expect(page.locator(".collection-preview .product-grid")).toHaveAttribute("data-selection-ready", "true");
+      await expect(page.locator(".collection-preview .product-card")).toHaveCount(4);
+    }
     await prepareScreenshot(page);
     await expect(page).toHaveScreenshot(`${scenario.name}.png`, {
       fullPage: true,
