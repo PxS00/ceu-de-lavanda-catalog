@@ -1,5 +1,24 @@
 import { test, expect } from "@playwright/test";
 
+test("spray endpoints follow their note borders across desktop sizes", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/familias-olfativas/");
+  for (const width of [900, 1280, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await expect.poll(() => page.locator(".olfactory-story").evaluate((story) => {
+      const svg = story.querySelector<SVGSVGElement>(".olfactory-spray")!;
+      const scene = story.querySelector<HTMLElement>(".olfactory-scene")!;
+      const notes = story.querySelector<HTMLElement>(".olfactory-notes")!;
+      const errors = [...svg.querySelectorAll("path")].map((path, index) => {
+        const point = path.getPointAtLength(path.getTotalLength());
+        const note = notes.children[index] as HTMLElement;
+        return Math.abs(point.y * scene.clientHeight / 600 - notes.offsetTop - note.offsetTop);
+      });
+      return Math.max(...errors);
+    })).toBeLessThan(1);
+  }
+});
+
 test("each spray plays visibly after a normal scroll and can replay", async ({ page }, testInfo) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/familias-olfativas/");
