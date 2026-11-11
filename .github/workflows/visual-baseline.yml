@@ -1,13 +1,7 @@
 name: Prepare visual golden baselines
 
-# Temporary one-off trigger: refresh candidate PNGs after fixing nondeterministic recommendations.
-# Revert to workflow_dispatch-only after the newly reviewed PNGs are versioned.
+# Baselines are refreshed only by an explicitly dispatched maintenance job.
 on:
-  push:
-    branches: [feat/quality-seo-lighthouse-playwright]
-    paths:
-      - src/features/catalog/lib/recommendations.ts
-      - tests/recommendations.test.mjs
   workflow_dispatch:
 
 permissions:
