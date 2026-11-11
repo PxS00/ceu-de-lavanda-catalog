@@ -61,24 +61,29 @@ For a fresh Linux environment, provision the native libraries described by
 `pnpm exec playwright install-deps chromium` through your normal system setup.
 
 
-## Golden snapshots (issue #31 — preparação)
+## Regressão visual com golden snapshots — issue #31
 
-A suíte de revisão manual (`pnpm test:visual`) continua separada das comparações pixel-a-pixel. A suíte `tests/visual-regression/golden.spec.ts` usa a configuração `playwright.visual.config.ts` e cobre **home, catálogo e detalhe Acquaré** em **Chromium desktop 1440×900 e mobile 390×844**: seis imagens de referência quando aprovadas. Não duplica o framework Playwright nem adiciona `test.skip` à suíte E2E.
+A suíte de revisão manual (`pnpm test:visual`) permanece independente da regressão pixel-a-pixel. A suíte `tests/visual-regression/golden.spec.ts`, configurada em `playwright.visual.config.ts`, compara **seis PNGs versionados** (home, catálogo e detalhe Acquaré × Chromium desktop 1440×900 / mobile 390×844).
 
-A geração é **explícita**, e a baseline não deve ser produzida automaticamente pelo CI:
+### Evidências e baseline adotada
+
+- Baselines geradas no Ubuntu/Chromium pelo [GitHub Actions #43080210162](https://github.com/PxS00/ceu-de-lavanda-catalog/actions/runs/43080210162), com **seis imagens e duas execuções consecutivas de comparação aprovadas**, após estabilização da seleção da vitrine e decodificação das imagens.
+- Artifact `visual-baselines-candidates-43080210162` recuperado, seis hashes SHA-256 verificados antes de versionar em `tests/visual-regression/__screenshots__/{desktop,mobile}/`.
+- As capturas foram adotadas como **baseline técnica inicial**; isso não equivale à aprovação editorial final da marca, fotografias e rótulos. Eventuais alterações de identidade visual seguem exigindo revisão explícita.
+- A validação principal do PR executa `pnpm test:visual:regression` após `pnpm test:e2e`. Falhas produzem screenshots esperados/recebidos/diffs e traces em `artifacts/visual-review/`, enviados como artifacts por 7 dias.
+
+### Comandos de manutenção
 
 ```sh
 pnpm install --frozen-lockfile
-pnpm exec playwright install chromium
+pnpm exec playwright install chromium --only-shell
 pnpm build
-pnpm test:visual:baseline     # cria/atualiza PNGs de referência: revisar MANUALMENTE
-pnpm test:visual:regression   # comparação contra PNGs aprovados
+pnpm test:visual:regression          # CI e verificação local: nunca altera os PNGs
+pnpm test:visual:baseline            # SOMENTE após decisão de mudar a baseline
 ```
 
-A execução usa o export estático existente e o mesmo servidor Playwright da suíte principal. Antes de comparar, fixa `Math.random` para as vitrines, a localidade pt-BR, tema claro, `deviceScaleFactor=1`, movimento reduzido, fontes carregadas, decodificação de imagens e carregamento eager nas fotos lazy. O screenshot é da página inteira, desativa animações e caret, e tem tolerância inicial de **0,5% de pixels diferentes**. Isso não substitui inspeção semântica das fotografias e rótulos.
+A geração de novas referências é **manual**, não ocorre automaticamente para tornar um teste verde. Para alterar snapshots, produzir as capturas em Ubuntu/Chromium equivalente à CI, examinar expected/actual/diff e conteúdo dos rótulos, rever a mudança no PR e só então atualizar os PNGs. A tolerância inicial é **0,5%** de pixels distintos; não aumentá-la para ocultar regressões.
 
-Os golden PNGs ficam versionados em `tests/visual-regression/__screenshots__/{desktop,mobile}/`. Na primeira execução **ainda não há imagens de referência aprovadas**: `pnpm test:visual:regression` deve falhar até que sejam geradas e revisadas. É deliberado: não aceitar um estado visual desconhecido simplesmente para obter CI verde. **A suíte não entra no gate principal até a aprovação dos seis PNGs.**
+A suíte fixa `Math.random` no navegador e aguarda `data-selection-ready=true` na home; força carregamento eager das imagens lazy, verifica `complete`, dimensões naturais e `currentSrc`, decodifica as imagens, espera fontes e desativa movimento/caret. Usa `pt-BR`, tema claro, DPR=1 e somente o servidor do export estático na porta 4173: não inicia o fixture sintético da porta 4174.
 
-Processo de aprovação: gerar no ambiente Linux/Chromium compatível com CI, inspecionar lado a lado frascos/rótulos, legibilidade e enquadramento em 390 e 1440 px, adicionar os seis PNGs ao commit após aprovação, executar `pnpm test:visual:regression` duas vezes e verificar estabilidade. Só então adicionar o comando ao workflow com artifacts de screenshots/diffs em falha. Em mudanças futuras, nunca rodar `--update-snapshots` automaticamente no CI; cada alteração deve ter aprovação visual explícita no PR.
-
-**Limitações conhecidas:** renderização de fontes nativas, versão do Chromium e sistema operacional podem mudar pixels; padronizar ambiente e verificar flakiness antes de usar o gate. A comparação de snapshots não substitui testes nos demais breakpoints (320/375/768) nem navegação por teclado, ambos tratados nas suítes funcionais e na revisão manual.
+**Limitações:** imagens pixel-a-pixel não substituem auditoria manual de teclado/leitor de tela nem os testes de responsividade em 320/375/768. Manter versões do Chromium e fontes no runner alinhadas ao ambiente em que os PNGs foram gerados, investigar diferenças de fonte/SO antes de refazer baselines.
