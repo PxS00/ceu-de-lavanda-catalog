@@ -2,7 +2,9 @@
 const base = require("./.lighthouserc.cjs");
 const origin = process.env.CF_PREVIEW_URL;
 if (!origin) throw new Error("CF_PREVIEW_URL não configurada para a auditoria da prévia.");
-const { startServerCommand, startServerReadyPattern, ...collect } = base.ci.collect;
+const collect = { ...base.ci.collect };
+delete collect.startServerCommand;
+delete collect.startServerReadyPattern;
 module.exports = {
   ci: {
     ...base.ci,
