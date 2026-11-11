@@ -15,7 +15,7 @@ A CI registra HTML/JSON do Lighthouse em `artifacts/lighthouse/` e o levantament
 
 ## Testes end-to-end
 
-A infraestrutura atual do Playwright continua responsável por funcionalidade, fluxos mobile/tablet/desktop e capturas de revisão. `tests/e2e/seo.spec.ts` protege canonical, sitemap, robots e metadados das páginas públicas, enquanto `tests/e2e/accessibility-smoke.spec.ts` cobre estrutura, imagens e salto para o conteúdo. Essas checagens **não equivalem a auditoria WCAG completa** nem substituem testes manuais ou axe-core.
+A infraestrutura atual do Playwright continua responsável por funcionalidade, fluxos mobile/tablet/desktop e capturas de revisão. `tests/e2e/seo.spec.ts` protege canonical, sitemap, robots e metadados das páginas públicas, enquanto `tests/e2e/accessibility-smoke.spec.ts` cobre estrutura, imagens e salto para o conteúdo. O arquivo `tests/e2e/axe.spec.ts` executa `@axe-core/playwright@4.14.0` com regras WCAG A/AA, anexa violações sérias/críticas ao relatório e bloqueia violações críticas. As sérias permanecem registradas até triagem e definição de baseline; a auditoria automatizada não substitui revisão manual com teclado e leitor de tela.
 
 As capturas de `pnpm test:visual` continuam informativas, sem golden snapshots pixel-a-pixel aceitas. Só ativar baselines versionadas quando aprovadas pelo responsável, com amostragem determinística para a vitrine aleatória, mesmo Chromium, fontes e viewport.
 

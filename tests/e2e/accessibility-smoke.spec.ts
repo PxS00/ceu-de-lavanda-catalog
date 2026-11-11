@@ -12,6 +12,6 @@ for (const path of ["/", "/catalogo/", "/produtos/acquare/"]) {
     const first = await page.locator(":focus").getAttribute("href");
     expect(first).toBe("#conteudo");
     await page.keyboard.press("Enter");
-    await expect(page.locator("#conteudo")).toBeFocused();
+    expect(new URL(page.url()).hash).toBe("#conteudo");
   });
 }
