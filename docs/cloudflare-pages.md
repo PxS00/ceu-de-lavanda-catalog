@@ -1,6 +1,6 @@
 # Hospedagem do catálogo no Cloudflare Pages
 
-Endereço atual: <https://ceu-de-lavanda.pages.dev/>. O catálogo continua em preparação, com `noindex`. O projeto antigo de prévia foi excluído em 17/10/2026.
+Endereço atual: <https://ceu-de-lavanda.pages.dev/>. O beta é um catálogo em expansão; a indexação do endereço principal foi autorizada para a publicação. O projeto antigo de prévia foi excluído em 17/10/2026.
 
 ## Configuração
 
@@ -82,11 +82,11 @@ O upload não executa o build. Sempre publique o `out/` recém-gerado e verifica
 
 ## Indexação e endereço do site
 
-`public/_headers` aplica `X-Robots-Tag: noindex, nofollow, noarchive` aos hosts `<projeto>.pages.dev` e `<versão>.<projeto>.pages.dev`, incluindo aliases de branch. A regra não atinge um futuro domínio próprio.
+`public/_headers` aplica `X-Robots-Tag: noindex, nofollow, noarchive` aos hosts de versões e aliases de branch. O endereço principal do beta é indexável no build de produção.
 
 `robots.txt` permite o rastreamento para que os robôs consigam ler o cabeçalho de não indexação. Isso não é controle de acesso: o site em `pages.dev` é público para quem tiver o endereço.
 
-Não há URLs canônicas, `metadataBase` ou sitemap configurados atualmente; os metadados não usam localhost. Não invente um domínio de produção. Quando ele for confirmado, configure canônicas e sitemap para esse endereço e verifique a indexação no host final. Mantenha a proteção dos hosts de teste.
+A origem canônica do beta é `https://ceu-de-lavanda.pages.dev`. O build gera canonical, `robots.txt` e sitemap para essa origem. Confirme esses arquivos e a política de indexação no endereço publicado após o deploy.
 
 ## Validar a versão publicada
 

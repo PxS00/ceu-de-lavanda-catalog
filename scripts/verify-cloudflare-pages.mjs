@@ -50,7 +50,11 @@ for (const path of ["/", "/catalogo/", "/produtos/acquare/"]) {
 const sitemapResponse = await request("/sitemap.xml");
 const sitemap = await sitemapResponse.text();
 assert.match(home, /<title>[^<]*Céu de Lavanda/i, "Título institucional não encontrado");
-assert.match(home, /<meta\b(?=[^>]*\bname="robots")(?=[^>]*\bcontent="[^"]*noindex)/i, "Prévia sem meta noindex");
+if (mode === "preview" || process.env.CATALOG_INDEXABLE !== "true") {
+  assert.match(home, /<meta\b(?=[^>]*\bname="robots")(?=[^>]*\bcontent="[^"]*noindex)/i, "Build sem meta noindex");
+} else {
+  assert.match(home, /<meta\b(?=[^>]*\bname="robots")(?=[^>]*\bcontent="index)/i, "Build de produção sem index");
+}
 assert.match(sitemap, /<urlset\b/i, "Sitemap inválido");
 assert.match(sitemap, /\/catalogo\/perfumes\//, "Categoria de perfumes cadastrados ausente");
 const categorySlugs = ["perfumes", "body-splash", "perfume-capilar"];
