@@ -1,7 +1,13 @@
 name: Prepare visual golden baselines
 
-# Candidate generation is a manual maintenance operation; never refresh golden PNGs on every PR push.
+# Temporary one-off trigger: refresh candidate PNGs after fixing nondeterministic recommendations.
+# Revert to workflow_dispatch-only after the newly reviewed PNGs are versioned.
 on:
+  push:
+    branches: [feat/quality-seo-lighthouse-playwright]
+    paths:
+      - src/features/catalog/lib/recommendations.ts
+      - tests/recommendations.test.mjs
   workflow_dispatch:
 
 permissions:
