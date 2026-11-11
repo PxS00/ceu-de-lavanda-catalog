@@ -31,7 +31,7 @@ for (const path of ["/", "/catalogo/", "/produtos/acquare/"]) {
     await mkdir("artifacts/quality", { recursive: true });
     await writeFile(
       join("artifacts/quality", `axe-${testInfo.project.name}-${path.replace(/[^a-z0-9]+/gi, "-")}.json`),
-      JSON.stringify(report, null, 2) + "\\n",
+      JSON.stringify(report, null, 2) + "\n",
     );
     await testInfo.attach("axe-report", {
       body: JSON.stringify({ path, violations, incomplete: results.incomplete.length }, null, 2),
