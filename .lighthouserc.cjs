@@ -18,6 +18,8 @@ module.exports = {
         "categories:performance": ["error", { minScore: 0.65 }],
         "categories:accessibility": ["error", { minScore: 0.90 }],
         "categories:best-practices": ["error", { minScore: 0.95 }],
+        // Guard observed layout stability (mobile baseline <=0.008; desktop after fix <=0.008).
+        "cumulative-layout-shift": ["error", { maxNumericValue: 0.1 }],
         "categories:seo": ["warn", { minScore: 0.95 }],
         "is-crawlable": "off", // noindex é deliberado antes do lançamento.
       },
