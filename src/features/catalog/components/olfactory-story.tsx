@@ -22,6 +22,22 @@ export function OlfactoryStory() {
     let finalPressureReached = false;
     let activeStage = -1;
     let animations: Animation[] = [];
+    const scene = element.querySelector<HTMLElement>(".olfactory-scene")!;
+    const notes = element.querySelector<HTMLElement>(".olfactory-notes")!;
+    const paths = element.querySelectorAll<SVGPathElement>(".olfactory-spray path");
+    const alignSprays = () => {
+      if (mobile.matches || !scene.clientWidth || !scene.clientHeight) return;
+      const endX = (notes.offsetLeft / scene.clientWidth) * 1000 - 5;
+      notes.querySelectorAll<HTMLElement>(".olfactory-note").forEach((note, index) => {
+        const endY = ((notes.offsetTop + note.offsetTop) / scene.clientHeight) * 600;
+        paths[index]?.setAttribute("d", `M 514 137 C 580 137 ${endX - 65} ${endY} ${endX} ${endY}`);
+      });
+    };
+    const resizeObserver = new ResizeObserver(alignSprays);
+    resizeObserver.observe(scene);
+    resizeObserver.observe(notes);
+    alignSprays();
+    document.fonts.ready.then(alignSprays);
     const stopAnimations = () => { animations.forEach(animation => animation.cancel()); animations = []; };
     const playSpray = (stage: number) => {
       stopAnimations();
@@ -83,6 +99,7 @@ export function OlfactoryStory() {
     reducedMotion.addEventListener("change", schedule);
     mobile.addEventListener("change", schedule);
     return () => {
+      resizeObserver.disconnect();
       cancelAnimationFrame(frame);
       stopAnimations();
       window.removeEventListener("scroll", schedule);
@@ -98,7 +115,7 @@ export function OlfactoryStory() {
         <image href="/campaigns/olfactory-panorama.webp" width="2172" height="724" clipPath="url(#olfactory-mobile-bottle-clip)" />
       </svg>
       <div className="olfactory-story-art" aria-hidden="true">
-        <Image src="/campaigns/olfactory-pump-plate.webp" alt="" fill sizes="100vw" />
+        <Image src="/campaigns/olfactory-pump-plate.webp" alt="" width={2172} height={724} sizes="100vw" />
         <OlfactoryPump />
       </div>
       <header className="olfactory-heading">
