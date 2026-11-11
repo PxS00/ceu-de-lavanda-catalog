@@ -911,7 +911,7 @@
       "src": "/products/imperator.webp",
       "alt": "Frasco do perfume Imperator"
     },
-    "productType": "Perfume compartilhável",
+    "productType": "Perfume",
     "family": "Floral Frutal",
     "tagline": "A suculência solar do abacaxi unida à nobreza do patchouli e da baunilha em uma assinatura inesquecível.",
     "description": "IMPERATOR reflete a autoridade, a imponência e o magnetismo marcante de uma criação floral frutal moderna. Sua abertura se destaca pelo frescor vibrante e pela suculência solar do abacaxi. No coração, a energia cítrica e refinada da bergamota traz brilho e sofisticação. A base fecha com a densidade envolvente do patchouli, o aconchego caloroso da Baunilha de Bourbon e o toque aveludado do âmbar, criando um rastro nobre e memorável na pele.",
@@ -943,9 +943,8 @@
       }
     ],
     "availability": "available",
-    "gender": "compartilhavel",
+    "gender": "masculino",
     "style": "Imponente, Autoridade, Magnético, Nobre e Moderno",
-    "suggestedUse": "Perfume Compartilhável",
     "notes": [
       "Abacaxi",
       "Bergamota",
@@ -1472,7 +1471,7 @@
     "name": "Bourbon Noir",
     "category": "perfumes",
     "productType": "Perfume",
-    "gender": "feminino",
+    "gender": "masculino",
     "tagline": "A obscuridade aveludada do couro e das especiarias quentes em uma presença viciante, densa e inesquecível.",
     "description": "Bourbon Noir revela a sofisticação noturna, o magnetismo e a sensualidade aristocrática de uma criação Oriental Especiada inesquecível. Sua abertura desperta os sentidos com o contraste efervescente da Pimenta Preta e da Pimenta Rosa, enriquecidos pela nobreza resinosa do Elemi. No seu coração misterioso e denso, o toque místico do Olíbano funde-se à riqueza preciosa do Açafrão. A base assenta sobre a pele com a cremosidade acolhedora da Baunilha de Bourbon abraçada pela textura aveludada da Camurça e pela profundidade nobre do Cedro, garantindo um rastro denso, sedutor e de altíssima fixação.",
     "family": "Oriental Especiada",
@@ -3046,6 +3045,65 @@
     "photo": {
       "src": "/products/floree.webp",
       "alt": "Frasco do perfume Florée"
+    }
+  },
+  {
+    "id": "aura-rubbra",
+    "slug": "aura-rubbra",
+    "name": "Aura Rubbra",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "feminino",
+    "family": "Floral Oriental / Especiado",
+    "tagline": "A opulência radiante do hibisco e da orquídea negra sob o calor magnético do âmbar e do incenso em uma assinatura inesquecível.",
+    "description": "Aura Rubbra revela a sofisticação exótica, a intensidade solar e o magnetismo envolvente de uma criação Floral Marcante. Sua abertura desperta os sentidos com a suculência cítrica da Mandarina combinada ao toque picante do Gengibre e do Cardamomo Preto. No seu coração nobre e apaixonante, a exuberância aveludada do Hibisco e da Orquídea Negra une-se à delicadeza do Jasmim e do Ylang Ylang. A base assenta sobre a pele com a cremosidade viciante da Baunilha de Bourbon, harmonizada pelo calor acolhedor do Âmbar e o mistério nobre do Incenso, garantindo um rastro denso e de altíssima fixação.",
+    "notePyramid": {
+      "top": [
+        "Mandarina Suculenta",
+        "Gengibre",
+        "Cardamomo Preto"
+      ],
+      "heart": [
+        "Hibisco Exótico",
+        "Orquídea Negra",
+        "Ylang Ylang"
+      ],
+      "base": [
+        "Baunilha de Bourbon",
+        "Âmbar Quente",
+        "Incenso Nobre"
+      ]
+    },
+    "notes": [
+      "Mandarina Suculenta",
+      "Gengibre",
+      "Cardamomo Preto",
+      "Hibisco Exótico",
+      "Orquídea Negra",
+      "Ylang Ylang",
+      "Baunilha de Bourbon",
+      "Âmbar Quente",
+      "Incenso Nobre"
+    ],
+    "style": "Exótico, Magnético, Radiante e Sofisticado",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available",
+    "photo": {
+      "src": "/products/aura-rubbra.webp",
+      "alt": "Frasco do perfume Aura Rubbra"
     }
   }
 ]
