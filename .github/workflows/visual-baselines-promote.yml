@@ -1,0 +1,54 @@
+name: Promote reviewed visual baselines
+
+on:
+  push:
+    branches: [feat/quality-seo-lighthouse-playwright]
+    paths:
+      - .github/workflows/visual-baselines-promote.yml
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: visual-baselines-promote
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download six snapshots from passing workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 43080210162 \
+            --name visual-baselines-candidates-43080210162 \
+            --dir /tmp/visual-baselines
+      - name: Verify immutable reviewed PNG files
+        run: |
+          set -euo pipefail
+          cd /tmp/visual-baselines
+          test "$(find tests/visual-regression/__screenshots__ -type f -name '*.png' | wc -l)" -eq 6
+          sha256sum --check <<'SHA256'
+          57e055a8f042717e7b900276c38b523a2be69ed436399776ddad8fea6037cf3c  tests/visual-regression/__screenshots__/desktop/catalog.png
+          bab828556a919aa10a9d7a71639133a952fc82b29bf8a2aa5a1b22e0fdb81942  tests/visual-regression/__screenshots__/desktop/home.png
+          25e97ffb4ca694052c29b79f526615f9f688b2d9830506865fede98662eafa7c  tests/visual-regression/__screenshots__/desktop/product-acquare.png
+          2920a972649e07998324fa1cd0cc1eeefa5b9b0e9c051047b7c97e0b7e875701  tests/visual-regression/__screenshots__/mobile/catalog.png
+          b54deabcc30bafd9fda663dc52112710a8d5222ffe890df2f1ca9a6ddf80098b  tests/visual-regression/__screenshots__/mobile/home.png
+          e73a6cf71bd8ef16838b069d76b79e607e37a951729a2a4906c3936f1858e1bf  tests/visual-regression/__screenshots__/mobile/product-acquare.png
+          SHA256
+      - name: Commit reviewed golden PNGs (no main/develop changes)
+        run: |
+          set -euo pipefail
+          cp -a /tmp/visual-baselines/tests/visual-regression/__screenshots__ tests/visual-regression/
+          git add -- tests/visual-regression/__screenshots__
+          test "$(git diff --cached --name-only | grep -cE '^tests/visual-regression/__screenshots__/(desktop|mobile)/(catalog|home|product-acquare)\\.png$')" -eq 6
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -m 'test(visual): versionar seis baselines reprodutíveis'
+          git push origin "HEAD:refs/heads/feat/quality-seo-lighthouse-playwright"
