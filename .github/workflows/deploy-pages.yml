@@ -10,6 +10,12 @@ on:
 permissions:
   contents: read
 
+# A indexação só pode ser habilitada num push aprovado para a main,
+# com as duas GitHub Actions Variables preenchidas deliberadamente.
+env:
+  CATALOG_SITE_URL: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.CATALOG_SITE_URL || '' }}
+  CATALOG_INDEXABLE: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.CATALOG_INDEXABLE || 'false' }}
+
 concurrency:
   group: pages-${{ github.ref }}
   cancel-in-progress: false

@@ -8,9 +8,9 @@ A origem canônica padrão é o endereço existente `https://ceu-de-lavanda.page
 
 ### Lançamento futuro com domínio próprio
 
-Após aprovar o conteúdo, o domínio final e os textos comerciais, configurar **no ambiente de build**:
+Após aprovar o conteúdo, o domínio final e os textos comerciais, configurar **nas GitHub Actions Variables** (repositório) para builds de publicação na `main`:
 
-- `CATALOG_SITE_URL=https://dominio-confirmado.com.br` (sem barra de caminho nem credenciais)
+- `CATALOG_SITE_URL=https://dominio-confirmado.com.br` (sem caminho ou credenciais)
 - `CATALOG_INDEXABLE=true` (aprovação explícita de lançamento)
 
 Somente a combinação desses dois fatores e um host fora de `*.pages.dev` habilita `index,follow` no HTML. O domínio final precisa apontar para o deploy aprovado. **Nunca** aplicar essas variáveis na pipeline de prévia ou em PR. O `X-Robots-Tag` de Pages continua protegendo os aliases `*.pages.dev` mesmo em build indexável.
@@ -30,3 +30,5 @@ Após deploy, validar a resposta **real** do Cloudflare, a origem canônica e o 
 ## Testes
 
 `tests/e2e/seo.spec.ts` valida títulos, descriptions, canonical, Open Graph, robôs, sitemap e JSON-LD no export local. Headers do Cloudflare exigem emulador Wrangler ou teste pós-deploy, porque o servidor Python não aplica `public/_headers`. Verificar manualmente ambos os hosts após lançamento.
+
+O workflow só encaminha essas variáveis para a compilação em eventos de **push na main**. Em PRs e em push para `develop`, o workflow as limpa, de modo que a prévia não se torne indexável por acidente. A mudança de variáveis deve fazer parte do checklist de publicação, não da implementação técnica.

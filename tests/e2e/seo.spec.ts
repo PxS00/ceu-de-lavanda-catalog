@@ -26,7 +26,10 @@ test.describe("SEO no export estático", () => {
       await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /^https:\/\//);
       await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute("content", "summary_large_image");
       const robots = await page.locator('meta[name="robots"]').getAttribute("content");
-      expect(robots).toMatch(/noindex/); // A CI não autoriza lançamento indexável.
+      const approved = process.env.CATALOG_INDEXABLE === "true" &&
+        Boolean(process.env.CATALOG_SITE_URL) &&
+        !new URL(process.env.CATALOG_SITE_URL!).hostname.endsWith(".pages.dev");
+      expect(robots).toMatch(approved ? /\\bindex\\b/ : /noindex/);
     });
   }
 
