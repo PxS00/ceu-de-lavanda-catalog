@@ -18,6 +18,7 @@
   text-align: center;
   text-wrap: balance;
 }
+.phrase-strip img, .phrase-ticker-item img { aspect-ratio: auto 76 / 138; }
 .phrase-strip img {
   width: 24px;
   height: auto;
