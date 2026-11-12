@@ -23,6 +23,7 @@
   right: 24px;
 }
 .category-art img {
+  aspect-ratio: auto 11156 / 17635;
   width: 30px;
   height: auto;
 }
