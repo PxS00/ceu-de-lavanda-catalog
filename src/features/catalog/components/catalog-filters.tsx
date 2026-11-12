@@ -56,6 +56,7 @@ export function CatalogFilters({
           <Search aria-hidden="true" />
           <span className="sr-only">Buscar fragrância pelo nome</span>
           <input
+            name="busca"
             value={query}
             onChange={(e) => onChange({ query: e.target.value })}
             placeholder="Qual nome você procura?"
@@ -67,6 +68,7 @@ export function CatalogFilters({
             <SlidersHorizontal aria-hidden="true" /> Ordenar por
           </span>
           <select
+            name="ordenacao"
             value={sort}
             onChange={(e) => onChange({ sort: e.target.value })}
           >
@@ -77,14 +79,14 @@ export function CatalogFilters({
       </div>
       <div className="catalog-detail-filters">
       <label className="family-filter">Família olfativa
-        <select value={family} onChange={(event) => onFamilyChange(event.target.value)}>
+        <select name="familia" value={family} onChange={(event) => onFamilyChange(event.target.value)}>
           <option value="">Todas as famílias</option>
           {family && !families.includes(family) && <option value={family}>{family}</option>}
           {families.map((item) => <option key={item} value={item}>{item}</option>)}
         </select>
       </label>
       <label className="family-filter">Gênero
-        <select value={gender} onChange={(event) => onGenderChange(event.target.value)}>
+        <select name="genero" value={gender} onChange={(event) => onGenderChange(event.target.value)}>
           <option value="">Todos os gêneros</option>
           {gender && !["feminino", "masculino", "compartilhavel"].includes(gender) && <option value={gender}>{gender}</option>}
           <option value="feminino">Feminino</option>
