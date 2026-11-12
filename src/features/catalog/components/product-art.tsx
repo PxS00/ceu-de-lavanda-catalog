@@ -67,7 +67,7 @@ export function ProductArt({
   return (
     <div className="product-art">
       <span className="placeholder-label">CÉU DE LAVANDA</span>
-      <Image src="/brand/emblem.svg" alt="" width={111.56} height={176.35} />
+      <Image src="/brand/emblem.svg" alt="" width={112} height={176} />
       <span className="placeholder-caption">Fotografia em breve</span>
     </div>
   );

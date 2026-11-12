@@ -35,8 +35,8 @@ export function CategoryDiscovery() {
               <Image
                 src="/brand/emblem.svg"
                 alt=""
-                width={111.56}
-                height={176.35}
+                width={112}
+                height={176}
               />
             </div>
             <div className="category-card-title">
