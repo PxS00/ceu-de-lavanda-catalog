@@ -62,8 +62,8 @@ export default function RootLayout({
         </a>
         <SiteHeader />
         {children}
-        <SiteFooter />
         <FloatingWhatsApp />
+        <SiteFooter />
       </body>
     </html>
   );

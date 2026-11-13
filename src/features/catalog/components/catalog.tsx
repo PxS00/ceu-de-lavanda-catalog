@@ -16,6 +16,11 @@ import { CatalogPagination } from "./catalog-pagination";
 import { whatsappUrl } from "@/shared/contact";
 import { WhatsAppIcon } from "@/features/contact/whatsapp-icon";
 
+const CATEGORY_DESCRIPTIONS: Record<CategorySlug, string> = {
+  perfumes: "Encontre um perfume para marcar seus momentos.",
+  "body-splash": "Descubra fragrâncias leves para acompanhar seu dia.",
+  "perfume-capilar": "Perfume seus cabelos com uma fragrância especial.",
+};
 const PAGE_SIZE = 12;
 const DEFAULT_FILTERS = { query: "", initial: "", sort: "az" };
 const subscribe = (callback: () => void) => {
@@ -114,7 +119,7 @@ export function Catalog({
         <h1 id="collection-title">
           {categoryName ?? "Nossa coleção"}
         </h1>
-        <p>Encontre a sua próxima descoberta.</p>
+        <p>{category ? CATEGORY_DESCRIPTIONS[category] : "Encontre a sua próxima descoberta."}</p>
       </Reveal>
       <CatalogFilters
         value={filters}
