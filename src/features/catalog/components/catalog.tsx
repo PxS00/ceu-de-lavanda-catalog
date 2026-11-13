@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { Reveal, useReveal } from "@/shared/components/reveal";
+import { useReveal } from "@/shared/components/reveal";
 import {
   filterProducts,
   normalize,
@@ -115,12 +115,12 @@ export function Catalog({
       id="colecao"
       aria-labelledby="collection-title"
     >
-      <Reveal className="catalog-heading">
+      <div className="catalog-heading">
         <h1 id="collection-title">
           {categoryName ?? "Nossa coleção"}
         </h1>
         <p>{category ? CATEGORY_DESCRIPTIONS[category] : "Encontre a sua próxima descoberta."}</p>
-      </Reveal>
+      </div>
       <CatalogFilters
         value={filters}
         onChange={updateFilters}

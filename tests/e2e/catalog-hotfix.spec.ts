@@ -50,3 +50,14 @@ test("family filter adapts to the selected text on desktop", async ({ page }, te
   await select.selectOption({ label: "Floral Almiscarado Amadeirado" });
   expect((await select.boundingBox())!.width).toBeGreaterThan(shortWidth);
 });
+test("category heading stays visible during navigation", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/catalogo/");
+  for (const category of ["Perfumes", "Body Splash", "Perfume Capilar"]) {
+    await page.getByRole("navigation", { name: "Categorias comerciais" }).getByRole("link", { name: category, exact: true }).click();
+    const heading = page.locator(".catalog-heading");
+    await expect(heading).toBeVisible();
+    await expect(heading).not.toHaveAttribute("data-reveal", "");
+    await expect(heading).toHaveCSS("opacity", "1");
+  }
+});
