@@ -1,6 +1,6 @@
 .catalog-detail-filters { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 8px; }
 .catalog-detail-filters .family-filter { min-width: 0; }
-.catalog-detail-filters select[name="familia"] { width: 280px; max-width: 100%; }
+.catalog-detail-filters select[name="familia"] { field-sizing: content; max-width: 100%; }
 .category-filters {
   display: flex;
   flex-wrap: wrap;
