@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { Reveal, useReveal } from "@/shared/components/reveal";
+import { useReveal } from "@/shared/components/reveal";
 import {
   filterProducts,
   normalize,
@@ -16,6 +16,11 @@ import { CatalogPagination } from "./catalog-pagination";
 import { whatsappUrl } from "@/shared/contact";
 import { WhatsAppIcon } from "@/features/contact/whatsapp-icon";
 
+const CATEGORY_DESCRIPTIONS: Record<CategorySlug, string> = {
+  perfumes: "Encontre um perfume para marcar seus momentos.",
+  "body-splash": "Descubra fragrâncias leves para acompanhar seu dia.",
+  "perfume-capilar": "Perfume seus cabelos com uma fragrância especial.",
+};
 const PAGE_SIZE = 12;
 const DEFAULT_FILTERS = { query: "", initial: "", sort: "az" };
 const subscribe = (callback: () => void) => {
@@ -110,12 +115,12 @@ export function Catalog({
       id="colecao"
       aria-labelledby="collection-title"
     >
-      <Reveal className="catalog-heading">
+      <div className="catalog-heading">
         <h1 id="collection-title">
           {categoryName ?? "Nossa coleção"}
         </h1>
-        <p>Encontre a sua próxima descoberta.</p>
-      </Reveal>
+        <p>{category ? CATEGORY_DESCRIPTIONS[category] : "Encontre a sua próxima descoberta."}</p>
+      </div>
       <CatalogFilters
         value={filters}
         onChange={updateFilters}
