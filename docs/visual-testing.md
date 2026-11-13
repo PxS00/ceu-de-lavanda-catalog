@@ -107,3 +107,7 @@ pnpm exec playwright test tests/e2e/keyboard-journey.spec.ts tests/e2e/keyboard-
 ```
 
 **Revisão manual complementar — ainda obrigatória:** testar no navegador com teclado real (sem mouse) em 390 px e 1440 px: (1) Tab inicial revela o link “Pular para o conteúdo” e Enter alcança o conteúdo; (2) links e botões apresentam indicador de foco claramente perceptível; (3) menu móvel abre por Enter, prende foco dentro do diálogo e Escape devolve ao acionador; (4) busca por nome, ordenação, filtros, seleção do produto e carrossel funcionam só com teclado; (5) Shift+Tab percorre o caminho inverso sem armadilhas; (6) zoom a 200% e leitura por leitor de tela (nome, papel e estado de controles). Documentar responsável, navegador/sistema, data, evidências e qualquer exceção. **Os testes automatizados não equivalem a essa aprovação manual** e não permitem marcar o critério manual como concluído por si só.
+
+### Atualização do rodapé — novembro de 2026
+
+As seis referências foram geradas no Ubuntu/Chromium pela execução [#43472898589](https://github.com/PxS00/ceu-de-lavanda-catalog/actions/runs/43472898589), que confirmou duas comparações consecutivas. As capturas foram revisadas para as alterações aprovadas do rodapé e o hotfix anterior do catálogo; os arquivos copiados foram conferidos por SHA-256 com o artifact da execução.
