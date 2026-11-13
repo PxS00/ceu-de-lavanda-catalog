@@ -1,30 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { contact, whatsappUrl } from "@/shared/contact";
-import { SocialLinks } from "./social-links";
+import { contact } from "@/shared/contact";
 import { SiteVerification } from "./site-verification";
+import { CopyCnpj } from "./copy-cnpj";
 
 export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="wrap footer-main">
-        <Link href="/" aria-label="Céu de Lavanda — início">
-          <Image
-            src="/brand/wordmark-gold.svg"
-            alt="Céu de Lavanda"
-            width={344}
-            height={145}
-          />
-        </Link>
-        <div className="footer-message">
-          <p>
-            Um nome. Uma descoberta.
-            <br />
-            Um novo encanto.
-          </p>
-        </div>
         <nav aria-label="Navegação do rodapé">
+          <h2>Explore</h2>
           <Link href="/catalogo/">
             Explore a coleção <ArrowUpRight aria-hidden="true" />
           </Link>
@@ -33,17 +18,17 @@ export function SiteFooter() {
           </Link>
         </nav>
         <div className="footer-contact">
-          <h2>Estamos por aqui</h2>
-          <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">WhatsApp <span className="sr-only">(abre em nova aba)</span></a>
+          <h2>Contato</h2>
           <a href={`tel:+${contact.whatsapp}`}>{contact.phoneDisplay}</a>
           <a href={`mailto:${contact.email}`}>{contact.email}</a>
-          <SocialLinks className="footer-social" />
         </div>
+        <SiteVerification />
       </div>
-      <SiteVerification />
       <div className="wrap footer-bottom">
         <span>© {new Date().getFullYear()} Céu de Lavanda</span>
-        <span>Sinta o toque da lavanda.</span>
+        {contact.companyName && contact.cnpj && <div className="verification-company">
+          <span>{contact.companyName}</span><CopyCnpj cnpj={contact.cnpj} />
+        </div>}
       </div>
     </footer>
   );
