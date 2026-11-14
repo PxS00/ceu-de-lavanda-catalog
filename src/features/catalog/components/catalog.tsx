@@ -137,11 +137,11 @@ export function Catalog({
       <div className="catalog-results" ref={grid}>
         <aside className="whatsapp-catalog" aria-labelledby="catalog-contact-title">
           <div>
-            <h2 id="catalog-contact-title">Precisa de ajuda para escolher?</h2>
-            <p>Conte para a gente o que você procura.</p>
+            <h2 id="catalog-contact-title">Descubra sua próxima inspiração</h2>
+            <p>Quer saber mais sobre as inspirações dos nossos perfumes e conhecer outros produtos? Fale com a gente e encontre a fragrância perfeita para você.</p>
           </div>
-          <a className="whatsapp-action" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
-            <WhatsAppIcon /> Fale com a gente pelo WhatsApp
+          <a className="whatsapp-action" href={whatsappUrl(undefined, "Olá! Gostaria de saber mais sobre as inspirações dos perfumes e conhecer outros produtos da Céu de Lavanda.")} target="_blank" rel="noopener noreferrer">
+            <WhatsAppIcon /> Saiba mais pelo WhatsApp
           </a>
         </aside>
         {filtered.length ? (
