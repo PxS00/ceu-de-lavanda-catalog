@@ -15,6 +15,10 @@ test("category descriptions match each category", async ({ page }) => {
 test("WhatsApp button can be moved without opening the link", async ({ page }, testInfo) => {
   await page.goto("/catalogo/perfumes/");
   const button = page.locator(".whatsapp-float");
+  await page.locator(".whatsapp-catalog").scrollIntoViewIfNeeded();
+  await expect(button).toBeHidden();
+  await page.locator("footer").scrollIntoViewIfNeeded();
+  await expect(button).toBeVisible();
   await expect(button).toHaveAttribute("href", /wa\.me/);
   await expect(button).toHaveCSS("position", "fixed");
   await expect(button).toHaveCSS("width", testInfo.project.name === "mobile" ? "52px" : "64px");
