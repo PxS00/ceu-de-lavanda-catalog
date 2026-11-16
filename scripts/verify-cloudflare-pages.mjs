@@ -19,7 +19,7 @@ async function request(path) {
   const url = new URL(path, base);
   for (let attempt = 0; attempt < 15; attempt++) {
     try {
-      const response = await fetch(url, { headers: { "accept-encoding": "br, gzip" } });
+      const response = await fetch(url, { headers: { "accept-encoding": "br, gzip", "cache-control": "no-cache" }, signal: AbortSignal.timeout(10000) });
       if (response.ok) return response;
       if (attempt === 14) throw new Error(url.toString() + " retornou " + response.status);
     } catch (error) {
@@ -28,6 +28,12 @@ async function request(path) {
     await new Promise((resolve) => setTimeout(resolve, 2000));
   }
   throw new Error("Falha ao verificar " + path);
+}
+if (mode === "production" || (mode === "preview" && process.env.GITHUB_SHA)) {
+  const expectedVersion = process.env.GITHUB_SHA;
+  assert.match(expectedVersion ?? "", /^[0-9a-f]{40}$/, "GITHUB_SHA é necessário para confirmar a versão publicada");
+  const versionResponse = await request("/deploy-version.txt");
+  assert.equal((await versionResponse.text()).trim(), expectedVersion, "A versão publicada ainda não corresponde ao deploy");
 }
 const homeResponse = await request("/");
 const home = await homeResponse.text();
@@ -79,7 +85,7 @@ for (const slug of emptyCategories) {
 const robotsResponse = await request("/robots.txt");
 assert.match(await robotsResponse.text(), /Sitemap:\s*https:\/\//i);
 
-const missingResponse = await fetch(new URL("/rota-inexistente-verificacao-404/", base));
+const missingResponse = await fetch(new URL("/rota-inexistente-verificacao-404/", base), { signal: AbortSignal.timeout(10000) });
 assert.equal(missingResponse.status, 404, "Rota inexistente deve retornar HTTP 404");
 const missingHtml = await missingResponse.text();
 assert.match(missingHtml, /<title>Página não encontrada \| Céu de Lavanda<\/title>/i);
@@ -131,7 +137,7 @@ const report = {
   sitemapStatus: sitemapResponse.status,
   missingStatus: missingResponse.status,
   inspectedPages,
-  noindexHeader: header || "(not applicable on localhost)",
+  noindexHeader: header || "(nenhum)",
   emptyCategories,
   jsAsset,
   responsivePhoto: { originalBytes, variants: [{ path: optimizedPath, bytes: optimizedBytes }, { path: optimizedWidePath, bytes: optimizedWideBytes }] },
