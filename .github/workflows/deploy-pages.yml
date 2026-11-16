@@ -40,6 +40,8 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm build
+      - name: Identify deployed version
+        run: printf '%s\n' "$GITHUB_SHA" > out/deploy-version.txt
       - run: pnpm exec playwright install chromium --only-shell
       - run: pnpm test:e2e
       - name: Check approved Playwright golden screenshots
