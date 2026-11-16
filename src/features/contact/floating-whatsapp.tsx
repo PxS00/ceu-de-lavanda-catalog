@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { products } from "@/features/catalog/lib/catalog";
 import { whatsappUrl } from "@/shared/contact";
@@ -9,11 +10,21 @@ import { useFloatingPosition } from "./use-floating-position";
 export function FloatingWhatsApp() {
   const position = useFloatingPosition();
   const pathname = usePathname();
+  const [catalogContactVisible, setCatalogContactVisible] = useState(false);
+  useEffect(() => {
+    setCatalogContactVisible(false);
+    const contact = document.querySelector(".whatsapp-catalog");
+    if (!contact) return;
+    const observer = new IntersectionObserver(([entry]) => setCatalogContactVisible(entry.isIntersecting));
+    observer.observe(contact);
+    return () => observer.disconnect();
+  }, [pathname]);
   const slug = pathname?.match(/^\/produtos\/([^/]+)\/?$/)?.[1];
   const product = products.find((item) => item.slug === slug);
   return (
     <>
     <a className="whatsapp-float" href={whatsappUrl(product)} draggable={false} {...position}
+      style={{ ...position.style, visibility: catalogContactVisible ? "hidden" : undefined }}
       aria-describedby="whatsapp-move-hint" title="Arraste para mudar de lugar"
       aria-label={product ? `Conversar no WhatsApp sobre ${product.name}` : "Conversar no WhatsApp"}
       target="_blank" rel="noopener noreferrer">
