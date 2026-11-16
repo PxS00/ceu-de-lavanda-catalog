@@ -12,12 +12,11 @@ export function FloatingWhatsApp() {
   const pathname = usePathname();
   const [catalogContactVisible, setCatalogContactVisible] = useState(false);
   useEffect(() => {
-    setCatalogContactVisible(false);
     const contact = document.querySelector(".whatsapp-catalog");
     if (!contact) return;
     const observer = new IntersectionObserver(([entry]) => setCatalogContactVisible(entry.isIntersecting));
     observer.observe(contact);
-    return () => observer.disconnect();
+    return () => { observer.disconnect(); setCatalogContactVisible(false); };
   }, [pathname]);
   const slug = pathname?.match(/^\/produtos\/([^/]+)\/?$/)?.[1];
   const product = products.find((item) => item.slug === slug);
