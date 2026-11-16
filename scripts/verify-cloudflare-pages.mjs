@@ -3,10 +3,13 @@ import { mkdir, writeFile } from "node:fs/promises";
 import products from "../src/features/catalog/data/products.json" with { type: "json" };
 
 const [origin, mode = "local"] = process.argv.slice(2);
-if (!origin || !["local", "preview"].includes(mode)) {
-  throw new Error("Uso: node scripts/verify-cloudflare-pages.mjs <origin> <local|preview>");
+if (!origin || !["local", "preview", "production"].includes(mode)) {
+  throw new Error("Uso: node scripts/verify-cloudflare-pages.mjs <origin> <local|preview|production>");
 }
 const base = new URL(origin);
+if (mode === "production") {
+  assert.equal(base.origin, "https://ceu-de-lavanda.pages.dev", "Use a origem pública de produção");
+}
 if (mode === "preview") {
   assert.equal(base.protocol, "https:", "Previews precisam usar HTTPS");
   assert.match(base.hostname, /^[a-z0-9-]+\.ceu-de-lavanda\.pages\.dev$/, "Use um preview isolado, nunca a produção");
@@ -39,6 +42,10 @@ for (const path of ["/", "/catalogo/", "/produtos/acquare/"]) {
   assert.equal(canonicalUrl.protocol, "https:", "Canonical não HTTPS: " + path);
   assert.equal(canonicalUrl.pathname, path, "Canonical aponta para outra rota: " + path);
   const routeHeader = response.headers.get("x-robots-tag") ?? "";
+  if (mode === "production") {
+    assert.equal(canonicalUrl.origin, base.origin, "Canonical fora da produção: " + path);
+    assert.doesNotMatch(routeHeader, /\bnoindex\b/i, "Produção bloqueada por X-Robots-Tag: " + path);
+  }
   if (mode === "preview") {
     assert.notEqual(canonicalUrl.hostname, base.hostname, "Canonical aponta para a prévia: " + path);
     assert.match(html, /<meta\b(?=[^>]*\bname="robots")(?=[^>]*\bcontent="[^"]*noindex)/i, "Meta noindex ausente: " + path);
