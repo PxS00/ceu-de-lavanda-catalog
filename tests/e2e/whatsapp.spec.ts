@@ -11,6 +11,6 @@ test("WhatsApp links follow the current product and return to general context", 
   await expect(page.getByRole("link", { name: "Falar sobre Acquaré no WhatsApp" })).toHaveAttribute("href", productUrl.href);
   await page.getByRole("link", { name: /Continuar explorando/ }).click();
   await expect(button).toHaveAccessibleName("Conversar no WhatsApp");
-  await expect(page.getByRole("link", { name: "Fale com a gente pelo WhatsApp" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Saiba mais pelo WhatsApp" })).toBeVisible();
   expect(new URL((await button.getAttribute("href"))!).searchParams.get("text")).not.toContain("Acquaré");
 });
