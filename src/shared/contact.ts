@@ -9,9 +9,9 @@ export const contact = {
   tiktok: "https://www.tiktok.com/@ceu_de_lavanda" as string | null,
 };
 
-export function whatsappUrl(product?: { name: string; slug: string }): string {
-  const message = product
+export function whatsappUrl(product?: { name: string; slug: string }, customMessage?: string): string {
+  const message = customMessage ?? (product
     ? `Olá! Gostaria de saber mais sobre o perfume ${product.name}. Vi no catálogo: ${contact.siteUrl}/produtos/${product.slug}/`
-    : "Olá! Gostaria de conhecer as fragrâncias da Céu de Lavanda.";
+    : "Olá! Gostaria de conhecer as fragrâncias da Céu de Lavanda.");
   return `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(message)}`;
 }
