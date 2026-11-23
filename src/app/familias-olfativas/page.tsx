@@ -15,7 +15,6 @@ export default function FamilyGuidePage() {
   const cards = familyGuide.map((guide) => {
           const matching = products.filter((product) => product.category === "perfumes" && product.family && guide.terms.includes(normalize(getPrimaryFamily(product.family))))
             .sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
-          if (!matching.length && guide.id !== "aromatica") return null;
           return <section className="family-guide-card" id={guide.id} key={guide.id}>
             <p className="eyebrow">{guide.mood}</p>
             <h2>{guide.name}</h2>
