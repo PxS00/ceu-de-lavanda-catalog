@@ -3738,5 +3738,49 @@
       "Baunilha",
       "Vetiver do Haiti"
     ]
+  },
+  {
+    "id": "bleu-maritime",
+    "slug": "bleu-maritime",
+    "name": "Bleu Maritime",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "A brisa revigorante do mar e o brilho dos cítricos mediterrâneos unidos à elegância atemporal do cedro e do alecrim em uma assinatura inesquecível.",
+    "description": "Bleu Maritime revela a liberdade refrescante, a leveza sofisticada e o magnetismo natural de uma criação Aromática Aquática inesquecível. Sua abertura desperta os sentidos com um frescor cítrico e vibrante de Bergamota, Limão e Laranja, trazendo uma energia limpa e solar. No seu coração elegante e revigorante, a pureza cristalina das Notas Marinhas entrelaça-se ao vigor herbal do Alecrim e à suavidade luminosa do Jasmim. A base assenta sobre a pele com a sobriedade estruturada do Cedro e a profundidade refinada do Patchouli, envolvidos pela maciez sensual do Almíscar, garantindo ótima fixação e um rastro masculino leve, refinado e marcante.",
+    "family": "Aromática Aquática",
+    "style": "Fresco, Aquático, Leve, Refinado e Marcante",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Bergamota",
+        "Limão",
+        "Laranja"
+      ],
+      "heart": [
+        "Notas Marinhas",
+        "Jasmim",
+        "Alecrim"
+      ],
+      "base": [
+        "Cedro",
+        "Almíscar",
+        "Patchouli"
+      ]
+    },
+    "notes": [
+      "Bergamota",
+      "Limão",
+      "Laranja",
+      "Notas Marinhas",
+      "Jasmim",
+      "Alecrim",
+      "Cedro",
+      "Almíscar",
+      "Patchouli"
+    ]
   }
 ]
