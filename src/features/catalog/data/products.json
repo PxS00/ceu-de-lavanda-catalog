@@ -3579,5 +3579,56 @@
       "Ambergris",
       "Musgo de Carvalho"
     ]
+  },
+  {
+    "id": "aeternum",
+    "slug": "aeternum",
+    "name": "Aeternum",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O brilho efervescente da toranja e do gengibre unido à nobreza da raiz de orris e do cedro em uma assinatura sofisticada, intensa e memorável.",
+    "description": "Aeternum revela a elegância atemporal, a intensidade refinada e a sofisticação magnética de uma criação Floral Aromática inesquecível. Sua abertura desperta os sentidos com o frescor cítrico e radiante da Toranja e da Bergamota, iluminados pela delicadeza aristocrática do Jasmim e da Magnólia. No seu coração complexo e envolvente, o toque vibrante e picante do Gengibre entrelaça-se à naturalidade limpa das Notas Herbais e à textura aveludada das Notas Atalcadas. A base assenta sobre a pele com a nobreza estruturada do Cedro e da Raiz de Orris, harmonizados pela profundidade terrosa do Patchouli, o calor sensual do Âmbar e a maciez envolvente do Almíscar, garantindo um rastro poderoso, elegante e de altíssima fixação.",
+    "family": "Floral Aromático",
+    "style": "Sofisticado, Intenso, Memorável, Elegante e Refinado",
+    "suggestedUse": "Ideal para ocasiões especiais e noites elegantes.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Toranja",
+        "Bergamota",
+        "Jasmim",
+        "Magnólia"
+      ],
+      "heart": [
+        "Gengibre",
+        "Notas Herbais",
+        "Notas Atalcadas"
+      ],
+      "base": [
+        "Almíscar",
+        "Cedro",
+        "Âmbar",
+        "Raiz de Orris",
+        "Patchouli"
+      ]
+    },
+    "notes": [
+      "Toranja",
+      "Bergamota",
+      "Jasmim",
+      "Magnólia",
+      "Gengibre",
+      "Notas Herbais",
+      "Notas Atalcadas",
+      "Almíscar",
+      "Cedro",
+      "Âmbar",
+      "Raiz de Orris",
+      "Patchouli"
+    ]
   }
 ]
