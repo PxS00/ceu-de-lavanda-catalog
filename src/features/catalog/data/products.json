@@ -3349,5 +3349,48 @@
       "Nagarmota",
       "Fava Tonka"
     ]
+  },
+  {
+    "id": "instinto",
+    "slug": "instinto",
+    "name": "Instinto",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O frescor magnético da bergamota e das pimentas unido à nobreza do cedro e do ambroxan em uma assinatura intensa e sedutora.",
+    "description": "Instinto revela a força magnética, a confiança natural e a elegância vibrante de uma criação Amadeirada Aromática inesquecível. Sua abertura desperta os sentidos com o brilho cítrico e revigorante da Bergamota contrastado pelo toque picante e marcante da Pimenta. No seu coração nobre e sedutor, a pureza aromática da Lavanda e a elegância refinada do Gerânio ganham uma energia elétrica e envolvente com a Pimenta de Szechuan. A base assenta sobre a pele com a sobriedade estruturada do Cedro e a profundidade terrosa do Patchouli, amplificados pelo magnetismo moderno do Ambroxan, garantindo um rastro poderoso, sofisticado e de altíssima fixação.",
+    "family": "Amadeirado Aromático",
+    "style": "Intenso, Sedutor, Masculino, Vibrante e Sofisticado",
+    "suggestedUse": "Ideal para uso em todas as ocasiões, do dia a dia a eventos especiais, transmitindo uma aura de confiança e charme. Perfeito para homens que desejam uma fragrância que os faça se destacar e deixar uma impressão duradoura.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Bergamota",
+        "Pimenta"
+      ],
+      "heart": [
+        "Lavanda",
+        "Gerânio",
+        "Pimenta de Szechuan"
+      ],
+      "base": [
+        "Patchouli",
+        "Ambroxan",
+        "Cedro"
+      ]
+    },
+    "notes": [
+      "Bergamota",
+      "Pimenta",
+      "Lavanda",
+      "Gerânio",
+      "Pimenta de Szechuan",
+      "Patchouli",
+      "Ambroxan",
+      "Cedro"
+    ]
   }
 ]
