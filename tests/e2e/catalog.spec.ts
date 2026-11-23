@@ -112,7 +112,7 @@ test("@visual catalog search, initials, sorting and reset", async ({ page }, inf
   await review(page, info, "search");
   await page.getByRole("searchbox").fill("");
   await page.getByRole("button", { name: "B", exact: true }).click();
-  await expect(cards).toHaveCount(3);
+  await expect(cards).toHaveCount(5);
   await expect(cards.first().locator("h3")).toHaveText("Belle");
   await page.getByRole("button", { name: /Todos os nomes/ }).click();
   await page.locator(".sort-label select").selectOption("za");
@@ -125,7 +125,7 @@ test("@visual catalog search, initials, sorting and reset", async ({ page }, inf
   await page.getByRole("button", { name: "Limpar filtros" }).click();
   await expect(cards).toHaveCount(firstPageCount);
   const pagination = page.getByRole("navigation", { name: "Páginas do catálogo" });
-  await expect(pagination.locator("span")).toHaveText("1 de 4");
+  await expect(pagination.locator("span")).toHaveText("1 de 6");
   await pagination.getByRole("button", { name: "Próxima" }).click();
   await expect(cards).toHaveCount(firstPageCount);
   await expect(cards.last().locator(".product-prices")).toHaveText(/A partir de\s+R\$\s*157,00/);
