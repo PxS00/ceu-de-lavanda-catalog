@@ -3630,5 +3630,58 @@
       "Raiz de Orris",
       "Patchouli"
     ]
+  },
+  {
+    "id": "riviera-lumiere",
+    "slug": "riviera-lumiere",
+    "name": "Riviera Lumière",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O brilho solar dos cítricos e a brisa cristalina do sal marinho em uma assinatura revigorante, luxuosa e inesquecível.",
+    "description": "Riviera Lumière revela a elegância solar despretensiosa, o glamour luminoso e o frescor revigorante de uma criação Cítrica Aquosa inesquecível. Sua abertura desperta os sentidos como uma brisa vibrante de verão, unindo a suculência radiante do Limão, da Laranja e da Tangerina ao toque picante e efervescente do Gengibre e da Pimenta. No seu coração ensolarado e sofisticado, a frescura límpida das Notas Oceânicas e do Pinheiro entrelaça-se à nobreza estruturada do Vetiver e à suavidade exótica da Tiaré e da Mimosa. A base assenta sobre a pele com o toque cristalino e viciante do Sal Marinho, envolvido pela maciez pura do Almíscar Branco e pelo calor dourado do Âmbar, garantindo um rastro limpo, glamouroso e de altíssima fixação.",
+    "family": "Cítrica Aquosa",
+    "style": "Glamouroso, Sofisticado, Ensolarado, Cristalino e Revigorante",
+    "suggestedUse": "Atua como uma brisa refrescante e a escolha definitiva para quem busca o \"cheiro do verão chic\". Ideal para dias ensolarados, momentos de lazer sofisticado ou para transformar o ambiente em um cenário de pura luz, limpeza e paz.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Limão",
+        "Laranja",
+        "Gengibre",
+        "Tangerina",
+        "Pimenta"
+      ],
+      "heart": [
+        "Notas Oceânicas",
+        "Pinheiro",
+        "Vetiver",
+        "Tiaré",
+        "Mimosa"
+      ],
+      "base": [
+        "Sal Marinho",
+        "Almíscar Branco",
+        "Âmbar"
+      ]
+    },
+    "notes": [
+      "Limão",
+      "Laranja",
+      "Gengibre",
+      "Tangerina",
+      "Pimenta",
+      "Notas Oceânicas",
+      "Pinheiro",
+      "Vetiver",
+      "Tiaré",
+      "Mimosa",
+      "Sal Marinho",
+      "Almíscar Branco",
+      "Âmbar"
+    ]
   }
 ]
