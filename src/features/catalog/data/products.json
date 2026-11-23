@@ -3439,5 +3439,52 @@
       "Sândalo",
       "Lábdano"
     ]
+  },
+  {
+    "id": "imperio-absollu",
+    "slug": "imperio-absollu",
+    "name": "Império Absollu",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O frescor magnético da hortelã e do cardamomo unido ao calor sedutor da canela, do âmbar e da baunilha em uma assinatura inesquecível.",
+    "description": "Império Absollu revela o magnetismo absoluto, a presença audaciosa e a sensualidade hipnótica de uma criação Oriental Âmbar inesquecível. Sua abertura desperta os sentidos com o brilho cítrico da Bergamota e o frescor revigorante da Hortelã, aquecidos pelo toque vibrante e sofisticado do Cardamomo. No seu coração intenso e envolvente, a pureza aromática da Lavanda e a luminosidade da Flor de Laranjeira ganham uma energia quente e picante com a Canela. A base assenta sobre a pele com a densidade viciante da Baunilha e da Fava Tonka, harmonizadas pelo calor profundo do Âmbar e pela sobriedade das Notas Amadeiradas, garantindo um rastro poderoso, acolhedor e de altíssima fixação.",
+    "family": "Oriental Âmbar",
+    "style": "Hipnótico, Denso, Ultra-Sedutor, Magnético e Audacioso",
+    "suggestedUse": "Perfeito para ocasiões de destaque, ambientes sofisticados, salas de estar luxuosas, lounges ou momentos que pedem uma assinatura olfativa que exale sucesso, mistério e luxo moderno.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Cardamomo",
+        "Bergamota",
+        "Hortelã"
+      ],
+      "heart": [
+        "Lavanda",
+        "Canela",
+        "Flor de Laranjeira"
+      ],
+      "base": [
+        "Baunilha",
+        "Fava Tonka",
+        "Âmbar",
+        "Notas Amadeiradas"
+      ]
+    },
+    "notes": [
+      "Cardamomo",
+      "Bergamota",
+      "Hortelã",
+      "Lavanda",
+      "Canela",
+      "Flor de Laranjeira",
+      "Baunilha",
+      "Fava Tonka",
+      "Âmbar",
+      "Notas Amadeiradas"
+    ]
   }
 ]
