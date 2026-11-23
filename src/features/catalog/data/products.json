@@ -3683,5 +3683,60 @@
       "Almíscar Branco",
       "Âmbar"
     ]
+  },
+  {
+    "id": "rubi-imperial",
+    "slug": "rubi-imperial",
+    "name": "Rubi Imperial",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "A opulência vibrante da lichia e da rosa turca unida ao calor sedutor do âmbar e da baunilha em uma assinatura magnética.",
+    "description": "Rubi Imperial revela a exclusividade opulenta, a intensidade hipnótica e o magnetismo sedutor de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos como um manifesto de estilo, unindo a suculência luminosa da Lichia e da Ameixa ao frescor marcante do Ruibarbo e da Bergamota, aquecidos pelo toque especiado da Noz-Moscada. No seu coração luxuoso e envolvente, a nobreza aveludada da Rosa Turca, da Peônia e da Petalia entrelaça-se ao conforto macio da Madeira de Cashmere. A base assenta sobre a pele com uma harmonia viciante de Baunilha e Âmbar, sustentados pela elegância estruturada do Cedro, pela profundidade terrosa do Vetiver do Haiti e pela sensualidade do Musk, garantindo um rastro poderoso, intenso e de altíssima fixação.",
+    "family": "Oriental Floral",
+    "style": "Hipnótico, Opulento, Sedutor, Magnético e Exclusivo",
+    "suggestedUse": "Atua como um manifesto de estilo e a escolha definitiva para quem busca o \"cheiro do luxo vermelho\". Ideal para ocasiões de destaque, encontros marcantes ou para transformar o ambiente em um cenário de calor, exclusividade e presença que não passa despercebida.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Lichia",
+        "Ameixa",
+        "Ruibarbo",
+        "Bergamota",
+        "Noz-Moscada"
+      ],
+      "heart": [
+        "Petalia",
+        "Peônia",
+        "Rosa Turca",
+        "Madeira de Cashmere"
+      ],
+      "base": [
+        "Musk",
+        "Cedro",
+        "Âmbar",
+        "Baunilha",
+        "Vetiver do Haiti"
+      ]
+    },
+    "notes": [
+      "Lichia",
+      "Ameixa",
+      "Ruibarbo",
+      "Bergamota",
+      "Noz-Moscada",
+      "Petalia",
+      "Peônia",
+      "Rosa Turca",
+      "Madeira de Cashmere",
+      "Musk",
+      "Cedro",
+      "Âmbar",
+      "Baunilha",
+      "Vetiver do Haiti"
+    ]
   }
 ]
