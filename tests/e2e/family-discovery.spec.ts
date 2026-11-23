@@ -53,3 +53,12 @@ test("family guide groups perfumes by their primary family", async ({ page }) =>
   const oriental = page.locator("#oriental");
   await expect(oriental).not.toContainText("Acquaré");
 });
+
+test("the guide keeps Frutal and Gourmand visible without primary-family matches", async ({ page }) => {
+  await page.goto("/familias-olfativas/");
+  for (const [id, name] of [["frutado", "Frutal"], ["gourmand", "Gourmand"]]) {
+    const card = page.locator(`#${id}`);
+    await expect(card.getByRole("heading", { name, exact: true })).toBeVisible();
+    await expect(card).toContainText("Em breve, novas fragrâncias nesta família.");
+  }
+});

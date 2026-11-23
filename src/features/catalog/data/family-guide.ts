@@ -2,7 +2,7 @@ export const familyGuide = [
   { id: "floral", name: "Floral", terms: ["floral"], mood: "Flores, delicadeza e presença",
     description: "Vai de flores leves e luminosas a buquês cremosos e intensos. Uma família floral pode ser fresca, doce ou envolvente: o complemento do nome ajuda a perceber o caminho.",
     occasion: "Versões leves combinam com a rotina; composições mais encorpadas também podem acompanhar encontros e ocasiões à noite." },
-  { id: "frutado", name: "Frutado", terms: ["frutada", "frutal", "frutado"], mood: "Suculento, alegre e vibrante",
+  { id: "frutado", name: "Frutal", terms: ["frutada", "frutal", "frutado"], mood: "Suculento, alegre e vibrante",
     description: "Lembra a suculência das frutas, que pode trazer doçura, acidez ou uma sensação mais fresca. Frutado não significa necessariamente muito doce.",
     occasion: "Pode ser um ponto de partida para quem busca um perfume descontraído. Para dias quentes, vale explorar as versões descritas como leves ou frescas." },
   { id: "aromatica", name: "Aromática (Fougère)", terms: ["aromatica"], mood: "Ervas, frescor e elegância",

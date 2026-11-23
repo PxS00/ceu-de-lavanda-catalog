@@ -178,6 +178,10 @@ export function getPrimaryFamily(value?: string | null): string {
     case "citrica":
     case "citrico":
       return "Cítrica";
+    case "frutada":
+    case "frutado":
+    case "frutal":
+      return "Frutal";
     case "chipre":
     case "chypre":
       return "Chypre";
