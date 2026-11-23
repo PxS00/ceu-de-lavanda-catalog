@@ -3258,5 +3258,49 @@
       "Couro",
       "Notas Amadeiradas"
     ]
+  },
+  {
+    "id": "effervesce",
+    "slug": "effervesce",
+    "name": "Effervesce",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "compartilhavel",
+    "tagline": "A efervescência solar da toranja e do gengibre unida ao calor especiado do açafrão e da baunilha em uma assinatura inesquecível.",
+    "description": "Effervesce revela a energia vibrante, a luminosidade contemporânea e o magnetismo envolvente de uma criação Oriental Cítrica compartilhável singular. Sua abertura desperta os sentidos com o brilho borbulhante e suculento da Toranja e da Bergamota, eletrificados pelo frescor picante e revigorante do Gengibre. No seu coração nobre e sofisticado, o calor especiado do Cardamomo e a riqueza preciosa do Açafrão entrelaçam-se à elegância aromática do Gerânio. A base assenta sobre a pele com a doçura acolhedora da Baunilha, harmonizada pela profundidade sensual do Âmbar e pela maciez envolvente do Almíscar, garantindo um rastro radiante, elegante e de altíssima fixação.",
+    "family": "Oriental Cítrica",
+    "style": "Efervescente, Solar, Especiado, Sofisticado e Compartilhável",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Toranja",
+        "Bergamota",
+        "Gengibre"
+      ],
+      "heart": [
+        "Cardamomo",
+        "Gerânio",
+        "Açafrão"
+      ],
+      "base": [
+        "Baunilha",
+        "Âmbar",
+        "Almíscar"
+      ]
+    },
+    "notes": [
+      "Toranja",
+      "Bergamota",
+      "Gengibre",
+      "Cardamomo",
+      "Gerânio",
+      "Açafrão",
+      "Baunilha",
+      "Âmbar",
+      "Almíscar"
+    ]
   }
 ]
