@@ -27,7 +27,7 @@ test("family guide links to actual perfume pages and catalog filter remains shar
   await expect(page.getByRole("combobox", { name: "Família olfativa" })).toHaveValue(family);
   await expect(page.getByRole("option", { name: "Floral Frutada", exact: true })).toHaveCount(0);
   const cards = page.locator(".product-card");
-  await expect(cards.first().locator(".product-card-profile")).toHaveText(/ · Floral$/);
+  await expect(cards.first().locator(".product-card-profile")).toHaveText(/ · Floral(?: Frutal)?(?: Gourmand)?$/);
   await cards.getByRole("heading", { name: "Acquaré", exact: true }).click();
   await expect(page.locator(".detail-family").filter({ hasText: "Família olfativa" })).toContainText("Floral Frutada");
   await page.goBack();
@@ -54,13 +54,15 @@ test("family guide groups perfumes by their primary family", async ({ page }) =>
   await expect(oriental).not.toContainText("Acquaré");
 });
 
-test("the guide keeps Frutal and Gourmand visible without primary-family matches", async ({ page }) => {
+test("Frutal appears in the guide and filter alongside the primary family", async ({ page }) => {
   await page.goto("/familias-olfativas/");
-  for (const [id, name] of [["frutado", "Frutal"]]) {
-    const card = page.locator(`#${id}`);
-    await expect(card.getByRole("heading", { name, exact: true })).toBeVisible();
-    await expect(card).toContainText("Em breve, novas fragrâncias nesta família.");
-  }
+  await expect(page.locator("#frutado")).toContainText("Acquaré");
+  await page.goto("/catalogo/?familia=Frutal");
+  await expect(page.getByRole("combobox", { name: "Família olfativa" })).toHaveValue("Frutal");
+  const card = page.locator(".product-card").filter({ has: page.getByRole("heading", { name: "Acquaré", exact: true }) });
+  await expect(card.locator(".product-card-profile")).toContainText("Floral Frutal");
+  await page.getByRole("combobox", { name: "Família olfativa" }).selectOption("Floral");
+  await expect(card).toBeVisible();
 });
 
 test("Gourmand appears in the guide and filters alongside the primary family", async ({ page }) => {

@@ -193,6 +193,9 @@ export function getPrimaryFamily(value?: string | null): string {
 export function getProductFamilies(value?: string | null): string[] {
   const primary = getPrimaryFamily(value);
   const families = primary ? [primary] : [];
+  if (/\b(?:frutal|frutado|frutada)\b/.test(normalize(value ?? "")) && normalize(primary) !== "frutal") {
+    families.push("Frutal");
+  }
   if (/\bgourmand\b/.test(normalize(value ?? "")) && normalize(primary) !== "gourmand") {
     families.push("Gourmand");
   }

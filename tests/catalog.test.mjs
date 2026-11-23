@@ -290,5 +290,7 @@ test("Gourmand remains searchable alongside the primary family", () => {
   assert.deepEqual(getProductFamilies(items[3].family), ["Gourmand"]);
   assert.deepEqual(filterProducts(items, "", "", "az", "", "Gourmand").map((p) => p.id), ["a", "b", "d"]);
   assert.deepEqual(filterProducts(items, "", "", "az", "", "Floral").map((p) => p.id), ["b", "c"]);
-  assert.deepEqual(filterProducts(items, "", "", "az", "", "Frutal"), []);
+  assert.deepEqual(filterProducts(items, "", "", "az", "", "Frutal").map((p) => p.id), ["b", "c"]);
+  assert.deepEqual(getProductFamilies("Frutado Floral"), ["Frutal"]);
+  assert.deepEqual(getProductFamilies("Floral Frutada Gourmand"), ["Floral", "Frutal", "Gourmand"]);
 });
