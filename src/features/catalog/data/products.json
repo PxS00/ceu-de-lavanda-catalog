@@ -3486,5 +3486,49 @@
       "Âmbar",
       "Notas Amadeiradas"
     ]
+  },
+  {
+    "id": "black-diamond",
+    "slug": "black-diamond",
+    "name": "Black Diamond",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O brilho cítrico e picante da toranja e do absinto unido à nobreza do couro e do âmbar em uma assinatura moderna e marcante.",
+    "description": "Black Diamond revela a sofisticação noturna, o magnetismo e a elegância moderna de uma criação Amadeirada Aromática marcante. Sua abertura desperta os sentidos com o frescor cítrico e vibrante da Toranja, energizado pela intensidade herbal do Absinto e pelo toque picante da Pimenta. No seu coração aromático e especiado, a pureza clássica da Lavanda e das Notas Aromáticas entrelaça-se ao calor refinado da Noz-Moscada. A base assenta sobre a pele com a imponência tátil do Couro e o calor profundo do Âmbar, envolvidos pela maciez sensual do Almíscar, garantindo excelente fixação e um rastro masculino sofisticado e envolvente.",
+    "family": "Amadeirada Aromática",
+    "style": "Masculino, Sofisticado, Marcante, Moderno e Envolvente",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Toranja",
+        "Absinto",
+        "Pimenta"
+      ],
+      "heart": [
+        "Lavanda",
+        "Notas Aromáticas",
+        "Noz-Moscada"
+      ],
+      "base": [
+        "Âmbar",
+        "Couro",
+        "Almíscar"
+      ]
+    },
+    "notes": [
+      "Toranja",
+      "Absinto",
+      "Pimenta",
+      "Lavanda",
+      "Notas Aromáticas",
+      "Noz-Moscada",
+      "Âmbar",
+      "Couro",
+      "Almíscar"
+    ]
   }
 ]
