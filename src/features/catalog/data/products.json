@@ -3530,5 +3530,54 @@
       "Couro",
       "Almíscar"
     ]
+  },
+  {
+    "id": "creedon",
+    "slug": "creedon",
+    "name": "Creedon",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "A imponência frutada da maçã e do abacaxi unida à nobreza do couro e do ambergris em uma assinatura sofisticada e poderosa.",
+    "description": "Creedon revela o luxo, a elegância masculina e o magnetismo vibrante de uma criação Amadeirada Couro inesquecível. Sua abertura desperta os sentidos com a suculência radiante e efervescente da Maçã, do Abacaxi e da Tangerina, trazendo uma energia luminosa e aristocrática. No seu coração refinado e envolvente, a nobreza clássica da Rosa e do Jasmim entrelaça-se ao toque acolhedor e sofisticado da Baunilha. A base assenta sobre a pele com a imponência tátil do Couro e a riqueza mineral do Ambergris, harmonizados pela profundidade terrosa do Patchouli, do Musgo de Carvalho e pela maciez sensual do Musk, garantindo um rastro poderoso, exclusivo e de altíssima fixação.",
+    "family": "Amadeirada Couro",
+    "style": "Sofisticado, Poderoso, Masculino, Elegante e Vibrante",
+    "suggestedUse": "Ideal para uso em ocasiões especiais, transmitindo uma aura de luxo e exclusividade. Perfeito para homens que desejam uma fragrância única que os faça se destacar e deixar uma impressão duradoura.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Maçã",
+        "Abacaxi",
+        "Tangerina"
+      ],
+      "heart": [
+        "Rosa",
+        "Jasmim",
+        "Baunilha"
+      ],
+      "base": [
+        "Musk",
+        "Couro",
+        "Patchouli",
+        "Ambergris",
+        "Musgo de Carvalho"
+      ]
+    },
+    "notes": [
+      "Maçã",
+      "Abacaxi",
+      "Tangerina",
+      "Rosa",
+      "Jasmim",
+      "Baunilha",
+      "Musk",
+      "Couro",
+      "Patchouli",
+      "Ambergris",
+      "Musgo de Carvalho"
+    ]
   }
 ]
