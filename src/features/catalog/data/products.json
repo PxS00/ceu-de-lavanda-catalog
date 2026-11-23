@@ -3151,5 +3151,71 @@
       "Sândalo",
       "Patchouli"
     ]
+  },
+  {
+    "id": "noctus",
+    "slug": "noctus",
+    "name": "Noctus",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "A intensidade mística das especiarias e das resinas nobres unida à densidade do oud e do âmbar em uma presença inesquecível.",
+    "description": "Noctus revela o mistério, a imponência e a profundidade marcante de uma criação Oriental Amadeirada opulenta. Sua abertura desperta os sentidos com o brilho cítrico do Limão e da Bergamota contrastados pelo calor picante do Cardamomo e da Pimenta de Sichuan, envoltos pela nobreza resinosa do Elemi e do Olíbano. No seu coração complexo e hipnótico, a riqueza preciosa do Açafrão e do Coentro entrelaça-se à profundidade terrosa do Patchouli, à elegância aromática do Gerânio e ao toque intrigante do Absinto. A base assenta sobre a pele com uma arquitetura densa e magnética de Oud, Bétula, Ládano e Opoponax, aquecidos pelo conforto viciante da Baunilha, do Benjoim, do Maltol e da sensualidade mineral do Âmbar e do Âmbar Cinza, garantindo um rastro poderoso, sofisticado e de altíssima fixação.",
+    "family": "Oriental Amadeirada",
+    "style": "Imponente, Misterioso, Resinoso, Noturno e Sofisticado",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Elemi",
+        "Pimenta de Sichuan",
+        "Limão",
+        "Cardamomo",
+        "Olíbano",
+        "Bergamota"
+      ],
+      "heart": [
+        "Patchouli",
+        "Açafrão",
+        "Gerânio",
+        "Coentro",
+        "Absinto"
+      ],
+      "base": [
+        "Baunilha",
+        "Âmbar",
+        "Benjoim",
+        "Opoponax",
+        "Âmbar Cinza",
+        "Maltol",
+        "Ládano",
+        "Oud",
+        "Bétula"
+      ]
+    },
+    "notes": [
+      "Elemi",
+      "Pimenta de Sichuan",
+      "Limão",
+      "Cardamomo",
+      "Olíbano",
+      "Bergamota",
+      "Patchouli",
+      "Açafrão",
+      "Gerânio",
+      "Coentro",
+      "Absinto",
+      "Baunilha",
+      "Âmbar",
+      "Benjoim",
+      "Opoponax",
+      "Âmbar Cinza",
+      "Maltol",
+      "Ládano",
+      "Oud",
+      "Bétula"
+    ]
   }
 ]
