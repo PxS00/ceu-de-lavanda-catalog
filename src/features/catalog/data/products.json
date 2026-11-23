@@ -3105,5 +3105,838 @@
       "src": "/products/aura-rubbra.webp",
       "alt": "Frasco do perfume Aura Rubbra"
     }
+  },
+  {
+    "id": "orion-wood",
+    "slug": "orion-wood",
+    "name": "Orion Wood",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "A força magnética das especiarias quentes unida à nobreza de um acorde amadeirado aveludado e inesquecível.",
+    "description": "Orion Wood revela a personalidade autêntica, a força e o magnetismo envolvente de uma criação Amadeirada Especiada marcante. Sua abertura desperta os sentidos com o calor vibrante e sofisticado do Cardamomo combinado ao toque picante e marcante da Pimenta Preta. No seu coração nobre e elegante, desabrocha a sofisticação atalcada da Íris e da Violeta entrelaçada à luminosidade refinada do Jasmim. A base assenta sobre a pele com a riqueza densa e seca do Cedro, do Sândalo e do Vetiver, harmonizados pela profundidade terrosa do Patchouli e pelo abraço sensual do Musk, garantindo um rastro imponente, refinado e de altíssima fixação.",
+    "family": "Amadeirado Especiado",
+    "style": "Imponente, Autêntico, Sofisticado, Envolvente e Marcante",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Cardamomo",
+        "Pimenta Preta"
+      ],
+      "heart": [
+        "Íris",
+        "Violeta",
+        "Jasmim"
+      ],
+      "base": [
+        "Musk",
+        "Cedro",
+        "Vetiver",
+        "Sândalo",
+        "Patchouli"
+      ]
+    },
+    "notes": [
+      "Cardamomo",
+      "Pimenta Preta",
+      "Íris",
+      "Violeta",
+      "Jasmim",
+      "Musk",
+      "Cedro",
+      "Vetiver",
+      "Sândalo",
+      "Patchouli"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "noctus",
+    "slug": "noctus",
+    "name": "Noctus",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "A intensidade mística das especiarias e das resinas nobres unida à densidade do oud e do âmbar em uma presença inesquecível.",
+    "description": "Noctus revela o mistério, a imponência e a profundidade marcante de uma criação Oriental Amadeirada opulenta. Sua abertura desperta os sentidos com o brilho cítrico do Limão e da Bergamota contrastados pelo calor picante do Cardamomo e da Pimenta de Sichuan, envoltos pela nobreza resinosa do Elemi e do Olíbano. No seu coração complexo e hipnótico, a riqueza preciosa do Açafrão e do Coentro entrelaça-se à profundidade terrosa do Patchouli, à elegância aromática do Gerânio e ao toque intrigante do Absinto. A base assenta sobre a pele com uma arquitetura densa e magnética de Oud, Bétula, Ládano e Opoponax, aquecidos pelo conforto viciante da Baunilha, do Benjoim, do Maltol e da sensualidade mineral do Âmbar e do Âmbar Cinza, garantindo um rastro poderoso, sofisticado e de altíssima fixação.",
+    "family": "Oriental Amadeirada",
+    "style": "Imponente, Misterioso, Resinoso, Noturno e Sofisticado",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Elemi",
+        "Pimenta de Sichuan",
+        "Limão",
+        "Cardamomo",
+        "Olíbano",
+        "Bergamota"
+      ],
+      "heart": [
+        "Patchouli",
+        "Açafrão",
+        "Gerânio",
+        "Coentro",
+        "Absinto"
+      ],
+      "base": [
+        "Baunilha",
+        "Âmbar",
+        "Benjoim",
+        "Opoponax",
+        "Âmbar Cinza",
+        "Maltol",
+        "Ládano",
+        "Oud",
+        "Bétula"
+      ]
+    },
+    "notes": [
+      "Elemi",
+      "Pimenta de Sichuan",
+      "Limão",
+      "Cardamomo",
+      "Olíbano",
+      "Bergamota",
+      "Patchouli",
+      "Açafrão",
+      "Gerânio",
+      "Coentro",
+      "Absinto",
+      "Baunilha",
+      "Âmbar",
+      "Benjoim",
+      "Opoponax",
+      "Âmbar Cinza",
+      "Maltol",
+      "Ládano",
+      "Oud",
+      "Bétula"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "codde-real",
+    "slug": "codde-real",
+    "name": "Codde Real",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O código da elegância e do poder aristocrático em uma assinatura licorosa, envolvente e inesquecível.",
+    "description": "Codde Real revela o mistério, a autoridade e a sofisticação da masculinidade contemporânea em uma criação Oriental Amadeirada marcante. Sua abertura desperta os sentidos com o calor vibrante e refinado do Cardamomo combinado à efervescência intensa das Notas Especiadas. No seu coração nobre e sedutor, a elegância aromática da Lavanda entrelaça-se à cremosidade envolvente da Fava Tonka. A base assenta sobre a pele com a imponência tátil do Couro e das Notas Amadeiradas, aquecidas pela doçura viciante da Baunilha e pela profundidade sensual do Âmbar, garantindo um rastro denso, magnético e de altíssima fixação.",
+    "family": "Oriental Amadeirado",
+    "style": "Imponente, Noturno, Magnético, Sofisticado e Envolvente",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Cardamomo",
+        "Notas Especiadas"
+      ],
+      "heart": [
+        "Lavanda",
+        "Fava Tonka"
+      ],
+      "base": [
+        "Baunilha",
+        "Âmbar",
+        "Couro",
+        "Notas Amadeiradas"
+      ]
+    },
+    "notes": [
+      "Cardamomo",
+      "Notas Especiadas",
+      "Lavanda",
+      "Fava Tonka",
+      "Baunilha",
+      "Âmbar",
+      "Couro",
+      "Notas Amadeiradas"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "effervesce",
+    "slug": "effervesce",
+    "name": "Effervesce",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "compartilhavel",
+    "tagline": "A efervescência solar da toranja e do gengibre unida ao calor especiado do açafrão e da baunilha em uma assinatura inesquecível.",
+    "description": "Effervesce revela a energia vibrante, a luminosidade contemporânea e o magnetismo envolvente de uma criação Oriental Cítrica compartilhável singular. Sua abertura desperta os sentidos com o brilho borbulhante e suculento da Toranja e da Bergamota, eletrificados pelo frescor picante e revigorante do Gengibre. No seu coração nobre e sofisticado, o calor especiado do Cardamomo e a riqueza preciosa do Açafrão entrelaçam-se à elegância aromática do Gerânio. A base assenta sobre a pele com a doçura acolhedora da Baunilha, harmonizada pela profundidade sensual do Âmbar e pela maciez envolvente do Almíscar, garantindo um rastro radiante, elegante e de altíssima fixação.",
+    "family": "Oriental Cítrica",
+    "style": "Efervescente, Solar, Especiado, Sofisticado e Compartilhável",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Toranja",
+        "Bergamota",
+        "Gengibre"
+      ],
+      "heart": [
+        "Cardamomo",
+        "Gerânio",
+        "Açafrão"
+      ],
+      "base": [
+        "Baunilha",
+        "Âmbar",
+        "Almíscar"
+      ]
+    },
+    "notes": [
+      "Toranja",
+      "Bergamota",
+      "Gengibre",
+      "Cardamomo",
+      "Gerânio",
+      "Açafrão",
+      "Baunilha",
+      "Âmbar",
+      "Almíscar"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "mare-di-velluto",
+    "slug": "mare-di-velluto",
+    "name": "Mare di Velluto",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "tagline": "O frescor cristalino e aromático da lavanda e do alecrim unido ao abraço aveludado do sândalo e das madeiras ambaradas em uma assinatura inesquecível.",
+    "description": "Mare di Velluto revela a leveza refrescante, a serenidade cristalina e o conforto aveludado de uma criação Aromática Amadeirada singular. Sua abertura desperta os sentidos com um frescor aquático e herbal revitalizante, combinando a pureza aromática da Lavanda ao vigor natural do Alecrim. No seu coração nobre e diáfano, a elegância atalcada da Íris e a delicadeza pura do Lírio-do-Vale entrelaçam-se à cremosidade suave do Sândalo. A base assenta sobre a pele com uma arquitetura envolvente e extremamente confortável de Musk, Âmbar, Baunilha e Fava Tonka, enriquecidos pela profundidade sofisticada da Madeira Ambarada e o toque terroso da Nagarmota, garantindo um rastro refinado, acolhedor e de altíssima fixação.",
+    "family": "Aromática Amadeirada",
+    "style": "Fresco, Aquático, Cristalino, Aveludado e Confortável",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Lavanda",
+        "Alecrim"
+      ],
+      "heart": [
+        "Íris",
+        "Lírio-do-Vale",
+        "Sândalo"
+      ],
+      "base": [
+        "Musk",
+        "Âmbar",
+        "Baunilha",
+        "Madeira Ambarada",
+        "Nagarmota",
+        "Fava Tonka"
+      ]
+    },
+    "notes": [
+      "Lavanda",
+      "Alecrim",
+      "Íris",
+      "Lírio-do-Vale",
+      "Sândalo",
+      "Musk",
+      "Âmbar",
+      "Baunilha",
+      "Madeira Ambarada",
+      "Nagarmota",
+      "Fava Tonka"
+    ],
+    "gender": "masculino",
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "instinto",
+    "slug": "instinto",
+    "name": "Instinto",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O frescor magnético da bergamota e das pimentas unido à nobreza do cedro e do ambroxan em uma assinatura intensa e sedutora.",
+    "description": "Instinto revela a força magnética, a confiança natural e a elegância vibrante de uma criação Amadeirada Aromática inesquecível. Sua abertura desperta os sentidos com o brilho cítrico e revigorante da Bergamota contrastado pelo toque picante e marcante da Pimenta. No seu coração nobre e sedutor, a pureza aromática da Lavanda e a elegância refinada do Gerânio ganham uma energia elétrica e envolvente com a Pimenta de Szechuan. A base assenta sobre a pele com a sobriedade estruturada do Cedro e a profundidade terrosa do Patchouli, amplificados pelo magnetismo moderno do Ambroxan, garantindo um rastro poderoso, sofisticado e de altíssima fixação.",
+    "family": "Amadeirado Aromático",
+    "style": "Intenso, Sedutor, Masculino, Vibrante e Sofisticado",
+    "suggestedUse": "Ideal para uso em todas as ocasiões, do dia a dia a eventos especiais, transmitindo uma aura de confiança e charme. Perfeito para homens que desejam uma fragrância que os faça se destacar e deixar uma impressão duradoura.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Bergamota",
+        "Pimenta"
+      ],
+      "heart": [
+        "Lavanda",
+        "Gerânio",
+        "Pimenta de Szechuan"
+      ],
+      "base": [
+        "Patchouli",
+        "Ambroxan",
+        "Cedro"
+      ]
+    },
+    "notes": [
+      "Bergamota",
+      "Pimenta",
+      "Lavanda",
+      "Gerânio",
+      "Pimenta de Szechuan",
+      "Patchouli",
+      "Ambroxan",
+      "Cedro"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "kaelan",
+    "slug": "kaelan",
+    "name": "Kaelan",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O frescor magnético da toranja e do gengibre unido à nobreza das madeiras preciosas em uma assinatura de prestígio e sucesso absoluto.",
+    "description": "Kaelan revela a elegância limpa, a autoconfiança e o magnetismo cosmopolita de uma criação Amadeirada Aromática / Cítrica Nobre impecável. Sua abertura desperta os sentidos com a efervescência vibrante da Toranja e do Gengibre, realçadas pelo calor sofisticado da Noz-Moscada. No seu coração aromático e picante, o frescor revigorante da Menta e a energia sutil da Pimenta Rosa entrelaçam-se à estrutura nobre do Vetiver e à luminosidade refinada do Jasmim. A base assenta sobre a pele com a imponência estruturada do Cedro, a cremosidade elegante do Sândalo e a profundidade resinosa do Lábdano, garantindo um rastro limpo, marcante e de altíssima fixação.",
+    "family": "Amadeirado Aromático / Cítrico Nobre",
+    "style": "Magnético, Limpo, Sofisticado, Cosmopolita e Impecável",
+    "suggestedUse": "Perfeito para closets masculinos de alto padrão, ambientes executivos, reuniões de negócios ou momentos que pedem uma assinatura olfativa que exale inteligência, autoconfiança e prestígio.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Toranja",
+        "Gengibre",
+        "Noz-Moscada"
+      ],
+      "heart": [
+        "Menta",
+        "Vetiver",
+        "Jasmim",
+        "Pimenta Rosa"
+      ],
+      "base": [
+        "Cedro",
+        "Sândalo",
+        "Lábdano"
+      ]
+    },
+    "notes": [
+      "Toranja",
+      "Gengibre",
+      "Noz-Moscada",
+      "Menta",
+      "Vetiver",
+      "Jasmim",
+      "Pimenta Rosa",
+      "Cedro",
+      "Sândalo",
+      "Lábdano"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "imperio-absollu",
+    "slug": "imperio-absollu",
+    "name": "Império Absollu",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O frescor magnético da hortelã e do cardamomo unido ao calor sedutor da canela, do âmbar e da baunilha em uma assinatura inesquecível.",
+    "description": "Império Absollu revela o magnetismo absoluto, a presença audaciosa e a sensualidade hipnótica de uma criação Oriental Âmbar inesquecível. Sua abertura desperta os sentidos com o brilho cítrico da Bergamota e o frescor revigorante da Hortelã, aquecidos pelo toque vibrante e sofisticado do Cardamomo. No seu coração intenso e envolvente, a pureza aromática da Lavanda e a luminosidade da Flor de Laranjeira ganham uma energia quente e picante com a Canela. A base assenta sobre a pele com a densidade viciante da Baunilha e da Fava Tonka, harmonizadas pelo calor profundo do Âmbar e pela sobriedade das Notas Amadeiradas, garantindo um rastro poderoso, acolhedor e de altíssima fixação.",
+    "family": "Oriental Âmbar",
+    "style": "Hipnótico, Denso, Ultra-Sedutor, Magnético e Audacioso",
+    "suggestedUse": "Perfeito para ocasiões de destaque, ambientes sofisticados, salas de estar luxuosas, lounges ou momentos que pedem uma assinatura olfativa que exale sucesso, mistério e luxo moderno.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Cardamomo",
+        "Bergamota",
+        "Hortelã"
+      ],
+      "heart": [
+        "Lavanda",
+        "Canela",
+        "Flor de Laranjeira"
+      ],
+      "base": [
+        "Baunilha",
+        "Fava Tonka",
+        "Âmbar",
+        "Notas Amadeiradas"
+      ]
+    },
+    "notes": [
+      "Cardamomo",
+      "Bergamota",
+      "Hortelã",
+      "Lavanda",
+      "Canela",
+      "Flor de Laranjeira",
+      "Baunilha",
+      "Fava Tonka",
+      "Âmbar",
+      "Notas Amadeiradas"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "black-diamond",
+    "slug": "black-diamond",
+    "name": "Black Diamond",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O brilho cítrico e picante da toranja e do absinto unido à nobreza do couro e do âmbar em uma assinatura moderna e marcante.",
+    "description": "Black Diamond revela a sofisticação noturna, o magnetismo e a elegância moderna de uma criação Amadeirada Aromática marcante. Sua abertura desperta os sentidos com o frescor cítrico e vibrante da Toranja, energizado pela intensidade herbal do Absinto e pelo toque picante da Pimenta. No seu coração aromático e especiado, a pureza clássica da Lavanda e das Notas Aromáticas entrelaça-se ao calor refinado da Noz-Moscada. A base assenta sobre a pele com a imponência tátil do Couro e o calor profundo do Âmbar, envolvidos pela maciez sensual do Almíscar, garantindo excelente fixação e um rastro masculino sofisticado e envolvente.",
+    "family": "Amadeirada Aromática",
+    "style": "Masculino, Sofisticado, Marcante, Moderno e Envolvente",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Toranja",
+        "Absinto",
+        "Pimenta"
+      ],
+      "heart": [
+        "Lavanda",
+        "Notas Aromáticas",
+        "Noz-Moscada"
+      ],
+      "base": [
+        "Âmbar",
+        "Couro",
+        "Almíscar"
+      ]
+    },
+    "notes": [
+      "Toranja",
+      "Absinto",
+      "Pimenta",
+      "Lavanda",
+      "Notas Aromáticas",
+      "Noz-Moscada",
+      "Âmbar",
+      "Couro",
+      "Almíscar"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "creedon",
+    "slug": "creedon",
+    "name": "Creedon",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "A imponência frutada da maçã e do abacaxi unida à nobreza do couro e do ambergris em uma assinatura sofisticada e poderosa.",
+    "description": "Creedon revela o luxo, a elegância masculina e o magnetismo vibrante de uma criação Amadeirada Couro inesquecível. Sua abertura desperta os sentidos com a suculência radiante e efervescente da Maçã, do Abacaxi e da Tangerina, trazendo uma energia luminosa e aristocrática. No seu coração refinado e envolvente, a nobreza clássica da Rosa e do Jasmim entrelaça-se ao toque acolhedor e sofisticado da Baunilha. A base assenta sobre a pele com a imponência tátil do Couro e a riqueza mineral do Ambergris, harmonizados pela profundidade terrosa do Patchouli, do Musgo de Carvalho e pela maciez sensual do Musk, garantindo um rastro poderoso, exclusivo e de altíssima fixação.",
+    "family": "Amadeirada Couro",
+    "style": "Sofisticado, Poderoso, Masculino, Elegante e Vibrante",
+    "suggestedUse": "Ideal para uso em ocasiões especiais, transmitindo uma aura de luxo e exclusividade. Perfeito para homens que desejam uma fragrância única que os faça se destacar e deixar uma impressão duradoura.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Maçã",
+        "Abacaxi",
+        "Tangerina"
+      ],
+      "heart": [
+        "Rosa",
+        "Jasmim",
+        "Baunilha"
+      ],
+      "base": [
+        "Musk",
+        "Couro",
+        "Patchouli",
+        "Ambergris",
+        "Musgo de Carvalho"
+      ]
+    },
+    "notes": [
+      "Maçã",
+      "Abacaxi",
+      "Tangerina",
+      "Rosa",
+      "Jasmim",
+      "Baunilha",
+      "Musk",
+      "Couro",
+      "Patchouli",
+      "Ambergris",
+      "Musgo de Carvalho"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "aeternum",
+    "slug": "aeternum",
+    "name": "Aeternum",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O brilho efervescente da toranja e do gengibre unido à nobreza da raiz de orris e do cedro em uma assinatura sofisticada, intensa e memorável.",
+    "description": "Aeternum revela a elegância atemporal, a intensidade refinada e a sofisticação magnética de uma criação Floral Aromática inesquecível. Sua abertura desperta os sentidos com o frescor cítrico e radiante da Toranja e da Bergamota, iluminados pela delicadeza aristocrática do Jasmim e da Magnólia. No seu coração complexo e envolvente, o toque vibrante e picante do Gengibre entrelaça-se à naturalidade limpa das Notas Herbais e à textura aveludada das Notas Atalcadas. A base assenta sobre a pele com a nobreza estruturada do Cedro e da Raiz de Orris, harmonizados pela profundidade terrosa do Patchouli, o calor sensual do Âmbar e a maciez envolvente do Almíscar, garantindo um rastro poderoso, elegante e de altíssima fixação.",
+    "family": "Floral Aromático",
+    "style": "Sofisticado, Intenso, Memorável, Elegante e Refinado",
+    "suggestedUse": "Ideal para ocasiões especiais e noites elegantes.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Toranja",
+        "Bergamota",
+        "Jasmim",
+        "Magnólia"
+      ],
+      "heart": [
+        "Gengibre",
+        "Notas Herbais",
+        "Notas Atalcadas"
+      ],
+      "base": [
+        "Almíscar",
+        "Cedro",
+        "Âmbar",
+        "Raiz de Orris",
+        "Patchouli"
+      ]
+    },
+    "notes": [
+      "Toranja",
+      "Bergamota",
+      "Jasmim",
+      "Magnólia",
+      "Gengibre",
+      "Notas Herbais",
+      "Notas Atalcadas",
+      "Almíscar",
+      "Cedro",
+      "Âmbar",
+      "Raiz de Orris",
+      "Patchouli"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "riviera-lumiere",
+    "slug": "riviera-lumiere",
+    "name": "Riviera Lumière",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O brilho solar dos cítricos e a brisa cristalina do sal marinho em uma assinatura revigorante, luxuosa e inesquecível.",
+    "description": "Riviera Lumière revela a elegância solar despretensiosa, o glamour luminoso e o frescor revigorante de uma criação Cítrica Aquosa inesquecível. Sua abertura desperta os sentidos como uma brisa vibrante de verão, unindo a suculência radiante do Limão, da Laranja e da Tangerina ao toque picante e efervescente do Gengibre e da Pimenta. No seu coração ensolarado e sofisticado, a frescura límpida das Notas Oceânicas e do Pinheiro entrelaça-se à nobreza estruturada do Vetiver e à suavidade exótica da Tiaré e da Mimosa. A base assenta sobre a pele com o toque cristalino e viciante do Sal Marinho, envolvido pela maciez pura do Almíscar Branco e pelo calor dourado do Âmbar, garantindo um rastro limpo, glamouroso e de altíssima fixação.",
+    "family": "Cítrica Aquosa",
+    "style": "Glamouroso, Sofisticado, Ensolarado, Cristalino e Revigorante",
+    "suggestedUse": "Atua como uma brisa refrescante e a escolha definitiva para quem busca o \"cheiro do verão chic\". Ideal para dias ensolarados, momentos de lazer sofisticado ou para transformar o ambiente em um cenário de pura luz, limpeza e paz.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Limão",
+        "Laranja",
+        "Gengibre",
+        "Tangerina",
+        "Pimenta"
+      ],
+      "heart": [
+        "Notas Oceânicas",
+        "Pinheiro",
+        "Vetiver",
+        "Tiaré",
+        "Mimosa"
+      ],
+      "base": [
+        "Sal Marinho",
+        "Almíscar Branco",
+        "Âmbar"
+      ]
+    },
+    "notes": [
+      "Limão",
+      "Laranja",
+      "Gengibre",
+      "Tangerina",
+      "Pimenta",
+      "Notas Oceânicas",
+      "Pinheiro",
+      "Vetiver",
+      "Tiaré",
+      "Mimosa",
+      "Sal Marinho",
+      "Almíscar Branco",
+      "Âmbar"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "rubi-imperial",
+    "slug": "rubi-imperial",
+    "name": "Rubi Imperial",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "A opulência vibrante da lichia e da rosa turca unida ao calor sedutor do âmbar e da baunilha em uma assinatura magnética.",
+    "description": "Rubi Imperial revela a exclusividade opulenta, a intensidade hipnótica e o magnetismo sedutor de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos como um manifesto de estilo, unindo a suculência luminosa da Lichia e da Ameixa ao frescor marcante do Ruibarbo e da Bergamota, aquecidos pelo toque especiado da Noz-Moscada. No seu coração luxuoso e envolvente, a nobreza aveludada da Rosa Turca, da Peônia e da Petalia entrelaça-se ao conforto macio da Madeira de Cashmere. A base assenta sobre a pele com uma harmonia viciante de Baunilha e Âmbar, sustentados pela elegância estruturada do Cedro, pela profundidade terrosa do Vetiver do Haiti e pela sensualidade do Musk, garantindo um rastro poderoso, intenso e de altíssima fixação.",
+    "family": "Oriental Floral",
+    "style": "Hipnótico, Opulento, Sedutor, Magnético e Exclusivo",
+    "suggestedUse": "Atua como um manifesto de estilo e a escolha definitiva para quem busca o \"cheiro do luxo vermelho\". Ideal para ocasiões de destaque, encontros marcantes ou para transformar o ambiente em um cenário de calor, exclusividade e presença que não passa despercebida.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Lichia",
+        "Ameixa",
+        "Ruibarbo",
+        "Bergamota",
+        "Noz-Moscada"
+      ],
+      "heart": [
+        "Petalia",
+        "Peônia",
+        "Rosa Turca",
+        "Madeira de Cashmere"
+      ],
+      "base": [
+        "Musk",
+        "Cedro",
+        "Âmbar",
+        "Baunilha",
+        "Vetiver do Haiti"
+      ]
+    },
+    "notes": [
+      "Lichia",
+      "Ameixa",
+      "Ruibarbo",
+      "Bergamota",
+      "Noz-Moscada",
+      "Petalia",
+      "Peônia",
+      "Rosa Turca",
+      "Madeira de Cashmere",
+      "Musk",
+      "Cedro",
+      "Âmbar",
+      "Baunilha",
+      "Vetiver do Haiti"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
+  },
+  {
+    "id": "bleu-maritime",
+    "slug": "bleu-maritime",
+    "name": "Bleu Maritime",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "A brisa revigorante do mar e o brilho dos cítricos mediterrâneos unidos à elegância atemporal do cedro e do alecrim em uma assinatura inesquecível.",
+    "description": "Bleu Maritime revela a liberdade refrescante, a leveza sofisticada e o magnetismo natural de uma criação Aromática Aquática inesquecível. Sua abertura desperta os sentidos com um frescor cítrico e vibrante de Bergamota, Limão e Laranja, trazendo uma energia limpa e solar. No seu coração elegante e revigorante, a pureza cristalina das Notas Marinhas entrelaça-se ao vigor herbal do Alecrim e à suavidade luminosa do Jasmim. A base assenta sobre a pele com a sobriedade estruturada do Cedro e a profundidade refinada do Patchouli, envolvidos pela maciez sensual do Almíscar, garantindo ótima fixação e um rastro masculino leve, refinado e marcante.",
+    "family": "Aromática Aquática",
+    "style": "Fresco, Aquático, Leve, Refinado e Marcante",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Bergamota",
+        "Limão",
+        "Laranja"
+      ],
+      "heart": [
+        "Notas Marinhas",
+        "Jasmim",
+        "Alecrim"
+      ],
+      "base": [
+        "Cedro",
+        "Almíscar",
+        "Patchouli"
+      ]
+    },
+    "notes": [
+      "Bergamota",
+      "Limão",
+      "Laranja",
+      "Notas Marinhas",
+      "Jasmim",
+      "Alecrim",
+      "Cedro",
+      "Almíscar",
+      "Patchouli"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
+    ],
+    "availability": "available"
   }
 ]

@@ -54,7 +54,7 @@ test("101-product fixture validates and filters Portuguese names without mutatio
 });
 
 test("catalog registers the supplied perfumes with their confirmed details", () => {
-  assert.equal(products.length, 47);
+  assert.equal(products.length, 61);
   assert.deepEqual(
     products.slice(0, 20).map((p) => p.name).sort(),
     [
@@ -105,7 +105,7 @@ test("search is accent insensitive, intersects initials, sorts without mutating 
     "Acquaré",
   );
   assert.equal(filterProducts(products, "acquare", "B", "az").length, 0);
-  assert.equal(filterProducts(products, "", "A", "az").length, 13);
+  assert.equal(filterProducts(products, "", "A", "az").length, 14);
   assert.equal(filterProducts(products, "", "", "za")[0].name, "Zyra");
   assert.deepEqual(
     products.map((p) => p.id),
@@ -115,7 +115,7 @@ test("search is accent insensitive, intersects initials, sorts without mutating 
 });
 
 test("commercial workbook merge preserves photographs and source identity without duplicates", () => {
-  assert.equal(products.length, 47);
+  assert.equal(products.length, 61);
   assert.equal(new Set(products.filter(p => p.sourceRecord).map(p => p.sourceRecord.number)).size, 46);
   assert.equal(products.filter(p => p.photo).length, 47);
   for (const p of products.filter(p => p.sourceRecord)) {
@@ -223,7 +223,7 @@ test("commercial categories are distinct from olfactory families and remain opti
     );
     assert.equal(
       filterProducts(products, "", "", "az", category.slug).length,
-      [47, 0, 0][index],
+      [61, 0, 0][index],
     );
   }
   assert.doesNotThrow(() =>
@@ -231,7 +231,7 @@ test("commercial categories are distinct from olfactory families and remain opti
   );
   for (const category of ["floral", "amadeirado", "", 42])
     assert.throws(() => validateProducts([{ ...products[0], category }]));
-  assert.equal(filterProducts(products, "", "", "az").length, 47);
+  assert.equal(filterProducts(products, "", "", "az").length, 61);
 });
 
 test("category filtering intersects search and initials, and preserves sorting", () => {
