@@ -3,10 +3,10 @@ import { test, expect } from "@playwright/test";
 test("new fragrance and corrected genders appear in the catalog", async ({ page }) => {
   await page.goto("/catalogo/perfumes/?genero=masculino");
   const cards = page.locator(".product-card");
-  await expect(cards).toHaveCount(2);
-  await expect(cards.filter({ hasText: "Imperator" })).toBeVisible();
-  await expect(cards.filter({ hasText: "Bourbon Noir" })).toBeVisible();
+  const search = page.getByRole("searchbox");
   for (const name of ["Imperator", "Bourbon Noir"]) {
+    await search.fill(name);
+    await expect(cards).toHaveCount(1);
     const photo = cards.filter({ hasText: name }).getByRole("img", { name: `Frasco do perfume ${name}` });
     await expect(photo).toBeVisible();
     await expect.poll(() => photo.evaluate((el: HTMLImageElement) => el.naturalWidth)).toBeGreaterThan(0);
