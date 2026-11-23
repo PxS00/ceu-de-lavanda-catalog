@@ -3302,5 +3302,52 @@
       "Âmbar",
       "Almíscar"
     ]
+  },
+  {
+    "id": "mare-di-velluto",
+    "slug": "mare-di-velluto",
+    "name": "Mare di Velluto",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "tagline": "O frescor cristalino e aromático da lavanda e do alecrim unido ao abraço aveludado do sândalo e das madeiras ambaradas em uma assinatura inesquecível.",
+    "description": "Mare di Velluto revela a leveza refrescante, a serenidade cristalina e o conforto aveludado de uma criação Aromática Amadeirada singular. Sua abertura desperta os sentidos com um frescor aquático e herbal revitalizante, combinando a pureza aromática da Lavanda ao vigor natural do Alecrim. No seu coração nobre e diáfano, a elegância atalcada da Íris e a delicadeza pura do Lírio-do-Vale entrelaçam-se à cremosidade suave do Sândalo. A base assenta sobre a pele com uma arquitetura envolvente e extremamente confortável de Musk, Âmbar, Baunilha e Fava Tonka, enriquecidos pela profundidade sofisticada da Madeira Ambarada e o toque terroso da Nagarmota, garantindo um rastro refinado, acolhedor e de altíssima fixação.",
+    "family": "Aromática Amadeirada",
+    "style": "Fresco, Aquático, Cristalino, Aveludado e Confortável",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Lavanda",
+        "Alecrim"
+      ],
+      "heart": [
+        "Íris",
+        "Lírio-do-Vale",
+        "Sândalo"
+      ],
+      "base": [
+        "Musk",
+        "Âmbar",
+        "Baunilha",
+        "Madeira Ambarada",
+        "Nagarmota",
+        "Fava Tonka"
+      ]
+    },
+    "notes": [
+      "Lavanda",
+      "Alecrim",
+      "Íris",
+      "Lírio-do-Vale",
+      "Sândalo",
+      "Musk",
+      "Âmbar",
+      "Baunilha",
+      "Madeira Ambarada",
+      "Nagarmota",
+      "Fava Tonka"
+    ]
   }
 ]
