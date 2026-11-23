@@ -190,6 +190,15 @@ export function getPrimaryFamily(value?: string | null): string {
   }
 }
 
+export function getProductFamilies(value?: string | null): string[] {
+  const primary = getPrimaryFamily(value);
+  const families = primary ? [primary] : [];
+  if (/\bgourmand\b/.test(normalize(value ?? "")) && normalize(primary) !== "gourmand") {
+    families.push("Gourmand");
+  }
+  return families;
+}
+
 export function filterProducts(
   items: Product[],
   query: string,
@@ -209,7 +218,7 @@ export function filterProducts(
     )
     .filter(
       (p) =>
-        (!primaryFamily || normalize(getPrimaryFamily(p.family)) === normalize(primaryFamily)) &&
+        (!primaryFamily || getProductFamilies(p.family).some((item) => normalize(item) === normalize(primaryFamily))) &&
         (!gender || p.gender === gender),
     )
     .sort((a, b) =>

@@ -8,6 +8,7 @@ import {
   formatPrice,
   getStartingPrice,
   getPrimaryFamily,
+  getProductFamilies,
   categories,
 } from "../src/features/catalog/lib/catalog.ts";
 
@@ -277,3 +278,17 @@ test("category filtering intersects search and initials, and preserves sorting",
   assert.equal(filterProducts(fixtures, "", "", "az").length, 5);
 });
 
+
+test("Gourmand remains searchable alongside the primary family", () => {
+  const items = [
+    { id: "a", name: "A", family: "Oriental Gourmand" },
+    { id: "b", name: "B", family: "Floral Frutada Gourmand" },
+    { id: "c", name: "C", family: "Floral Frutada" },
+    { id: "d", name: "D", family: "Gourmand" },
+  ];
+  assert.deepEqual(getProductFamilies(items[0].family), ["Oriental", "Gourmand"]);
+  assert.deepEqual(getProductFamilies(items[3].family), ["Gourmand"]);
+  assert.deepEqual(filterProducts(items, "", "", "az", "", "Gourmand").map((p) => p.id), ["a", "b", "d"]);
+  assert.deepEqual(filterProducts(items, "", "", "az", "", "Floral").map((p) => p.id), ["b", "c"]);
+  assert.deepEqual(filterProducts(items, "", "", "az", "", "Frutal"), []);
+});

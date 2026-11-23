@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { pageMetadata } from "@/features/seo/lib/metadata";
 import { familyGuide } from "@/features/catalog/data/family-guide";
-import { getPrimaryFamily, normalize, products } from "@/features/catalog/lib/catalog";
+import { getProductFamilies, normalize, products } from "@/features/catalog/lib/catalog";
 import { GuidePerfumes } from "@/features/catalog/components/guide-perfumes";
 import { OlfactoryStory } from "@/features/catalog/components/olfactory-story";
 
@@ -13,7 +13,7 @@ export const metadata = pageMetadata({
 
 export default function FamilyGuidePage() {
   const cards = familyGuide.map((guide) => {
-          const matching = products.filter((product) => product.category === "perfumes" && product.family && guide.terms.includes(normalize(getPrimaryFamily(product.family))))
+          const matching = products.filter((product) => product.category === "perfumes" && product.family && getProductFamilies(product.family).some((family) => guide.terms.includes(normalize(family))))
             .sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
           return <section className="family-guide-card" id={guide.id} key={guide.id}>
             <p className="eyebrow">{guide.mood}</p>

@@ -5,6 +5,7 @@ import { useReveal } from "@/shared/components/reveal";
 import {
   filterProducts,
   getPrimaryFamily,
+  getProductFamilies,
   normalize,
   categories,
   type CategorySlug,
@@ -47,7 +48,7 @@ export function Catalog({
   const gender = useSyncExternalStore(subscribe, genderSnapshot, serverSnapshot);
   const families = [...new Set(products
     .filter((product) => !category || product.category === category)
-    .map((product) => getPrimaryFamily(product.family))
+    .flatMap((product) => getProductFamilies(product.family))
     .filter(Boolean))]
     .sort((a, b) => a.localeCompare(b, "pt-BR"));
   const selectedFamily = families.find((option) => normalize(option) === normalize(family)) ?? family;

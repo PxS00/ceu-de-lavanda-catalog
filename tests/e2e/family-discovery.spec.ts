@@ -56,9 +56,20 @@ test("family guide groups perfumes by their primary family", async ({ page }) =>
 
 test("the guide keeps Frutal and Gourmand visible without primary-family matches", async ({ page }) => {
   await page.goto("/familias-olfativas/");
-  for (const [id, name] of [["frutado", "Frutal"], ["gourmand", "Gourmand"]]) {
+  for (const [id, name] of [["frutado", "Frutal"]]) {
     const card = page.locator(`#${id}`);
     await expect(card.getByRole("heading", { name, exact: true })).toBeVisible();
     await expect(card).toContainText("Em breve, novas fragrâncias nesta família.");
   }
+});
+
+test("Gourmand appears in the guide and filters alongside the primary family", async ({ page }) => {
+  await page.goto("/familias-olfativas/");
+  await expect(page.locator("#gourmand")).toContainText("Belle Vanille");
+  await page.goto("/catalogo/?familia=Gourmand");
+  await expect(page.getByRole("combobox", { name: "Família olfativa" })).toHaveValue("Gourmand");
+  const card = page.locator(".product-card").filter({ has: page.getByRole("heading", { name: "Belle Vanille", exact: true }) });
+  await expect(card.locator(".product-card-profile")).toContainText("Oriental Gourmand");
+  await page.getByRole("combobox", { name: "Família olfativa" }).selectOption("Oriental");
+  await expect(card).toBeVisible();
 });
