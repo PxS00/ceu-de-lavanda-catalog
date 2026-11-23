@@ -166,6 +166,26 @@ export function normalize(value: string) {
     .trim();
 }
 
+export function getPrimaryFamily(value?: string | null): string {
+  const primary = value?.trim().split(/[\s(/]+/, 1)[0] ?? "";
+  switch (normalize(primary)) {
+    case "amadeirada":
+    case "amadeirado":
+      return "Amadeirado";
+    case "aromatica":
+    case "aromatico":
+      return "Aromática";
+    case "citrica":
+    case "citrico":
+      return "Cítrica";
+    case "chipre":
+    case "chypre":
+      return "Chypre";
+    default:
+      return primary;
+  }
+}
+
 export function filterProducts(
   items: Product[],
   query: string,
@@ -175,6 +195,7 @@ export function filterProducts(
   family = "",
   gender = "",
 ) {
+  const primaryFamily = getPrimaryFamily(family);
   return items
     .filter(
       (p) =>
@@ -183,7 +204,9 @@ export function filterProducts(
         (!category || p.category === category),
     )
     .filter(
-      (p) => (!family || normalize(p.family ?? "") === normalize(family)) && (!gender || p.gender === gender),
+      (p) =>
+        (!primaryFamily || normalize(getPrimaryFamily(p.family)) === normalize(primaryFamily)) &&
+        (!gender || p.gender === gender),
     )
     .sort((a, b) =>
       sort === "za"

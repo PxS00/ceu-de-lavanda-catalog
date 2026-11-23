@@ -3,7 +3,13 @@ import { mkdir } from "node:fs/promises";
 import { syntheticProducts } from "../fixtures/products.mjs";
 import catalogProducts from "../../src/features/catalog/data/products.json";
 
-const firstPageCount = Math.min(catalogProducts.length, 12);
+const pageSize = 12;
+const firstPageCount = Math.min(catalogProducts.length, pageSize);
+const catalogPageCount = Math.ceil(catalogProducts.length / pageSize);
+const namesStartingWithB = catalogProducts
+  .map((product) => product.name)
+  .filter((name) => name.normalize("NFD").toLocaleUpperCase("pt-BR").startsWith("B"))
+  .sort((a, b) => a.localeCompare(b, "pt-BR"));
 
 const test = base.extend<{ browserHealth: void }>({
   browserHealth: [async ({ page }, use) => {
@@ -112,11 +118,12 @@ test("@visual catalog search, initials, sorting and reset", async ({ page }, inf
   await review(page, info, "search");
   await page.getByRole("searchbox").fill("");
   await page.getByRole("button", { name: "B", exact: true }).click();
-  await expect(cards).toHaveCount(5);
-  await expect(cards.first().locator("h3")).toHaveText("Belle");
+  await expect(cards.locator("h3")).toHaveText(namesStartingWithB.slice(0, pageSize));
   await page.getByRole("button", { name: /Todos os nomes/ }).click();
   await page.locator(".sort-label select").selectOption("za");
-  await expect(cards.first()).toContainText("Zyra");
+  await expect(cards.first().locator("h3")).toHaveText(
+    catalogProducts.map((product) => product.name).sort((a, b) => b.localeCompare(a, "pt-BR"))[0],
+  );
   await page.locator(".sort-label select").selectOption("az");
   await expect(cards.first()).toContainText("Acquaré");
   await page.getByRole("searchbox").fill("inexistente");
@@ -125,7 +132,7 @@ test("@visual catalog search, initials, sorting and reset", async ({ page }, inf
   await page.getByRole("button", { name: "Limpar filtros" }).click();
   await expect(cards).toHaveCount(firstPageCount);
   const pagination = page.getByRole("navigation", { name: "Páginas do catálogo" });
-  await expect(pagination.locator("span")).toHaveText("1 de 6");
+  await expect(pagination.locator("span")).toHaveText(`1 de ${catalogPageCount}`);
   await pagination.getByRole("button", { name: "Próxima" }).click();
   await expect(cards).toHaveCount(firstPageCount);
   await expect(cards.last().locator(".product-prices")).toHaveText(/A partir de\s+R\$\s*157,00/);

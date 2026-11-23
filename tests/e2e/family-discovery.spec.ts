@@ -22,9 +22,15 @@ test("family guide links to actual perfume pages and catalog filter remains shar
   const name = (await link.innerText()).replace(" ↗", "");
   await link.click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(name);
-  const family = "Floral Frutada";
-  await page.goto("/catalogo/?familia=" + encodeURIComponent(family));
+  const family = "Floral";
+  await page.goto("/catalogo/?familia=Floral%20Frutada");
   await expect(page.getByRole("combobox", { name: "Família olfativa" })).toHaveValue(family);
+  await expect(page.getByRole("option", { name: "Floral Frutada", exact: true })).toHaveCount(0);
+  const cards = page.locator(".product-card");
+  await expect(cards.first().locator(".product-card-profile")).toHaveText(/ · Floral$/);
+  await cards.getByRole("heading", { name: "Acquaré", exact: true }).click();
+  await expect(page.locator(".detail-family").filter({ hasText: "Família olfativa" })).toContainText("Floral Frutada");
+  await page.goBack();
   await page.reload();
   await expect(page.getByRole("combobox", { name: "Família olfativa" })).toHaveValue(family);
   await page.getByRole("searchbox").fill("inexistente");

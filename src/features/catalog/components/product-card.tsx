@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { CSSProperties } from "react";
-import type { Product } from "@/features/catalog/lib/catalog";
+import { getPrimaryFamily, type Product } from "@/features/catalog/lib/catalog";
 import { ProductArt } from "./product-art";
 import { ProductPrices } from "./product-prices";
 
@@ -13,7 +13,7 @@ export function ProductCard({
   index: number;
 }) {
   const gender = product.gender === "compartilhavel" ? "Compartilhável" : product.gender;
-  const profile = [gender, product.family].filter(Boolean).join(" · ");
+  const profile = [gender, getPrimaryFamily(product.family)].filter(Boolean).join(" · ");
   return (
     <Link
       className="product-card"
