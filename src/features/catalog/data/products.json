@@ -3150,6 +3150,16 @@
       "Vetiver",
       "Sândalo",
       "Patchouli"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   },
   {
@@ -3216,6 +3226,16 @@
       "Ládano",
       "Oud",
       "Bétula"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   },
   {
@@ -3230,6 +3250,7 @@
     "family": "Oriental Amadeirado",
     "style": "Imponente, Noturno, Magnético, Sofisticado e Envolvente",
     "volumeOptions": [
+      "50 ml",
       "100 ml"
     ],
     "notePyramid": {
@@ -3257,6 +3278,16 @@
       "Âmbar",
       "Couro",
       "Notas Amadeiradas"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   },
   {
@@ -3301,6 +3332,16 @@
       "Baunilha",
       "Âmbar",
       "Almíscar"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   },
   {
@@ -3348,6 +3389,17 @@
       "Madeira Ambarada",
       "Nagarmota",
       "Fava Tonka"
+    ],
+    "gender": "masculino",
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   },
   {
@@ -3391,6 +3443,16 @@
       "Patchouli",
       "Ambroxan",
       "Cedro"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   },
   {
@@ -3438,6 +3500,16 @@
       "Cedro",
       "Sândalo",
       "Lábdano"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   },
   {
@@ -3485,6 +3557,16 @@
       "Fava Tonka",
       "Âmbar",
       "Notas Amadeiradas"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   },
   {
@@ -3529,6 +3611,16 @@
       "Âmbar",
       "Couro",
       "Almíscar"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   },
   {
@@ -3578,6 +3670,16 @@
       "Patchouli",
       "Ambergris",
       "Musgo de Carvalho"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   },
   {
@@ -3629,6 +3731,16 @@
       "Âmbar",
       "Raiz de Orris",
       "Patchouli"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   },
   {
@@ -3682,6 +3794,16 @@
       "Sal Marinho",
       "Almíscar Branco",
       "Âmbar"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   },
   {
@@ -3737,6 +3859,16 @@
       "Âmbar",
       "Baunilha",
       "Vetiver do Haiti"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   },
   {
@@ -3781,6 +3913,16 @@
       "Cedro",
       "Almíscar",
       "Patchouli"
+    ],
+    "volumePrices": [
+      {
+        "volume": "50 ml",
+        "priceCents": 15700
+      },
+      {
+        "volume": "100 ml",
+        "priceCents": 28700
+      }
     ]
   }
 ]
