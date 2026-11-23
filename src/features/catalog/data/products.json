@@ -3217,5 +3217,46 @@
       "Oud",
       "Bétula"
     ]
+  },
+  {
+    "id": "codde-real",
+    "slug": "codde-real",
+    "name": "Codde Real",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O código da elegância e do poder aristocrático em uma assinatura licorosa, envolvente e inesquecível.",
+    "description": "Codde Real revela o mistério, a autoridade e a sofisticação da masculinidade contemporânea em uma criação Oriental Amadeirada marcante. Sua abertura desperta os sentidos com o calor vibrante e refinado do Cardamomo combinado à efervescência intensa das Notas Especiadas. No seu coração nobre e sedutor, a elegância aromática da Lavanda entrelaça-se à cremosidade envolvente da Fava Tonka. A base assenta sobre a pele com a imponência tátil do Couro e das Notas Amadeiradas, aquecidas pela doçura viciante da Baunilha e pela profundidade sensual do Âmbar, garantindo um rastro denso, magnético e de altíssima fixação.",
+    "family": "Oriental Amadeirado",
+    "style": "Imponente, Noturno, Magnético, Sofisticado e Envolvente",
+    "volumeOptions": [
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Cardamomo",
+        "Notas Especiadas"
+      ],
+      "heart": [
+        "Lavanda",
+        "Fava Tonka"
+      ],
+      "base": [
+        "Baunilha",
+        "Âmbar",
+        "Couro",
+        "Notas Amadeiradas"
+      ]
+    },
+    "notes": [
+      "Cardamomo",
+      "Notas Especiadas",
+      "Lavanda",
+      "Fava Tonka",
+      "Baunilha",
+      "Âmbar",
+      "Couro",
+      "Notas Amadeiradas"
+    ]
   }
 ]
