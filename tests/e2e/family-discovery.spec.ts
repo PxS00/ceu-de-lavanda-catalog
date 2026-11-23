@@ -40,3 +40,16 @@ test("family guide links to actual perfume pages and catalog filter remains shar
   await page.goBack();
   await expect(page.getByRole("combobox", { name: "Família olfativa" })).toHaveValue(family);
 });
+
+test("family guide groups perfumes by their primary family", async ({ page }) => {
+  await page.goto("/familias-olfativas/");
+  const aromatic = page.locator("#aromatica");
+  await expect(aromatic.getByRole("heading", { name: "Aromática (Fougère)" })).toBeVisible();
+  await expect(aromatic).toContainText("Mare di Velluto");
+  await expect(aromatic).toContainText("Bleu Maritime");
+  await expect(aromatic).not.toContainText("Instinto");
+  const floral = page.locator("#floral");
+  await expect(floral).toContainText("Acquaré");
+  const oriental = page.locator("#oriental");
+  await expect(oriental).not.toContainText("Acquaré");
+});
