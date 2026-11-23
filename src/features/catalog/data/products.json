@@ -3160,7 +3160,8 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   },
   {
     "id": "noctus",
@@ -3236,7 +3237,8 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   },
   {
     "id": "codde-real",
@@ -3288,7 +3290,8 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   },
   {
     "id": "effervesce",
@@ -3342,7 +3345,8 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   },
   {
     "id": "mare-di-velluto",
@@ -3400,7 +3404,8 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   },
   {
     "id": "instinto",
@@ -3453,7 +3458,8 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   },
   {
     "id": "kaelan",
@@ -3510,7 +3516,8 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   },
   {
     "id": "imperio-absollu",
@@ -3567,7 +3574,8 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   },
   {
     "id": "black-diamond",
@@ -3621,7 +3629,8 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   },
   {
     "id": "creedon",
@@ -3680,7 +3689,8 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   },
   {
     "id": "aeternum",
@@ -3741,7 +3751,8 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   },
   {
     "id": "riviera-lumiere",
@@ -3804,7 +3815,8 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   },
   {
     "id": "rubi-imperial",
@@ -3869,7 +3881,8 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   },
   {
     "id": "bleu-maritime",
@@ -3923,6 +3936,7 @@
         "volume": "100 ml",
         "priceCents": 28700
       }
-    ]
+    ],
+    "availability": "available"
   }
 ]
