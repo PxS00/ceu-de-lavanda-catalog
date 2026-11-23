@@ -3105,5 +3105,51 @@
       "src": "/products/aura-rubbra.webp",
       "alt": "Frasco do perfume Aura Rubbra"
     }
+  },
+  {
+    "id": "orion-wood",
+    "slug": "orion-wood",
+    "name": "Orion Wood",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "A força magnética das especiarias quentes unida à nobreza de um acorde amadeirado aveludado e inesquecível.",
+    "description": "Orion Wood revela a personalidade autêntica, a força e o magnetismo envolvente de uma criação Amadeirada Especiada marcante. Sua abertura desperta os sentidos com o calor vibrante e sofisticado do Cardamomo combinado ao toque picante e marcante da Pimenta Preta. No seu coração nobre e elegante, desabrocha a sofisticação atalcada da Íris e da Violeta entrelaçada à luminosidade refinada do Jasmim. A base assenta sobre a pele com a riqueza densa e seca do Cedro, do Sândalo e do Vetiver, harmonizados pela profundidade terrosa do Patchouli e pelo abraço sensual do Musk, garantindo um rastro imponente, refinado e de altíssima fixação.",
+    "family": "Amadeirado Especiado",
+    "style": "Imponente, Autêntico, Sofisticado, Envolvente e Marcante",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Cardamomo",
+        "Pimenta Preta"
+      ],
+      "heart": [
+        "Íris",
+        "Violeta",
+        "Jasmim"
+      ],
+      "base": [
+        "Musk",
+        "Cedro",
+        "Vetiver",
+        "Sândalo",
+        "Patchouli"
+      ]
+    },
+    "notes": [
+      "Cardamomo",
+      "Pimenta Preta",
+      "Íris",
+      "Violeta",
+      "Jasmim",
+      "Musk",
+      "Cedro",
+      "Vetiver",
+      "Sândalo",
+      "Patchouli"
+    ]
   }
 ]
