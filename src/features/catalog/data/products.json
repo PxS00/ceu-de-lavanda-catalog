@@ -3392,5 +3392,52 @@
       "Ambroxan",
       "Cedro"
     ]
+  },
+  {
+    "id": "kaelan",
+    "slug": "kaelan",
+    "name": "Kaelan",
+    "category": "perfumes",
+    "productType": "Perfume",
+    "gender": "masculino",
+    "tagline": "O frescor magnético da toranja e do gengibre unido à nobreza das madeiras preciosas em uma assinatura de prestígio e sucesso absoluto.",
+    "description": "Kaelan revela a elegância limpa, a autoconfiança e o magnetismo cosmopolita de uma criação Amadeirada Aromática / Cítrica Nobre impecável. Sua abertura desperta os sentidos com a efervescência vibrante da Toranja e do Gengibre, realçadas pelo calor sofisticado da Noz-Moscada. No seu coração aromático e picante, o frescor revigorante da Menta e a energia sutil da Pimenta Rosa entrelaçam-se à estrutura nobre do Vetiver e à luminosidade refinada do Jasmim. A base assenta sobre a pele com a imponência estruturada do Cedro, a cremosidade elegante do Sândalo e a profundidade resinosa do Lábdano, garantindo um rastro limpo, marcante e de altíssima fixação.",
+    "family": "Amadeirado Aromático / Cítrico Nobre",
+    "style": "Magnético, Limpo, Sofisticado, Cosmopolita e Impecável",
+    "suggestedUse": "Perfeito para closets masculinos de alto padrão, ambientes executivos, reuniões de negócios ou momentos que pedem uma assinatura olfativa que exale inteligência, autoconfiança e prestígio.",
+    "volumeOptions": [
+      "50 ml",
+      "100 ml"
+    ],
+    "notePyramid": {
+      "top": [
+        "Toranja",
+        "Gengibre",
+        "Noz-Moscada"
+      ],
+      "heart": [
+        "Menta",
+        "Vetiver",
+        "Jasmim",
+        "Pimenta Rosa"
+      ],
+      "base": [
+        "Cedro",
+        "Sândalo",
+        "Lábdano"
+      ]
+    },
+    "notes": [
+      "Toranja",
+      "Gengibre",
+      "Noz-Moscada",
+      "Menta",
+      "Vetiver",
+      "Jasmim",
+      "Pimenta Rosa",
+      "Cedro",
+      "Sândalo",
+      "Lábdano"
+    ]
   }
 ]
