@@ -7,7 +7,7 @@ import { GenderDiscoveryMotion } from "./gender-discovery-motion";
 const options = [
   { value: "feminino", label: "Femininos", image: "/campaigns/gender-feminino.webp" },
   { value: "masculino", label: "Masculinos", image: "/campaigns/gender-masculino.webp" },
-  { value: "compartilhavel", label: "Compartilháveis", image: null },
+  { value: "compartilhavel", label: "Compartilháveis", image: "/campaigns/gender-compartilhavel.webp" },
 ] as const;
 
 export function GenderDiscovery() {
@@ -17,9 +17,8 @@ export function GenderDiscovery() {
     <GenderDiscoveryMotion>
       {options.map((option) => {
         const selection = products.filter((product) => product.category === "perfumes" && product.gender === option.value);
-        const image = option.image ?? selection.find((product) => product.photo)?.photo?.src ?? "/campaigns/ceu-de-lavanda-hero.webp";
         return <Link href={`/catalogo/perfumes/?genero=${option.value}`} className="gender-discovery-card" data-gender={option.value} key={option.value}>
-          <Image src={image} alt="" fill sizes="(max-width: 760px) 90vw, 33vw" />
+          <Image src={option.image} alt="" fill sizes="(max-width: 760px) 90vw, 33vw" />
           <span className="gender-discovery-caption">
             <span className="gender-discovery-eyebrow">{selection.length ? "Explore fragrâncias" : "Em breve"}</span>
             <span className="gender-discovery-name">{option.label}</span>
