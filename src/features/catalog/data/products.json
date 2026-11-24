@@ -3161,7 +3161,11 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/orion-wood.webp",
+      "alt": "Frasco do perfume Orion Wood"
+    }
   },
   {
     "id": "noctus",
@@ -3238,7 +3242,11 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/noctus.webp",
+      "alt": "Frasco do perfume Noctus"
+    }
   },
   {
     "id": "codde-real",
@@ -3291,7 +3299,11 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/codde-real.webp",
+      "alt": "Frasco do perfume Codde Real"
+    }
   },
   {
     "id": "effervesce",
@@ -3346,7 +3358,11 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/effervesce.webp",
+      "alt": "Frasco do perfume Effervesce"
+    }
   },
   {
     "id": "mare-di-velluto",
@@ -3405,7 +3421,11 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/mare-di-velluto.webp",
+      "alt": "Frasco do perfume Mare di Velluto"
+    }
   },
   {
     "id": "instinto",
@@ -3459,7 +3479,11 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/instinto.webp",
+      "alt": "Frasco do perfume Instinto"
+    }
   },
   {
     "id": "kaelan",
@@ -3517,7 +3541,11 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/kaelan.webp",
+      "alt": "Frasco do perfume Kaelan"
+    }
   },
   {
     "id": "imperio-absollu",
@@ -3575,7 +3603,11 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/imperio-absollu.webp",
+      "alt": "Frasco do perfume Império Absollu"
+    }
   },
   {
     "id": "black-diamond",
@@ -3630,7 +3662,11 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/black-diamond.webp",
+      "alt": "Frasco do perfume Black Diamond"
+    }
   },
   {
     "id": "creedon",
@@ -3690,7 +3726,11 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/creedon.webp",
+      "alt": "Frasco do perfume Creedon"
+    }
   },
   {
     "id": "aeternum",
@@ -3752,7 +3792,11 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/aeternum.webp",
+      "alt": "Frasco do perfume Aeternum"
+    }
   },
   {
     "id": "riviera-lumiere",
@@ -3816,7 +3860,11 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/riviera-lumiere.webp",
+      "alt": "Frasco do perfume Riviera Lumière"
+    }
   },
   {
     "id": "rubi-imperial",
@@ -3882,7 +3930,11 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/rubi-imperial.webp",
+      "alt": "Frasco do perfume Rubi Imperial"
+    }
   },
   {
     "id": "bleu-maritime",
@@ -3937,6 +3989,10 @@
         "priceCents": 28700
       }
     ],
-    "availability": "available"
+    "availability": "available",
+    "photo": {
+      "src": "/products/bleu-maritime.webp",
+      "alt": "Frasco do perfume Bleu Maritime"
+    }
   }
 ]
