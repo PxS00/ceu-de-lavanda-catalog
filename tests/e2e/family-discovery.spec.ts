@@ -22,9 +22,15 @@ test("family guide links to actual perfume pages and catalog filter remains shar
   const name = (await link.innerText()).replace(" ↗", "");
   await link.click();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(name);
-  const family = "Floral Frutada";
-  await page.goto("/catalogo/?familia=" + encodeURIComponent(family));
+  const family = "Floral";
+  await page.goto("/catalogo/?familia=Floral%20Frutada");
   await expect(page.getByRole("combobox", { name: "Família olfativa" })).toHaveValue(family);
+  await expect(page.getByRole("option", { name: "Floral Frutada", exact: true })).toHaveCount(0);
+  const cards = page.locator(".product-card");
+  await expect(cards.first().locator(".product-card-profile")).toHaveText(/ · Floral(?: Frutal)?(?: Gourmand)?$/);
+  await cards.getByRole("heading", { name: "Acquaré", exact: true }).click();
+  await expect(page.locator(".detail-family").filter({ hasText: "Família olfativa" })).toContainText("Floral Frutada");
+  await page.goBack();
   await page.reload();
   await expect(page.getByRole("combobox", { name: "Família olfativa" })).toHaveValue(family);
   await page.getByRole("searchbox").fill("inexistente");
@@ -33,4 +39,40 @@ test("family guide links to actual perfume pages and catalog filter remains shar
   await expect(page.getByRole("combobox", { name: "Família olfativa" })).toHaveValue("");
   await page.goBack();
   await expect(page.getByRole("combobox", { name: "Família olfativa" })).toHaveValue(family);
+});
+
+test("family guide groups perfumes by their primary family", async ({ page }) => {
+  await page.goto("/familias-olfativas/");
+  const aromatic = page.locator("#aromatica");
+  await expect(aromatic.getByRole("heading", { name: "Aromática" })).toBeVisible();
+  await expect(aromatic).toContainText("Mare di Velluto");
+  await expect(aromatic).toContainText("Bleu Maritime");
+  await expect(aromatic).not.toContainText("Instinto");
+  await expect(page.locator("#fougere").getByRole("heading", { name: "Fougère" })).toBeVisible();
+  const floral = page.locator("#floral");
+  await expect(floral).toContainText("Acquaré");
+  const oriental = page.locator("#oriental");
+  await expect(oriental).not.toContainText("Acquaré");
+});
+
+test("Frutal appears in the guide and filter alongside the primary family", async ({ page }) => {
+  await page.goto("/familias-olfativas/");
+  await expect(page.locator("#frutado")).toContainText("Acquaré");
+  await page.goto("/catalogo/?familia=Frutal");
+  await expect(page.getByRole("combobox", { name: "Família olfativa" })).toHaveValue("Frutal");
+  const card = page.locator(".product-card").filter({ has: page.getByRole("heading", { name: "Acquaré", exact: true }) });
+  await expect(card.locator(".product-card-profile")).toContainText("Floral Frutal");
+  await page.getByRole("combobox", { name: "Família olfativa" }).selectOption("Floral");
+  await expect(card).toBeVisible();
+});
+
+test("Gourmand appears in the guide and filters alongside the primary family", async ({ page }) => {
+  await page.goto("/familias-olfativas/");
+  await expect(page.locator("#gourmand")).toContainText("Belle Vanille");
+  await page.goto("/catalogo/?familia=Gourmand");
+  await expect(page.getByRole("combobox", { name: "Família olfativa" })).toHaveValue("Gourmand");
+  const card = page.locator(".product-card").filter({ has: page.getByRole("heading", { name: "Belle Vanille", exact: true }) });
+  await expect(card.locator(".product-card-profile")).toContainText("Oriental Gourmand");
+  await page.getByRole("combobox", { name: "Família olfativa" }).selectOption("Oriental");
+  await expect(card).toBeVisible();
 });

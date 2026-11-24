@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { pageMetadata } from "@/features/seo/lib/metadata";
 import { familyGuide } from "@/features/catalog/data/family-guide";
-import { normalize, products } from "@/features/catalog/lib/catalog";
+import { getProductFamilies, normalize, products } from "@/features/catalog/lib/catalog";
 import { GuidePerfumes } from "@/features/catalog/components/guide-perfumes";
 import { OlfactoryStory } from "@/features/catalog/components/olfactory-story";
 
@@ -13,9 +13,8 @@ export const metadata = pageMetadata({
 
 export default function FamilyGuidePage() {
   const cards = familyGuide.map((guide) => {
-          const matching = products.filter((product) => product.category === "perfumes" && product.family && guide.terms.some((term) => normalize(product.family ?? "").includes(term)))
+          const matching = products.filter((product) => product.category === "perfumes" && product.family && getProductFamilies(product.family).some((family) => guide.terms.includes(normalize(family))))
             .sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
-          if (!matching.length) return null;
           return <section className="family-guide-card" id={guide.id} key={guide.id}>
             <p className="eyebrow">{guide.mood}</p>
             <h2>{guide.name}</h2>
@@ -23,7 +22,7 @@ export default function FamilyGuidePage() {
             <h3>Quando explorar</h3>
             <p>{guide.occasion}</p>
             <h3>No nosso catálogo</h3>
-            <GuidePerfumes perfumes={matching.map(({ id, slug, name }) => ({ id, slug, name }))} family={guide.name} />
+            {matching.length ? <GuidePerfumes perfumes={matching.map(({ id, slug, name }) => ({ id, slug, name }))} family={guide.name} /> : <p>Em breve, novas fragrâncias nesta família.</p>}
           </section>;
         }).filter(Boolean);
   return (

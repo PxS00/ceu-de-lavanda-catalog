@@ -51,7 +51,7 @@ test("family filter adapts to the selected text on desktop", async ({ page }, te
   const select = page.getByLabel("Família olfativa");
   await select.selectOption({ label: "Floral" });
   const shortWidth = (await select.boundingBox())!.width;
-  await select.selectOption({ label: "Floral Almiscarado Amadeirado" });
+  await select.selectOption({ label: "Amadeirado" });
   expect((await select.boundingBox())!.width).toBeGreaterThan(shortWidth);
 });
 test("category heading stays visible during navigation", async ({ page }) => {

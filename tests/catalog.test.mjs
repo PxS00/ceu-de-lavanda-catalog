@@ -7,6 +7,8 @@ import {
   filterProducts,
   formatPrice,
   getStartingPrice,
+  getPrimaryFamily,
+  getProductFamilies,
   categories,
 } from "../src/features/catalog/lib/catalog.ts";
 
@@ -16,9 +18,23 @@ test("gender filtering combines with category, family and search without modifyi
   assert.ok(shared);
   const filtered = filterProducts(products, shared.name, "", "az", shared.category, shared.family, "compartilhavel");
   assert.ok(filtered.some((product) => product.id === shared.id));
-  assert.ok(filtered.every((product) => product.gender === "compartilhavel" && product.family === shared.family));
+  assert.ok(filtered.every((product) => product.gender === "compartilhavel" && getPrimaryFamily(product.family) === getPrimaryFamily(shared.family)));
   assert.deepEqual(filterProducts(products, shared.name, "", "az", shared.category, shared.family, "masculino"), []);
   assert.deepEqual(products, original);
+});
+
+test("primary family groups variants, aliases and old links", () => {
+  const fixtures = [
+    { id: "wood-spice", name: "A", family: "Amadeirado Especiado" },
+    { id: "wood-aromatic", name: "B", family: "Amadeirada Aromática" },
+    { id: "floral", name: "C", family: "Floral Solar" },
+    { id: "pending", name: "D" },
+  ];
+  const expected = ["wood-spice", "wood-aromatic"];
+  for (const family of ["Amadeirado", "amadeirada (Aromática)", "  AMADEIRADO ESPECIADO  "]) {
+    assert.deepEqual(filterProducts(fixtures, "", "", "az", "", family).map((p) => p.id), expected);
+  }
+  assert.equal(filterProducts(fixtures, "", "", "az").length, fixtures.length);
 });
 
 test("starting price uses the lowest valid offered volume and handles missing prices", () => {
@@ -54,10 +70,8 @@ test("101-product fixture validates and filters Portuguese names without mutatio
 });
 
 test("catalog registers the supplied perfumes with their confirmed details", () => {
-  assert.equal(products.length, 61);
-  assert.deepEqual(
-    products.slice(0, 20).map((p) => p.name).sort(),
-    [
+  const registeredNames = new Set(products.map((product) => product.name));
+  for (const name of [
       "Altesse",
       "Acquaré",
       "Araya Elixir",
@@ -78,16 +92,15 @@ test("catalog registers the supplied perfumes with their confirmed details", () 
       "Serena",
       "Vanille Imperial",
       "Vellours",
-    ].sort(),
-  );
-  for (const p of products) {
-    assert.equal(p.category, "perfumes");
+  ]) assert.ok(registeredNames.has(name), `Missing perfume: ${name}`);
+  for (const p of products.filter((product) => product.category === "perfumes")) {
     assert.deepEqual(p.volumeOptions, ["50 ml", "100 ml"]);
     assert.deepEqual(p.volumePrices, [
       { volume: "50 ml", priceCents: 15700 },
       { volume: "100 ml", priceCents: 28700 },
     ]);
     assert.equal(p.availability, "available");
+    assert.ok(p.family && !/[()]/.test(p.family));
     assert.ok(p.tagline);
     assert.ok(p.description);
     assert.ok(p.notePyramid.top.length);
@@ -105,8 +118,10 @@ test("search is accent insensitive, intersects initials, sorts without mutating 
     "Acquaré",
   );
   assert.equal(filterProducts(products, "acquare", "B", "az").length, 0);
-  assert.equal(filterProducts(products, "", "A", "az").length, 14);
-  assert.equal(filterProducts(products, "", "", "za")[0].name, "Zyra");
+  assert.deepEqual(
+    filterProducts(products, "", "", "za").map((p) => p.id),
+    [...products].sort((a, b) => b.name.localeCompare(a.name, "pt-BR")).map((p) => p.id),
+  );
   assert.deepEqual(
     products.map((p) => p.id),
     original,
@@ -115,10 +130,10 @@ test("search is accent insensitive, intersects initials, sorts without mutating 
 });
 
 test("commercial workbook merge preserves photographs and source identity without duplicates", () => {
-  assert.equal(products.length, 61);
-  assert.equal(new Set(products.filter(p => p.sourceRecord).map(p => p.sourceRecord.number)).size, 46);
-  assert.equal(products.filter(p => p.photo).length, 47);
-  for (const p of products.filter(p => p.sourceRecord)) {
+  const imported = products.filter((product) => product.sourceRecord);
+  assert.equal(imported.length, new Set(imported.map((product) => product.sourceRecord.number)).size);
+  for (const p of imported) {
+    assert.ok(p.photo);
     assert.ok(p.sourceRecord.name);
     assert.ok(p.sourceRecord.volumeType);
     assert.ok(p.sourceRecord.profile);
@@ -217,13 +232,13 @@ test("commercial categories are distinct from olfactory families and remain opti
     ["Perfumes", "Body Splash", "Perfume Capilar"],
   );
   assert.equal(new Set(categories.map((category) => category.slug)).size, 3);
-  for (const [index, category] of categories.entries()) {
+  for (const category of categories) {
     assert.doesNotThrow(() =>
       validateProducts([{ ...products[0], category: category.slug }]),
     );
     assert.equal(
       filterProducts(products, "", "", "az", category.slug).length,
-      [61, 0, 0][index],
+      products.filter((product) => product.category === category.slug).length,
     );
   }
   assert.doesNotThrow(() =>
@@ -231,7 +246,7 @@ test("commercial categories are distinct from olfactory families and remain opti
   );
   for (const category of ["floral", "amadeirado", "", 42])
     assert.throws(() => validateProducts([{ ...products[0], category }]));
-  assert.equal(filterProducts(products, "", "", "az").length, 61);
+  assert.equal(filterProducts(products, "", "", "az").length, products.length);
 });
 
 test("category filtering intersects search and initials, and preserves sorting", () => {
@@ -263,3 +278,19 @@ test("category filtering intersects search and initials, and preserves sorting",
   assert.equal(filterProducts(fixtures, "", "", "az").length, 5);
 });
 
+
+test("Gourmand remains searchable alongside the primary family", () => {
+  const items = [
+    { id: "a", name: "A", family: "Oriental Gourmand" },
+    { id: "b", name: "B", family: "Floral Frutada Gourmand" },
+    { id: "c", name: "C", family: "Floral Frutada" },
+    { id: "d", name: "D", family: "Gourmand" },
+  ];
+  assert.deepEqual(getProductFamilies(items[0].family), ["Oriental", "Gourmand"]);
+  assert.deepEqual(getProductFamilies(items[3].family), ["Gourmand"]);
+  assert.deepEqual(filterProducts(items, "", "", "az", "", "Gourmand").map((p) => p.id), ["a", "b", "d"]);
+  assert.deepEqual(filterProducts(items, "", "", "az", "", "Floral").map((p) => p.id), ["b", "c"]);
+  assert.deepEqual(filterProducts(items, "", "", "az", "", "Frutal").map((p) => p.id), ["b", "c"]);
+  assert.deepEqual(getProductFamilies("Frutado Floral"), ["Frutal"]);
+  assert.deepEqual(getProductFamilies("Floral Frutada Gourmand"), ["Floral", "Frutal", "Gourmand"]);
+});

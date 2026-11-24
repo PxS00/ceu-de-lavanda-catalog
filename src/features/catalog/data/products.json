@@ -164,7 +164,7 @@
     "availability": "available",
     "productType": "Perfume",
     "gender": "feminino",
-    "family": "Floral (Solar)",
+    "family": "Floral Solar",
     "style": "Solar, Radiante, Caloroso, Inebriante e Encantador",
     "notes": [
       "Jacinto",
@@ -198,7 +198,7 @@
       "src": "/products/jasmin-de-soie.webp",
       "alt": "Frasco do perfume Jasmim de Soie"
     },
-    "family": "Floral Frutal",
+    "family": "Floral Frutada",
     "tagline": "A delicadeza aveludada do jasmim envolta na doçura inebriante do toffe e da fava tonka em uma assinatura inesquecível.",
     "description": "Jasmim de Soie revela a elegância tátil e a sofisticação aveludada de uma fragrância Floral Frutal envolvente. Sua abertura desperta os sentidos com a vivacidade suculenta e levemente adocicada da Groselha Preta, equilibrada pela efervescência cítrica da Mandarina. No seu coração nobre, o mistério apaixonante do Jasmim une-se ao toque gourmand e refinado da Amêndoa Amarga. A base assenta sobre a pele com a riqueza cremosa e confortante do Toffe harmonizado pelo calor macio da Fava Tonka, garantindo um rastro marcante, sofisticado e de alta fixação.",
     "notePyramid": {
@@ -308,7 +308,7 @@
     "slug": "aura-secretta",
     "name": "Aura Secretta",
     "category": "perfumes",
-    "family": "Oriental Floral (Corpo Floral-Amadeirado)",
+    "family": "Oriental Floral — Corpo Floral-Amadeirado",
     "tagline": "O mistério magnético e a sofisticação da rosa e do sândalo em uma assinatura inesquecível.",
     "description": "Aura Secretta revela a sofisticação envolvente e o magnetismo hipnótico de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos com o brilho suculento e levemente adocicado da Romã e do Cassis, contrastados pelo frescor vibrante da Bergamota. No seu coração nobre, a delicadeza apaixonante da Rosa e da Flor de Lótus funde-se à elegância marcante do Cedro e do Sândalo, criando um corpo floral-amadeirado denso e aveludado. A base assenta sobre a pele com a cremosidade viciante da Baunilha e da Fava Tonka, harmonizadas pelo calor nobre do Âmbar e da sensualidade do Musk, garantindo um rastro marcante e de alta fixação.",
     "volumeOptions": [
@@ -379,7 +379,7 @@
     "name": "Illusion",
     "category": "perfumes",
     "productType": "Perfume compartilhável",
-    "family": "Floral Frutal",
+    "family": "Floral Frutada",
     "tagline": "A suculência solar do abacaxi unida à nobreza do patchouli, do âmbar e da baunilha em uma assinatura envolvente e inesquecível.",
     "description": "ILLUSION reflete o mistério, o magnetismo e a presença marcante de uma criação floral frutal vibrante e sofisticada. Sua abertura traz o frescor luminoso e a suculência solar do abacaxi. No coração, a energia cítrica e refinada da bergamota confere brilho e elegância à composição. A base fecha com a densidade envolvente do patchouli, o aconchego aveludado da Baunilha de Bourbon e o calor nobre do âmbar, criando um rastro hipnótico e inesquecível na pele.",
     "volumeOptions": [
@@ -912,7 +912,7 @@
       "alt": "Frasco do perfume Imperator"
     },
     "productType": "Perfume",
-    "family": "Floral Frutal",
+    "family": "Floral Frutada",
     "tagline": "A suculência solar do abacaxi unida à nobreza do patchouli e da baunilha em uma assinatura inesquecível.",
     "description": "IMPERATOR reflete a autoridade, a imponência e o magnetismo marcante de uma criação floral frutal moderna. Sua abertura se destaca pelo frescor vibrante e pela suculência solar do abacaxi. No coração, a energia cítrica e refinada da bergamota traz brilho e sofisticação. A base fecha com a densidade envolvente do patchouli, o aconchego caloroso da Baunilha de Bourbon e o toque aveludado do âmbar, criando um rastro nobre e memorável na pele.",
     "volumeOptions": [
@@ -2060,7 +2060,7 @@
     "gender": "feminino",
     "tagline": "A delicadeza radiante do jasmim e da toranja envolvida no conforto aveludado do musk de algodão em uma presença inesquecível.",
     "description": "Aurora Rosé revela a sofisticação suave, a leveza envolvente e a aura romântica de uma criação Floral Frutada graciosa. Sua abertura desperta os sentidos com a suculência delicada do Marmelo combinada à vivacidade cítrica e efervescente da Toranja. No seu coração nobre e radiante, a elegância aveludada do Jasmim funde-se ao frescor refinado do Jacinto, criando um buquê floral precioso e harmônico. A base assenta sobre a pele com a sobriedade macia do Almíscar Branco (Musk de Algodão) e da Íris, aquecidos pela profundidade nobre do Cedro da Virgínia e do Âmbar, garantindo um rastro denso, elegante e de altíssima fixação.",
-    "family": "Floral Frutado",
+    "family": "Floral Frutada",
     "style": "Suave, Feminino, Elegante, Leve e Radiante",
     "suggestedUse": "Ideal para o uso diário, ambientes de trabalho, encontros leves, passeios ao ar livre e momentos em que se deseja transmitir delicadeza, leveza e frescor.",
     "volumeOptions": [
@@ -2183,7 +2183,7 @@
     "gender": "feminino",
     "tagline": "A delicadeza radiante da magnólia e a crocância do pepino unidas à nobreza das madeiras em uma assinatura inesquecível.",
     "description": "Veralya revela a leveza refrescante, a sofisticação floral e a atmosfera envolvente de uma criação Floral Frutada feminina singular. Sua abertura desperta os sentidos com o frescor cristalino do Pepino harmonizado com o toque delicado e radiante da Magnólia. No seu coração nobre e apaixonante, desabrocha um buquê aveludado de Tuberosa, Rosa, Lírio-do-Vale e Violeta, realçado pela suculência vibrante da Maçã Verde. A base assenta sobre a pele com a profundidade marcante das Notas Amadeiradas e do Sândalo, aquecidos pela elegância do Âmbar, garantindo um rastro denso, refinado e de pura sofisticação.",
-    "family": "Floral Frutado Feminino",
+    "family": "Floral Frutada Feminina",
     "style": "Refrescante, Elegante, Delicado e Sofisticado",
     "volumeOptions": [
       "50 ml",
@@ -2590,7 +2590,7 @@
     "gender": "feminino",
     "tagline": "A efervescência suculenta da cereja e das amêndoas unida ao conforto cremoso dos acordes lactônicos e da baunilha em uma assinatura inesquecível.",
     "description": "Elyra revela a sofisticação apaixonante, a cremosidade sedutora e a doçura envolvente de uma criação Floral Frutal Gourmand singular. Sua abertura desperta os sentidos com a tentadora suculência da Cereja e da Framboesa, enriquecidas pela nobreza aveludada e ligeiramente licorosa das Amêndoas. No seu coração nobre e acolhedor, desabrocha a delicadeza radiante do Jasmim e da Peônia, banhados pela textura abraçadora e viciante dos Acordes Lactônicos. A base assenta sobre a pele com a profundidade tátil e aveludada do Cashmeran, harmonizado pelo calor reconfortante da Baunilha e pela maciez sensual do Musk, garantindo um rastro denso, marcante e de alta fixação.",
-    "family": "Floral Frutal Gourmand Feminino",
+    "family": "Floral Frutada Gourmand Feminina",
     "style": "Gourmand, Cremoso, Envolvente, Sedutor e Sofisticado",
     "volumeOptions": [
       "50 ml",
@@ -2855,7 +2855,7 @@
     "gender": "feminino",
     "tagline": "A suculência envolvente da groselha preta e da pêra unida à nobreza da íris e ao calor do patchouli e da baunilha em uma assinatura inesquecível.",
     "description": "Belle revela a sofisticação radiante, a aura de doçura e o charme encantador de uma criação Floral Frutal feminina irresistível. Sua abertura desperta os sentidos com a suculência efervescente da Groselha Preta e da Pêra, trazendo uma textura frutada luminosa e acolhedora. No seu coração nobre e delicado, desabrocha a elegância atalcada da Íris combinada à graça aveludada do Jasmim e da Flor de Laranjeira. A base assenta sobre a pele com a profundidade marcante e refinada do Patchouli, harmonizado pela doçura confortante da Baunilha e da Fava Tonka, garantindo um rastro denso, sedutor e de altíssima fixação.",
-    "family": "Floral Frutal",
+    "family": "Floral Frutada",
     "style": "Encantador, Elegante, Doce, Sofisticado e Confiante",
     "suggestedUse": "Ideal para uso em qualquer ocasião, desde o dia a dia até eventos especiais, transmitindo uma aura de doçura e sofisticação. Perfeita para mulheres que desejam uma fragrância que as faça se sentir bonitas e confiantes.",
     "volumeOptions": [
@@ -2988,7 +2988,7 @@
     "gender": "feminino",
     "tagline": "O brilho radiante da mandarina e da frésia unido à elegância atemporal do lírio branco e ao calor marcante do patchouli em uma assinatura inesquecível.",
     "description": "Florée revela a elegância vibrante, a luminosidade natural e o encanto refinado de uma criação Oriental Floral inesquecível. Sua abertura desperta os sentidos com um frescor frutado e aromático borbulhante de Mandarina, Frésia e Sálvia. No seu coração nobre e radiante, desabrocha um buquê floral aristocrático de Lírio Branco, Muguet, Calêndula e Narciso, criando um corpo rico, gracioso e cheio de vida. A base assenta sobre a pele com a profundidade marcante e terrosa do Patchouli, harmonizada pela cremosidade nobre do Sândalo e pelo calor sensual do Âmbar, garantindo um rastro denso, refinado e de altíssima fixação.",
-    "family": "Oriental Floral (Floral Aromático)",
+    "family": "Oriental Floral / Floral Aromático",
     "style": "Radiante, Elegante, Aromático, Sofisticado e Marcante",
     "volumeOptions": [
       "50 ml",
@@ -3249,7 +3249,7 @@
     "gender": "masculino",
     "tagline": "O código da elegância e do poder aristocrático em uma assinatura licorosa, envolvente e inesquecível.",
     "description": "Codde Real revela o mistério, a autoridade e a sofisticação da masculinidade contemporânea em uma criação Oriental Amadeirada marcante. Sua abertura desperta os sentidos com o calor vibrante e refinado do Cardamomo combinado à efervescência intensa das Notas Especiadas. No seu coração nobre e sedutor, a elegância aromática da Lavanda entrelaça-se à cremosidade envolvente da Fava Tonka. A base assenta sobre a pele com a imponência tátil do Couro e das Notas Amadeiradas, aquecidas pela doçura viciante da Baunilha e pela profundidade sensual do Âmbar, garantindo um rastro denso, magnético e de altíssima fixação.",
-    "family": "Oriental Amadeirado",
+    "family": "Oriental Amadeirada",
     "style": "Imponente, Noturno, Magnético, Sofisticado e Envolvente",
     "volumeOptions": [
       "50 ml",
@@ -3586,7 +3586,7 @@
     "gender": "masculino",
     "tagline": "O brilho cítrico e picante da toranja e do absinto unido à nobreza do couro e do âmbar em uma assinatura moderna e marcante.",
     "description": "Black Diamond revela a sofisticação noturna, o magnetismo e a elegância moderna de uma criação Amadeirada Aromática marcante. Sua abertura desperta os sentidos com o frescor cítrico e vibrante da Toranja, energizado pela intensidade herbal do Absinto e pelo toque picante da Pimenta. No seu coração aromático e especiado, a pureza clássica da Lavanda e das Notas Aromáticas entrelaça-se ao calor refinado da Noz-Moscada. A base assenta sobre a pele com a imponência tátil do Couro e o calor profundo do Âmbar, envolvidos pela maciez sensual do Almíscar, garantindo excelente fixação e um rastro masculino sofisticado e envolvente.",
-    "family": "Amadeirada Aromática",
+    "family": "Amadeirado Aromático",
     "style": "Masculino, Sofisticado, Marcante, Moderno e Envolvente",
     "volumeOptions": [
       "50 ml",
@@ -3641,7 +3641,7 @@
     "gender": "masculino",
     "tagline": "A imponência frutada da maçã e do abacaxi unida à nobreza do couro e do ambergris em uma assinatura sofisticada e poderosa.",
     "description": "Creedon revela o luxo, a elegância masculina e o magnetismo vibrante de uma criação Amadeirada Couro inesquecível. Sua abertura desperta os sentidos com a suculência radiante e efervescente da Maçã, do Abacaxi e da Tangerina, trazendo uma energia luminosa e aristocrática. No seu coração refinado e envolvente, a nobreza clássica da Rosa e do Jasmim entrelaça-se ao toque acolhedor e sofisticado da Baunilha. A base assenta sobre a pele com a imponência tátil do Couro e a riqueza mineral do Ambergris, harmonizados pela profundidade terrosa do Patchouli, do Musgo de Carvalho e pela maciez sensual do Musk, garantindo um rastro poderoso, exclusivo e de altíssima fixação.",
-    "family": "Amadeirada Couro",
+    "family": "Amadeirado Couro",
     "style": "Sofisticado, Poderoso, Masculino, Elegante e Vibrante",
     "suggestedUse": "Ideal para uso em ocasiões especiais, transmitindo uma aura de luxo e exclusividade. Perfeito para homens que desejam uma fragrância única que os faça se destacar e deixar uma impressão duradoura.",
     "volumeOptions": [

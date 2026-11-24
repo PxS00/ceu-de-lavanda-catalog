@@ -4,6 +4,8 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { useReveal } from "@/shared/components/reveal";
 import {
   filterProducts,
+  getPrimaryFamily,
+  getProductFamilies,
   normalize,
   categories,
   type CategorySlug,
@@ -27,7 +29,7 @@ const subscribe = (callback: () => void) => {
   window.addEventListener("popstate", callback);
   return () => window.removeEventListener("popstate", callback);
 };
-const familySnapshot = () => new URLSearchParams(window.location.search).get("familia") ?? "";
+const familySnapshot = () => getPrimaryFamily(new URLSearchParams(window.location.search).get("familia"));
 const genderSnapshot = () => new URLSearchParams(window.location.search).get("genero") ?? "";
 const serverSnapshot = () => "";
 
@@ -44,7 +46,12 @@ export function Catalog({
   const productGrid = useRef<HTMLDivElement>(null);
   const family = useSyncExternalStore(subscribe, familySnapshot, serverSnapshot);
   const gender = useSyncExternalStore(subscribe, genderSnapshot, serverSnapshot);
-  const families = [...new Set(products.filter((p) => !category || p.category === category).map((p) => p.family).filter((v): v is string => Boolean(v)))].sort((a, b) => a.localeCompare(b, "pt-BR"));
+  const families = [...new Set(products
+    .filter((product) => !category || product.category === category)
+    .flatMap((product) => getProductFamilies(product.family))
+    .filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b, "pt-BR"));
+  const selectedFamily = families.find((option) => normalize(option) === normalize(family)) ?? family;
   const filtered = filterProducts(products, query, initial, sort, category, family, gender);
   const categoryName = categories.find((item) => item.slug === category)?.name;
   const categoryPending = Boolean(
@@ -128,7 +135,7 @@ export function Catalog({
         categoryPending={categoryPending}
         initials={initials}
         count={filtered.length}
-        family={family}
+        family={selectedFamily}
         families={families}
         onFamilyChange={changeFamily}
         gender={gender}
